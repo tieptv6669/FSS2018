@@ -1,0 +1,924 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{DA415284-F388-473B-A03C-71E7B5DF61E3}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>FormDesignFSS2</RootNamespace>
+    <AssemblyName>FormDesignFSS2</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.1000.523\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.1000.523\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.1000.523\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.1000.523\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.1000.523\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GUI\ChayQuaNgay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\ChayQuaNgay.Designer.cs">
+      <DependentUpon>ChayQuaNgay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\DangKyMoiSPTD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\DangKyMoiSPTD.Designer.cs">
+      <DependentUpon>DangKyMoiSPTD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\DangNhap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\DangNhap.Designer.cs">
+      <DependentUpon>DangNhap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\DoiMK.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\DoiMK.Designer.cs">
+      <DependentUpon>DoiMK.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\DuTinhLai.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\DuTinhLai.Designer.cs">
+      <DependentUpon>DuTinhLai.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\SuaNguon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\SuaNguon.Designer.cs">
+      <DependentUpon>SuaNguon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\SuaUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\SuaUser.Designer.cs">
+      <DependentUpon>SuaUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\TraNo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\TraNo.Designer.cs">
+      <DependentUpon>TraNo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="GUI\SuaGN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\SuaGN.Designer.cs">
+      <DependentUpon>SuaGN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\SuaKH.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\SuaKH.Designer.cs">
+      <DependentUpon>SuaKH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\SuaSPTD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\SuaSPTD.Designer.cs">
+      <DependentUpon>SuaSPTD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ThemGN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\ThemGN.Designer.cs">
+      <DependentUpon>ThemGN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ThemKH.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\ThemKH.Designer.cs">
+      <DependentUpon>ThemKH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ThemMoiSPTD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\ThemMoiSPTD.Designer.cs">
+      <DependentUpon>ThemMoiSPTD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ThemNguon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\ThemNguon.Designer.cs">
+      <DependentUpon>ThemNguon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ThemUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\ThemUser.Designer.cs">
+      <DependentUpon>ThemUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\XemChiTietGN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\XemChiTietGN.Designer.cs">
+      <DependentUpon>XemChiTietGN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\XemChiTietKH.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\XemChiTietKH.Designer.cs">
+      <DependentUpon>XemChiTietKH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\NguoiDungWS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="GUI\ChayQuaNgay.resx">
+      <DependentUpon>ChayQuaNgay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\DangKyMoiSPTD.resx">
+      <DependentUpon>DangKyMoiSPTD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\DangNhap.resx">
+      <DependentUpon>DangNhap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\DoiMK.resx">
+      <DependentUpon>DoiMK.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\DuTinhLai.resx">
+      <DependentUpon>DuTinhLai.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\SuaNguon.resx">
+      <DependentUpon>SuaNguon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\SuaUser.resx">
+      <DependentUpon>SuaUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\TraNo.resx">
+      <DependentUpon>TraNo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="GUI\SuaGN.resx">
+      <DependentUpon>SuaGN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\SuaKH.resx">
+      <DependentUpon>SuaKH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\SuaSPTD.resx">
+      <DependentUpon>SuaSPTD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\ThemGN.resx">
+      <DependentUpon>ThemGN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\ThemKH.resx">
+      <DependentUpon>ThemKH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\ThemMoiSPTD.resx">
+      <DependentUpon>ThemMoiSPTD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\ThemNguon.resx">
+      <DependentUpon>ThemNguon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\ThemUser.resx">
+      <DependentUpon>ThemUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\XemChiTietGN.resx">
+      <DependentUpon>XemChiTietGN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\XemChiTietKH.resx">
+      <DependentUpon>XemChiTietKH.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="Web References\NguoiDungWS\NguoiDungBUS.wsdl" />
+    <None Include="Web References\NguoiDungWS\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\4.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\5.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\6.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\7.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\8.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\9.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\10.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\11.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\12.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\13.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\14.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\15.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\16.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\17.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\18.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\19.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\20.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\21.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\22.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\23.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\24.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\25.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\26.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\27.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\28.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\29.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\30.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\31.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\32.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\33.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\34.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\35.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\36.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\37.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\38.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\39.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\40.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\41.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\42.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\43.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\44.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\45.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\46.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\47.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\48.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\49.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\50.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\51.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\52.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\53.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\54.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\55.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\56.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\57.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\58.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\59.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\60.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\61.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\62.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\63.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\64.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\65.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\66.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\67.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\68.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\69.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\70.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\71.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\72.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\73.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\74.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\75.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\76.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\77.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\78.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\79.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\80.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\81.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\82.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\83.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\84.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\85.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\86.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\87.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\88.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\89.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\90.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\91.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\92.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\93.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\94.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\95.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\96.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\97.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\98.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\99.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\100.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\101.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\102.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\103.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\104.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\105.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\106.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\107.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\108.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\109.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\110.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\111.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\112.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\113.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\114.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\115.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\116.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\117.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\118.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\119.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\120.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\121.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\122.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\123.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\124.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\125.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\126.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\127.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\128.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\129.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\130.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\131.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\132.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\133.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\134.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\135.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\136.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\137.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\138.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\139.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\140.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\141.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\142.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\143.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\144.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\145.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\146.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\147.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\148.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\149.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\150.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\151.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\152.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\153.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\154.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\155.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\156.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\157.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\158.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\159.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\160.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\161.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\162.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\163.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\164.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\165.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\166.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\167.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\168.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\169.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\170.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\171.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\172.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\173.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\174.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\175.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\176.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\177.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\178.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\179.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\180.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\181.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\182.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\183.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\184.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\185.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\186.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\187.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\188.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\189.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\190.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\191.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\192.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\193.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\194.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\195.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\196.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\197.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\198.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\199.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\200.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\201.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\202.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\203.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\204.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\205.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\206.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://localhost:49220/NguoiDungBUS.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\NguoiDungWS\</RelPath>
+      <UpdateFromURL>http://localhost:49220/NguoiDungBUS.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>FormDesignFSS2_NguoiDungWS_NguoiDungBUS</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\NguoiDungWS\NguoiDungBUS.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DTO\DTO.csproj">
+      <Project>{bcf62a14-7e35-4016-a07b-fe034dc0bec1}</Project>
+      <Name>DTO</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

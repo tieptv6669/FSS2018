@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="KTThongTinDangNhap">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="tenDangNhap" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="matKhau" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KTThongTinDangNhapResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="KTThongTinDangNhapResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetNguoiDung">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="tenDangNhap" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="matKhau" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetNguoiDungResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetNguoiDungResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KTThongTinThemNguoiDung">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="hoTen" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="chucVu" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="phongBan" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="quyen" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KTThongTinThemNguoiDungResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="KTThongTinThemNguoiDungResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LayDSNguoiDung">
+        <s:complexType />
+      </s:element>
+      <s:element name="LayDSNguoiDungResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LayDSNguoiDungResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="KTThongTinDangNhapSoapIn">
+    <wsdl:part name="parameters" element="tns:KTThongTinDangNhap" />
+  </wsdl:message>
+  <wsdl:message name="KTThongTinDangNhapSoapOut">
+    <wsdl:part name="parameters" element="tns:KTThongTinDangNhapResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetNguoiDungSoapIn">
+    <wsdl:part name="parameters" element="tns:GetNguoiDung" />
+  </wsdl:message>
+  <wsdl:message name="GetNguoiDungSoapOut">
+    <wsdl:part name="parameters" element="tns:GetNguoiDungResponse" />
+  </wsdl:message>
+  <wsdl:message name="KTThongTinThemNguoiDungSoapIn">
+    <wsdl:part name="parameters" element="tns:KTThongTinThemNguoiDung" />
+  </wsdl:message>
+  <wsdl:message name="KTThongTinThemNguoiDungSoapOut">
+    <wsdl:part name="parameters" element="tns:KTThongTinThemNguoiDungResponse" />
+  </wsdl:message>
+  <wsdl:message name="LayDSNguoiDungSoapIn">
+    <wsdl:part name="parameters" element="tns:LayDSNguoiDung" />
+  </wsdl:message>
+  <wsdl:message name="LayDSNguoiDungSoapOut">
+    <wsdl:part name="parameters" element="tns:LayDSNguoiDungResponse" />
+  </wsdl:message>
+  <wsdl:portType name="NguoiDungBUSSoap">
+    <wsdl:operation name="KTThongTinDangNhap">
+      <wsdl:input message="tns:KTThongTinDangNhapSoapIn" />
+      <wsdl:output message="tns:KTThongTinDangNhapSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNguoiDung">
+      <wsdl:input message="tns:GetNguoiDungSoapIn" />
+      <wsdl:output message="tns:GetNguoiDungSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="KTThongTinThemNguoiDung">
+      <wsdl:input message="tns:KTThongTinThemNguoiDungSoapIn" />
+      <wsdl:output message="tns:KTThongTinThemNguoiDungSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LayDSNguoiDung">
+      <wsdl:input message="tns:LayDSNguoiDungSoapIn" />
+      <wsdl:output message="tns:LayDSNguoiDungSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="NguoiDungBUSSoap" type="tns:NguoiDungBUSSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="KTThongTinDangNhap">
+      <soap:operation soapAction="http://tempuri.org/KTThongTinDangNhap" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNguoiDung">
+      <soap:operation soapAction="http://tempuri.org/GetNguoiDung" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KTThongTinThemNguoiDung">
+      <soap:operation soapAction="http://tempuri.org/KTThongTinThemNguoiDung" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LayDSNguoiDung">
+      <soap:operation soapAction="http://tempuri.org/LayDSNguoiDung" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="NguoiDungBUSSoap12" type="tns:NguoiDungBUSSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="KTThongTinDangNhap">
+      <soap12:operation soapAction="http://tempuri.org/KTThongTinDangNhap" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNguoiDung">
+      <soap12:operation soapAction="http://tempuri.org/GetNguoiDung" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KTThongTinThemNguoiDung">
+      <soap12:operation soapAction="http://tempuri.org/KTThongTinThemNguoiDung" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LayDSNguoiDung">
+      <soap12:operation soapAction="http://tempuri.org/LayDSNguoiDung" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="NguoiDungBUS">
+    <wsdl:port name="NguoiDungBUSSoap" binding="tns:NguoiDungBUSSoap">
+      <soap:address location="http://localhost:49220/NguoiDungBUS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="NguoiDungBUSSoap12" binding="tns:NguoiDungBUSSoap12">
+      <soap12:address location="http://localhost:49220/NguoiDungBUS.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
