@@ -8,7 +8,7 @@ using FormDesignFSS2.GUI;
 namespace FSS2018
 {
     /// <summary>
-    /// Viết Tiệp
+    /// Viết Tiệp abc
     /// 11/02/2018
     /// </summary>
     static class Program
