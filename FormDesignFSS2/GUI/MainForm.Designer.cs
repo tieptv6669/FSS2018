@@ -254,6 +254,7 @@
             this.btnTimKiemTabUser.Text = "Tìm kiếm";
             this.btnTimKiemTabUser.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnTimKiemTabUser.UseVisualStyleBackColor = false;
+            this.btnTimKiemTabUser.Click += new System.EventHandler(this.btnTimKiemTabUser_Click);
             // 
             // txtTenDangNhap
             // 
@@ -309,6 +310,7 @@
             this.btnSuaTabUser.Text = "Sửa";
             this.btnSuaTabUser.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSuaTabUser.UseVisualStyleBackColor = false;
+            this.btnSuaTabUser.Click += new System.EventHandler(this.btnSuaTabUser_Click);
             // 
             // btnThemTabUser
             // 
@@ -344,8 +346,11 @@
             this.Column16});
             this.gridTabUser.Location = new System.Drawing.Point(0, 83);
             this.gridTabUser.Name = "gridTabUser";
+            this.gridTabUser.ReadOnly = true;
             this.gridTabUser.Size = new System.Drawing.Size(760, 225);
             this.gridTabUser.TabIndex = 8;
+            this.gridTabUser.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridTabUser_CellClick);
+            this.gridTabUser.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridTabUser_CellDoubleClick);
             // 
             // Column12
             // 

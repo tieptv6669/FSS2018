@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DTO;
+using FormDesignFSS2.NguoiDungWS;
+using Newtonsoft.Json;
 
 namespace FormDesignFSS2.GUI
 {
@@ -86,6 +88,71 @@ namespace FormDesignFSS2.GUI
         {
             ThemUser themUser = new ThemUser();
             themUser.ShowDialog();
+        }
+
+        /// <summary>
+        /// Xử lý sự kiện click button tìm kiếm người dùng
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnTimKiemTabUser_Click(object sender, EventArgs e)
+        {
+            // Xóa dữ liệu hiển thị cũ
+            gridTabUser.Rows.Clear();
+            // Lấy DS người dùng
+            List<NguoiDung> list = new List<NguoiDung>();
+
+            NguoiDungBUS nguoiDungBUS = new NguoiDungBUS();
+            string jsonData = nguoiDungBUS.TimKiemNguoiDung(txtTenNhanVien.Text, txtTenDangNhap.Text);
+
+            list = JsonConvert.DeserializeObject<List<NguoiDung>>(jsonData);
+
+            // Hiển thị danh sách người dùng lên grid view
+            foreach(NguoiDung temp in list)
+            {
+                gridTabUser.Rows.Add(temp.tenDangNhapND, temp.hoTenND, temp.chucVuND, temp.phongBanND, temp.quyenND);
+            }
+            if(list.Count > 0)
+            {
+                gridTabUser.Rows[0].Selected = true;
+            }
+        }
+
+        /// <summary>
+        /// Xử lý dự kiện click button sửa người dùng
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnSuaTabUser_Click(object sender, EventArgs e)
+        {
+            if (gridTabUser.RowCount > 1 && gridTabUser.SelectedRows.Count > 0)
+            {
+                    MessageBox.Show("Bạn đã chọn người dùng: " + gridTabUser.SelectedRows[0].Cells[1].Value.ToString());
+            }
+            else
+            {
+                MessageBox.Show("Thao tác lỗi. Bạn chưa chọn người dùng nào", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
+        /// Xử lý sự kiện single click 1 cell trên grid tab user
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void gridTabUser_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            gridTabUser.Rows[e.RowIndex].Selected = true;
+        }
+
+        /// <summary>
+        /// Xử lý sự kiện double click 1 cell trên grid tab user
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void gridTabUser_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            gridTabUser.Rows[e.RowIndex].Selected = true;
         }
     }
 }

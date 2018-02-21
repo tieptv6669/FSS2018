@@ -37,6 +37,12 @@ namespace FormDesignFSS2.NguoiDungWS {
         
         private System.Threading.SendOrPostCallback LayDSNguoiDungOperationCompleted;
         
+        private System.Threading.SendOrPostCallback TaoTenDangNhapOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback ThemNguoiDungOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback TimKiemNguoiDungOperationCompleted;
+        
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
@@ -86,6 +92,15 @@ namespace FormDesignFSS2.NguoiDungWS {
         
         /// <remarks/>
         public event LayDSNguoiDungCompletedEventHandler LayDSNguoiDungCompleted;
+        
+        /// <remarks/>
+        public event TaoTenDangNhapCompletedEventHandler TaoTenDangNhapCompleted;
+        
+        /// <remarks/>
+        public event ThemNguoiDungCompletedEventHandler ThemNguoiDungCompleted;
+        
+        /// <remarks/>
+        public event TimKiemNguoiDungCompletedEventHandler TimKiemNguoiDungCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/KTThongTinDangNhap", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -212,6 +227,95 @@ namespace FormDesignFSS2.NguoiDungWS {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/TaoTenDangNhap", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string TaoTenDangNhap(string[] DSTenDangNhapDaCo) {
+            object[] results = this.Invoke("TaoTenDangNhap", new object[] {
+                        DSTenDangNhapDaCo});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void TaoTenDangNhapAsync(string[] DSTenDangNhapDaCo) {
+            this.TaoTenDangNhapAsync(DSTenDangNhapDaCo, null);
+        }
+        
+        /// <remarks/>
+        public void TaoTenDangNhapAsync(string[] DSTenDangNhapDaCo, object userState) {
+            if ((this.TaoTenDangNhapOperationCompleted == null)) {
+                this.TaoTenDangNhapOperationCompleted = new System.Threading.SendOrPostCallback(this.OnTaoTenDangNhapOperationCompleted);
+            }
+            this.InvokeAsync("TaoTenDangNhap", new object[] {
+                        DSTenDangNhapDaCo}, this.TaoTenDangNhapOperationCompleted, userState);
+        }
+        
+        private void OnTaoTenDangNhapOperationCompleted(object arg) {
+            if ((this.TaoTenDangNhapCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.TaoTenDangNhapCompleted(this, new TaoTenDangNhapCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/ThemNguoiDung", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public bool ThemNguoiDung(string jsonDataNguoiDung) {
+            object[] results = this.Invoke("ThemNguoiDung", new object[] {
+                        jsonDataNguoiDung});
+            return ((bool)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void ThemNguoiDungAsync(string jsonDataNguoiDung) {
+            this.ThemNguoiDungAsync(jsonDataNguoiDung, null);
+        }
+        
+        /// <remarks/>
+        public void ThemNguoiDungAsync(string jsonDataNguoiDung, object userState) {
+            if ((this.ThemNguoiDungOperationCompleted == null)) {
+                this.ThemNguoiDungOperationCompleted = new System.Threading.SendOrPostCallback(this.OnThemNguoiDungOperationCompleted);
+            }
+            this.InvokeAsync("ThemNguoiDung", new object[] {
+                        jsonDataNguoiDung}, this.ThemNguoiDungOperationCompleted, userState);
+        }
+        
+        private void OnThemNguoiDungOperationCompleted(object arg) {
+            if ((this.ThemNguoiDungCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.ThemNguoiDungCompleted(this, new ThemNguoiDungCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/TimKiemNguoiDung", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string TimKiemNguoiDung(string tenNguoiDung, string tenDangNhap) {
+            object[] results = this.Invoke("TimKiemNguoiDung", new object[] {
+                        tenNguoiDung,
+                        tenDangNhap});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void TimKiemNguoiDungAsync(string tenNguoiDung, string tenDangNhap) {
+            this.TimKiemNguoiDungAsync(tenNguoiDung, tenDangNhap, null);
+        }
+        
+        /// <remarks/>
+        public void TimKiemNguoiDungAsync(string tenNguoiDung, string tenDangNhap, object userState) {
+            if ((this.TimKiemNguoiDungOperationCompleted == null)) {
+                this.TimKiemNguoiDungOperationCompleted = new System.Threading.SendOrPostCallback(this.OnTimKiemNguoiDungOperationCompleted);
+            }
+            this.InvokeAsync("TimKiemNguoiDung", new object[] {
+                        tenNguoiDung,
+                        tenDangNhap}, this.TimKiemNguoiDungOperationCompleted, userState);
+        }
+        
+        private void OnTimKiemNguoiDungOperationCompleted(object arg) {
+            if ((this.TimKiemNguoiDungCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.TimKiemNguoiDungCompleted(this, new TimKiemNguoiDungCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         public new void CancelAsync(object userState) {
             base.CancelAsync(userState);
         }
@@ -321,6 +425,84 @@ namespace FormDesignFSS2.NguoiDungWS {
         private object[] results;
         
         internal LayDSNguoiDungCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
+    public delegate void TaoTenDangNhapCompletedEventHandler(object sender, TaoTenDangNhapCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class TaoTenDangNhapCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal TaoTenDangNhapCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
+    public delegate void ThemNguoiDungCompletedEventHandler(object sender, ThemNguoiDungCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class ThemNguoiDungCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal ThemNguoiDungCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public bool Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
+    public delegate void TimKiemNguoiDungCompletedEventHandler(object sender, TimKiemNguoiDungCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class TimKiemNguoiDungCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal TimKiemNguoiDungCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }

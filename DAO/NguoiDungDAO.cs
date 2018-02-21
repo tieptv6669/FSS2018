@@ -102,6 +102,78 @@ namespace DAO
                 return null;
             }
         }
+
+        /// <summary>
+        /// Thêm người dùng mới vào CSDL
+        /// </summary>
+        /// <param name="nguoiDung"></param>
+        /// <returns></returns>
+        public static bool ThemNguoiDung(NguoiDung nguoiDung)
+        {
+            try
+            {
+                OracleCommand oracleCommand = new OracleCommand();
+                oracleCommand.CommandText = "INSERT INTO NGUOIDUNG (TENDANGNHAP, MATKHAU, HOTEN, CHUCVU, PHONGBAN, QUYEN) " +
+                    "VALUES (:tenDangNhap, :matKhau, :hoTen, :chucVu, :phongBan, :quyen)";
+                oracleCommand.Parameters.Add(new OracleParameter("tenDangNhap", nguoiDung.tenDangNhapND));
+                oracleCommand.Parameters.Add(new OracleParameter("matKhau", nguoiDung.matKhauND));
+                oracleCommand.Parameters.Add(new OracleParameter("hoTen", nguoiDung.hoTenND));
+                oracleCommand.Parameters.Add(new OracleParameter("chucVu", nguoiDung.chucVuND));
+                oracleCommand.Parameters.Add(new OracleParameter("phongBan", nguoiDung.phongBanND));
+                oracleCommand.Parameters.Add(new OracleParameter("quyen", nguoiDung.quyenND));
+
+                return DataProvider.ExcuteNonQuery(oracleCommand);
+            }catch(Exception e)
+            {
+                MessageBox.Show("Lỗi: " + e.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Tìm kiếm người dùng theo tên người dùng và tên đăng nhập
+        /// </summary>
+        /// <param name="tenNguoiDung"></param>
+        /// <param name="tenDangNhap"></param>
+        /// <returns></returns>
+        public static List<NguoiDung> TimKiemNguoiDung(string tenNguoiDung, string tenDangNhap)
+        {
+            try
+            {
+                List<NguoiDung> list = new List<NguoiDung>();
+                OracleCommand oracleCommand = new OracleCommand();
+                oracleCommand.CommandText = "SELECT * FROM NGUOIDUNG " +
+                    "WHERE HOTEN LIKE '%' || :tenNguoiDung || '%' " +
+                    "AND TENDANGNHAP LIKE '%' || :tenDangNhap || '%'";
+                oracleCommand.Parameters.Add(new OracleParameter("tenNguoiDung", tenNguoiDung));
+                oracleCommand.Parameters.Add(new OracleParameter("tenDangNhap", tenDangNhap));
+
+                OracleDataReader oracleDataReader = DataProvider.GetOracleDataReader(oracleCommand);
+
+                if(oracleDataReader != null && oracleDataReader.HasRows)
+                {
+                    while (oracleDataReader.Read())
+                    {
+                        NguoiDung nguoiDung = new NguoiDung();
+                        nguoiDung.idND = oracleDataReader.GetInt32(0);
+                        nguoiDung.tenDangNhapND = oracleDataReader.GetString(1);
+                        nguoiDung.matKhauND = oracleDataReader.GetString(2);
+                        nguoiDung.hoTenND = oracleDataReader.GetString(3);
+                        nguoiDung.chucVuND = oracleDataReader.GetString(4);
+                        nguoiDung.phongBanND = oracleDataReader.GetString(5);
+                        nguoiDung.quyenND = oracleDataReader.GetString(6);
+
+                        list.Add(nguoiDung);
+                    }
+                }
+
+                return list;
+            }catch(Exception e)
+            {
+                MessageBox.Show("Lỗi: " + e.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+        }
     }
 }
 

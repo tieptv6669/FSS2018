@@ -82,6 +82,7 @@ namespace BUS
         [WebMethod]
         public int KTThongTinThemNguoiDung(string hoTen, string chucVu, string phongBan, string quyen)
         {
+            Helper helper = new Helper();
             if(hoTen == "")
             {
                 return 1;
@@ -97,6 +98,18 @@ namespace BUS
             if(quyen == "")
             {
                 return 4;
+            }
+            if (helper.ChiChuaChuCai(hoTen) == false)
+            {
+                return 5;
+            }
+            if (helper.ChiChuaChuCai(chucVu) == false)
+            {
+                return 6;
+            }
+            if (helper.ChiChuaChuCai(phongBan) == false)
+            {
+                return 7;
             }
 
             return 0;
@@ -121,6 +134,82 @@ namespace BUS
             {
                 return null;
             }
+        }
+
+        /// <summary>
+        /// Tạo tên đăng nhập cho người dùng
+        /// </summary>
+        /// <param name="DSTenDangNhapDaCo"></param>
+        /// <returns></returns>
+        [WebMethod]
+        public string TaoTenDangNhap(List<string> DSTenDangNhapDaCo)
+        {
+            string result = "NV";
+
+            for (int x = 1; x <= 99999; x++)
+            {
+                int lengthIndex = x.ToString().Length;
+                switch (lengthIndex)
+                {
+                    case 1:
+                        {
+                            result += "0000";
+                            break;
+                        }
+                    case 2:
+                        {
+                            result += "000";
+                            break;
+                        }
+                    case 3:
+                        {
+                            result += "00";
+                            break;
+                        }
+                    case 4:
+                        {
+                            result += "0";
+                            break;
+                        }
+                }
+                result += x.ToString();
+                if (!DSTenDangNhapDaCo.Contains(result))
+                {
+                    return result;
+                }
+                else
+                {
+                    result = "NV";
+                }
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// Thêm người dùng mới
+        /// </summary>
+        /// <param name="nguoiDung"></param>
+        /// <returns></returns>
+        [WebMethod]
+        public bool ThemNguoiDung(string jsonDataNguoiDung)
+        {
+            NguoiDung nguoiDung = JsonConvert.DeserializeObject<NguoiDung>(jsonDataNguoiDung);
+            return NguoiDungDAO.ThemNguoiDung(nguoiDung);
+        }
+
+        /// <summary>
+        /// Tìm kiếm người dùng theo tên người dùng và tên đăng nhập
+        /// </summary>
+        /// <param name="tenNguoiDung"></param>
+        /// <param name="tenDangNhap"></param>
+        /// <returns></returns>
+        [WebMethod]
+        public string TimKiemNguoiDung(string tenNguoiDung, string tenDangNhap)
+        {
+            List<NguoiDung> list = NguoiDungDAO.TimKiemNguoiDung(tenNguoiDung, tenDangNhap);
+            string jsonData = JsonConvert.SerializeObject(list);
+
+            return jsonData;
         }
     }
 }

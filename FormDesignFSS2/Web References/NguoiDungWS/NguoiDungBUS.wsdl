@@ -59,6 +59,54 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="TaoTenDangNhap">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DSTenDangNhapDaCo" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="TaoTenDangNhapResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TaoTenDangNhapResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ThemNguoiDung">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="jsonDataNguoiDung" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ThemNguoiDungResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ThemNguoiDungResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TimKiemNguoiDung">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="tenNguoiDung" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="tenDangNhap" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TimKiemNguoiDungResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TimKiemNguoiDungResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="KTThongTinDangNhapSoapIn">
@@ -85,6 +133,24 @@
   <wsdl:message name="LayDSNguoiDungSoapOut">
     <wsdl:part name="parameters" element="tns:LayDSNguoiDungResponse" />
   </wsdl:message>
+  <wsdl:message name="TaoTenDangNhapSoapIn">
+    <wsdl:part name="parameters" element="tns:TaoTenDangNhap" />
+  </wsdl:message>
+  <wsdl:message name="TaoTenDangNhapSoapOut">
+    <wsdl:part name="parameters" element="tns:TaoTenDangNhapResponse" />
+  </wsdl:message>
+  <wsdl:message name="ThemNguoiDungSoapIn">
+    <wsdl:part name="parameters" element="tns:ThemNguoiDung" />
+  </wsdl:message>
+  <wsdl:message name="ThemNguoiDungSoapOut">
+    <wsdl:part name="parameters" element="tns:ThemNguoiDungResponse" />
+  </wsdl:message>
+  <wsdl:message name="TimKiemNguoiDungSoapIn">
+    <wsdl:part name="parameters" element="tns:TimKiemNguoiDung" />
+  </wsdl:message>
+  <wsdl:message name="TimKiemNguoiDungSoapOut">
+    <wsdl:part name="parameters" element="tns:TimKiemNguoiDungResponse" />
+  </wsdl:message>
   <wsdl:portType name="NguoiDungBUSSoap">
     <wsdl:operation name="KTThongTinDangNhap">
       <wsdl:input message="tns:KTThongTinDangNhapSoapIn" />
@@ -101,6 +167,18 @@
     <wsdl:operation name="LayDSNguoiDung">
       <wsdl:input message="tns:LayDSNguoiDungSoapIn" />
       <wsdl:output message="tns:LayDSNguoiDungSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TaoTenDangNhap">
+      <wsdl:input message="tns:TaoTenDangNhapSoapIn" />
+      <wsdl:output message="tns:TaoTenDangNhapSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ThemNguoiDung">
+      <wsdl:input message="tns:ThemNguoiDungSoapIn" />
+      <wsdl:output message="tns:ThemNguoiDungSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TimKiemNguoiDung">
+      <wsdl:input message="tns:TimKiemNguoiDungSoapIn" />
+      <wsdl:output message="tns:TimKiemNguoiDungSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="NguoiDungBUSSoap" type="tns:NguoiDungBUSSoap">
@@ -141,6 +219,33 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="TaoTenDangNhap">
+      <soap:operation soapAction="http://tempuri.org/TaoTenDangNhap" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ThemNguoiDung">
+      <soap:operation soapAction="http://tempuri.org/ThemNguoiDung" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TimKiemNguoiDung">
+      <soap:operation soapAction="http://tempuri.org/TimKiemNguoiDung" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="NguoiDungBUSSoap12" type="tns:NguoiDungBUSSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -173,6 +278,33 @@
     </wsdl:operation>
     <wsdl:operation name="LayDSNguoiDung">
       <soap12:operation soapAction="http://tempuri.org/LayDSNguoiDung" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TaoTenDangNhap">
+      <soap12:operation soapAction="http://tempuri.org/TaoTenDangNhap" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ThemNguoiDung">
+      <soap12:operation soapAction="http://tempuri.org/ThemNguoiDung" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TimKiemNguoiDung">
+      <soap12:operation soapAction="http://tempuri.org/TimKiemNguoiDung" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

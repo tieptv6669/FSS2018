@@ -79,12 +79,17 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Helper.asmx" />
     <Content Include="NguoiDungBUS.asmx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Helper.asmx.cs">
+      <DependentUpon>Helper.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="NguoiDungBUS.asmx.cs">
       <DependentUpon>NguoiDungBUS.asmx</DependentUpon>
       <SubType>Component</SubType>

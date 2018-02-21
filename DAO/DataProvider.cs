@@ -59,7 +59,7 @@ namespace DAO
             }
             catch (Exception e)
             {
-                MessageBox.Show("Lỗi truy vấn CSDL \n" + e.Message);
+                MessageBox.Show("Lỗi truy vấn CSDL \n" + e.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return null;
             }
         }
@@ -79,7 +79,7 @@ namespace DAO
                 return true;
             }catch(Exception e)
             {
-                MessageBox.Show("Thao tác lỗi \n" + e.Message);
+                MessageBox.Show("Thao tác lỗi \n" + e.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
         }
