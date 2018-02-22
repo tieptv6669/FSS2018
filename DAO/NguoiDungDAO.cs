@@ -174,6 +174,59 @@ namespace DAO
                 return null;
             }
         }
+
+        /// <summary>
+        /// Sửa thông tin người dùng 
+        /// </summary>
+        /// <param name="tenDN"></param>
+        /// <param name="hoTen"></param>
+        /// <param name="chucVu"></param>
+        /// <param name="phongBan"></param>
+        /// <param name="quyen"></param>
+        /// <returns></returns>
+        public static bool SuaThongTinNguoiDung(string tenDN, string hoTen, string chucVu, string phongBan, string quyen)
+        {
+            try
+            {
+                OracleCommand oracleCommand = new OracleCommand();
+                oracleCommand.CommandText = "UPDATE NGUOIDUNG SET HOTEN = :hoTen, " +
+                    "CHUCVU = :chucVu, " +
+                    "PHONGBAN = :phongBan, " +
+                    "QUYEN = :quyen WHERE TENDANGNHAP = :tenDN";
+                oracleCommand.Parameters.Add(new OracleParameter("hoTen", hoTen));
+                oracleCommand.Parameters.Add(new OracleParameter("chucVu", chucVu));
+                oracleCommand.Parameters.Add(new OracleParameter("phongBan", phongBan));
+                oracleCommand.Parameters.Add(new OracleParameter("quyen", quyen));
+                oracleCommand.Parameters.Add(new OracleParameter("tenDN", tenDN));
+
+                return DataProvider.ExcuteNonQuery(oracleCommand);
+            }catch(Exception e)
+            {
+                MessageBox.Show("Lỗi: " + e.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Xóa người dùng
+        /// </summary>
+        /// <param name="tenDN"></param>
+        /// <returns></returns>
+        public static bool XoaNguoiDung(string tenDN)
+        {
+            try
+            {
+                OracleCommand oracleCommand = new OracleCommand();
+                oracleCommand.CommandText = "DELETE FROM NGUOIDUNG WHERE TENDANGNHAP = :tenDN";
+                oracleCommand.Parameters.Add(new OracleParameter("tenDN", tenDN));
+
+                return DataProvider.ExcuteNonQuery(oracleCommand);
+            }catch(Exception e)
+            {
+                MessageBox.Show("Lỗi: " + e.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
     }
 }
 

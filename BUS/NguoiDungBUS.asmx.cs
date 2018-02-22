@@ -211,5 +211,31 @@ namespace BUS
 
             return jsonData;
         }
+
+        /// <summary>
+        /// Sửa thông tin người dùng 
+        /// </summary>
+        /// <param name="tenDN"></param>
+        /// <param name="hoTen"></param>
+        /// <param name="chucVu"></param>
+        /// <param name="phongBan"></param>
+        /// <param name="quyen"></param>
+        /// <returns></returns>
+        [WebMethod]
+        public bool SuaThongTinNguoiDung(string tenDN, string hoTen, string chucVu, string phongBan, string quyen)
+        {
+            return NguoiDungDAO.SuaThongTinNguoiDung(tenDN, hoTen, chucVu, phongBan, quyen);
+        }
+
+        /// <summary>
+        /// Xóa người dùng 
+        /// </summary>
+        /// <param name="tenDN"></param>
+        /// <returns></returns>
+        [WebMethod]
+        public bool XoaNguoiDung(string tenDN)
+        {
+            return NguoiDungDAO.XoaNguoiDung(tenDN);
+        }
     }
 }

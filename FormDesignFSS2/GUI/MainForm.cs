@@ -26,6 +26,11 @@ namespace FormDesignFSS2.GUI
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Tải form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void MainForm_Load(object sender, EventArgs e)
         {
             //DateTime date = DateTime.Now;
@@ -57,12 +62,22 @@ namespace FormDesignFSS2.GUI
             reportViewerBC.RefreshReport();
         }
 
+        /// <summary>
+        /// Xử lý sự kiện click button chạy qua ngày 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnChayQuaNgay_Click(object sender, EventArgs e)
         {
             ChayQuaNgay cqnForm = new ChayQuaNgay();
             cqnForm.ShowDialog();
         }
 
+        /// <summary>
+        /// Xử lý sự kiện click button đăng xuất
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnDangXuat_Click(object sender, EventArgs e)
         {
             Hide();
@@ -70,6 +85,11 @@ namespace FormDesignFSS2.GUI
             dangNhap.Show();
         }
 
+        /// <summary>
+        /// Xử lý sự kiện click button thoát 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnThoat_Click(object sender, EventArgs e)
         {
             DialogResult dr = MessageBox.Show("Bạn muốn thoát khỏi chương trình?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -84,6 +104,11 @@ namespace FormDesignFSS2.GUI
             Application.Exit();
         }
 
+        /// <summary>
+        /// Xử lý sự kiện click button thêm người dùng mới
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnThemTabUser_Click(object sender, EventArgs e)
         {
             ThemUser themUser = new ThemUser();
@@ -119,7 +144,7 @@ namespace FormDesignFSS2.GUI
         }
 
         /// <summary>
-        /// Xử lý dự kiện click button sửa người dùng
+        /// Xử lý sự kiện click button sửa người dùng
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -127,7 +152,13 @@ namespace FormDesignFSS2.GUI
         {
             if (gridTabUser.RowCount > 1 && gridTabUser.SelectedRows.Count > 0)
             {
-                    MessageBox.Show("Bạn đã chọn người dùng: " + gridTabUser.SelectedRows[0].Cells[1].Value.ToString());
+                SuaUser suaUser = new SuaUser();
+                suaUser.nguoiDung.tenDangNhapND = gridTabUser.SelectedRows[0].Cells[0].Value.ToString();
+                suaUser.nguoiDung.hoTenND = gridTabUser.SelectedRows[0].Cells[1].Value.ToString();
+                suaUser.nguoiDung.chucVuND = gridTabUser.SelectedRows[0].Cells[2].Value.ToString();
+                suaUser.nguoiDung.phongBanND = gridTabUser.SelectedRows[0].Cells[3].Value.ToString();
+                suaUser.nguoiDung.quyenND = gridTabUser.SelectedRows[0].Cells[4].Value.ToString();
+                suaUser.ShowDialog();
             }
             else
             {
@@ -153,6 +184,30 @@ namespace FormDesignFSS2.GUI
         private void gridTabUser_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             gridTabUser.Rows[e.RowIndex].Selected = true;
+        }
+
+        private void btnXoaTabUser_Click(object sender, EventArgs e)
+        {
+            if(gridTabUser.RowCount > 1 && gridTabUser.SelectedRows.Count > 0)
+            {
+                DialogResult dialogResult = MessageBox.Show("Bạn chắc chắn muốn xóa " + gridTabUser.SelectedRows[0].Cells[1].Value.ToString() + "?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question); 
+                if(dialogResult == DialogResult.Yes)
+                {
+                    NguoiDungBUS nguoiDungBUS = new NguoiDungBUS();
+                    if (nguoiDungBUS.XoaNguoiDung(gridTabUser.SelectedRows[0].Cells[0].Value.ToString()))
+                    {
+                        MessageBox.Show("Xóa người dùng thành công", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Đã có lỗi sảy ra, xóa người dùng thất bại", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Thao tác lỗi. Bạn chưa chọn người dùng nào", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

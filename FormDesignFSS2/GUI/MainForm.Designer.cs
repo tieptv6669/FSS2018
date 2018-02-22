@@ -297,6 +297,7 @@
             this.btnXoaTabUser.Text = "Xóa";
             this.btnXoaTabUser.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnXoaTabUser.UseVisualStyleBackColor = false;
+            this.btnXoaTabUser.Click += new System.EventHandler(this.btnXoaTabUser_Click);
             // 
             // btnSuaTabUser
             // 
@@ -356,29 +357,34 @@
             // 
             this.Column12.HeaderText = "Tên đăng nhập";
             this.Column12.Name = "Column12";
+            this.Column12.ReadOnly = true;
             // 
             // Column13
             // 
             this.Column13.HeaderText = "Họ tên";
             this.Column13.Name = "Column13";
+            this.Column13.ReadOnly = true;
             this.Column13.Width = 200;
             // 
             // Column15
             // 
             this.Column15.HeaderText = "Vị trí";
             this.Column15.Name = "Column15";
+            this.Column15.ReadOnly = true;
             this.Column15.Width = 150;
             // 
             // Column14
             // 
             this.Column14.HeaderText = "Phòng ban";
             this.Column14.Name = "Column14";
+            this.Column14.ReadOnly = true;
             this.Column14.Width = 140;
             // 
             // Column16
             // 
             this.Column16.HeaderText = "Quyền";
             this.Column16.Name = "Column16";
+            this.Column16.ReadOnly = true;
             this.Column16.Width = 130;
             // 
             // txtTenNhanVien
