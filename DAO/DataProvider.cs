@@ -52,8 +52,11 @@ namespace DAO
             try
             {
                 OracleDataReader oracleDataReader;
+                //OracleConnection oracleConnection = GetOracleConnection();
                 oracleCmd.Connection = GetOracleConnection();
                 oracleDataReader = oracleCmd.ExecuteReader();
+
+                //oracleConnection.Close();
 
                 return oracleDataReader;
             }
@@ -73,8 +76,11 @@ namespace DAO
         {
             try
             {
+                //OracleConnection oracleConnection = GetOracleConnection();
                 oracleCommand.Connection = GetOracleConnection();
                 oracleCommand.ExecuteNonQuery();
+
+                //oracleConnection.Close();
 
                 return true;
             }catch(Exception e)

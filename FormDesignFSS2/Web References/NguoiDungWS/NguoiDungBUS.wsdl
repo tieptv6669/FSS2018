@@ -139,6 +139,38 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="KTThongTinDoiMK">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="tenDN" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MKCu" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MKMoi" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="nhapLaiMK" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KTThongTinDoiMKResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="KTThongTinDoiMKResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DoiMatKhau">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="tenDN" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MatKhauMoi" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DoiMatKhauResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DoiMatKhauResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="KTThongTinDangNhapSoapIn">
@@ -195,6 +227,18 @@
   <wsdl:message name="XoaNguoiDungSoapOut">
     <wsdl:part name="parameters" element="tns:XoaNguoiDungResponse" />
   </wsdl:message>
+  <wsdl:message name="KTThongTinDoiMKSoapIn">
+    <wsdl:part name="parameters" element="tns:KTThongTinDoiMK" />
+  </wsdl:message>
+  <wsdl:message name="KTThongTinDoiMKSoapOut">
+    <wsdl:part name="parameters" element="tns:KTThongTinDoiMKResponse" />
+  </wsdl:message>
+  <wsdl:message name="DoiMatKhauSoapIn">
+    <wsdl:part name="parameters" element="tns:DoiMatKhau" />
+  </wsdl:message>
+  <wsdl:message name="DoiMatKhauSoapOut">
+    <wsdl:part name="parameters" element="tns:DoiMatKhauResponse" />
+  </wsdl:message>
   <wsdl:portType name="NguoiDungBUSSoap">
     <wsdl:operation name="KTThongTinDangNhap">
       <wsdl:input message="tns:KTThongTinDangNhapSoapIn" />
@@ -231,6 +275,14 @@
     <wsdl:operation name="XoaNguoiDung">
       <wsdl:input message="tns:XoaNguoiDungSoapIn" />
       <wsdl:output message="tns:XoaNguoiDungSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="KTThongTinDoiMK">
+      <wsdl:input message="tns:KTThongTinDoiMKSoapIn" />
+      <wsdl:output message="tns:KTThongTinDoiMKSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DoiMatKhau">
+      <wsdl:input message="tns:DoiMatKhauSoapIn" />
+      <wsdl:output message="tns:DoiMatKhauSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="NguoiDungBUSSoap" type="tns:NguoiDungBUSSoap">
@@ -316,6 +368,24 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="KTThongTinDoiMK">
+      <soap:operation soapAction="http://tempuri.org/KTThongTinDoiMK" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DoiMatKhau">
+      <soap:operation soapAction="http://tempuri.org/DoiMatKhau" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="NguoiDungBUSSoap12" type="tns:NguoiDungBUSSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -393,6 +463,24 @@
     </wsdl:operation>
     <wsdl:operation name="XoaNguoiDung">
       <soap12:operation soapAction="http://tempuri.org/XoaNguoiDung" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KTThongTinDoiMK">
+      <soap12:operation soapAction="http://tempuri.org/KTThongTinDoiMK" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DoiMatKhau">
+      <soap12:operation soapAction="http://tempuri.org/DoiMatKhau" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

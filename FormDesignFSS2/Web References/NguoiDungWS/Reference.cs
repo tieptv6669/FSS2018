@@ -47,6 +47,10 @@ namespace FormDesignFSS2.NguoiDungWS {
         
         private System.Threading.SendOrPostCallback XoaNguoiDungOperationCompleted;
         
+        private System.Threading.SendOrPostCallback KTThongTinDoiMKOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback DoiMatKhauOperationCompleted;
+        
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
@@ -111,6 +115,12 @@ namespace FormDesignFSS2.NguoiDungWS {
         
         /// <remarks/>
         public event XoaNguoiDungCompletedEventHandler XoaNguoiDungCompleted;
+        
+        /// <remarks/>
+        public event KTThongTinDoiMKCompletedEventHandler KTThongTinDoiMKCompleted;
+        
+        /// <remarks/>
+        public event DoiMatKhauCompletedEventHandler DoiMatKhauCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/KTThongTinDangNhap", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -392,6 +402,72 @@ namespace FormDesignFSS2.NguoiDungWS {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/KTThongTinDoiMK", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public int KTThongTinDoiMK(string tenDN, string MKCu, string MKMoi, string nhapLaiMK) {
+            object[] results = this.Invoke("KTThongTinDoiMK", new object[] {
+                        tenDN,
+                        MKCu,
+                        MKMoi,
+                        nhapLaiMK});
+            return ((int)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void KTThongTinDoiMKAsync(string tenDN, string MKCu, string MKMoi, string nhapLaiMK) {
+            this.KTThongTinDoiMKAsync(tenDN, MKCu, MKMoi, nhapLaiMK, null);
+        }
+        
+        /// <remarks/>
+        public void KTThongTinDoiMKAsync(string tenDN, string MKCu, string MKMoi, string nhapLaiMK, object userState) {
+            if ((this.KTThongTinDoiMKOperationCompleted == null)) {
+                this.KTThongTinDoiMKOperationCompleted = new System.Threading.SendOrPostCallback(this.OnKTThongTinDoiMKOperationCompleted);
+            }
+            this.InvokeAsync("KTThongTinDoiMK", new object[] {
+                        tenDN,
+                        MKCu,
+                        MKMoi,
+                        nhapLaiMK}, this.KTThongTinDoiMKOperationCompleted, userState);
+        }
+        
+        private void OnKTThongTinDoiMKOperationCompleted(object arg) {
+            if ((this.KTThongTinDoiMKCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.KTThongTinDoiMKCompleted(this, new KTThongTinDoiMKCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/DoiMatKhau", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public bool DoiMatKhau(string tenDN, string MatKhauMoi) {
+            object[] results = this.Invoke("DoiMatKhau", new object[] {
+                        tenDN,
+                        MatKhauMoi});
+            return ((bool)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void DoiMatKhauAsync(string tenDN, string MatKhauMoi) {
+            this.DoiMatKhauAsync(tenDN, MatKhauMoi, null);
+        }
+        
+        /// <remarks/>
+        public void DoiMatKhauAsync(string tenDN, string MatKhauMoi, object userState) {
+            if ((this.DoiMatKhauOperationCompleted == null)) {
+                this.DoiMatKhauOperationCompleted = new System.Threading.SendOrPostCallback(this.OnDoiMatKhauOperationCompleted);
+            }
+            this.InvokeAsync("DoiMatKhau", new object[] {
+                        tenDN,
+                        MatKhauMoi}, this.DoiMatKhauOperationCompleted, userState);
+        }
+        
+        private void OnDoiMatKhauOperationCompleted(object arg) {
+            if ((this.DoiMatKhauCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.DoiMatKhauCompleted(this, new DoiMatKhauCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         public new void CancelAsync(object userState) {
             base.CancelAsync(userState);
         }
@@ -631,6 +707,58 @@ namespace FormDesignFSS2.NguoiDungWS {
         private object[] results;
         
         internal XoaNguoiDungCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public bool Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
+    public delegate void KTThongTinDoiMKCompletedEventHandler(object sender, KTThongTinDoiMKCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class KTThongTinDoiMKCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal KTThongTinDoiMKCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public int Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((int)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
+    public delegate void DoiMatKhauCompletedEventHandler(object sender, DoiMatKhauCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class DoiMatKhauCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal DoiMatKhauCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }

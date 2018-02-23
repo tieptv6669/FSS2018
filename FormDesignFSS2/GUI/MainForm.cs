@@ -82,7 +82,8 @@ namespace FormDesignFSS2.GUI
         {
             Hide();
             DangNhap dangNhap = new DangNhap();
-            dangNhap.Show();
+            dangNhap.ShowDialog();
+            Close();
         }
 
         /// <summary>
@@ -208,6 +209,12 @@ namespace FormDesignFSS2.GUI
             {
                 MessageBox.Show("Thao tác lỗi. Bạn chưa chọn người dùng nào", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void btnDoiMatKhau_Click(object sender, EventArgs e)
+        {
+            DoiMK doiMK = new DoiMK();
+            doiMK.ShowDialog();
         }
     }
 }
