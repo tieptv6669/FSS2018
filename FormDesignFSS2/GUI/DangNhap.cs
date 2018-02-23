@@ -24,11 +24,21 @@ namespace FormDesignFSS2.GUI
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Tải form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void DangNhap_Load(object sender, EventArgs e)
         {
             lblError.ForeColor = Color.Red;
         }
 
+        /// <summary>
+        /// Xử lý sự kiện click button đăng nhập
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
             NguoiDungBUS nguoiDungBUS = new NguoiDungBUS();
@@ -54,9 +64,10 @@ namespace FormDesignFSS2.GUI
                             MainForm mainForm = new MainForm();
                             NguoiDung nguoiDungDTO = JsonConvert.DeserializeObject<NguoiDung>(jsonNguoiDung);
 
-                            MainForm.nguoiDungHienTai = nguoiDungDTO;
-                            mainForm.Show();
                             Hide();
+                            MainForm.nguoiDungHienTai = nguoiDungDTO;
+                            mainForm.ShowDialog();
+                            Close();
                         }
                         else
                         {
@@ -68,6 +79,11 @@ namespace FormDesignFSS2.GUI
             }
         }
 
+        /// <summary>
+        /// Xử lý sự kiện click button thoát
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnThoat_Click(object sender, EventArgs e)
         {
             Application.Exit();

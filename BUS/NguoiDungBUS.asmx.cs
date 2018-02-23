@@ -237,5 +237,58 @@ namespace BUS
         {
             return NguoiDungDAO.XoaNguoiDung(tenDN);
         }
+
+        /// <summary>
+        /// Kiểm tra thông tin đổi mật khẩu
+        /// </summary>
+        /// <param name="tenDN"></param>
+        /// <param name="MKCu"></param>
+        /// <param name="MKMoi"></param>
+        /// <param name="nhapLaiMK"></param>
+        /// <returns></returns>
+        [WebMethod]
+        public int KTThongTinDoiMK(string tenDN, string MKCu, string MKMoi, string nhapLaiMK)
+        {
+            NguoiDungDAO nguoiDungDAO = new NguoiDungDAO();
+
+            if(MKCu == "")
+            {
+                return 1;
+            }
+            if(MKMoi == "")
+            {
+                return 2;
+            }
+            if(nhapLaiMK == "")
+            {
+                return 3;
+            }
+            if(nguoiDungDAO.TaiKhoanChinhXac(tenDN, MKCu) == null)
+            {
+                return 4;
+            }
+            if(MKMoi.Length < 6)
+            {
+                return 5;
+            }
+            if(MKMoi != nhapLaiMK)
+            {
+                return 6;
+            }
+
+            return 0;
+        }
+
+        /// <summary>
+        /// Đổi mật khẩu người dùng
+        /// </summary>
+        /// <param name="tenDN"></param>
+        /// <param name="MatKhauMoi"></param>
+        /// <returns></returns>
+        [WebMethod]
+        public bool DoiMatKhau(string tenDN, string MatKhauMoi)
+        {
+            return NguoiDungDAO.DoiMatKhau(tenDN, MatKhauMoi);
+        }
     }
 }
