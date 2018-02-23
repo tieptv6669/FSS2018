@@ -51,6 +51,8 @@ namespace FormDesignFSS2.NguoiDungWS {
         
         private System.Threading.SendOrPostCallback DoiMatKhauOperationCompleted;
         
+        private System.Threading.SendOrPostCallback ResetMatKhauOperationCompleted;
+        
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
@@ -121,6 +123,9 @@ namespace FormDesignFSS2.NguoiDungWS {
         
         /// <remarks/>
         public event DoiMatKhauCompletedEventHandler DoiMatKhauCompleted;
+        
+        /// <remarks/>
+        public event ResetMatKhauCompletedEventHandler ResetMatKhauCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/KTThongTinDangNhap", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -468,6 +473,35 @@ namespace FormDesignFSS2.NguoiDungWS {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/ResetMatKhau", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public bool ResetMatKhau(string tenDN) {
+            object[] results = this.Invoke("ResetMatKhau", new object[] {
+                        tenDN});
+            return ((bool)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void ResetMatKhauAsync(string tenDN) {
+            this.ResetMatKhauAsync(tenDN, null);
+        }
+        
+        /// <remarks/>
+        public void ResetMatKhauAsync(string tenDN, object userState) {
+            if ((this.ResetMatKhauOperationCompleted == null)) {
+                this.ResetMatKhauOperationCompleted = new System.Threading.SendOrPostCallback(this.OnResetMatKhauOperationCompleted);
+            }
+            this.InvokeAsync("ResetMatKhau", new object[] {
+                        tenDN}, this.ResetMatKhauOperationCompleted, userState);
+        }
+        
+        private void OnResetMatKhauOperationCompleted(object arg) {
+            if ((this.ResetMatKhauCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.ResetMatKhauCompleted(this, new ResetMatKhauCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         public new void CancelAsync(object userState) {
             base.CancelAsync(userState);
         }
@@ -759,6 +793,32 @@ namespace FormDesignFSS2.NguoiDungWS {
         private object[] results;
         
         internal DoiMatKhauCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public bool Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
+    public delegate void ResetMatKhauCompletedEventHandler(object sender, ResetMatKhauCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class ResetMatKhauCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal ResetMatKhauCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }

@@ -171,6 +171,20 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="ResetMatKhau">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="tenDN" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ResetMatKhauResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ResetMatKhauResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="KTThongTinDangNhapSoapIn">
@@ -239,6 +253,12 @@
   <wsdl:message name="DoiMatKhauSoapOut">
     <wsdl:part name="parameters" element="tns:DoiMatKhauResponse" />
   </wsdl:message>
+  <wsdl:message name="ResetMatKhauSoapIn">
+    <wsdl:part name="parameters" element="tns:ResetMatKhau" />
+  </wsdl:message>
+  <wsdl:message name="ResetMatKhauSoapOut">
+    <wsdl:part name="parameters" element="tns:ResetMatKhauResponse" />
+  </wsdl:message>
   <wsdl:portType name="NguoiDungBUSSoap">
     <wsdl:operation name="KTThongTinDangNhap">
       <wsdl:input message="tns:KTThongTinDangNhapSoapIn" />
@@ -283,6 +303,10 @@
     <wsdl:operation name="DoiMatKhau">
       <wsdl:input message="tns:DoiMatKhauSoapIn" />
       <wsdl:output message="tns:DoiMatKhauSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ResetMatKhau">
+      <wsdl:input message="tns:ResetMatKhauSoapIn" />
+      <wsdl:output message="tns:ResetMatKhauSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="NguoiDungBUSSoap" type="tns:NguoiDungBUSSoap">
@@ -386,6 +410,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="ResetMatKhau">
+      <soap:operation soapAction="http://tempuri.org/ResetMatKhau" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="NguoiDungBUSSoap12" type="tns:NguoiDungBUSSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -481,6 +514,15 @@
     </wsdl:operation>
     <wsdl:operation name="DoiMatKhau">
       <soap12:operation soapAction="http://tempuri.org/DoiMatKhau" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ResetMatKhau">
+      <soap12:operation soapAction="http://tempuri.org/ResetMatKhau" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
