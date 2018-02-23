@@ -81,6 +81,7 @@
   <ItemGroup>
     <Content Include="GiaiNganBUS.asmx" />
     <Content Include="Helper.asmx" />
+    <Content Include="KhachHangBUS.asmx" />
     <Content Include="NguoiDungBUS.asmx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -93,6 +94,10 @@
     </Compile>
     <Compile Include="Helper.asmx.cs">
       <DependentUpon>Helper.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="KhachHangBUS.asmx.cs">
+      <DependentUpon>KhachHangBUS.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="NguoiDungBUS.asmx.cs">
