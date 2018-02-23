@@ -79,6 +79,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="GiaiNganBUS.asmx" />
     <Content Include="Helper.asmx" />
     <Content Include="NguoiDungBUS.asmx" />
     <Content Include="Web.config">
@@ -86,6 +87,10 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GiaiNganBUS.asmx.cs">
+      <DependentUpon>GiaiNganBUS.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Helper.asmx.cs">
       <DependentUpon>Helper.asmx</DependentUpon>
       <SubType>Component</SubType>
