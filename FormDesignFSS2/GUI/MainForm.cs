@@ -101,6 +101,11 @@ namespace FormDesignFSS2.GUI
             }
         }
 
+        /// <summary>
+        /// Đóng form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
@@ -188,11 +193,16 @@ namespace FormDesignFSS2.GUI
             gridTabUser.Rows[e.RowIndex].Selected = true;
         }
 
+        /// <summary>
+        /// Xử lý sự kiện click button xóa người dùng
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnXoaTabUser_Click(object sender, EventArgs e)
         {
             if(gridTabUser.RowCount > 1 && gridTabUser.SelectedRows.Count > 0)
             {
-                DialogResult dialogResult = MessageBox.Show("Bạn chắc chắn muốn xóa " + gridTabUser.SelectedRows[0].Cells[1].Value.ToString() + "?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question); 
+                DialogResult dialogResult = MessageBox.Show("Bạn chắc chắn muốn xóa " + gridTabUser.SelectedRows[0].Cells[1].Value.ToString() + "?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning); 
                 if(dialogResult == DialogResult.Yes)
                 {
                     NguoiDungBUS nguoiDungBUS = new NguoiDungBUS();
@@ -212,6 +222,11 @@ namespace FormDesignFSS2.GUI
             }
         }
 
+        /// <summary>
+        /// Xử lý sự kiện click button đổi mật khẩu
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnDoiMatKhau_Click(object sender, EventArgs e)
         {
             DoiMK doiMK = new DoiMK();
@@ -219,6 +234,7 @@ namespace FormDesignFSS2.GUI
         }
 
         /// <summary>
+
         /// Xử lý sự kiện click btn "Tìm kiếm" khách hàng
         /// </summary>
         /// <param name="sender"></param>
@@ -243,6 +259,37 @@ namespace FormDesignFSS2.GUI
             if (list.Count > 0)
             {
                 gridTabKH.Rows[0].Selected = true;
+            }
+
+        }
+        /// Xử lý sự kiện click button reset mật khẩu
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnResetTabUser_Click(object sender, EventArgs e)
+        {
+            if(gridTabUser.RowCount > 1 && gridTabUser.SelectedRows.Count > 0)
+            {
+                string tenDN = gridTabUser.SelectedRows[0].Cells[0].Value.ToString();
+                string tenNguoiDung = gridTabUser.SelectedRows[0].Cells[1].Value.ToString();
+                DialogResult dialogResult = MessageBox.Show("Bạn chắc chắn muốn reset mật khẩu cho " + tenNguoiDung + "?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if(dialogResult == DialogResult.Yes)
+                {
+                    // reset mật khẩu cho người dùng 
+                    NguoiDungBUS nguoiDungBUS = new NguoiDungBUS();
+                    if (nguoiDungBUS.ResetMatKhau(tenDN)){
+                        MessageBox.Show("Reset mật khẩu thành công", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Đã có lỗi sảy ra, reset mật khẩu người dùng thất bại", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Thao tác lỗi. Bạn chưa chọn người dùng nào", "", MessageBoxButtons.OK, MessageBoxIcon.Error);  
+
             }
         }
     }

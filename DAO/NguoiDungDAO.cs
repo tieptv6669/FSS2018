@@ -251,6 +251,28 @@ namespace DAO
             }
            
         }
+
+        /// <summary>
+        /// Reset mật khẩu người dùng 
+        /// </summary>
+        /// <param name="tenDN"></param>
+        /// <returns></returns>
+        public static bool ResetMatKhau(string tenDN)
+        {
+            try
+            {
+                OracleCommand oracleCommand = new OracleCommand();
+                oracleCommand.CommandText = "UPDATE NGUOIDUNG SET MATKHAU = :matKhau WHERE TENDANGNHAP = :tenDN";
+                oracleCommand.Parameters.Add(new OracleParameter("matKhau", tenDN));
+                oracleCommand.Parameters.Add(new OracleParameter("tenDN", tenDN));
+
+                return DataProvider.ExcuteNonQuery(oracleCommand);
+            }catch(Exception e)
+            {
+                MessageBox.Show("Lỗi: " + e.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
     }
 }
 

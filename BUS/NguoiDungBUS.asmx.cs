@@ -290,5 +290,16 @@ namespace BUS
         {
             return NguoiDungDAO.DoiMatKhau(tenDN, MatKhauMoi);
         }
+
+        /// <summary>
+        /// Reset mật khẩu cho người dùng
+        /// </summary>
+        /// <param name="tenDN"></param>
+        /// <returns></returns>
+        [WebMethod]
+        public bool ResetMatKhau(string tenDN)
+        {
+            return NguoiDungDAO.ResetMatKhau(tenDN);
+        }
     }
 }

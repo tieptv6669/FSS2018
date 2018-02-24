@@ -52,11 +52,8 @@ namespace DAO
             try
             {
                 OracleDataReader oracleDataReader;
-                //OracleConnection oracleConnection = GetOracleConnection();
                 oracleCmd.Connection = GetOracleConnection();
                 oracleDataReader = oracleCmd.ExecuteReader();
-
-                //oracleConnection.Close();
 
                 return oracleDataReader;
             }

@@ -284,6 +284,7 @@
             this.btnResetTabUser.Text = "Reset mật khẩu";
             this.btnResetTabUser.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnResetTabUser.UseVisualStyleBackColor = false;
+            this.btnResetTabUser.Click += new System.EventHandler(this.btnResetTabUser_Click);
             // 
             // btnXoaTabUser
             // 
