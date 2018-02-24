@@ -339,6 +339,7 @@
             // 
             // gridTabUser
             // 
+            this.gridTabUser.AllowUserToAddRows = false;
             this.gridTabUser.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridTabUser.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column12,
@@ -434,7 +435,7 @@
             this.btnTimKiemTabKH.Location = new System.Drawing.Point(305, 7);
             this.btnTimKiemTabKH.Name = "btnTimKiemTabKH";
             this.btnTimKiemTabKH.Size = new System.Drawing.Size(87, 38);
-            this.btnTimKiemTabKH.TabIndex = 11;
+            this.btnTimKiemTabKH.TabIndex = 4;
             this.btnTimKiemTabKH.Text = "Tìm kiếm";
             this.btnTimKiemTabKH.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnTimKiemTabKH.UseVisualStyleBackColor = false;
@@ -448,10 +449,11 @@
             this.btnXemChiTietTabKH.Location = new System.Drawing.Point(379, 314);
             this.btnXemChiTietTabKH.Name = "btnXemChiTietTabKH";
             this.btnXemChiTietTabKH.Size = new System.Drawing.Size(107, 38);
-            this.btnXemChiTietTabKH.TabIndex = 10;
+            this.btnXemChiTietTabKH.TabIndex = 8;
             this.btnXemChiTietTabKH.Text = "Xem chi tiết";
             this.btnXemChiTietTabKH.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnXemChiTietTabKH.UseVisualStyleBackColor = false;
+            this.btnXemChiTietTabKH.Click += new System.EventHandler(this.btnXemChiTietTabKH_Click);
             // 
             // btnSuaTabKH
             // 
@@ -461,10 +463,11 @@
             this.btnSuaTabKH.Location = new System.Drawing.Point(261, 314);
             this.btnSuaTabKH.Name = "btnSuaTabKH";
             this.btnSuaTabKH.Size = new System.Drawing.Size(75, 38);
-            this.btnSuaTabKH.TabIndex = 9;
+            this.btnSuaTabKH.TabIndex = 7;
             this.btnSuaTabKH.Text = "Sửa";
             this.btnSuaTabKH.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSuaTabKH.UseVisualStyleBackColor = false;
+            this.btnSuaTabKH.Click += new System.EventHandler(this.btnSuaTabKH_Click);
             // 
             // btnThemTabKH
             // 
@@ -474,7 +477,7 @@
             this.btnThemTabKH.Location = new System.Drawing.Point(146, 314);
             this.btnThemTabKH.Name = "btnThemTabKH";
             this.btnThemTabKH.Size = new System.Drawing.Size(75, 38);
-            this.btnThemTabKH.TabIndex = 8;
+            this.btnThemTabKH.TabIndex = 6;
             this.btnThemTabKH.Text = "Thêm";
             this.btnThemTabKH.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnThemTabKH.UseVisualStyleBackColor = false;
@@ -490,6 +493,7 @@
             // 
             // gridTabKH
             // 
+            this.gridTabKH.AllowUserToAddRows = false;
             this.gridTabKH.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridTabKH.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column25,
@@ -500,7 +504,9 @@
             this.gridTabKH.Location = new System.Drawing.Point(0, 109);
             this.gridTabKH.Name = "gridTabKH";
             this.gridTabKH.Size = new System.Drawing.Size(760, 199);
-            this.gridTabKH.TabIndex = 6;
+            this.gridTabKH.TabIndex = 5;
+            this.gridTabKH.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridTabKH_CellClick);
+            this.gridTabKH.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridTabKH_CellDoubleClick);
             // 
             // Column25
             // 
@@ -534,14 +540,14 @@
             this.txtSoCMNDTabKH.Location = new System.Drawing.Point(119, 61);
             this.txtSoCMNDTabKH.Name = "txtSoCMNDTabKH";
             this.txtSoCMNDTabKH.Size = new System.Drawing.Size(180, 21);
-            this.txtSoCMNDTabKH.TabIndex = 5;
+            this.txtSoCMNDTabKH.TabIndex = 3;
             // 
             // txtTenKHTabKH
             // 
             this.txtTenKHTabKH.Location = new System.Drawing.Point(119, 34);
             this.txtTenKHTabKH.Name = "txtTenKHTabKH";
             this.txtTenKHTabKH.Size = new System.Drawing.Size(180, 21);
-            this.txtTenKHTabKH.TabIndex = 4;
+            this.txtTenKHTabKH.TabIndex = 2;
             // 
             // txtSoTKLKTabKH
             // 
@@ -662,6 +668,7 @@
             // 
             // gridDSSPTD
             // 
+            this.gridDSSPTD.AllowUserToAddRows = false;
             this.gridDSSPTD.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridDSSPTD.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MáPTD,
@@ -820,6 +827,7 @@
             // 
             // gridDSKHSPTD
             // 
+            this.gridDSKHSPTD.AllowUserToAddRows = false;
             this.gridDSKHSPTD.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridDSKHSPTD.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column6,
@@ -984,6 +992,7 @@
             // 
             // gridDSNguon
             // 
+            this.gridDSNguon.AllowUserToAddRows = false;
             this.gridDSNguon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridDSNguon.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column8,
@@ -1117,6 +1126,7 @@
             // 
             // gridDSMonGN
             // 
+            this.gridDSMonGN.AllowUserToAddRows = false;
             this.gridDSMonGN.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridDSMonGN.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column17,
@@ -1239,6 +1249,7 @@
             // 
             // gridDSMonNo
             // 
+            this.gridDSMonNo.AllowUserToAddRows = false;
             this.gridDSMonNo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridDSMonNo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column4,
@@ -1371,6 +1382,7 @@
             // 
             // gridLog
             // 
+            this.gridLog.AllowUserToAddRows = false;
             this.gridLog.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridLog.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column24,

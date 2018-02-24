@@ -292,5 +292,63 @@ namespace FormDesignFSS2.GUI
 
             }
         }
+
+        /// <summary>
+        /// Xử lý sự kiện click button Xem chi tiết khách hàng
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnXemChiTietTabKH_Click(object sender, EventArgs e)
+        {
+            if (gridTabKH.RowCount > 1 && gridTabKH.SelectedRows.Count > 0)
+            {
+                XemChiTietKH xemChiTietKH = new XemChiTietKH();
+                List<KhachHang> list = new List<KhachHang>();
+
+                KhachHangBUS khachHangBUS = new KhachHangBUS();
+                string jsonData = khachHangBUS.TimKiemKH(txtSoTKLKTabKH.Text, txtTenKHTabKH.Text, txtSoCMNDTabKH.Text);
+
+                list = JsonConvert.DeserializeObject<List<KhachHang>>(jsonData);
+                foreach (KhachHang temp in list)
+                {
+                    if (temp.STKLK == gridTabKH.SelectedRows[0].Cells[0].Value.ToString())
+                    {
+                        xemChiTietKH.khachHang.STKLK = temp.STKLK;
+                        xemChiTietKH.khachHang.hoTenKH = temp.hoTenKH;
+                        xemChiTietKH.khachHang.gioiTinhKH = temp.gioiTinhKH;
+                        xemChiTietKH.khachHang.ngaySinhKH = temp.ngaySinhKH;
+                        xemChiTietKH.khachHang.ngayMoTKKH = temp.ngayMoTKKH;
+                        xemChiTietKH.khachHang.ngheNghiepKH = temp.ngheNghiepKH;
+                        xemChiTietKH.khachHang.soCMNNKH = temp.soCMNNKH;
+                        xemChiTietKH.khachHang.emailKH = temp.emailKH;
+                        xemChiTietKH.khachHang.loai = temp.loai;
+                        xemChiTietKH.khachHang.gioiTinhKH = temp.gioiTinhKH;
+                        xemChiTietKH.khachHang.diaChiKH = temp.diaChiKH;
+                        xemChiTietKH.khachHang.SDTKH = temp.SDTKH;
+                        xemChiTietKH.khachHang.ghiChuKH = temp.ghiChuKH;
+
+                        xemChiTietKH.ShowDialog();
+                    }
+                }
+            }
+        }
+
+        private void gridTabKH_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            gridTabKH.Rows[e.RowIndex].Selected = true;
+        }
+
+        private void gridTabKH_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            gridTabKH.Rows[e.RowIndex].Selected = true;
+        }
+
+        private void btnSuaTabKH_Click(object sender, EventArgs e)
+        {
+            if (gridTabKH.RowCount > 1 && gridTabKH.SelectedRows.Count > 0)
+            {
+
+            }
+        }
     }
 }
