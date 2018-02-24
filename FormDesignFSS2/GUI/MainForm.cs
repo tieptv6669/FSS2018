@@ -234,8 +234,7 @@ namespace FormDesignFSS2.GUI
         }
 
         /// <summary>
-
-        /// Xử lý sự kiện click btn "Tìm kiếm" khách hàng
+        /// Xử lý sự kiện click button tìm kiếm khách hàng
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -262,6 +261,7 @@ namespace FormDesignFSS2.GUI
             }
 
         }
+
         /// Xử lý sự kiện click button reset mật khẩu
         /// </summary>
         /// <param name="sender"></param>

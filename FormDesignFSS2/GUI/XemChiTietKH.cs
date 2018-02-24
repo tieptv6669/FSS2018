@@ -16,5 +16,10 @@ namespace FormDesignFSS2.GUI
         {
             InitializeComponent();
         }
+
+        private void XemChiTietKH_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -83,6 +83,7 @@
     <Content Include="Helper.asmx" />
     <Content Include="KhachHangBUS.asmx" />
     <Content Include="NguoiDungBUS.asmx" />
+    <Content Include="NguonBUS.asmx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -102,6 +103,10 @@
     </Compile>
     <Compile Include="NguoiDungBUS.asmx.cs">
       <DependentUpon>NguoiDungBUS.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="NguonBUS.asmx.cs">
+      <DependentUpon>NguonBUS.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -42,6 +42,7 @@
     <Compile Include="DataProvider.cs" />
     <Compile Include="KhachHangDAO.cs" />
     <Compile Include="NguoiDungDAO.cs" />
+    <Compile Include="NguonDAO.cs" />
     <Compile Include="Program.cs" />
   </ItemGroup>
   <ItemGroup>

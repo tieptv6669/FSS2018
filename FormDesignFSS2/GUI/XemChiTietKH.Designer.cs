@@ -331,6 +331,7 @@
             this.Controls.Add(this.label1);
             this.Name = "XemChiTietKH";
             this.Text = "Thông tin khách hàng";
+            this.Load += new System.EventHandler(this.XemChiTietKH_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
