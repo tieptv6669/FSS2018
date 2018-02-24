@@ -26,6 +26,11 @@ namespace FormDesignFSS2.GUI
             khachHang = new KhachHang();
         }
 
+        /// <summary>
+        /// Tải form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void XemChiTietKH_Load(object sender, EventArgs e)
         {
             txtSoTKLK.Text = khachHang.STKLK;
@@ -42,11 +47,14 @@ namespace FormDesignFSS2.GUI
             txtGhiChu.Text = khachHang.ghiChuKH;
         }
 
+        /// <summary>
+        /// Xử lý sự kiện click button đóng 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnDong_Click(object sender, EventArgs e)
         {
             Close();
         }
-
-      
     }
 }

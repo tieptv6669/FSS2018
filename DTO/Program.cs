@@ -10,7 +10,7 @@ namespace DTO
     {
         static void Main()
         {
-            System.Console.WriteLine("");
+            Console.WriteLine("");
         }
     }
 }

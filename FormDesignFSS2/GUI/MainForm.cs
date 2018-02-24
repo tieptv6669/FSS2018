@@ -333,16 +333,31 @@ namespace FormDesignFSS2.GUI
             }
         }
 
+        /// <summary>
+        /// Xử lý sự kiện click 1 cell trên grid tab khách hàng
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void gridTabKH_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             gridTabKH.Rows[e.RowIndex].Selected = true;
         }
 
+        /// <summary>
+        /// Xử lý sự kiện double click một cell trên grid tab khách hàng
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void gridTabKH_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             gridTabKH.Rows[e.RowIndex].Selected = true;
         }
 
+        /// <summary>
+        /// Xử lý sự kiện click button sửa khách hàng
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSuaTabKH_Click(object sender, EventArgs e)
         {
             if (gridTabKH.RowCount > 1 && gridTabKH.SelectedRows.Count > 0)
