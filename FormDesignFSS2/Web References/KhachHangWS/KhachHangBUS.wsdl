@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="KTThongTinThemKH">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="soTKLK" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ngayMoTK" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="hoTen" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ngaySinh" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="ngheNghiep" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="soCMTNN" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="diaChi" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SDT" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KTThongTinThemKHResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="KTThongTinThemKHResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="layDSKhachHang">
+        <s:complexType />
+      </s:element>
+      <s:element name="layDSKhachHangResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="layDSKhachHangResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TimKiemKH">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="soTKLK" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="hoTenKH" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="soCMND" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TimKiemKHResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TimKiemKHResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="KTThongTinThemKHSoapIn">
+    <wsdl:part name="parameters" element="tns:KTThongTinThemKH" />
+  </wsdl:message>
+  <wsdl:message name="KTThongTinThemKHSoapOut">
+    <wsdl:part name="parameters" element="tns:KTThongTinThemKHResponse" />
+  </wsdl:message>
+  <wsdl:message name="layDSKhachHangSoapIn">
+    <wsdl:part name="parameters" element="tns:layDSKhachHang" />
+  </wsdl:message>
+  <wsdl:message name="layDSKhachHangSoapOut">
+    <wsdl:part name="parameters" element="tns:layDSKhachHangResponse" />
+  </wsdl:message>
+  <wsdl:message name="TimKiemKHSoapIn">
+    <wsdl:part name="parameters" element="tns:TimKiemKH" />
+  </wsdl:message>
+  <wsdl:message name="TimKiemKHSoapOut">
+    <wsdl:part name="parameters" element="tns:TimKiemKHResponse" />
+  </wsdl:message>
+  <wsdl:portType name="KhachHangBUSSoap">
+    <wsdl:operation name="KTThongTinThemKH">
+      <wsdl:input message="tns:KTThongTinThemKHSoapIn" />
+      <wsdl:output message="tns:KTThongTinThemKHSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="layDSKhachHang">
+      <wsdl:input message="tns:layDSKhachHangSoapIn" />
+      <wsdl:output message="tns:layDSKhachHangSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TimKiemKH">
+      <wsdl:input message="tns:TimKiemKHSoapIn" />
+      <wsdl:output message="tns:TimKiemKHSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="KhachHangBUSSoap" type="tns:KhachHangBUSSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="KTThongTinThemKH">
+      <soap:operation soapAction="http://tempuri.org/KTThongTinThemKH" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="layDSKhachHang">
+      <soap:operation soapAction="http://tempuri.org/layDSKhachHang" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TimKiemKH">
+      <soap:operation soapAction="http://tempuri.org/TimKiemKH" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="KhachHangBUSSoap12" type="tns:KhachHangBUSSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="KTThongTinThemKH">
+      <soap12:operation soapAction="http://tempuri.org/KTThongTinThemKH" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="layDSKhachHang">
+      <soap12:operation soapAction="http://tempuri.org/layDSKhachHang" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TimKiemKH">
+      <soap12:operation soapAction="http://tempuri.org/TimKiemKH" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="KhachHangBUS">
+    <wsdl:port name="KhachHangBUSSoap" binding="tns:KhachHangBUSSoap">
+      <soap:address location="http://localhost:49220/KhachHangBUS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="KhachHangBUSSoap12" binding="tns:KhachHangBUSSoap12">
+      <soap12:address location="http://localhost:49220/KhachHangBUS.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

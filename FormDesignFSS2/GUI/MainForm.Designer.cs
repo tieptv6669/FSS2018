@@ -437,6 +437,7 @@
             this.btnTimKiemTabKH.Text = "Tìm kiếm";
             this.btnTimKiemTabKH.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnTimKiemTabKH.UseVisualStyleBackColor = false;
+            this.btnTimKiemTabKH.Click += new System.EventHandler(this.btnTimKiemTabKH_Click);
             // 
             // btnXemChiTietTabKH
             // 

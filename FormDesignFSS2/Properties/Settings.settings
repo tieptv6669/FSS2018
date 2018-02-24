@@ -5,5 +5,8 @@
     <Setting Name="FormDesignFSS2_NguoiDungWS_NguoiDungBUS" Type="(Web Service URL)" Scope="Application">
       <Value Profile="(Default)">http://localhost:49220/NguoiDungBUS.asmx</Value>
     </Setting>
+    <Setting Name="FormDesignFSS2_KhachHangWS_KhachHangBUS" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:49220/KhachHangBUS.asmx</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

@@ -37,6 +37,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="KhachHang.cs" />
     <Compile Include="NguoiDung.cs" />
     <Compile Include="Program.cs" />
   </ItemGroup>

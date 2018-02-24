@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DTO;
 using FormDesignFSS2.NguoiDungWS;
+using FormDesignFSS2.KhachHangWS;
 using Newtonsoft.Json;
 
 namespace FormDesignFSS2.GUI
@@ -215,6 +216,34 @@ namespace FormDesignFSS2.GUI
         {
             DoiMK doiMK = new DoiMK();
             doiMK.ShowDialog();
+        }
+
+        /// <summary>
+        /// Xử lý sự kiện click btn "Tìm kiếm" khách hàng
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnTimKiemTabKH_Click(object sender, EventArgs e)
+        {
+            // Xóa dữ liệu hiển thị cũ
+            gridTabKH.Rows.Clear();
+            // Lấy DS khách hàng
+            List<KhachHang> list = new List<KhachHang>();
+
+            KhachHangBUS khachHangBUS = new KhachHangBUS();
+            string jsonData = khachHangBUS.TimKiemKH(txtSoTKLKTabKH.Text, txtTenKHTabKH.Text, txtSoCMNDTabKH.Text);
+
+            list = JsonConvert.DeserializeObject<List<KhachHang>>(jsonData);
+
+            // Hiển thị danh sách khách hàng lên grid view
+            foreach (KhachHang temp in list)
+            {
+                gridTabKH.Rows.Add(temp.STKLK, temp.hoTenKH, temp.loai, temp.soCMNNKH, temp.ghiChuKH);
+            }
+            if (list.Count > 0)
+            {
+                gridTabKH.Rows[0].Selected = true;
+            }
         }
     }
 }

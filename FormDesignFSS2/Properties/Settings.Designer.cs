@@ -32,5 +32,15 @@ namespace FormDesignFSS2.Properties {
                 return ((string)(this["FormDesignFSS2_NguoiDungWS_NguoiDungBUS"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:49220/KhachHangBUS.asmx")]
+        public string FormDesignFSS2_KhachHangWS_KhachHangBUS {
+            get {
+                return ((string)(this["FormDesignFSS2_KhachHangWS_KhachHangBUS"]));
+            }
+        }
     }
 }
