@@ -7,14 +7,44 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DTO;
+using FormDesignFSS2.KhachHangWS;
 
 namespace FormDesignFSS2.GUI
 {
+    /// <summary>
+    /// Thùy Linh
+    /// 24/2/2018
+    /// </summary>
     public partial class XemChiTietKH : Form
     {
+        public KhachHang khachHang;
+
         public XemChiTietKH()
         {
             InitializeComponent();
+            khachHang = new KhachHang();
+        }
+
+        private void XemChiTietKH_Load(object sender, EventArgs e)
+        {
+            txtSoTKLK.Text = khachHang.STKLK;
+            txtHoTenKH.Text = khachHang.hoTenKH;
+            txtNgaySinhKH.Text = khachHang.ngaySinhKH.ToString();
+            txtNgayMoTK.Text = khachHang.ngayMoTKKH.ToString();
+            txtNgheNghiep.Text = khachHang.ngheNghiepKH;
+            txtSoCMND.Text = khachHang.soCMNNKH;
+            txtEmail.Text = khachHang.emailKH;
+            txtGioiTinh.Text = khachHang.gioiTinhKH;
+            txtLoaiKH.Text = khachHang.loai;
+            txtSDT.Text = khachHang.SDTKH;
+            txtDiaChi.Text = khachHang.diaChiKH;
+            txtGhiChu.Text = khachHang.ghiChuKH;
+        }
+
+        private void btnDong_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }
