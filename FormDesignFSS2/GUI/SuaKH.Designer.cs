@@ -28,344 +28,344 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.Nam = new System.Windows.Forms.RadioButton();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.btnHuy = new System.Windows.Forms.Button();
+            this.btnXacNhan = new System.Windows.Forms.Button();
+            this.radioGTNu = new System.Windows.Forms.RadioButton();
+            this.radioGTNam = new System.Windows.Forms.RadioButton();
+            this.dateNgaySinh = new System.Windows.Forms.DateTimePicker();
+            this.cmbLoaiKH = new System.Windows.Forms.ComboBox();
+            this.txtSDT = new System.Windows.Forms.TextBox();
+            this.txtGhiChu = new System.Windows.Forms.TextBox();
+            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.txtDiaChi = new System.Windows.Forms.TextBox();
+            this.txtSoCMND = new System.Windows.Forms.TextBox();
+            this.txtNgheNghiep = new System.Windows.Forms.TextBox();
+            this.txtHoTenKH = new System.Windows.Forms.TextBox();
+            this.lblGhiChu = new System.Windows.Forms.Label();
+            this.lblSDT = new System.Windows.Forms.Label();
+            this.lblEmail = new System.Windows.Forms.Label();
+            this.lblDiaChi = new System.Windows.Forms.Label();
+            this.lblSoCMND = new System.Windows.Forms.Label();
+            this.lblNgheNghiep = new System.Windows.Forms.Label();
+            this.lblGioiTinh = new System.Windows.Forms.Label();
+            this.lblNgaySinh = new System.Windows.Forms.Label();
+            this.lblLoaiKH = new System.Windows.Forms.Label();
+            this.lblHoTenKH = new System.Windows.Forms.Label();
+            this.txtNgayMoTK = new System.Windows.Forms.TextBox();
+            this.lblNgayMoTK = new System.Windows.Forms.Label();
+            this.txtSoTKLK = new System.Windows.Forms.TextBox();
+            this.lblsoTKLK = new System.Windows.Forms.Label();
+            this.lblError = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // button2
+            // btnHuy
             // 
-            this.button2.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button2.Image = global::FormDesignFSS2.Properties.Resources._101;
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(310, 389);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(86, 39);
-            this.button2.TabIndex = 57;
-            this.button2.Text = "Quay lại";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnHuy.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnHuy.Image = global::FormDesignFSS2.Properties.Resources._168;
+            this.btnHuy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnHuy.Location = new System.Drawing.Point(310, 389);
+            this.btnHuy.Name = "btnHuy";
+            this.btnHuy.Size = new System.Drawing.Size(86, 39);
+            this.btnHuy.TabIndex = 57;
+            this.btnHuy.Text = "Hủy";
+            this.btnHuy.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnHuy.UseVisualStyleBackColor = false;
+            this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click_1);
             // 
-            // button3
+            // btnXacNhan
             // 
-            this.button3.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button3.Image = global::FormDesignFSS2.Properties.Resources._155;
-            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(218, 389);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(86, 39);
-            this.button3.TabIndex = 56;
-            this.button3.Text = "Lưu";
-            this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button3.UseVisualStyleBackColor = false;
+            this.btnXacNhan.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnXacNhan.Image = global::FormDesignFSS2.Properties.Resources._155;
+            this.btnXacNhan.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnXacNhan.Location = new System.Drawing.Point(218, 389);
+            this.btnXacNhan.Name = "btnXacNhan";
+            this.btnXacNhan.Size = new System.Drawing.Size(86, 39);
+            this.btnXacNhan.TabIndex = 56;
+            this.btnXacNhan.Text = "Xác nhận";
+            this.btnXacNhan.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnXacNhan.UseVisualStyleBackColor = false;
+            this.btnXacNhan.Click += new System.EventHandler(this.btnXacNhan_Click);
             // 
-            // radioButton1
+            // radioGTNu
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Enabled = false;
-            this.radioButton1.Location = new System.Drawing.Point(172, 166);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(39, 17);
-            this.radioButton1.TabIndex = 55;
-            this.radioButton1.Text = "Nữ";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioGTNu.AutoSize = true;
+            this.radioGTNu.Location = new System.Drawing.Point(172, 166);
+            this.radioGTNu.Name = "radioGTNu";
+            this.radioGTNu.Size = new System.Drawing.Size(39, 17);
+            this.radioGTNu.TabIndex = 55;
+            this.radioGTNu.Text = "Nữ";
+            this.radioGTNu.UseVisualStyleBackColor = true;
             // 
-            // Nam
+            // radioGTNam
             // 
-            this.Nam.AutoSize = true;
-            this.Nam.Checked = true;
-            this.Nam.Location = new System.Drawing.Point(103, 166);
-            this.Nam.Name = "Nam";
-            this.Nam.Size = new System.Drawing.Size(47, 17);
-            this.Nam.TabIndex = 54;
-            this.Nam.TabStop = true;
-            this.Nam.Text = "Nam";
-            this.Nam.UseVisualStyleBackColor = true;
+            this.radioGTNam.AutoSize = true;
+            this.radioGTNam.Checked = true;
+            this.radioGTNam.Location = new System.Drawing.Point(103, 166);
+            this.radioGTNam.Name = "radioGTNam";
+            this.radioGTNam.Size = new System.Drawing.Size(47, 17);
+            this.radioGTNam.TabIndex = 54;
+            this.radioGTNam.TabStop = true;
+            this.radioGTNam.Text = "Nam";
+            this.radioGTNam.UseVisualStyleBackColor = true;
             // 
-            // dateTimePicker1
+            // dateNgaySinh
             // 
-            this.dateTimePicker1.Enabled = false;
-            this.dateTimePicker1.Location = new System.Drawing.Point(103, 137);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(154, 20);
-            this.dateTimePicker1.TabIndex = 53;
+            this.dateNgaySinh.Location = new System.Drawing.Point(103, 137);
+            this.dateNgaySinh.Name = "dateNgaySinh";
+            this.dateNgaySinh.Size = new System.Drawing.Size(154, 20);
+            this.dateNgaySinh.TabIndex = 53;
             // 
-            // comboBox1
+            // cmbLoaiKH
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Gold"});
-            this.comboBox1.Location = new System.Drawing.Point(103, 107);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(154, 21);
-            this.comboBox1.TabIndex = 52;
+            this.cmbLoaiKH.DisplayMember = "1,2,3,4";
+            this.cmbLoaiKH.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbLoaiKH.FormattingEnabled = true;
+            this.cmbLoaiKH.Items.AddRange(new object[] {
+            "Classic",
+            "Silver",
+            "Gold",
+            "Diamond"});
+            this.cmbLoaiKH.Location = new System.Drawing.Point(103, 107);
+            this.cmbLoaiKH.Name = "cmbLoaiKH";
+            this.cmbLoaiKH.Size = new System.Drawing.Size(154, 21);
+            this.cmbLoaiKH.TabIndex = 52;
             // 
-            // textBox10
+            // txtSDT
             // 
-            this.textBox10.BackColor = System.Drawing.SystemColors.Window;
-            this.textBox10.Enabled = false;
-            this.textBox10.Location = new System.Drawing.Point(300, 276);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(94, 20);
-            this.textBox10.TabIndex = 51;
-            this.textBox10.Text = "01672189700";
+            this.txtSDT.BackColor = System.Drawing.SystemColors.Window;
+            this.txtSDT.Location = new System.Drawing.Point(300, 276);
+            this.txtSDT.Name = "txtSDT";
+            this.txtSDT.Size = new System.Drawing.Size(94, 20);
+            this.txtSDT.TabIndex = 51;
             // 
-            // textBox9
+            // txtGhiChu
             // 
-            this.textBox9.BackColor = System.Drawing.SystemColors.Window;
-            this.textBox9.Enabled = false;
-            this.textBox9.Location = new System.Drawing.Point(103, 304);
-            this.textBox9.Multiline = true;
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(291, 67);
-            this.textBox9.TabIndex = 50;
+            this.txtGhiChu.BackColor = System.Drawing.SystemColors.Window;
+            this.txtGhiChu.Location = new System.Drawing.Point(103, 304);
+            this.txtGhiChu.Multiline = true;
+            this.txtGhiChu.Name = "txtGhiChu";
+            this.txtGhiChu.Size = new System.Drawing.Size(291, 48);
+            this.txtGhiChu.TabIndex = 50;
             // 
-            // textBox8
+            // txtEmail
             // 
-            this.textBox8.BackColor = System.Drawing.SystemColors.Window;
-            this.textBox8.Enabled = false;
-            this.textBox8.Location = new System.Drawing.Point(103, 276);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(154, 20);
-            this.textBox8.TabIndex = 49;
-            this.textBox8.Text = "tieptv96@gmail.com";
+            this.txtEmail.BackColor = System.Drawing.SystemColors.Window;
+            this.txtEmail.Location = new System.Drawing.Point(103, 276);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(154, 20);
+            this.txtEmail.TabIndex = 49;
             // 
-            // textBox7
+            // txtDiaChi
             // 
-            this.textBox7.BackColor = System.Drawing.SystemColors.Window;
-            this.textBox7.Enabled = false;
-            this.textBox7.Location = new System.Drawing.Point(103, 250);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(291, 20);
-            this.textBox7.TabIndex = 48;
-            this.textBox7.Text = "Mỹ Đình - Từ Liêm - Hà Nội";
+            this.txtDiaChi.BackColor = System.Drawing.SystemColors.Window;
+            this.txtDiaChi.Location = new System.Drawing.Point(103, 250);
+            this.txtDiaChi.Name = "txtDiaChi";
+            this.txtDiaChi.Size = new System.Drawing.Size(291, 20);
+            this.txtDiaChi.TabIndex = 48;
             // 
-            // textBox6
+            // txtSoCMND
             // 
-            this.textBox6.BackColor = System.Drawing.SystemColors.Window;
-            this.textBox6.Enabled = false;
-            this.textBox6.Location = new System.Drawing.Point(103, 217);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(154, 20);
-            this.textBox6.TabIndex = 47;
-            this.textBox6.Text = "12345678910";
+            this.txtSoCMND.BackColor = System.Drawing.SystemColors.Window;
+            this.txtSoCMND.Location = new System.Drawing.Point(103, 217);
+            this.txtSoCMND.Name = "txtSoCMND";
+            this.txtSoCMND.Size = new System.Drawing.Size(154, 20);
+            this.txtSoCMND.TabIndex = 47;
             // 
-            // textBox5
+            // txtNgheNghiep
             // 
-            this.textBox5.BackColor = System.Drawing.SystemColors.Window;
-            this.textBox5.Enabled = false;
-            this.textBox5.Location = new System.Drawing.Point(103, 189);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(154, 20);
-            this.textBox5.TabIndex = 46;
-            this.textBox5.Text = "Công nhân";
+            this.txtNgheNghiep.BackColor = System.Drawing.SystemColors.Window;
+            this.txtNgheNghiep.Location = new System.Drawing.Point(103, 189);
+            this.txtNgheNghiep.Name = "txtNgheNghiep";
+            this.txtNgheNghiep.Size = new System.Drawing.Size(154, 20);
+            this.txtNgheNghiep.TabIndex = 46;
             // 
-            // textBox4
+            // txtHoTenKH
             // 
-            this.textBox4.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.textBox4.Enabled = false;
-            this.textBox4.Location = new System.Drawing.Point(103, 75);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(154, 20);
-            this.textBox4.TabIndex = 45;
-            this.textBox4.Text = "Trần Viết Tiệp";
+            this.txtHoTenKH.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.txtHoTenKH.Location = new System.Drawing.Point(103, 75);
+            this.txtHoTenKH.Name = "txtHoTenKH";
+            this.txtHoTenKH.Size = new System.Drawing.Size(154, 20);
+            this.txtHoTenKH.TabIndex = 45;
             // 
-            // label12
+            // lblGhiChu
             // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(45, 304);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(52, 15);
-            this.label12.TabIndex = 44;
-            this.label12.Text = "Ghi chú:";
+            this.lblGhiChu.AutoSize = true;
+            this.lblGhiChu.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGhiChu.Location = new System.Drawing.Point(45, 304);
+            this.lblGhiChu.Name = "lblGhiChu";
+            this.lblGhiChu.Size = new System.Drawing.Size(52, 15);
+            this.lblGhiChu.TabIndex = 44;
+            this.lblGhiChu.Text = "Ghi chú:";
             // 
-            // label11
+            // lblSDT
             // 
-            this.label11.AutoSize = true;
-            this.label11.Enabled = false;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(260, 279);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(34, 15);
-            this.label11.TabIndex = 43;
-            this.label11.Text = "SĐT:";
+            this.lblSDT.AutoSize = true;
+            this.lblSDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSDT.Location = new System.Drawing.Point(260, 279);
+            this.lblSDT.Name = "lblSDT";
+            this.lblSDT.Size = new System.Drawing.Size(34, 15);
+            this.lblSDT.TabIndex = 43;
+            this.lblSDT.Text = "SĐT:";
             // 
-            // label10
+            // lblEmail
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(55, 279);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(42, 15);
-            this.label10.TabIndex = 42;
-            this.label10.Text = "Email:";
+            this.lblEmail.AutoSize = true;
+            this.lblEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEmail.Location = new System.Drawing.Point(55, 279);
+            this.lblEmail.Name = "lblEmail";
+            this.lblEmail.Size = new System.Drawing.Size(42, 15);
+            this.lblEmail.TabIndex = 42;
+            this.lblEmail.Text = "Email:";
             // 
-            // label9
+            // lblDiaChi
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(49, 251);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(48, 15);
-            this.label9.TabIndex = 41;
-            this.label9.Text = "Địa chỉ:";
+            this.lblDiaChi.AutoSize = true;
+            this.lblDiaChi.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDiaChi.Location = new System.Drawing.Point(49, 251);
+            this.lblDiaChi.Name = "lblDiaChi";
+            this.lblDiaChi.Size = new System.Drawing.Size(48, 15);
+            this.lblDiaChi.TabIndex = 41;
+            this.lblDiaChi.Text = "Địa chỉ:";
             // 
-            // label8
+            // lblSoCMND
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(32, 222);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(65, 15);
-            this.label8.TabIndex = 40;
-            this.label8.Text = "Số CMND:";
+            this.lblSoCMND.AutoSize = true;
+            this.lblSoCMND.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSoCMND.Location = new System.Drawing.Point(32, 222);
+            this.lblSoCMND.Name = "lblSoCMND";
+            this.lblSoCMND.Size = new System.Drawing.Size(65, 15);
+            this.lblSoCMND.TabIndex = 40;
+            this.lblSoCMND.Text = "Số CMND:";
             // 
-            // label7
+            // lblNgheNghiep
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(16, 194);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(81, 15);
-            this.label7.TabIndex = 39;
-            this.label7.Text = "Nghề nghiệp:";
+            this.lblNgheNghiep.AutoSize = true;
+            this.lblNgheNghiep.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNgheNghiep.Location = new System.Drawing.Point(16, 194);
+            this.lblNgheNghiep.Name = "lblNgheNghiep";
+            this.lblNgheNghiep.Size = new System.Drawing.Size(81, 15);
+            this.lblNgheNghiep.TabIndex = 39;
+            this.lblNgheNghiep.Text = "Nghề nghiệp:";
             // 
-            // label6
+            // lblGioiTinh
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(42, 165);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(55, 15);
-            this.label6.TabIndex = 38;
-            this.label6.Text = "Giới tính:";
+            this.lblGioiTinh.AutoSize = true;
+            this.lblGioiTinh.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGioiTinh.Location = new System.Drawing.Point(42, 165);
+            this.lblGioiTinh.Name = "lblGioiTinh";
+            this.lblGioiTinh.Size = new System.Drawing.Size(55, 15);
+            this.lblGioiTinh.TabIndex = 38;
+            this.lblGioiTinh.Text = "Giới tính:";
             // 
-            // label5
+            // lblNgaySinh
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(33, 137);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(64, 15);
-            this.label5.TabIndex = 37;
-            this.label5.Text = "Ngày sinh:";
+            this.lblNgaySinh.AutoSize = true;
+            this.lblNgaySinh.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNgaySinh.Location = new System.Drawing.Point(33, 137);
+            this.lblNgaySinh.Name = "lblNgaySinh";
+            this.lblNgaySinh.Size = new System.Drawing.Size(64, 15);
+            this.lblNgaySinh.TabIndex = 37;
+            this.lblNgaySinh.Text = "Ngày sinh:";
             // 
-            // label4
+            // lblLoaiKH
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(43, 107);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(54, 15);
-            this.label4.TabIndex = 36;
-            this.label4.Text = "Loại KH:";
+            this.lblLoaiKH.AutoSize = true;
+            this.lblLoaiKH.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLoaiKH.Location = new System.Drawing.Point(43, 107);
+            this.lblLoaiKH.Name = "lblLoaiKH";
+            this.lblLoaiKH.Size = new System.Drawing.Size(54, 15);
+            this.lblLoaiKH.TabIndex = 36;
+            this.lblLoaiKH.Text = "Loại KH:";
             // 
-            // label3
+            // lblHoTenKH
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(51, 75);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(46, 15);
-            this.label3.TabIndex = 35;
-            this.label3.Text = "Họ tên:";
+            this.lblHoTenKH.AutoSize = true;
+            this.lblHoTenKH.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHoTenKH.Location = new System.Drawing.Point(51, 75);
+            this.lblHoTenKH.Name = "lblHoTenKH";
+            this.lblHoTenKH.Size = new System.Drawing.Size(46, 15);
+            this.lblHoTenKH.TabIndex = 35;
+            this.lblHoTenKH.Text = "Họ tên:";
             // 
-            // textBox3
+            // txtNgayMoTK
             // 
-            this.textBox3.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.textBox3.Location = new System.Drawing.Point(103, 45);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(154, 20);
-            this.textBox3.TabIndex = 34;
-            this.textBox3.Text = "25/12/2017";
+            this.txtNgayMoTK.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.txtNgayMoTK.Enabled = false;
+            this.txtNgayMoTK.Location = new System.Drawing.Point(103, 45);
+            this.txtNgayMoTK.Name = "txtNgayMoTK";
+            this.txtNgayMoTK.Size = new System.Drawing.Size(154, 20);
+            this.txtNgayMoTK.TabIndex = 34;
             // 
-            // label2
+            // lblNgayMoTK
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(20, 45);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(77, 15);
-            this.label2.TabIndex = 33;
-            this.label2.Text = "Ngày mở TK:";
+            this.lblNgayMoTK.AutoSize = true;
+            this.lblNgayMoTK.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNgayMoTK.Location = new System.Drawing.Point(20, 45);
+            this.lblNgayMoTK.Name = "lblNgayMoTK";
+            this.lblNgayMoTK.Size = new System.Drawing.Size(77, 15);
+            this.lblNgayMoTK.TabIndex = 33;
+            this.lblNgayMoTK.Text = "Ngày mở TK:";
             // 
-            // textBox1
+            // txtSoTKLK
             // 
-            this.textBox1.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.textBox1.Location = new System.Drawing.Point(103, 13);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(154, 20);
-            this.textBox1.TabIndex = 30;
-            this.textBox1.Text = "001C123456";
+            this.txtSoTKLK.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.txtSoTKLK.Enabled = false;
+            this.txtSoTKLK.Location = new System.Drawing.Point(103, 13);
+            this.txtSoTKLK.Name = "txtSoTKLK";
+            this.txtSoTKLK.Size = new System.Drawing.Size(154, 20);
+            this.txtSoTKLK.TabIndex = 30;
             // 
-            // label1
+            // lblsoTKLK
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(39, 13);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(58, 15);
-            this.label1.TabIndex = 29;
-            this.label1.Text = "Số TKLK:";
+            this.lblsoTKLK.AutoSize = true;
+            this.lblsoTKLK.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblsoTKLK.Location = new System.Drawing.Point(39, 13);
+            this.lblsoTKLK.Name = "lblsoTKLK";
+            this.lblsoTKLK.Size = new System.Drawing.Size(58, 15);
+            this.lblsoTKLK.TabIndex = 29;
+            this.lblsoTKLK.Text = "Số TKLK:";
+            // 
+            // lblError
+            // 
+            this.lblError.AutoSize = true;
+            this.lblError.Location = new System.Drawing.Point(100, 366);
+            this.lblError.Name = "lblError";
+            this.lblError.Size = new System.Drawing.Size(0, 13);
+            this.lblError.TabIndex = 58;
             // 
             // SuaKH
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(405, 436);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.radioButton1);
-            this.Controls.Add(this.Nam);
-            this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.textBox10);
-            this.Controls.Add(this.textBox9);
-            this.Controls.Add(this.textBox8);
-            this.Controls.Add(this.textBox7);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.label12);
-            this.Controls.Add(this.label11);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblError);
+            this.Controls.Add(this.btnHuy);
+            this.Controls.Add(this.btnXacNhan);
+            this.Controls.Add(this.radioGTNu);
+            this.Controls.Add(this.radioGTNam);
+            this.Controls.Add(this.dateNgaySinh);
+            this.Controls.Add(this.cmbLoaiKH);
+            this.Controls.Add(this.txtSDT);
+            this.Controls.Add(this.txtGhiChu);
+            this.Controls.Add(this.txtEmail);
+            this.Controls.Add(this.txtDiaChi);
+            this.Controls.Add(this.txtSoCMND);
+            this.Controls.Add(this.txtNgheNghiep);
+            this.Controls.Add(this.txtHoTenKH);
+            this.Controls.Add(this.lblGhiChu);
+            this.Controls.Add(this.lblSDT);
+            this.Controls.Add(this.lblEmail);
+            this.Controls.Add(this.lblDiaChi);
+            this.Controls.Add(this.lblSoCMND);
+            this.Controls.Add(this.lblNgheNghiep);
+            this.Controls.Add(this.lblGioiTinh);
+            this.Controls.Add(this.lblNgaySinh);
+            this.Controls.Add(this.lblLoaiKH);
+            this.Controls.Add(this.lblHoTenKH);
+            this.Controls.Add(this.txtNgayMoTK);
+            this.Controls.Add(this.lblNgayMoTK);
+            this.Controls.Add(this.txtSoTKLK);
+            this.Controls.Add(this.lblsoTKLK);
             this.Name = "SuaKH";
             this.Text = "Sửa thông tin khách hàng";
             this.Load += new System.EventHandler(this.SuaKH_Load);
@@ -376,32 +376,33 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton Nam;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnHuy;
+        private System.Windows.Forms.Button btnXacNhan;
+        private System.Windows.Forms.RadioButton radioGTNu;
+        private System.Windows.Forms.RadioButton radioGTNam;
+        private System.Windows.Forms.DateTimePicker dateNgaySinh;
+        private System.Windows.Forms.ComboBox cmbLoaiKH;
+        private System.Windows.Forms.TextBox txtSDT;
+        private System.Windows.Forms.TextBox txtGhiChu;
+        private System.Windows.Forms.TextBox txtEmail;
+        private System.Windows.Forms.TextBox txtDiaChi;
+        private System.Windows.Forms.TextBox txtSoCMND;
+        private System.Windows.Forms.TextBox txtNgheNghiep;
+        private System.Windows.Forms.TextBox txtHoTenKH;
+        private System.Windows.Forms.Label lblGhiChu;
+        private System.Windows.Forms.Label lblSDT;
+        private System.Windows.Forms.Label lblEmail;
+        private System.Windows.Forms.Label lblDiaChi;
+        private System.Windows.Forms.Label lblSoCMND;
+        private System.Windows.Forms.Label lblNgheNghiep;
+        private System.Windows.Forms.Label lblGioiTinh;
+        private System.Windows.Forms.Label lblNgaySinh;
+        private System.Windows.Forms.Label lblLoaiKH;
+        private System.Windows.Forms.Label lblHoTenKH;
+        private System.Windows.Forms.TextBox txtNgayMoTK;
+        private System.Windows.Forms.Label lblNgayMoTK;
+        private System.Windows.Forms.TextBox txtSoTKLK;
+        private System.Windows.Forms.Label lblsoTKLK;
+        private System.Windows.Forms.Label lblError;
     }
 }

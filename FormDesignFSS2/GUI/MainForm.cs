@@ -347,8 +347,42 @@ namespace FormDesignFSS2.GUI
         {
             if (gridTabKH.RowCount > 1 && gridTabKH.SelectedRows.Count > 0)
             {
+                SuaKH suaKH = new SuaKH();
+                List<KhachHang> list = new List<KhachHang>();
 
+                KhachHangBUS khachHangBUS = new KhachHangBUS();
+                string jsonData = khachHangBUS.TimKiemKH(txtSoTKLKTabKH.Text, txtTenKHTabKH.Text, txtSoCMNDTabKH.Text);
+
+                list = JsonConvert.DeserializeObject<List<KhachHang>>(jsonData);
+                foreach (KhachHang temp in list)
+                {
+                    if (temp.STKLK == gridTabKH.SelectedRows[0].Cells[0].Value.ToString())
+                    {
+                        suaKH.khachHang.STKLK = temp.STKLK;
+                        suaKH.khachHang.hoTenKH = temp.hoTenKH;
+                        suaKH.khachHang.gioiTinhKH = temp.gioiTinhKH;
+                        suaKH.khachHang.ngaySinhKH = temp.ngaySinhKH;
+                        suaKH.khachHang.ngayMoTKKH = temp.ngayMoTKKH;
+                        suaKH.khachHang.ngheNghiepKH = temp.ngheNghiepKH;
+                        suaKH.khachHang.soCMNNKH = temp.soCMNNKH;
+                        suaKH.khachHang.emailKH = temp.emailKH;
+                        suaKH.khachHang.loai = temp.loai;
+                        suaKH.khachHang.gioiTinhKH = temp.gioiTinhKH;
+                        suaKH.khachHang.diaChiKH = temp.diaChiKH;
+                        suaKH.khachHang.SDTKH = temp.SDTKH;
+                        suaKH.khachHang.ghiChuKH = temp.ghiChuKH;
+
+                        suaKH.ShowDialog();
+                    }
+                   
+                }
+            }
+            else
+            {
+                MessageBox.Show("Thao tác lỗi. Bạn chưa chọn khách hàng nào", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+       
     }
 }
