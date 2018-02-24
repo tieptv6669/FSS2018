@@ -174,26 +174,6 @@ namespace FormDesignFSS2.GUI
         }
 
         /// <summary>
-        /// Xử lý sự kiện single click 1 cell trên grid tab user
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void gridTabUser_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            gridTabUser.Rows[e.RowIndex].Selected = true;
-        }
-
-        /// <summary>
-        /// Xử lý sự kiện double click 1 cell trên grid tab user
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void gridTabUser_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            gridTabUser.Rows[e.RowIndex].Selected = true;
-        }
-
-        /// <summary>
         /// Xử lý sự kiện click button xóa người dùng
         /// </summary>
         /// <param name="sender"></param>
@@ -334,26 +314,6 @@ namespace FormDesignFSS2.GUI
         }
 
         /// <summary>
-        /// Xử lý sự kiện click 1 cell trên grid tab khách hàng
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void gridTabKH_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            gridTabKH.Rows[e.RowIndex].Selected = true;
-        }
-
-        /// <summary>
-        /// Xử lý sự kiện double click một cell trên grid tab khách hàng
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void gridTabKH_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            gridTabKH.Rows[e.RowIndex].Selected = true;
-        }
-
-        /// <summary>
         /// Xử lý sự kiện click button sửa khách hàng
         /// </summary>
         /// <param name="sender"></param>
@@ -363,6 +323,19 @@ namespace FormDesignFSS2.GUI
             if (gridTabKH.RowCount > 1 && gridTabKH.SelectedRows.Count > 0)
             {
 
+            }
+        }
+
+        /// <summary>
+        /// Xử lý sự kiện khi chọn một tab nào đó 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void tabControl_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(tabControl.SelectedTab.Text == "Nguồn")
+            {
+                MessageBox.Show("success");
             }
         }
     }
