@@ -19,6 +19,7 @@ namespace BUS
     // [System.Web.Script.Services.ScriptService]
     public class KhachHangBUS : System.Web.Services.WebService
     {
+
         /// <summary>
         /// Kiểm tra thông tin thêm khách hàng
         /// </summary>

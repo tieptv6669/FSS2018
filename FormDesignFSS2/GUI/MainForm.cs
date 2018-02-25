@@ -174,26 +174,6 @@ namespace FormDesignFSS2.GUI
         }
 
         /// <summary>
-        /// Xử lý sự kiện single click 1 cell trên grid tab user
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void gridTabUser_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            gridTabUser.Rows[e.RowIndex].Selected = true;
-        }
-
-        /// <summary>
-        /// Xử lý sự kiện double click 1 cell trên grid tab user
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void gridTabUser_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            gridTabUser.Rows[e.RowIndex].Selected = true;
-        }
-
-        /// <summary>
         /// Xử lý sự kiện click button xóa người dùng
         /// </summary>
         /// <param name="sender"></param>
@@ -234,8 +214,7 @@ namespace FormDesignFSS2.GUI
         }
 
         /// <summary>
-
-        /// Xử lý sự kiện click btn "Tìm kiếm" khách hàng
+        /// Xử lý sự kiện click button tìm kiếm khách hàng
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -262,6 +241,7 @@ namespace FormDesignFSS2.GUI
             }
 
         }
+
         /// Xử lý sự kiện click button reset mật khẩu
         /// </summary>
         /// <param name="sender"></param>
@@ -333,20 +313,29 @@ namespace FormDesignFSS2.GUI
             }
         }
 
-        private void gridTabKH_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            gridTabKH.Rows[e.RowIndex].Selected = true;
-        }
-
-        private void gridTabKH_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            gridTabKH.Rows[e.RowIndex].Selected = true;
-        }
-
+        /// <summary>
+        /// Xử lý sự kiện click button sửa khách hàng
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSuaTabKH_Click(object sender, EventArgs e)
         {
             if (gridTabKH.RowCount > 1 && gridTabKH.SelectedRows.Count > 0)
             {
+
+            }
+        }
+
+        /// <summary>
+        /// Xử lý sự kiện khi chọn một tab nào đó 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void tabControl_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(tabControl.SelectedTab.Text == "Nguồn")
+            {
+<<<<<<< HEAD
                 SuaKH suaKH = new SuaKH();
                 List<KhachHang> list = new List<KhachHang>();
 
@@ -380,6 +369,9 @@ namespace FormDesignFSS2.GUI
             else
             {
                 MessageBox.Show("Thao tác lỗi. Bạn chưa chọn khách hàng nào", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+=======
+                MessageBox.Show("success");
+>>>>>>> 983812916f0996660925497e1ef2f00f20e8aa56
             }
         }
 

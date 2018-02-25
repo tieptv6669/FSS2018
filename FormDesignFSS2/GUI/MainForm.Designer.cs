@@ -220,6 +220,7 @@
             this.tabControl.SelectedIndex = 0;
             this.tabControl.Size = new System.Drawing.Size(768, 386);
             this.tabControl.TabIndex = 0;
+            this.tabControl.SelectedIndexChanged += new System.EventHandler(this.tabControl_SelectedIndexChanged);
             // 
             // tabUser
             // 
@@ -339,6 +340,7 @@
             // 
             // gridTabUser
             // 
+            this.gridTabUser.AllowUserToAddRows = false;
             this.gridTabUser.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridTabUser.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column12,
@@ -347,12 +349,12 @@
             this.Column14,
             this.Column16});
             this.gridTabUser.Location = new System.Drawing.Point(0, 83);
+            this.gridTabUser.MultiSelect = false;
             this.gridTabUser.Name = "gridTabUser";
             this.gridTabUser.ReadOnly = true;
+            this.gridTabUser.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridTabUser.Size = new System.Drawing.Size(760, 225);
             this.gridTabUser.TabIndex = 8;
-            this.gridTabUser.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridTabUser_CellClick);
-            this.gridTabUser.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridTabUser_CellDoubleClick);
             // 
             // Column12
             // 
@@ -492,6 +494,7 @@
             // 
             // gridTabKH
             // 
+            this.gridTabKH.AllowUserToAddRows = false;
             this.gridTabKH.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridTabKH.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column25,
@@ -500,11 +503,12 @@
             this.Column31,
             this.Column36});
             this.gridTabKH.Location = new System.Drawing.Point(0, 109);
+            this.gridTabKH.MultiSelect = false;
             this.gridTabKH.Name = "gridTabKH";
+            this.gridTabKH.ReadOnly = true;
+            this.gridTabKH.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridTabKH.Size = new System.Drawing.Size(760, 199);
             this.gridTabKH.TabIndex = 5;
-            this.gridTabKH.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridTabKH_CellClick);
-            this.gridTabKH.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridTabKH_CellDoubleClick);
             // 
             // Column25
             // 
@@ -667,6 +671,7 @@
             // 
             // gridDSSPTD
             // 
+            this.gridDSSPTD.AllowUserToAddRows = false;
             this.gridDSSPTD.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridDSSPTD.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MáPTD,
@@ -677,7 +682,10 @@
             this.Column5,
             this.columm1});
             this.gridDSSPTD.Location = new System.Drawing.Point(0, 117);
+            this.gridDSSPTD.MultiSelect = false;
             this.gridDSSPTD.Name = "gridDSSPTD";
+            this.gridDSSPTD.ReadOnly = true;
+            this.gridDSSPTD.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridDSSPTD.Size = new System.Drawing.Size(760, 191);
             this.gridDSSPTD.TabIndex = 4;
             // 
@@ -825,6 +833,7 @@
             // 
             // gridDSKHSPTD
             // 
+            this.gridDSKHSPTD.AllowUserToAddRows = false;
             this.gridDSKHSPTD.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridDSKHSPTD.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column6,
@@ -834,7 +843,10 @@
             this.Column2,
             this.Column7});
             this.gridDSKHSPTD.Location = new System.Drawing.Point(0, 127);
+            this.gridDSKHSPTD.MultiSelect = false;
             this.gridDSKHSPTD.Name = "gridDSKHSPTD";
+            this.gridDSKHSPTD.ReadOnly = true;
+            this.gridDSKHSPTD.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridDSKHSPTD.Size = new System.Drawing.Size(760, 181);
             this.gridDSKHSPTD.TabIndex = 4;
             // 
@@ -989,6 +1001,7 @@
             // 
             // gridDSNguon
             // 
+            this.gridDSNguon.AllowUserToAddRows = false;
             this.gridDSNguon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridDSNguon.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column8,
@@ -997,7 +1010,10 @@
             this.Column3,
             this.Column11});
             this.gridDSNguon.Location = new System.Drawing.Point(0, 26);
+            this.gridDSNguon.MultiSelect = false;
             this.gridDSNguon.Name = "gridDSNguon";
+            this.gridDSNguon.ReadOnly = true;
+            this.gridDSNguon.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridDSNguon.Size = new System.Drawing.Size(760, 282);
             this.gridDSNguon.TabIndex = 1;
             // 
@@ -1122,6 +1138,7 @@
             // 
             // gridDSMonGN
             // 
+            this.gridDSMonGN.AllowUserToAddRows = false;
             this.gridDSMonGN.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridDSMonGN.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column17,
@@ -1130,7 +1147,10 @@
             this.Column19,
             this.Column21});
             this.gridDSMonGN.Location = new System.Drawing.Point(0, 90);
+            this.gridDSMonGN.MultiSelect = false;
             this.gridDSMonGN.Name = "gridDSMonGN";
+            this.gridDSMonGN.ReadOnly = true;
+            this.gridDSMonGN.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridDSMonGN.Size = new System.Drawing.Size(760, 220);
             this.gridDSMonGN.TabIndex = 11;
             // 
@@ -1244,6 +1264,7 @@
             // 
             // gridDSMonNo
             // 
+            this.gridDSMonNo.AllowUserToAddRows = false;
             this.gridDSMonNo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridDSMonNo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column4,
@@ -1251,7 +1272,10 @@
             this.Column37,
             this.Column28});
             this.gridDSMonNo.Location = new System.Drawing.Point(0, 85);
+            this.gridDSMonNo.MultiSelect = false;
             this.gridDSMonNo.Name = "gridDSMonNo";
+            this.gridDSMonNo.ReadOnly = true;
+            this.gridDSMonNo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridDSMonNo.Size = new System.Drawing.Size(760, 223);
             this.gridDSMonNo.TabIndex = 13;
             // 
@@ -1376,6 +1400,7 @@
             // 
             // gridLog
             // 
+            this.gridLog.AllowUserToAddRows = false;
             this.gridLog.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridLog.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column24,
@@ -1388,7 +1413,10 @@
             this.Column43,
             this.Column23});
             this.gridLog.Location = new System.Drawing.Point(0, 110);
+            this.gridLog.MultiSelect = false;
             this.gridLog.Name = "gridLog";
+            this.gridLog.ReadOnly = true;
+            this.gridLog.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridLog.Size = new System.Drawing.Size(760, 242);
             this.gridLog.TabIndex = 14;
             // 

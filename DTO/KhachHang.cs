@@ -39,6 +39,5 @@ namespace DTO
         public string diaChiKH { get; set; }
         public string SDTKH { get; set; }
         public string ghiChuKH { get; set; }
-
     }
 }

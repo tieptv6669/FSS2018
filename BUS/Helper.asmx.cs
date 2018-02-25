@@ -44,7 +44,5 @@ namespace BUS
             }
             return true;
         }
-
-        
     }
 }
