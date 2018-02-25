@@ -120,5 +120,36 @@ namespace DAO
                 return null;
             }
         }
+
+        public static bool suaThongTinKH(string soTKLK, string hoTenKH, string loai, DateTime ngaySinhKH, 
+            string gioiTinhKH, string ngheNghiepKH, string soCMNNKH, string diaChiKH, 
+            string emailKH, string SDTKH, string ghiChuKH)
+        {
+            try
+            {
+                OracleCommand oracleCommand = new OracleCommand();
+                oracleCommand.CommandText = "UPDATE KHACHHANG SET HOTENKH = :hoTenKH, LOAIKH = :loai," +
+                    " NGAYSINH = :ngaySinhKH, GIOITINH = :gioiTinhKH, NGHENGHIEP = :ngheNghiepKH," +
+                    " SOCMND = :soCMNNKH, DIACHI = :diaChiKH, EMAIL = :emailKH, SDT = :SDTKH," +
+                    " GHICHU = :ghiChuKH WHERE SOTKLK = :soTKLK";
+                oracleCommand.Parameters.Add(new OracleParameter("hoTenKH", hoTenKH));
+                oracleCommand.Parameters.Add(new OracleParameter("loai", loai));
+                oracleCommand.Parameters.Add(new OracleParameter("ngaySinhKH", ngaySinhKH));
+                oracleCommand.Parameters.Add(new OracleParameter("gioiTinhKH", gioiTinhKH));
+                oracleCommand.Parameters.Add(new OracleParameter("ngheNghiepKH", ngheNghiepKH));
+                oracleCommand.Parameters.Add(new OracleParameter("soCMNNKH", soCMNNKH));
+                oracleCommand.Parameters.Add(new OracleParameter("diaChiKH", diaChiKH));
+                oracleCommand.Parameters.Add(new OracleParameter("emailKH", emailKH));
+                oracleCommand.Parameters.Add(new OracleParameter("SDTKH", SDTKH));
+                oracleCommand.Parameters.Add(new OracleParameter("ghiChuKH", ghiChuKH));
+                oracleCommand.Parameters.Add(new OracleParameter("soTKLK", soTKLK));
+                return DataProvider.ExcuteNonQuery(oracleCommand);
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show("Lỗi : "+ e.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
     }
 }

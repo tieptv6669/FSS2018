@@ -115,5 +115,26 @@ namespace BUS
             string jsonData = JsonConvert.SerializeObject(list);
             return jsonData;
         }
+
+        /// <summary>
+        /// Sửa thông tin khách hàng
+        /// </summary>
+        /// <param name="soTKLK"></param>
+        /// <param name="hoTenKH"></param>
+        /// <param name="loaiKH"></param>
+        /// <param name="ngaySinhKH"></param>
+        /// <param name="gioiTinhKH"></param>
+        /// <param name="ngheNghiep"></param>
+        /// <param name="soCMND"></param>
+        /// <param name="diaChiKH"></param>
+        /// <param name="emailKH"></param>
+        /// <param name="SDT"></param>
+        /// <param name="ghiChu"></param>
+        /// <returns></returns>
+        [WebMethod]
+        public bool suaThongTinKH(string soTKLK, string hoTenKH, string loaiKH, DateTime ngaySinhKH, string gioiTinhKH, string ngheNghiep, string soCMND, string diaChiKH, string emailKH, string SDT, string ghiChu)
+        {
+            return KhachHangDAO.suaThongTinKH(soTKLK, hoTenKH, loaiKH, ngaySinhKH, gioiTinhKH, ngheNghiep, soCMND, diaChiKH, emailKH, SDT, ghiChu);
+        }
     }
 }

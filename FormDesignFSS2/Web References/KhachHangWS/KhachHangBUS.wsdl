@@ -10,7 +10,7 @@
             <s:element minOccurs="0" maxOccurs="1" name="hoTen" type="s:string" />
             <s:element minOccurs="1" maxOccurs="1" name="ngaySinh" type="s:dateTime" />
             <s:element minOccurs="0" maxOccurs="1" name="ngheNghiep" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="soCMTNN" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="soCMNN" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="diaChi" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="SDT" type="s:string" />
@@ -50,6 +50,30 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="suaThongTinKH">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="soTKLK" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="hoTenKH" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="loaiKH" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ngaySinhKH" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="gioiTinhKH" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ngheNghiep" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="soCMND" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="diaChiKH" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="emailKH" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SDT" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ghiChu" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="suaThongTinKHResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="suaThongTinKHResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="KTThongTinThemKHSoapIn">
@@ -70,6 +94,12 @@
   <wsdl:message name="TimKiemKHSoapOut">
     <wsdl:part name="parameters" element="tns:TimKiemKHResponse" />
   </wsdl:message>
+  <wsdl:message name="suaThongTinKHSoapIn">
+    <wsdl:part name="parameters" element="tns:suaThongTinKH" />
+  </wsdl:message>
+  <wsdl:message name="suaThongTinKHSoapOut">
+    <wsdl:part name="parameters" element="tns:suaThongTinKHResponse" />
+  </wsdl:message>
   <wsdl:portType name="KhachHangBUSSoap">
     <wsdl:operation name="KTThongTinThemKH">
       <wsdl:input message="tns:KTThongTinThemKHSoapIn" />
@@ -82,6 +112,10 @@
     <wsdl:operation name="TimKiemKH">
       <wsdl:input message="tns:TimKiemKHSoapIn" />
       <wsdl:output message="tns:TimKiemKHSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="suaThongTinKH">
+      <wsdl:input message="tns:suaThongTinKHSoapIn" />
+      <wsdl:output message="tns:suaThongTinKHSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="KhachHangBUSSoap" type="tns:KhachHangBUSSoap">
@@ -113,6 +147,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="suaThongTinKH">
+      <soap:operation soapAction="http://tempuri.org/suaThongTinKH" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="KhachHangBUSSoap12" type="tns:KhachHangBUSSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -136,6 +179,15 @@
     </wsdl:operation>
     <wsdl:operation name="TimKiemKH">
       <soap12:operation soapAction="http://tempuri.org/TimKiemKH" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="suaThongTinKH">
+      <soap12:operation soapAction="http://tempuri.org/suaThongTinKH" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
