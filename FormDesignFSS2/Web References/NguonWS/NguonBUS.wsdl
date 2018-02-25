@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="LayDSNguon">
+        <s:complexType />
+      </s:element>
+      <s:element name="LayDSNguonResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LayDSNguonResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="LayDSNguonSoapIn">
+    <wsdl:part name="parameters" element="tns:LayDSNguon" />
+  </wsdl:message>
+  <wsdl:message name="LayDSNguonSoapOut">
+    <wsdl:part name="parameters" element="tns:LayDSNguonResponse" />
+  </wsdl:message>
+  <wsdl:portType name="NguonBUSSoap">
+    <wsdl:operation name="LayDSNguon">
+      <wsdl:input message="tns:LayDSNguonSoapIn" />
+      <wsdl:output message="tns:LayDSNguonSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="NguonBUSSoap" type="tns:NguonBUSSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="LayDSNguon">
+      <soap:operation soapAction="http://tempuri.org/LayDSNguon" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="NguonBUSSoap12" type="tns:NguonBUSSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="LayDSNguon">
+      <soap12:operation soapAction="http://tempuri.org/LayDSNguon" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="NguonBUS">
+    <wsdl:port name="NguonBUSSoap" binding="tns:NguonBUSSoap">
+      <soap:address location="http://localhost:49220/NguonBUS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="NguonBUSSoap12" binding="tns:NguonBUSSoap12">
+      <soap12:address location="http://localhost:49220/NguonBUS.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

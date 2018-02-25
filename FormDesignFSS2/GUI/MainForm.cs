@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using DTO;
 using FormDesignFSS2.NguoiDungWS;
 using FormDesignFSS2.KhachHangWS;
+using FormDesignFSS2.NguonWS;
 using Newtonsoft.Json;
 
 namespace FormDesignFSS2.GUI
@@ -335,7 +336,35 @@ namespace FormDesignFSS2.GUI
         {
             if(tabControl.SelectedTab.Text == "Nguồn")
             {
-                MessageBox.Show("success");
+                // Xóa dữ liệu hiển thị cũ 
+                gridDSNguon.Rows.Clear();
+                // Hiển thị danh sách tất cả các nguồn hiện có
+                HienThiDSNguon();
+            }
+        }
+
+        /// <summary>
+        /// Hiển thị danh sách các nguồn hiện có 
+        /// </summary>
+        private void HienThiDSNguon()
+        {
+            // Lấy danh sách nguồn
+            NguonBUS nguonBUS = new NguonBUS();
+            List<Nguon> list = new List<Nguon>();
+            string jsonData = nguonBUS.LayDSNguon();
+
+            if (jsonData != null)
+            {
+                // Hiển thị danh sách nguồn lên gridview 
+                list = JsonConvert.DeserializeObject<List<Nguon>>(jsonData);
+                foreach(Nguon temp in list)
+                {
+                    gridDSNguon.Rows.Add(temp.maNg, temp.tenNg, temp.hanMucNg, temp.tienDaChoVay, temp.tienCoTheChoVay);
+                }
+                if(gridDSNguon.RowCount > 1)
+                {
+                    gridDSNguon.Rows[0].Selected = true; 
+                }
             }
         }
     }
