@@ -322,20 +322,6 @@ namespace FormDesignFSS2.GUI
         {
             if (gridTabKH.RowCount > 1 && gridTabKH.SelectedRows.Count > 0)
             {
-
-            }
-        }
-
-        /// <summary>
-        /// Xử lý sự kiện khi chọn một tab nào đó 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void tabControl_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if(tabControl.SelectedTab.Text == "Nguồn")
-            {
-<<<<<<< HEAD
                 SuaKH suaKH = new SuaKH();
                 List<KhachHang> list = new List<KhachHang>();
 
@@ -363,15 +349,25 @@ namespace FormDesignFSS2.GUI
 
                         suaKH.ShowDialog();
                     }
-                   
+
                 }
+            }
+        }
+
+        /// <summary>
+        /// Xử lý sự kiện khi chọn một tab nào đó 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void tabControl_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(tabControl.SelectedTab.Text == "Nguồn")
+            {
+               
             }
             else
             {
-                MessageBox.Show("Thao tác lỗi. Bạn chưa chọn khách hàng nào", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
-=======
-                MessageBox.Show("success");
->>>>>>> 983812916f0996660925497e1ef2f00f20e8aa56
+
             }
         }
 
