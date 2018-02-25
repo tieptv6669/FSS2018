@@ -1,13 +1,7 @@
-E:\FSS_Project_2018\DTO\bin\Debug\DTO.exe.config
-E:\FSS_Project_2018\DTO\bin\Debug\DTO.exe
-E:\FSS_Project_2018\DTO\bin\Debug\DTO.pdb
-E:\FSS_Project_2018\DTO\obj\Debug\DTO.csproj.CoreCompileInputs.cache
-E:\FSS_Project_2018\DTO\obj\Debug\DTO.exe
-E:\FSS_Project_2018\DTO\obj\Debug\DTO.pdb
 G:\FSS2018\DTO\bin\Debug\DTO.exe.config
 G:\FSS2018\DTO\bin\Debug\DTO.exe
 G:\FSS2018\DTO\bin\Debug\DTO.pdb
+G:\FSS2018\DTO\obj\Debug\DTO.csprojResolveAssemblyReference.cache
 G:\FSS2018\DTO\obj\Debug\DTO.csproj.CoreCompileInputs.cache
 G:\FSS2018\DTO\obj\Debug\DTO.exe
 G:\FSS2018\DTO\obj\Debug\DTO.pdb
-E:\FSS_Project_2018\DTO\obj\Debug\DTO.csprojResolveAssemblyReference.cache
