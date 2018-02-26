@@ -103,6 +103,7 @@
             this.txtTenDangNhap.ReadOnly = true;
             this.txtTenDangNhap.Size = new System.Drawing.Size(180, 20);
             this.txtTenDangNhap.TabIndex = 7;
+            this.txtTenDangNhap.TabStop = false;
             this.txtTenDangNhap.Text = "NV00001";
             // 
             // txtHoTen
@@ -189,6 +190,7 @@
             this.txtMatKhau.ReadOnly = true;
             this.txtMatKhau.Size = new System.Drawing.Size(180, 20);
             this.txtMatKhau.TabIndex = 8;
+            this.txtMatKhau.TabStop = false;
             this.txtMatKhau.Text = "NV00001";
             // 
             // lblError

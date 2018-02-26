@@ -117,6 +117,7 @@
             this.txtTenDangNhap.ReadOnly = true;
             this.txtTenDangNhap.Size = new System.Drawing.Size(180, 20);
             this.txtTenDangNhap.TabIndex = 25;
+            this.txtTenDangNhap.TabStop = false;
             // 
             // lblChonQuyen
             // 

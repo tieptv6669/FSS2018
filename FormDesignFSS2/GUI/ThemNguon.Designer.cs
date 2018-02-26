@@ -28,114 +28,128 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.lblMaNguon = new System.Windows.Forms.Label();
+            this.txtMaNguon = new System.Windows.Forms.TextBox();
+            this.lblTenNguon = new System.Windows.Forms.Label();
+            this.txtTenNguon = new System.Windows.Forms.TextBox();
+            this.lblHanMuc = new System.Windows.Forms.Label();
+            this.txtHanMuc = new System.Windows.Forms.TextBox();
+            this.btnXacNhan = new System.Windows.Forms.Button();
+            this.btnHuy = new System.Windows.Forms.Button();
+            this.lblError = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // label1
+            // lblMaNguon
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(85, 13);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(66, 15);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Mã nguồn:";
+            this.lblMaNguon.AutoSize = true;
+            this.lblMaNguon.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMaNguon.Location = new System.Drawing.Point(4, 10);
+            this.lblMaNguon.Name = "lblMaNguon";
+            this.lblMaNguon.Size = new System.Drawing.Size(66, 15);
+            this.lblMaNguon.TabIndex = 0;
+            this.lblMaNguon.Text = "Mã nguồn:";
             // 
-            // textBox1
+            // txtMaNguon
             // 
-            this.textBox1.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.textBox1.Location = new System.Drawing.Point(157, 12);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(236, 20);
-            this.textBox1.TabIndex = 1;
-            this.textBox1.Text = "001";
+            this.txtMaNguon.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.txtMaNguon.Location = new System.Drawing.Point(76, 9);
+            this.txtMaNguon.Name = "txtMaNguon";
+            this.txtMaNguon.ReadOnly = true;
+            this.txtMaNguon.Size = new System.Drawing.Size(236, 20);
+            this.txtMaNguon.TabIndex = 5;
             // 
-            // label2
+            // lblTenNguon
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(82, 47);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(69, 15);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Tên nguồn:";
+            this.lblTenNguon.AutoSize = true;
+            this.lblTenNguon.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTenNguon.Location = new System.Drawing.Point(1, 44);
+            this.lblTenNguon.Name = "lblTenNguon";
+            this.lblTenNguon.Size = new System.Drawing.Size(69, 15);
+            this.lblTenNguon.TabIndex = 2;
+            this.lblTenNguon.Text = "Tên nguồn:";
             // 
-            // textBox2
+            // txtTenNguon
             // 
-            this.textBox2.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.textBox2.Location = new System.Drawing.Point(157, 47);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(236, 20);
-            this.textBox2.TabIndex = 3;
-            this.textBox2.Text = "Ngân hàng Đông Á";
+            this.txtTenNguon.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.txtTenNguon.Location = new System.Drawing.Point(76, 44);
+            this.txtTenNguon.Name = "txtTenNguon";
+            this.txtTenNguon.Size = new System.Drawing.Size(236, 20);
+            this.txtTenNguon.TabIndex = 1;
             // 
-            // label3
+            // lblHanMuc
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(91, 89);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(60, 15);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Hạn mức:";
+            this.lblHanMuc.AutoSize = true;
+            this.lblHanMuc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHanMuc.Location = new System.Drawing.Point(10, 79);
+            this.lblHanMuc.Name = "lblHanMuc";
+            this.lblHanMuc.Size = new System.Drawing.Size(60, 15);
+            this.lblHanMuc.TabIndex = 4;
+            this.lblHanMuc.Text = "Hạn mức:";
             // 
-            // textBox3
+            // txtHanMuc
             // 
-            this.textBox3.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.textBox3.Location = new System.Drawing.Point(157, 89);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(236, 20);
-            this.textBox3.TabIndex = 5;
-            this.textBox3.Text = "15000000000";
+            this.txtHanMuc.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.txtHanMuc.Location = new System.Drawing.Point(76, 79);
+            this.txtHanMuc.Name = "txtHanMuc";
+            this.txtHanMuc.Size = new System.Drawing.Size(236, 20);
+            this.txtHanMuc.TabIndex = 2;
             // 
-            // button1
+            // btnXacNhan
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.button1.Image = global::FormDesignFSS2.Properties.Resources._155;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(199, 139);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(86, 39);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "Lưu";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnXacNhan.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.btnXacNhan.Image = global::FormDesignFSS2.Properties.Resources._155;
+            this.btnXacNhan.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnXacNhan.Location = new System.Drawing.Point(118, 129);
+            this.btnXacNhan.Name = "btnXacNhan";
+            this.btnXacNhan.Size = new System.Drawing.Size(86, 39);
+            this.btnXacNhan.TabIndex = 3;
+            this.btnXacNhan.Text = "Xác nhận";
+            this.btnXacNhan.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnXacNhan.UseVisualStyleBackColor = false;
+            this.btnXacNhan.Click += new System.EventHandler(this.btnXacNhan_Click);
             // 
-            // button2
+            // btnHuy
             // 
-            this.button2.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.button2.Image = global::FormDesignFSS2.Properties.Resources._101;
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(307, 139);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(86, 39);
-            this.button2.TabIndex = 9;
-            this.button2.Text = "Quay lại";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnHuy.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.btnHuy.Image = global::FormDesignFSS2.Properties.Resources._168;
+            this.btnHuy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnHuy.Location = new System.Drawing.Point(226, 129);
+            this.btnHuy.Name = "btnHuy";
+            this.btnHuy.Size = new System.Drawing.Size(86, 39);
+            this.btnHuy.TabIndex = 4;
+            this.btnHuy.Text = "Hủy";
+            this.btnHuy.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnHuy.UseVisualStyleBackColor = false;
+            this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
+            // 
+            // lblError
+            // 
+            this.lblError.AutoSize = true;
+            this.lblError.Location = new System.Drawing.Point(115, 109);
+            this.lblError.Name = "lblError";
+            this.lblError.Size = new System.Drawing.Size(0, 13);
+            this.lblError.TabIndex = 10;
             // 
             // ThemNguon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(405, 187);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label1);
+            this.ClientSize = new System.Drawing.Size(317, 172);
+            this.Controls.Add(this.lblError);
+            this.Controls.Add(this.btnHuy);
+            this.Controls.Add(this.btnXacNhan);
+            this.Controls.Add(this.txtHanMuc);
+            this.Controls.Add(this.lblHanMuc);
+            this.Controls.Add(this.txtTenNguon);
+            this.Controls.Add(this.lblTenNguon);
+            this.Controls.Add(this.txtMaNguon);
+            this.Controls.Add(this.lblMaNguon);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "ThemNguon";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Thêm nguồn";
+            this.Load += new System.EventHandler(this.ThemNguon_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -143,13 +157,14 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label lblMaNguon;
+        private System.Windows.Forms.TextBox txtMaNguon;
+        private System.Windows.Forms.Label lblTenNguon;
+        private System.Windows.Forms.TextBox txtTenNguon;
+        private System.Windows.Forms.Label lblHanMuc;
+        private System.Windows.Forms.TextBox txtHanMuc;
+        private System.Windows.Forms.Button btnXacNhan;
+        private System.Windows.Forms.Button btnHuy;
+        private System.Windows.Forms.Label lblError;
     }
 }
