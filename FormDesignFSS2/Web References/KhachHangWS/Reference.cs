@@ -23,7 +23,7 @@ namespace FormDesignFSS2.KhachHangWS {
     
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Web.Services.WebServiceBindingAttribute(Name="KhachHangBUSSoap", Namespace="http://tempuri.org/")]
@@ -83,8 +83,7 @@ namespace FormDesignFSS2.KhachHangWS {
         /// <remarks/>
         public event layDSKhachHangCompletedEventHandler layDSKhachHangCompleted;
         
-        /// <remarks/>
-        public event layMotKhachHangCompletedEventHandler layMotKhachHangCompleted;
+       
         
         /// <remarks/>
         public event TimKiemKHCompletedEventHandler TimKiemKHCompleted;
@@ -171,27 +170,10 @@ namespace FormDesignFSS2.KhachHangWS {
                         soTKLK});
             return ((string)(results[0]));
         }
+      
         
-        /// <remarks/>
-        public void layMotKhachHangAsync(string soTKLK) {
-            this.layMotKhachHangAsync(soTKLK, null);
-        }
-        
-        /// <remarks/>
-        public void layMotKhachHangAsync(string soTKLK, object userState) {
-            if ((this.layMotKhachHangOperationCompleted == null)) {
-                this.layMotKhachHangOperationCompleted = new System.Threading.SendOrPostCallback(this.OnlayMotKhachHangOperationCompleted);
-            }
-            this.InvokeAsync("layMotKhachHang", new object[] {
-                        soTKLK}, this.layMotKhachHangOperationCompleted, userState);
-        }
-        
-        private void OnlayMotKhachHangOperationCompleted(object arg) {
-            if ((this.layMotKhachHangCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.layMotKhachHangCompleted(this, new layMotKhachHangCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
+       
+      
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/TimKiemKH", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -295,11 +277,11 @@ namespace FormDesignFSS2.KhachHangWS {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     public delegate void KTThongTinThemKHCompletedEventHandler(object sender, KTThongTinThemKHCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class KTThongTinThemKHCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -321,11 +303,11 @@ namespace FormDesignFSS2.KhachHangWS {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     public delegate void layDSKhachHangCompletedEventHandler(object sender, layDSKhachHangCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class layDSKhachHangCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -347,37 +329,13 @@ namespace FormDesignFSS2.KhachHangWS {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")]
-    public delegate void layMotKhachHangCompletedEventHandler(object sender, layMotKhachHangCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class layMotKhachHangCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        internal layMotKhachHangCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        /// <remarks/>
-        public string Result {
-            get {
-                this.RaiseExceptionIfNecessary();
-                return ((string)(this.results[0]));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")]
+
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
+
     public delegate void TimKiemKHCompletedEventHandler(object sender, TimKiemKHCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class TimKiemKHCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -399,11 +357,11 @@ namespace FormDesignFSS2.KhachHangWS {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     public delegate void suaThongTinKHCompletedEventHandler(object sender, suaThongTinKHCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class suaThongTinKHCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {

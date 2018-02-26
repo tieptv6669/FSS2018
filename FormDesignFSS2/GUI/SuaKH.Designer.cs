@@ -366,7 +366,10 @@
             this.Controls.Add(this.lblNgayMoTK);
             this.Controls.Add(this.txtSoTKLK);
             this.Controls.Add(this.lblsoTKLK);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "SuaKH";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Sửa thông tin khách hàng";
             this.Load += new System.EventHandler(this.SuaKH_Load);
             this.ResumeLayout(false);
