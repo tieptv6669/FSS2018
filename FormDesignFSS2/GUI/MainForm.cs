@@ -287,7 +287,7 @@ namespace FormDesignFSS2.GUI
                 List<KhachHang> list = new List<KhachHang>();
 
                 KhachHangBUS khachHangBUS = new KhachHangBUS();
-                string jsonData = khachHangBUS.TimKiemKH(txtSoTKLKTabKH.Text, txtTenKHTabKH.Text, txtSoCMNDTabKH.Text);
+                string jsonData = khachHangBUS.layMotKhachHang(gridTabKH.SelectedRows[0].Cells[0].Value.ToString());
 
                 list = JsonConvert.DeserializeObject<List<KhachHang>>(jsonData);
                 foreach (KhachHang temp in list)
@@ -327,7 +327,7 @@ namespace FormDesignFSS2.GUI
                 List<KhachHang> list = new List<KhachHang>();
 
                 KhachHangBUS khachHangBUS = new KhachHangBUS();
-                string jsonData = khachHangBUS.TimKiemKH(txtSoTKLKTabKH.Text, txtTenKHTabKH.Text, txtSoCMNDTabKH.Text);
+                string jsonData = khachHangBUS.layMotKhachHang(gridTabKH.SelectedRows[0].Cells[0].Value.ToString());
 
                 list = JsonConvert.DeserializeObject<List<KhachHang>>(jsonData);
                 foreach (KhachHang temp in list)

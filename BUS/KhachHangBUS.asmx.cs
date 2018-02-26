@@ -102,6 +102,19 @@ namespace BUS
         }
 
         /// <summary>
+        /// Lấy ra một khách hàng
+        /// </summary>
+        /// <param name="soTKLK"></param>
+        /// <returns></returns>
+        [WebMethod]
+        public string layMotKhachHang(string soTKLK)
+        {
+            List<KhachHang> list = KhachHangDAO.layMotKhachHang(soTKLK);
+            string jsonData = JsonConvert.SerializeObject(list);
+            return jsonData;
+        }
+
+        /// <summary>
         /// Tìm kiếm khách hàng
         /// </summary>
         /// <param name="soTKLK"></param>

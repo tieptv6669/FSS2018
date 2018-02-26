@@ -33,6 +33,8 @@ namespace FormDesignFSS2.KhachHangWS {
         
         private System.Threading.SendOrPostCallback layDSKhachHangOperationCompleted;
         
+        private System.Threading.SendOrPostCallback layMotKhachHangOperationCompleted;
+        
         private System.Threading.SendOrPostCallback TimKiemKHOperationCompleted;
         
         private System.Threading.SendOrPostCallback suaThongTinKHOperationCompleted;
@@ -80,6 +82,8 @@ namespace FormDesignFSS2.KhachHangWS {
         
         /// <remarks/>
         public event layDSKhachHangCompletedEventHandler layDSKhachHangCompleted;
+        
+       
         
         /// <remarks/>
         public event TimKiemKHCompletedEventHandler TimKiemKHCompleted;
@@ -158,6 +162,18 @@ namespace FormDesignFSS2.KhachHangWS {
                 this.layDSKhachHangCompleted(this, new layDSKhachHangCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/layMotKhachHang", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string layMotKhachHang(string soTKLK) {
+            object[] results = this.Invoke("layMotKhachHang", new object[] {
+                        soTKLK});
+            return ((string)(results[0]));
+        }
+      
+        
+       
+      
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/TimKiemKH", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -313,7 +329,9 @@ namespace FormDesignFSS2.KhachHangWS {
     }
     
     /// <remarks/>
+
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
+
     public delegate void TimKiemKHCompletedEventHandler(object sender, TimKiemKHCompletedEventArgs e);
     
     /// <remarks/>
