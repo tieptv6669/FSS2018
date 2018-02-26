@@ -43,6 +43,8 @@ namespace FormDesignFSS2.NguonWS {
         
         private System.Threading.SendOrPostCallback SuaNguonOperationCompleted;
         
+        private System.Threading.SendOrPostCallback XoaNguonOperationCompleted;
+        
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
@@ -101,6 +103,9 @@ namespace FormDesignFSS2.NguonWS {
         
         /// <remarks/>
         public event SuaNguonCompletedEventHandler SuaNguonCompleted;
+        
+        /// <remarks/>
+        public event XoaNguonCompletedEventHandler XoaNguonCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/LayDSNguon", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -310,6 +315,35 @@ namespace FormDesignFSS2.NguonWS {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/XoaNguon", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public bool XoaNguon(string maNguon) {
+            object[] results = this.Invoke("XoaNguon", new object[] {
+                        maNguon});
+            return ((bool)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void XoaNguonAsync(string maNguon) {
+            this.XoaNguonAsync(maNguon, null);
+        }
+        
+        /// <remarks/>
+        public void XoaNguonAsync(string maNguon, object userState) {
+            if ((this.XoaNguonOperationCompleted == null)) {
+                this.XoaNguonOperationCompleted = new System.Threading.SendOrPostCallback(this.OnXoaNguonOperationCompleted);
+            }
+            this.InvokeAsync("XoaNguon", new object[] {
+                        maNguon}, this.XoaNguonOperationCompleted, userState);
+        }
+        
+        private void OnXoaNguonOperationCompleted(object arg) {
+            if ((this.XoaNguonCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.XoaNguonCompleted(this, new XoaNguonCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         public new void CancelAsync(object userState) {
             base.CancelAsync(userState);
         }
@@ -497,6 +531,32 @@ namespace FormDesignFSS2.NguonWS {
         private object[] results;
         
         internal SuaNguonCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public bool Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
+    public delegate void XoaNguonCompletedEventHandler(object sender, XoaNguonCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class XoaNguonCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal XoaNguonCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }

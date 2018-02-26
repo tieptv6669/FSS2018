@@ -147,5 +147,28 @@ namespace DAO
                 return false;
             }
         }
+
+        /// <summary>
+        /// Xóa nguồn
+        /// </summary>
+        /// <param name="maNguon"></param>
+        /// <returns></returns>
+        public static bool XoaNguon(string maNguon)
+        {
+            try
+            {
+                OracleCommand oracleCommand = new OracleCommand();
+                oracleCommand.CommandText = "DELETE FROM NGUON WHERE MANGUON = :maNguon";
+                oracleCommand.Parameters.Add("maNguon", maNguon);
+
+                return DataProvider.ExcuteNonQuery(oracleCommand);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Lỗi: " + e.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+        }
     }
 }

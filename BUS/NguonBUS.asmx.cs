@@ -190,5 +190,16 @@ namespace BUS
         {
             return NguonDAO.SuaNguon(maNguon, hanMuc, soTienCoTheChoVay);
         }
+
+        /// <summary>
+        /// Xóa nguồn
+        /// </summary>
+        /// <param name="maNguon"></param>
+        /// <returns></returns>
+        [WebMethod]
+        public bool XoaNguon(string maNguon)
+        {
+            return NguonDAO.XoaNguon(maNguon);
+        }
     }
 }

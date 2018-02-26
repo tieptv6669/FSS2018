@@ -443,7 +443,22 @@ namespace FormDesignFSS2.GUI
         {
             if(gridDSNguon.RowCount > 0 && gridDSNguon.SelectedRows.Count > 0)
             {
+                DialogResult dialogResult = MessageBox.Show("Bạn có chắc chắn muốn xóa nguồn " + gridDSNguon.SelectedRows[0].Cells[1].Value.ToString() + "?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if(dialogResult == DialogResult.Yes)
+                {
+                    // Lấy mã của nguồn được chọn
+                    string maNguon = gridDSNguon.SelectedRows[0].Cells[0].Value.ToString();
 
+                    NguonBUS nguonBUS = new NguonBUS();
+                    if (nguonBUS.XoaNguon(maNguon))
+                    {
+                        MessageBox.Show("Xóa nguồn thành công", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Đã có lỗi sảy ra, xóa nguồn thất bại", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
             }
             else
             {

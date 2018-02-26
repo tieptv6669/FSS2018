@@ -96,6 +96,20 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="XoaNguon">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="maNguon" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="XoaNguonResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="XoaNguonResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="LayDSNguonSoapIn">
@@ -140,6 +154,12 @@
   <wsdl:message name="SuaNguonSoapOut">
     <wsdl:part name="parameters" element="tns:SuaNguonResponse" />
   </wsdl:message>
+  <wsdl:message name="XoaNguonSoapIn">
+    <wsdl:part name="parameters" element="tns:XoaNguon" />
+  </wsdl:message>
+  <wsdl:message name="XoaNguonSoapOut">
+    <wsdl:part name="parameters" element="tns:XoaNguonResponse" />
+  </wsdl:message>
   <wsdl:portType name="NguonBUSSoap">
     <wsdl:operation name="LayDSNguon">
       <wsdl:input message="tns:LayDSNguonSoapIn" />
@@ -168,6 +188,10 @@
     <wsdl:operation name="SuaNguon">
       <wsdl:input message="tns:SuaNguonSoapIn" />
       <wsdl:output message="tns:SuaNguonSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="XoaNguon">
+      <wsdl:input message="tns:XoaNguonSoapIn" />
+      <wsdl:output message="tns:XoaNguonSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="NguonBUSSoap" type="tns:NguonBUSSoap">
@@ -235,6 +259,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="XoaNguon">
+      <soap:operation soapAction="http://tempuri.org/XoaNguon" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="NguonBUSSoap12" type="tns:NguonBUSSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -294,6 +327,15 @@
     </wsdl:operation>
     <wsdl:operation name="SuaNguon">
       <soap12:operation soapAction="http://tempuri.org/SuaNguon" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="XoaNguon">
+      <soap12:operation soapAction="http://tempuri.org/XoaNguon" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
