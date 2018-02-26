@@ -20,6 +20,7 @@ namespace FormDesignFSS2.GUI
     public partial class SuaKH : Form
     {
         public KhachHang khachHang;
+        public DataGridView dataGridView;
 
         /// <summary>
         /// Khởi tạo form
@@ -182,6 +183,17 @@ namespace FormDesignFSS2.GUI
                     }
                     if (khachHangBUS.suaThongTinKH(txtSoTKLK.Text, txtHoTenKH.Text, cmbLoaiKH.SelectedItem.ToString(), dateNgaySinh.Value, gioiTinh, txtNgheNghiep.Text, txtSoCMND.Text, txtDiaChi.Text, txtEmail.Text, txtSDT.Text, txtGhiChu.Text))
                     {
+                        // Hiển thị lại dữ liệu lên grid view
+                        foreach(DataGridViewRow temp in dataGridView.Rows)
+                        {
+                            if(temp.Cells[0].Value.ToString() == txtSoTKLK.Text)
+                            {
+                                temp.Cells[1].Value = txtHoTenKH.Text;
+                                temp.Cells[2].Value = cmbLoaiKH.SelectedItem.ToString();
+                                temp.Cells[3].Value = txtSoCMND.Text;
+                                temp.Cells[4].Value = txtGhiChu.Text;
+                            }
+                        }
                         MessageBox.Show("Sửa thông tin người dùng thành công", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         Close();
                     }

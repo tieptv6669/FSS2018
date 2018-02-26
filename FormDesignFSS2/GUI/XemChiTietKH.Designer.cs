@@ -58,75 +58,75 @@
             // txtSDT
             // 
             this.txtSDT.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.txtSDT.Enabled = false;
             this.txtSDT.Location = new System.Drawing.Point(331, 142);
             this.txtSDT.Name = "txtSDT";
             this.txtSDT.ReadOnly = true;
             this.txtSDT.Size = new System.Drawing.Size(154, 20);
             this.txtSDT.TabIndex = 76;
+            this.txtSDT.TabStop = false;
             // 
             // txtGhiChu
             // 
             this.txtGhiChu.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.txtGhiChu.Enabled = false;
             this.txtGhiChu.Location = new System.Drawing.Point(86, 168);
             this.txtGhiChu.Multiline = true;
             this.txtGhiChu.Name = "txtGhiChu";
             this.txtGhiChu.ReadOnly = true;
             this.txtGhiChu.Size = new System.Drawing.Size(154, 67);
             this.txtGhiChu.TabIndex = 75;
+            this.txtGhiChu.TabStop = false;
             // 
             // txtEmail
             // 
             this.txtEmail.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.txtEmail.Enabled = false;
             this.txtEmail.Location = new System.Drawing.Point(86, 142);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.ReadOnly = true;
             this.txtEmail.Size = new System.Drawing.Size(154, 20);
             this.txtEmail.TabIndex = 74;
+            this.txtEmail.TabStop = false;
             // 
             // txtDiaChi
             // 
             this.txtDiaChi.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.txtDiaChi.Enabled = false;
             this.txtDiaChi.Location = new System.Drawing.Point(331, 92);
             this.txtDiaChi.Multiline = true;
             this.txtDiaChi.Name = "txtDiaChi";
             this.txtDiaChi.ReadOnly = true;
             this.txtDiaChi.Size = new System.Drawing.Size(154, 44);
             this.txtDiaChi.TabIndex = 73;
+            this.txtDiaChi.TabStop = false;
             // 
             // txtSoCMND
             // 
             this.txtSoCMND.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.txtSoCMND.Enabled = false;
             this.txtSoCMND.Location = new System.Drawing.Point(86, 116);
             this.txtSoCMND.Name = "txtSoCMND";
             this.txtSoCMND.ReadOnly = true;
             this.txtSoCMND.Size = new System.Drawing.Size(154, 20);
             this.txtSoCMND.TabIndex = 72;
+            this.txtSoCMND.TabStop = false;
             // 
             // txtNgheNghiep
             // 
             this.txtNgheNghiep.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.txtNgheNghiep.Enabled = false;
             this.txtNgheNghiep.Location = new System.Drawing.Point(86, 90);
             this.txtNgheNghiep.Name = "txtNgheNghiep";
             this.txtNgheNghiep.ReadOnly = true;
             this.txtNgheNghiep.Size = new System.Drawing.Size(154, 20);
             this.txtNgheNghiep.TabIndex = 71;
+            this.txtNgheNghiep.TabStop = false;
             // 
             // txtHoTenKH
             // 
             this.txtHoTenKH.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.txtHoTenKH.Enabled = false;
             this.txtHoTenKH.ForeColor = System.Drawing.SystemColors.WindowText;
             this.txtHoTenKH.Location = new System.Drawing.Point(86, 38);
             this.txtHoTenKH.Name = "txtHoTenKH";
             this.txtHoTenKH.ReadOnly = true;
             this.txtHoTenKH.Size = new System.Drawing.Size(154, 20);
             this.txtHoTenKH.TabIndex = 70;
+            this.txtHoTenKH.TabStop = false;
             // 
             // lblGhiChu
             // 
@@ -231,12 +231,12 @@
             // txtNgayMoTK
             // 
             this.txtNgayMoTK.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.txtNgayMoTK.Enabled = false;
             this.txtNgayMoTK.Location = new System.Drawing.Point(331, 14);
             this.txtNgayMoTK.Name = "txtNgayMoTK";
             this.txtNgayMoTK.ReadOnly = true;
             this.txtNgayMoTK.Size = new System.Drawing.Size(154, 20);
             this.txtNgayMoTK.TabIndex = 59;
+            this.txtNgayMoTK.TabStop = false;
             // 
             // lblNgayMoTK
             // 
@@ -251,12 +251,12 @@
             // txtSoTKLK
             // 
             this.txtSoTKLK.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.txtSoTKLK.Enabled = false;
             this.txtSoTKLK.Location = new System.Drawing.Point(86, 12);
             this.txtSoTKLK.Name = "txtSoTKLK";
             this.txtSoTKLK.ReadOnly = true;
             this.txtSoTKLK.Size = new System.Drawing.Size(154, 20);
             this.txtSoTKLK.TabIndex = 57;
+            this.txtSoTKLK.TabStop = false;
             // 
             // lblSoTKLK
             // 
@@ -271,12 +271,12 @@
             // txtNgaySinhKH
             // 
             this.txtNgaySinhKH.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.txtNgaySinhKH.Enabled = false;
             this.txtNgaySinhKH.Location = new System.Drawing.Point(86, 64);
             this.txtNgaySinhKH.Name = "txtNgaySinhKH";
             this.txtNgaySinhKH.ReadOnly = true;
             this.txtNgaySinhKH.Size = new System.Drawing.Size(154, 20);
             this.txtNgaySinhKH.TabIndex = 81;
+            this.txtNgaySinhKH.TabStop = false;
             // 
             // btnDong
             // 
@@ -295,22 +295,22 @@
             // txtLoaiKH
             // 
             this.txtLoaiKH.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.txtLoaiKH.Enabled = false;
             this.txtLoaiKH.Location = new System.Drawing.Point(331, 40);
             this.txtLoaiKH.Name = "txtLoaiKH";
             this.txtLoaiKH.ReadOnly = true;
             this.txtLoaiKH.Size = new System.Drawing.Size(154, 20);
             this.txtLoaiKH.TabIndex = 83;
+            this.txtLoaiKH.TabStop = false;
             // 
             // txtGioiTinh
             // 
             this.txtGioiTinh.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.txtGioiTinh.Enabled = false;
             this.txtGioiTinh.Location = new System.Drawing.Point(331, 66);
             this.txtGioiTinh.Name = "txtGioiTinh";
             this.txtGioiTinh.ReadOnly = true;
             this.txtGioiTinh.Size = new System.Drawing.Size(154, 20);
             this.txtGioiTinh.TabIndex = 84;
+            this.txtGioiTinh.TabStop = false;
             // 
             // XemChiTietKH
             // 

@@ -18,8 +18,8 @@ namespace FormDesignFSS2.GUI
     /// </summary>
     public partial class SuaNguon : Form
     {
-        // Nguồn cần sửa
         public Nguon nguon;
+        public DataGridView dataGridView;
 
         /// <summary>
         /// Khởi tạo form
@@ -94,6 +94,17 @@ namespace FormDesignFSS2.GUI
                 NguonBUS nguonBUS = new NguonBUS();
                 if (nguonBUS.SuaNguon(txtMaNguon.Text, txtHanMuc.Text, txtTienCoTheChoVay.Text))
                 {
+                    // Cập nhật lại danh sách 
+                    foreach(DataGridViewRow temp in dataGridView.Rows)
+                    {
+                        if(temp.Cells[0].Value.ToString() == txtMaNguon.Text)
+                        {
+                            temp.Cells[1].Value = txtTenNguon.Text;
+                            temp.Cells[2].Value = txtHanMuc.Text;
+                            temp.Cells[3].Value = txtTienDaChoVay.Text;
+                            temp.Cells[4].Value = txtTienCoTheChoVay.Text;
+                        }
+                    }
                     MessageBox.Show("Sửa thông tin nguồn thành công", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Close();
                 }

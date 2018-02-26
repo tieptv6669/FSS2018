@@ -165,6 +165,8 @@ namespace FormDesignFSS2.GUI
                 suaUser.nguoiDung.chucVuND = gridTabUser.SelectedRows[0].Cells[2].Value.ToString();
                 suaUser.nguoiDung.phongBanND = gridTabUser.SelectedRows[0].Cells[3].Value.ToString();
                 suaUser.nguoiDung.quyenND = gridTabUser.SelectedRows[0].Cells[4].Value.ToString();
+                suaUser.dataGridView = gridTabUser;
+
                 suaUser.ShowDialog();
             }
             else
@@ -188,6 +190,8 @@ namespace FormDesignFSS2.GUI
                     NguoiDungBUS nguoiDungBUS = new NguoiDungBUS();
                     if (nguoiDungBUS.XoaNguoiDung(gridTabUser.SelectedRows[0].Cells[0].Value.ToString()))
                     {
+                        // Cập nhật grid view
+                        gridTabUser.Rows.Remove(gridTabUser.SelectedRows[0]);
                         MessageBox.Show("Xóa người dùng thành công", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
@@ -323,6 +327,7 @@ namespace FormDesignFSS2.GUI
             if (gridTabKH.RowCount > 0 && gridTabKH.SelectedRows.Count > 0)
             {
                 SuaKH suaKH = new SuaKH();
+                suaKH.dataGridView = gridTabKH;
                 List<KhachHang> list = new List<KhachHang>();
 
                 KhachHangBUS khachHangBUS = new KhachHangBUS();
@@ -356,20 +361,6 @@ namespace FormDesignFSS2.GUI
                 MessageBox.Show("Thao tác lỗi. Bạn chưa chọn khách hàng nào", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-        /// <summary>
-        /// Xử lý sự kiện khi chọn một tab nào đó 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        //private void tabControl_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-        //    if(tabControl.SelectedTab.Text == "Nguồn")
-        //    {
-        //        // Hiển thị danh sách tất cả các nguồn hiện có
-        //        HienThiDSNguon();
-        //    }
-        //}
 
         /// <summary>
         /// Hiển thị danh sách các nguồn hiện có 
@@ -419,6 +410,7 @@ namespace FormDesignFSS2.GUI
             if(gridDSNguon.RowCount > 0 && gridDSNguon.SelectedRows.Count > 0)
             {
                 SuaNguon suaNguon = new SuaNguon();
+                suaNguon.dataGridView = gridDSNguon;
                 suaNguon.nguon.maNg = gridDSNguon.SelectedRows[0].Cells[0].Value.ToString();
                 suaNguon.nguon.tenNg = gridDSNguon.SelectedRows[0].Cells[1].Value.ToString();
                 suaNguon.nguon.hanMucNg = Int64.Parse(gridDSNguon.SelectedRows[0].Cells[2].Value.ToString());
@@ -451,6 +443,7 @@ namespace FormDesignFSS2.GUI
                     NguonBUS nguonBUS = new NguonBUS();
                     if (nguonBUS.XoaNguon(maNguon))
                     {
+                        gridDSNguon.Rows.Remove(gridDSNguon.SelectedRows[0]);
                         MessageBox.Show("Xóa nguồn thành công", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
@@ -485,6 +478,28 @@ namespace FormDesignFSS2.GUI
                     gridDSNguon.Rows.Add(temp.maNg, temp.tenNg, temp.hanMucNg.ToString(), temp.tienDaChoVay.ToString(), temp.tienCoTheChoVay.ToString());
                 }
             }
+        }
+
+        /// <summary>
+        /// Xử lý sự kiện click button thêm giải ngân 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnThemTabGN_Click(object sender, EventArgs e)
+        {
+            ThemGN themGN = new ThemGN();
+            themGN.ShowDialog();
+        }
+
+        /// <summary>
+        /// Xử lý sự kiện click button thêm khách hàng 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnThemTabKH_Click(object sender, EventArgs e)
+        {
+            ThemKH themKH = new ThemKH();
+            themKH.ShowDialog();
         }
     }
 }

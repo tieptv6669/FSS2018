@@ -19,6 +19,7 @@ namespace FormDesignFSS2.GUI
     public partial class SuaUser : Form
     {
         public NguoiDung nguoiDung;
+        public DataGridView dataGridView;
 
         /// <summary>
         /// Khởi tạo form
@@ -128,6 +129,17 @@ namespace FormDesignFSS2.GUI
                     NguoiDungBUS nguoiDungBUS = new NguoiDungBUS();
                     if (nguoiDungBUS.SuaThongTinNguoiDung(txtTenDangNhap.Text, txtHoTen.Text, txtChucVu.Text, txtPhongBan.Text, cboQuyen.SelectedItem.ToString()))
                     {
+                        // Hiển thị lại danh sách người dùng lên grid view
+                        foreach (DataGridViewRow temp in dataGridView.Rows)
+                        {
+                            if (temp.Cells[0].Value.ToString() == txtTenDangNhap.Text)
+                            {
+                                temp.Cells[1].Value = txtHoTen.Text;
+                                temp.Cells[2].Value = txtChucVu.Text;
+                                temp.Cells[3].Value = txtPhongBan.Text;
+                                temp.Cells[4].Value = cboQuyen.SelectedItem.ToString();
+                            }
+                        }
                         MessageBox.Show("Sửa thông tin người dùng thành công", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         Close();
                     }

@@ -483,6 +483,7 @@
             this.btnThemTabKH.Text = "Thêm";
             this.btnThemTabKH.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnThemTabKH.UseVisualStyleBackColor = false;
+            this.btnThemTabKH.Click += new System.EventHandler(this.btnThemTabKH_Click);
             // 
             // label18
             // 
@@ -1172,6 +1173,7 @@
             this.btnThemTabGN.Text = "Thêm";
             this.btnThemTabGN.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnThemTabGN.UseVisualStyleBackColor = false;
+            this.btnThemTabGN.Click += new System.EventHandler(this.btnThemTabGN_Click);
             // 
             // label15
             // 
