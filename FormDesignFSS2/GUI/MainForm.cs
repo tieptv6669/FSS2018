@@ -54,7 +54,6 @@ namespace FormDesignFSS2.GUI
                 btnResetTabUser.Enabled = false;
                 btnSuaTabKH.Enabled = false;
                 btnSuaTabSPTD.Enabled = false;
-                btnXoaTabSPTD.Enabled = false;
                 btnHuyDangKySPTD.Enabled = false;
                 btnSuaTabNguon.Enabled = false;
                 btnXoaTabNguon.Enabled = false;

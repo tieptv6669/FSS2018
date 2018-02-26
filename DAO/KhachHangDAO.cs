@@ -171,6 +171,21 @@ namespace DAO
             }
         }
 
+        /// <summary>
+        /// Sửa thông tin khách hàng
+        /// </summary>
+        /// <param name="soTKLK"></param>
+        /// <param name="hoTenKH"></param>
+        /// <param name="loai"></param>
+        /// <param name="ngaySinhKH"></param>
+        /// <param name="gioiTinhKH"></param>
+        /// <param name="ngheNghiepKH"></param>
+        /// <param name="soCMNNKH"></param>
+        /// <param name="diaChiKH"></param>
+        /// <param name="emailKH"></param>
+        /// <param name="SDTKH"></param>
+        /// <param name="ghiChuKH"></param>
+        /// <returns></returns>
         public static bool suaThongTinKH(string soTKLK, string hoTenKH, string loai, DateTime ngaySinhKH, 
             string gioiTinhKH, string ngheNghiepKH, string soCMNNKH, string diaChiKH, 
             string emailKH, string SDTKH, string ghiChuKH)

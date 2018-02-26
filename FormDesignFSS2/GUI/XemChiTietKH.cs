@@ -20,6 +20,9 @@ namespace FormDesignFSS2.GUI
     {
         public KhachHang khachHang;
 
+        /// <summary>
+        /// Khởi tạo form
+        /// </summary>
         public XemChiTietKH()
         {
             InitializeComponent();

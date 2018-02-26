@@ -81,7 +81,6 @@
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.columm1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblDSSPTD = new System.Windows.Forms.Label();
-            this.btnXoaTabSPTD = new System.Windows.Forms.Button();
             this.btnSuaTabSPTD = new System.Windows.Forms.Button();
             this.btnThemTabSPTD = new System.Windows.Forms.Button();
             this.tabDKSPTD = new System.Windows.Forms.TabPage();
@@ -603,7 +602,6 @@
             this.tabSPTD.Controls.Add(this.lblTenSPTDTabSPTD);
             this.tabSPTD.Controls.Add(this.gridDSSPTD);
             this.tabSPTD.Controls.Add(this.lblDSSPTD);
-            this.tabSPTD.Controls.Add(this.btnXoaTabSPTD);
             this.tabSPTD.Controls.Add(this.btnSuaTabSPTD);
             this.tabSPTD.Controls.Add(this.btnThemTabSPTD);
             this.tabSPTD.Location = new System.Drawing.Point(4, 24);
@@ -749,19 +747,6 @@
             this.lblDSSPTD.Size = new System.Drawing.Size(174, 15);
             this.lblDSSPTD.TabIndex = 0;
             this.lblDSSPTD.Text = "Danh sách sản phẩm tín dụng:";
-            // 
-            // btnXoaTabSPTD
-            // 
-            this.btnXoaTabSPTD.BackColor = System.Drawing.Color.White;
-            this.btnXoaTabSPTD.Image = global::FormDesignFSS2.Properties.Resources._121;
-            this.btnXoaTabSPTD.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnXoaTabSPTD.Location = new System.Drawing.Point(379, 314);
-            this.btnXoaTabSPTD.Name = "btnXoaTabSPTD";
-            this.btnXoaTabSPTD.Size = new System.Drawing.Size(75, 38);
-            this.btnXoaTabSPTD.TabIndex = 7;
-            this.btnXoaTabSPTD.Text = "Xóa";
-            this.btnXoaTabSPTD.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnXoaTabSPTD.UseVisualStyleBackColor = false;
             // 
             // btnSuaTabSPTD
             // 
@@ -1873,7 +1858,6 @@
         private System.Windows.Forms.TabPage tabNguon;
         private System.Windows.Forms.Label lblDSSPTD;
         private System.Windows.Forms.DataGridView gridDSSPTD;
-        private System.Windows.Forms.Button btnXoaTabSPTD;
         private System.Windows.Forms.Button btnSuaTabSPTD;
         private System.Windows.Forms.Button btnThemTabSPTD;
         private System.Windows.Forms.TabPage tabGiaiNgan;

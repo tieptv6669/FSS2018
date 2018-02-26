@@ -21,12 +21,20 @@ namespace FormDesignFSS2.GUI
     {
         public KhachHang khachHang;
 
+        /// <summary>
+        /// Khởi tạo form
+        /// </summary>
         public SuaKH()
         {
             InitializeComponent();
             khachHang = new KhachHang();
         }
 
+        /// <summary>
+        /// Tải form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SuaKH_Load(object sender, EventArgs e)
         {
             txtSoTKLK.Text = khachHang.STKLK;
