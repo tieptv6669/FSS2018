@@ -44,5 +44,32 @@ namespace BUS
             }
             return true;
         }
+
+        /// <summary>
+        /// Kiểm tra một chuỗi kí tự là số nguyên dương
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
+        [WebMethod]
+        public bool LaMotSoNguyenDuong(string str)
+        {
+            foreach(char c in str)
+            {
+                if(c < '0' || c > '9')
+                {
+                    return false;
+                }
+            }
+
+            long temp = Int64.Parse(str);
+            if(temp > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

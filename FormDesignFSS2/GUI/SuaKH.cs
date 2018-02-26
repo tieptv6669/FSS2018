@@ -13,6 +13,10 @@ using FormDesignFSS2;
 
 namespace FormDesignFSS2.GUI
 {
+    /// <summary>
+    /// Thùy Linh
+    /// 25/2/2018
+    /// </summary>
     public partial class SuaKH : Form
     {
         public KhachHang khachHang;
@@ -64,6 +68,11 @@ namespace FormDesignFSS2.GUI
             }
         }
 
+        /// <summary>
+        /// Xử lý sự kiện click btn Xác Nhận
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnXacNhan_Click(object sender, EventArgs e)
         {
             if (btnXacNhan.Text == "Xác nhận")
@@ -98,6 +107,11 @@ namespace FormDesignFSS2.GUI
                         }
                     case 7:
                         {
+                            lblError.Text = "Bạn chưa nhập số điện thoại";
+                            break;
+                        }
+                    case 8:
+                        {
                             lblError.Text = "Khách hàng chưa đủ 18 tuổi";
                             break;
                         }
@@ -116,6 +130,10 @@ namespace FormDesignFSS2.GUI
                             btnXacNhan.Text = "Lưu";
                             btnHuy.Text = "Quay lại";
                             btnHuy.Image = Properties.Resources._101;
+                            if(txtGhiChu.Text.Length == 0)
+                            {
+                                txtGhiChu.Text = " ";
+                            }
                             txtSoTKLK.Enabled = false;
                             txtHoTenKH.Enabled = false;
                             cmbLoaiKH.Enabled = false;
@@ -167,6 +185,11 @@ namespace FormDesignFSS2.GUI
             }
         }
 
+        /// <summary>
+        /// Xử lý sự kiện click btn Hủy
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnHuy_Click_1(object sender, EventArgs e)
         {
             if (btnHuy.Text == "Hủy")

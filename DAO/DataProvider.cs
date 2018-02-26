@@ -73,11 +73,8 @@ namespace DAO
         {
             try
             {
-                //OracleConnection oracleConnection = GetOracleConnection();
                 oracleCommand.Connection = GetOracleConnection();
                 oracleCommand.ExecuteNonQuery();
-
-                //oracleConnection.Close();
 
                 return true;
             }catch(Exception e)

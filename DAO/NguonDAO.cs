@@ -53,5 +53,99 @@ namespace DAO
                 return null;
             }
         }
+
+        /// <summary>
+        /// Tìm kiếm nguồn theo tên nguồn
+        /// </summary>
+        /// <param name="tenNguon"></param>
+        /// <returns></returns>
+        public static List<Nguon> TimKiemNguon(string tenNguon)
+        {
+            try
+            {
+                List<Nguon> list = new List<Nguon>();
+                OracleCommand oracleCommand = new OracleCommand();
+                oracleCommand.CommandText = "SELECT * FROM NGUON WHERE TENNGUON LIKE '%' || :tenNguon || '%'";
+                oracleCommand.Parameters.Add(new OracleParameter("tenNguon", tenNguon));
+
+                OracleDataReader oracleDataReader = DataProvider.GetOracleDataReader(oracleCommand);
+
+                if(oracleDataReader != null && oracleDataReader.HasRows)
+                {
+                    while (oracleDataReader.Read())
+                    {
+                        Nguon nguon = new Nguon();
+                        nguon.idNg = oracleDataReader.GetInt32(0);
+                        nguon.maNg = oracleDataReader.GetString(1);
+                        nguon.tenNg = oracleDataReader.GetString(2);
+                        nguon.hanMucNg = oracleDataReader.GetInt64(3);
+                        nguon.tienDaChoVay = oracleDataReader.GetInt64(4);
+                        nguon.tienCoTheChoVay = oracleDataReader.GetInt64(5);
+                        list.Add(nguon);
+                    }
+                }
+
+                return list;
+            }catch(Exception e)
+            {
+                MessageBox.Show("Lỗi: " + e.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// Thêm nguồn
+        /// </summary>
+        /// <param name="nguon"></param>
+        /// <returns></returns>
+        public static bool ThemNguon(Nguon nguon)
+        {
+            try
+            {
+                OracleCommand oracleCommand = new OracleCommand();
+                oracleCommand.CommandText = "INSERT INTO NGUON (MANGUON, TENNGUON, HANMUC, SOTIENDACHOVAY, SOTIENCOTHECHOVAY) VALUES " +
+                    "(:maNguon, :tenNguon, :hanMuc, :soTienDaChoVay, :soTienCoTheChoVay)";
+                oracleCommand.Parameters.Add(new OracleParameter("maNguon", nguon.maNg));
+                oracleCommand.Parameters.Add(new OracleParameter("tenNguon", nguon.tenNg));
+                oracleCommand.Parameters.Add(new OracleParameter("hanMuc", nguon.hanMucNg));
+                oracleCommand.Parameters.Add(new OracleParameter("soTienDaChoVay", nguon.tienDaChoVay));
+                oracleCommand.Parameters.Add(new OracleParameter("soTienCoTheChoVay", nguon.tienCoTheChoVay));
+
+                return DataProvider.ExcuteNonQuery(oracleCommand);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Lỗi: " + e.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Sửa nguồn
+        /// </summary>
+        /// <param name="maNguon"></param>
+        /// <param name="hanMuc"></param>
+        /// <param name="tienCoTheChoVay"></param>
+        /// <returns></returns>
+        public static bool SuaNguon(string maNguon, string hanMuc, string tienCoTheChoVay)
+        {
+            try
+            {
+                long hanMucNg = Int64.Parse(hanMuc);
+                long soTienCoTheChoVay = Int64.Parse(tienCoTheChoVay);
+
+                OracleCommand oracleCommand = new OracleCommand();
+                oracleCommand.CommandText = "UPDATE NGUON SET HANMUC = :hanMuc, SOTIENCOTHECHOVAY = :tienCoTheChoVay WHERE MANGUON = :maNguon";
+                oracleCommand.Parameters.Add(new OracleParameter("hanMuc", hanMucNg));
+                oracleCommand.Parameters.Add(new OracleParameter("tienCoTheChoVay", soTienCoTheChoVay));
+                oracleCommand.Parameters.Add(new OracleParameter("maNguon", maNguon));
+
+                return DataProvider.ExcuteNonQuery(oracleCommand);
+            }catch(Exception e)
+            {
+                MessageBox.Show("Lỗi: " + e.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
     }
 }

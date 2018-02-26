@@ -41,42 +41,50 @@ namespace FormDesignFSS2.GUI
         /// <param name="e"></param>
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
-            NguoiDungBUS nguoiDungBUS = new NguoiDungBUS();
-
-            switch (nguoiDungBUS.KTThongTinDangNhap(txtTenDangNhap.Text, txtMatKhau.Text))
+            try
             {
-                case 1:
-                    {
-                        lblError.Text = "Bạn chưa nhập tên đăng nhập";
-                        break;
-                    }
-                case 2:
-                    {
-                        lblError.Text = "Bạn chưa nhập mật khẩu";
-                        break;
-                    }
-                case 0:
-                    {
-                        string jsonNguoiDung = nguoiDungBUS.GetNguoiDung(txtTenDangNhap.Text, txtMatKhau.Text);
+                NguoiDungBUS nguoiDungBUS = new NguoiDungBUS();
 
-                        if (jsonNguoiDung != null)
+                switch (nguoiDungBUS.KTThongTinDangNhap(txtTenDangNhap.Text, txtMatKhau.Text))
+                {
+                    case 1:
                         {
-                            MainForm mainForm = new MainForm();
-                            NguoiDung nguoiDungDTO = JsonConvert.DeserializeObject<NguoiDung>(jsonNguoiDung);
-
-                            Hide();
-                            MainForm.nguoiDungHienTai = nguoiDungDTO;
-                            mainForm.ShowDialog();
-                            Close();
+                            lblError.Text = "Bạn chưa nhập tên đăng nhập";
+                            break;
                         }
-                        else
+                    case 2:
                         {
-                            lblError.Text = "Tên đăng nhập hoặc mật khẩu không chính xác";
+                            lblError.Text = "Bạn chưa nhập mật khẩu";
+                            break;
                         }
+                    case 0:
+                        {
+                            string jsonNguoiDung = nguoiDungBUS.GetNguoiDung(txtTenDangNhap.Text, txtMatKhau.Text);
 
-                        break;
-                    }
+                            if (jsonNguoiDung != null)
+                            {
+                                MainForm mainForm = new MainForm();
+                                NguoiDung nguoiDungDTO = JsonConvert.DeserializeObject<NguoiDung>(jsonNguoiDung);
+
+                                Hide();
+                                MainForm.nguoiDungHienTai = nguoiDungDTO;
+                                mainForm.ShowDialog();
+                                Close();
+                            }
+                            else
+                            {
+                                lblError.Text = "Tên đăng nhập hoặc mật khẩu không chính xác";
+                            }
+
+                            break;
+                        }
+                }
             }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
 
         /// <summary>

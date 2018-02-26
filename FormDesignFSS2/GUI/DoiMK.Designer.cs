@@ -89,6 +89,7 @@
             this.txtTenDangNhap.ReadOnly = true;
             this.txtTenDangNhap.Size = new System.Drawing.Size(142, 20);
             this.txtTenDangNhap.TabIndex = 7;
+            this.txtTenDangNhap.TabStop = false;
             this.txtTenDangNhap.Text = "NV00001";
             // 
             // txtMatKhauCu

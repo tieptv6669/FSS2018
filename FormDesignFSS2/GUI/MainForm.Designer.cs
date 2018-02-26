@@ -103,6 +103,9 @@
             this.btnHuyDangKySPTD = new System.Windows.Forms.Button();
             this.btnDangKyMoiSPTD = new System.Windows.Forms.Button();
             this.tabNguon = new System.Windows.Forms.TabPage();
+            this.btnTimKiemTabNguon = new System.Windows.Forms.Button();
+            this.txtTenNguon = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.btnXoaTabNguon = new System.Windows.Forms.Button();
             this.btnSuaTabNguon = new System.Windows.Forms.Button();
             this.btnThemTabNguon = new System.Windows.Forms.Button();
@@ -220,7 +223,6 @@
             this.tabControl.SelectedIndex = 0;
             this.tabControl.Size = new System.Drawing.Size(768, 386);
             this.tabControl.TabIndex = 0;
-            this.tabControl.SelectedIndexChanged += new System.EventHandler(this.tabControl_SelectedIndexChanged);
             // 
             // tabUser
             // 
@@ -514,28 +516,32 @@
             // 
             this.Column25.HeaderText = "Số TKLK";
             this.Column25.Name = "Column25";
-            this.Column25.HeaderText.Clone();
+            this.Column25.ReadOnly = true;
             // 
             // Column26
             // 
             this.Column26.HeaderText = "Họ tên";
             this.Column26.Name = "Column26";
+            this.Column26.ReadOnly = true;
             this.Column26.Width = 140;
             // 
             // Column27
             // 
             this.Column27.HeaderText = "Loại KH";
             this.Column27.Name = "Column27";
+            this.Column27.ReadOnly = true;
             // 
             // Column31
             // 
             this.Column31.HeaderText = "CMND/Giấy phép kinh doanh";
             this.Column31.Name = "Column31";
+            this.Column31.ReadOnly = true;
             // 
             // Column36
             // 
             this.Column36.HeaderText = "Ghi chú";
             this.Column36.Name = "Column36";
+            this.Column36.ReadOnly = true;
             this.Column36.Width = 290;
             // 
             // txtSoCMNDTabKH
@@ -693,40 +699,47 @@
             // 
             this.MáPTD.HeaderText = "Mã SPTD";
             this.MáPTD.Name = "MáPTD";
+            this.MáPTD.ReadOnly = true;
             this.MáPTD.Width = 60;
             // 
             // tenSPTD
             // 
             this.tenSPTD.HeaderText = "Tên SPTD";
             this.tenSPTD.Name = "tenSPTD";
+            this.tenSPTD.ReadOnly = true;
             this.tenSPTD.Width = 150;
             // 
             // Column29
             // 
             this.Column29.HeaderText = "Nguồn";
             this.Column29.Name = "Column29";
+            this.Column29.ReadOnly = true;
             this.Column29.Width = 130;
             // 
             // thoiHanVay
             // 
             this.thoiHanVay.HeaderText = "Thời hạn vay";
             this.thoiHanVay.Name = "thoiHanVay";
+            this.thoiHanVay.ReadOnly = true;
             this.thoiHanVay.Width = 80;
             // 
             // laiSuat
             // 
             this.laiSuat.HeaderText = "Lãi suất";
             this.laiSuat.Name = "laiSuat";
+            this.laiSuat.ReadOnly = true;
             // 
             // Column5
             // 
             this.Column5.HeaderText = "Lãi suất quá hạn";
             this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
             // 
             // columm1
             // 
             this.columm1.HeaderText = "Trạng thái";
             this.columm1.Name = "columm1";
+            this.columm1.ReadOnly = true;
             // 
             // lblDSSPTD
             // 
@@ -854,32 +867,38 @@
             // 
             this.Column6.HeaderText = "Mã SPTD";
             this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
             // 
             // Column1
             // 
             this.Column1.HeaderText = "Tên SPTD";
             this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
             this.Column1.Width = 220;
             // 
             // Column44
             // 
             this.Column44.HeaderText = "Số TKLK";
             this.Column44.Name = "Column44";
+            this.Column44.ReadOnly = true;
             // 
             // Column40
             // 
             this.Column40.HeaderText = "Tên KH";
             this.Column40.Name = "Column40";
+            this.Column40.ReadOnly = true;
             // 
             // Column2
             // 
             this.Column2.HeaderText = "Tên nguồn";
             this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
             // 
             // Column7
             // 
             this.Column7.HeaderText = "Trạng thái";
             this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
             // 
             // label4
             // 
@@ -947,6 +966,9 @@
             // 
             // tabNguon
             // 
+            this.tabNguon.Controls.Add(this.btnTimKiemTabNguon);
+            this.tabNguon.Controls.Add(this.txtTenNguon);
+            this.tabNguon.Controls.Add(this.label1);
             this.tabNguon.Controls.Add(this.btnXoaTabNguon);
             this.tabNguon.Controls.Add(this.btnSuaTabNguon);
             this.tabNguon.Controls.Add(this.btnThemTabNguon);
@@ -960,6 +982,36 @@
             this.tabNguon.Text = "Nguồn";
             this.tabNguon.UseVisualStyleBackColor = true;
             // 
+            // btnTimKiemTabNguon
+            // 
+            this.btnTimKiemTabNguon.BackColor = System.Drawing.Color.White;
+            this.btnTimKiemTabNguon.Image = global::FormDesignFSS2.Properties.Resources._147;
+            this.btnTimKiemTabNguon.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnTimKiemTabNguon.Location = new System.Drawing.Point(419, 6);
+            this.btnTimKiemTabNguon.Name = "btnTimKiemTabNguon";
+            this.btnTimKiemTabNguon.Size = new System.Drawing.Size(87, 38);
+            this.btnTimKiemTabNguon.TabIndex = 2;
+            this.btnTimKiemTabNguon.Text = "Tìm kiếm";
+            this.btnTimKiemTabNguon.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnTimKiemTabNguon.UseVisualStyleBackColor = false;
+            this.btnTimKiemTabNguon.Click += new System.EventHandler(this.btnTimKiemTabNguon_Click);
+            // 
+            // txtTenNguon
+            // 
+            this.txtTenNguon.Location = new System.Drawing.Point(83, 7);
+            this.txtTenNguon.Name = "txtTenNguon";
+            this.txtTenNguon.Size = new System.Drawing.Size(330, 21);
+            this.txtTenNguon.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(8, 7);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(69, 15);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Tên nguồn:";
+            // 
             // btnXoaTabNguon
             // 
             this.btnXoaTabNguon.BackColor = System.Drawing.Color.White;
@@ -968,10 +1020,11 @@
             this.btnXoaTabNguon.Location = new System.Drawing.Point(379, 314);
             this.btnXoaTabNguon.Name = "btnXoaTabNguon";
             this.btnXoaTabNguon.Size = new System.Drawing.Size(75, 38);
-            this.btnXoaTabNguon.TabIndex = 4;
+            this.btnXoaTabNguon.TabIndex = 5;
             this.btnXoaTabNguon.Text = "Xóa";
             this.btnXoaTabNguon.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnXoaTabNguon.UseVisualStyleBackColor = false;
+            this.btnXoaTabNguon.Click += new System.EventHandler(this.btnXoaTabNguon_Click);
             // 
             // btnSuaTabNguon
             // 
@@ -981,10 +1034,11 @@
             this.btnSuaTabNguon.Location = new System.Drawing.Point(261, 314);
             this.btnSuaTabNguon.Name = "btnSuaTabNguon";
             this.btnSuaTabNguon.Size = new System.Drawing.Size(75, 38);
-            this.btnSuaTabNguon.TabIndex = 3;
+            this.btnSuaTabNguon.TabIndex = 4;
             this.btnSuaTabNguon.Text = "Sửa";
             this.btnSuaTabNguon.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSuaTabNguon.UseVisualStyleBackColor = false;
+            this.btnSuaTabNguon.Click += new System.EventHandler(this.btnSuaTabNguon_Click);
             // 
             // btnThemTabNguon
             // 
@@ -994,10 +1048,11 @@
             this.btnThemTabNguon.Location = new System.Drawing.Point(146, 314);
             this.btnThemTabNguon.Name = "btnThemTabNguon";
             this.btnThemTabNguon.Size = new System.Drawing.Size(75, 38);
-            this.btnThemTabNguon.TabIndex = 2;
+            this.btnThemTabNguon.TabIndex = 3;
             this.btnThemTabNguon.Text = "Thêm";
             this.btnThemTabNguon.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnThemTabNguon.UseVisualStyleBackColor = false;
+            this.btnThemTabNguon.Click += new System.EventHandler(this.btnThemTabNguon_Click);
             // 
             // gridDSNguon
             // 
@@ -1009,47 +1064,53 @@
             this.Column10,
             this.Column3,
             this.Column11});
-            this.gridDSNguon.Location = new System.Drawing.Point(0, 26);
+            this.gridDSNguon.Location = new System.Drawing.Point(0, 58);
             this.gridDSNguon.MultiSelect = false;
             this.gridDSNguon.Name = "gridDSNguon";
             this.gridDSNguon.ReadOnly = true;
             this.gridDSNguon.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridDSNguon.Size = new System.Drawing.Size(760, 282);
-            this.gridDSNguon.TabIndex = 1;
+            this.gridDSNguon.Size = new System.Drawing.Size(760, 250);
+            this.gridDSNguon.TabIndex = 3;
+            this.gridDSNguon.TabStop = false;
             // 
             // Column8
             // 
             this.Column8.HeaderText = "Mã nguồn";
             this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
             // 
             // Column9
             // 
             this.Column9.HeaderText = "Tên nguồn";
             this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
             this.Column9.Width = 270;
             // 
             // Column10
             // 
             this.Column10.HeaderText = "Hạn mức";
             this.Column10.Name = "Column10";
+            this.Column10.ReadOnly = true;
             this.Column10.Width = 120;
             // 
             // Column3
             // 
             this.Column3.HeaderText = "Số tiền đã cho vay";
             this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
             this.Column3.Width = 120;
             // 
             // Column11
             // 
             this.Column11.HeaderText = "Số tiền có thể cho vay";
             this.Column11.Name = "Column11";
+            this.Column11.ReadOnly = true;
             this.Column11.Width = 120;
             // 
             // lblDSNguon
             // 
             this.lblDSNguon.AutoSize = true;
-            this.lblDSNguon.Location = new System.Drawing.Point(6, 8);
+            this.lblDSNguon.Location = new System.Drawing.Point(6, 40);
             this.lblDSNguon.Name = "lblDSNguon";
             this.lblDSNguon.Size = new System.Drawing.Size(107, 15);
             this.lblDSNguon.TabIndex = 0;
@@ -1158,30 +1219,35 @@
             // 
             this.Column17.HeaderText = "Mã GN";
             this.Column17.Name = "Column17";
+            this.Column17.ReadOnly = true;
             this.Column17.Width = 120;
             // 
             // Column18
             // 
             this.Column18.HeaderText = "Số tiền giải ngân";
             this.Column18.Name = "Column18";
+            this.Column18.ReadOnly = true;
             this.Column18.Width = 150;
             // 
             // Column20
             // 
             this.Column20.HeaderText = "Nguồn";
             this.Column20.Name = "Column20";
+            this.Column20.ReadOnly = true;
             this.Column20.Width = 220;
             // 
             // Column19
             // 
             this.Column19.HeaderText = "Ngày giải ngân";
             this.Column19.Name = "Column19";
+            this.Column19.ReadOnly = true;
             this.Column19.Width = 120;
             // 
             // Column21
             // 
             this.Column21.HeaderText = "Ngày đáo hạn";
             this.Column21.Name = "Column21";
+            this.Column21.ReadOnly = true;
             this.Column21.Width = 120;
             // 
             // txtTenKHTabGN
@@ -1283,24 +1349,28 @@
             // 
             this.Column4.HeaderText = "Mã GN";
             this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
             this.Column4.Width = 150;
             // 
             // Column35
             // 
             this.Column35.HeaderText = "Dư nợ gốc";
             this.Column35.Name = "Column35";
+            this.Column35.ReadOnly = true;
             this.Column35.Width = 200;
             // 
             // Column37
             // 
             this.Column37.HeaderText = "Dư nợ lãi trong hạn";
             this.Column37.Name = "Column37";
+            this.Column37.ReadOnly = true;
             this.Column37.Width = 200;
             // 
             // Column28
             // 
             this.Column28.HeaderText = "Dư nợ lãi quá hạn";
             this.Column28.Name = "Column28";
+            this.Column28.ReadOnly = true;
             this.Column28.Width = 200;
             // 
             // label22
@@ -1424,53 +1494,62 @@
             // 
             this.Column24.HeaderText = "Tên đăng nhập";
             this.Column24.Name = "Column24";
+            this.Column24.ReadOnly = true;
             this.Column24.Width = 80;
             // 
             // Column39
             // 
             this.Column39.HeaderText = "Tên nhân viên";
             this.Column39.Name = "Column39";
+            this.Column39.ReadOnly = true;
             this.Column39.Width = 80;
             // 
             // Column42
             // 
             this.Column42.HeaderText = "Tên KH";
             this.Column42.Name = "Column42";
+            this.Column42.ReadOnly = true;
             this.Column42.Width = 80;
             // 
             // Column22
             // 
             this.Column22.HeaderText = "Mã đối tượng";
             this.Column22.Name = "Column22";
+            this.Column22.ReadOnly = true;
             this.Column22.Width = 80;
             // 
             // Column41
             // 
             this.Column41.HeaderText = "Chức năng";
             this.Column41.Name = "Column41";
+            this.Column41.ReadOnly = true;
             this.Column41.Width = 80;
             // 
             // Column33
             // 
             this.Column33.HeaderText = "Giá trị cũ";
             this.Column33.Name = "Column33";
+            this.Column33.ReadOnly = true;
             this.Column33.Width = 80;
             // 
             // Column34
             // 
             this.Column34.HeaderText = "Giá trị mới";
             this.Column34.Name = "Column34";
+            this.Column34.ReadOnly = true;
             this.Column34.Width = 80;
             // 
             // Column43
             // 
             this.Column43.HeaderText = "Nội dung";
             this.Column43.Name = "Column43";
+            this.Column43.ReadOnly = true;
             // 
             // Column23
             // 
             this.Column23.HeaderText = "Thời gian";
             this.Column23.Name = "Column23";
+            this.Column23.ReadOnly = true;
             this.Column23.Width = 80;
             // 
             // dateTimePickerFT
@@ -1939,6 +2018,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column27;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column31;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column36;
+        private System.Windows.Forms.Button btnTimKiemTabNguon;
+        private System.Windows.Forms.TextBox txtTenNguon;
+        private System.Windows.Forms.Label label1;
     }
 }
 
