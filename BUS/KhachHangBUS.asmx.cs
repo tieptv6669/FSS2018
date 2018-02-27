@@ -97,6 +97,62 @@ namespace BUS
         }
 
         /// <summary>
+        /// Kiểm tra thông tin sửa KH
+        /// </summary>
+        /// <param name="ngayMoTK"></param>
+        /// <param name="hoTenKH"></param>
+        /// <param name="ngaySinh"></param>
+        /// <param name="ngheNghiep"></param>
+        /// <param name="soCMND"></param>
+        /// <param name="diaChi"></param>
+        /// <param name="email"></param>
+        /// <param name="sdt"></param>
+        /// <returns></returns>
+        [WebMethod]
+        public int KTThongTinSuaKH(DateTime ngayMoTK, string hoTenKH, DateTime ngaySinh, string ngheNghiep, string soCMND, string diaChi, string email, string sdt)
+        {
+            Helper helper = new Helper();
+            if(hoTenKH == "")
+            {
+                return 2;
+            }
+            if(ngheNghiep == "")
+            {
+                return 3;
+            }
+            if(soCMND == "")
+            {
+                return 4;
+            }
+            if(diaChi == "")
+            {
+                return 5;
+            }
+            if(email == "")
+            {
+                return 6;
+            }
+            if(sdt == "")
+            {
+                return 7;
+            }
+            if(ngayMoTK.Year - ngaySinh.Year < 18)
+            {
+                return 8;
+            }
+            if (!helper.ChiChuaChuCai(hoTenKH))
+            {
+                return 9;
+            }
+            if (!helper.ChiChuaChuCai(ngheNghiep))
+            {
+                return 10;
+            }
+
+            return 0;
+        }
+
+        /// <summary>
         /// Lấy danh sách khách hàng
         /// </summary>
         /// <returns></returns>
