@@ -10,7 +10,7 @@
             <s:element minOccurs="0" maxOccurs="1" name="hoTen" type="s:string" />
             <s:element minOccurs="1" maxOccurs="1" name="ngaySinh" type="s:dateTime" />
             <s:element minOccurs="0" maxOccurs="1" name="ngheNghiep" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="soCMNN" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="soCMND" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="diaChi" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="SDT" type="s:string" />
@@ -88,6 +88,20 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="ThemKH">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="jsonData" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ThemKHResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ThemKHResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="KTThongTinThemKHSoapIn">
@@ -120,6 +134,12 @@
   <wsdl:message name="suaThongTinKHSoapOut">
     <wsdl:part name="parameters" element="tns:suaThongTinKHResponse" />
   </wsdl:message>
+  <wsdl:message name="ThemKHSoapIn">
+    <wsdl:part name="parameters" element="tns:ThemKH" />
+  </wsdl:message>
+  <wsdl:message name="ThemKHSoapOut">
+    <wsdl:part name="parameters" element="tns:ThemKHResponse" />
+  </wsdl:message>
   <wsdl:portType name="KhachHangBUSSoap">
     <wsdl:operation name="KTThongTinThemKH">
       <wsdl:input message="tns:KTThongTinThemKHSoapIn" />
@@ -140,6 +160,10 @@
     <wsdl:operation name="suaThongTinKH">
       <wsdl:input message="tns:suaThongTinKHSoapIn" />
       <wsdl:output message="tns:suaThongTinKHSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ThemKH">
+      <wsdl:input message="tns:ThemKHSoapIn" />
+      <wsdl:output message="tns:ThemKHSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="KhachHangBUSSoap" type="tns:KhachHangBUSSoap">
@@ -189,6 +213,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="ThemKH">
+      <soap:operation soapAction="http://tempuri.org/ThemKH" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="KhachHangBUSSoap12" type="tns:KhachHangBUSSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -230,6 +263,15 @@
     </wsdl:operation>
     <wsdl:operation name="suaThongTinKH">
       <soap12:operation soapAction="http://tempuri.org/suaThongTinKH" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ThemKH">
+      <soap12:operation soapAction="http://tempuri.org/ThemKH" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

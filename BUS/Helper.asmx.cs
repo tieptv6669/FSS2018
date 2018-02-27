@@ -71,5 +71,24 @@ namespace BUS
                 return false;
             }
         }
+
+        /// <summary>
+        /// Kiểm tra một chuỗi ký tự chỉ chứa ký tự số
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
+        [WebMethod]
+        public bool ChiChuaChuSo(string str)
+        {
+            foreach(char c in str)
+            {
+                if(c < '0' || c > '9')
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
     }
 }

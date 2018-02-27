@@ -34,10 +34,10 @@ namespace BUS
         /// <param name="SDT"></param>
         /// <returns></returns>
         [WebMethod]
-        public int KTThongTinThemKH(string soTKLK, DateTime ngayMoTK, string hoTen, DateTime ngaySinh, string ngheNghiep, string soCMNN, string diaChi, string email, string SDT)
+        public int KTThongTinThemKH(string soTKLK, DateTime ngayMoTK, string hoTen, DateTime ngaySinh, string ngheNghiep, string soCMND, string diaChi, string email, string SDT)
         {
             Helper helper = new Helper();
-            if (soTKLK == "")
+            if (soTKLK.Length == 4)
             {
                 return 1;
             }
@@ -49,7 +49,7 @@ namespace BUS
             {
                 return 3;
             }
-            if (soCMNN == "")
+            if (soCMND == "")
             {
                 return 4;
             }
@@ -76,6 +76,22 @@ namespace BUS
             if (helper.ChiChuaChuCai(ngheNghiep) == false)
             {
                 return 10;
+            }
+            if (!helper.ChiChuaChuSo(soCMND) || soCMND.Length > 15)
+            {
+                return 11;
+            }
+            if(!helper.ChiChuaChuSo(SDT) || SDT.Length > 15)
+            {
+                return 12;
+            }
+            if(KhachHangDAO.layMotKhachHang(soTKLK) != null)
+            {
+                return 13;
+            }
+            if(soTKLK.Length != 10 || !helper.ChiChuaChuSo(soTKLK.Substring(4, 6)))
+            {
+                return 14;
             }
             return 0;
         }
@@ -109,8 +125,8 @@ namespace BUS
         [WebMethod]
         public string layMotKhachHang(string soTKLK)
         {
-            List<KhachHang> list = KhachHangDAO.layMotKhachHang(soTKLK);
-            string jsonData = JsonConvert.SerializeObject(list);
+            KhachHang khachHang = KhachHangDAO.layMotKhachHang(soTKLK);
+            string jsonData = JsonConvert.SerializeObject(khachHang);
             return jsonData;
         }
 
@@ -148,6 +164,19 @@ namespace BUS
         public bool suaThongTinKH(string soTKLK, string hoTenKH, string loaiKH, DateTime ngaySinhKH, string gioiTinhKH, string ngheNghiep, string soCMND, string diaChiKH, string emailKH, string SDT, string ghiChu)
         {
             return KhachHangDAO.suaThongTinKH(soTKLK, hoTenKH, loaiKH, ngaySinhKH, gioiTinhKH, ngheNghiep, soCMND, diaChiKH, emailKH, SDT, ghiChu);
+        }
+
+        /// <summary>
+        /// Thêm khách hàng
+        /// </summary>
+        /// <param name="jsonData"></param>
+        /// <returns></returns>
+        [WebMethod]
+        public bool ThemKH(string jsonData)
+        {
+            KhachHang khachHang = new KhachHang();
+            khachHang = JsonConvert.DeserializeObject<KhachHang>(jsonData);
+            return KhachHangDAO.ThemKH(khachHang);
         }
     }
 }

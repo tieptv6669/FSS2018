@@ -287,33 +287,12 @@ namespace FormDesignFSS2.GUI
             if (gridTabKH.RowCount > 0 && gridTabKH.SelectedRows.Count > 0)
             {
                 XemChiTietKH xemChiTietKH = new XemChiTietKH();
-                List<KhachHang> list = new List<KhachHang>();
-
                 KhachHangBUS khachHangBUS = new KhachHangBUS();
+                KhachHang khachHang = new KhachHang();
                 string jsonData = khachHangBUS.layMotKhachHang(gridTabKH.SelectedRows[0].Cells[0].Value.ToString());
-
-                list = JsonConvert.DeserializeObject<List<KhachHang>>(jsonData);
-                foreach (KhachHang temp in list)
-                {
-                    if (temp.STKLK == gridTabKH.SelectedRows[0].Cells[0].Value.ToString())
-                    {
-                        xemChiTietKH.khachHang.STKLK = temp.STKLK;
-                        xemChiTietKH.khachHang.hoTenKH = temp.hoTenKH;
-                        xemChiTietKH.khachHang.gioiTinhKH = temp.gioiTinhKH;
-                        xemChiTietKH.khachHang.ngaySinhKH = temp.ngaySinhKH;
-                        xemChiTietKH.khachHang.ngayMoTKKH = temp.ngayMoTKKH;
-                        xemChiTietKH.khachHang.ngheNghiepKH = temp.ngheNghiepKH;
-                        xemChiTietKH.khachHang.soCMNNKH = temp.soCMNNKH;
-                        xemChiTietKH.khachHang.emailKH = temp.emailKH;
-                        xemChiTietKH.khachHang.loai = temp.loai;
-                        xemChiTietKH.khachHang.gioiTinhKH = temp.gioiTinhKH;
-                        xemChiTietKH.khachHang.diaChiKH = temp.diaChiKH;
-                        xemChiTietKH.khachHang.SDTKH = temp.SDTKH;
-                        xemChiTietKH.khachHang.ghiChuKH = temp.ghiChuKH;
-
-                        xemChiTietKH.ShowDialog();
-                    }
-                }
+                khachHang = JsonConvert.DeserializeObject<KhachHang>(jsonData);
+                xemChiTietKH.khachHang = khachHang;
+                xemChiTietKH.ShowDialog();
             }
         }
 
@@ -328,33 +307,15 @@ namespace FormDesignFSS2.GUI
             {
                 SuaKH suaKH = new SuaKH();
                 suaKH.dataGridView = gridTabKH;
-                List<KhachHang> list = new List<KhachHang>();
-
+                KhachHang khachHang = new KhachHang();
                 KhachHangBUS khachHangBUS = new KhachHangBUS();
                 string jsonData = khachHangBUS.layMotKhachHang(gridTabKH.SelectedRows[0].Cells[0].Value.ToString());
 
-                list = JsonConvert.DeserializeObject<List<KhachHang>>(jsonData);
-                foreach (KhachHang temp in list)
-                {
-                    if (temp.STKLK == gridTabKH.SelectedRows[0].Cells[0].Value.ToString())
-                    {
-                        suaKH.khachHang.STKLK = temp.STKLK;
-                        suaKH.khachHang.hoTenKH = temp.hoTenKH;
-                        suaKH.khachHang.gioiTinhKH = temp.gioiTinhKH;
-                        suaKH.khachHang.ngaySinhKH = temp.ngaySinhKH;
-                        suaKH.khachHang.ngayMoTKKH = temp.ngayMoTKKH;
-                        suaKH.khachHang.ngheNghiepKH = temp.ngheNghiepKH;
-                        suaKH.khachHang.soCMNNKH = temp.soCMNNKH;
-                        suaKH.khachHang.emailKH = temp.emailKH;
-                        suaKH.khachHang.loai = temp.loai;
-                        suaKH.khachHang.gioiTinhKH = temp.gioiTinhKH;
-                        suaKH.khachHang.diaChiKH = temp.diaChiKH;
-                        suaKH.khachHang.SDTKH = temp.SDTKH;
-                        suaKH.khachHang.ghiChuKH = temp.ghiChuKH;
+                khachHang = JsonConvert.DeserializeObject<KhachHang>(jsonData);
 
-                        suaKH.ShowDialog();
-                    }
-                }
+                suaKH.khachHang = khachHang;
+
+                suaKH.ShowDialog();
             }
             else
             {
