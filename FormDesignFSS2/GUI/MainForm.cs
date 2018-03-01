@@ -11,7 +11,9 @@ using DTO;
 using FormDesignFSS2.NguoiDungWS;
 using FormDesignFSS2.KhachHangWS;
 using FormDesignFSS2.NguonWS;
+using FormDesignFSS2.Report;
 using Newtonsoft.Json;
+using Microsoft.Reporting.WinForms;
 
 namespace FormDesignFSS2.GUI
 {
@@ -61,6 +63,7 @@ namespace FormDesignFSS2.GUI
             }
             reportViewerBC.RefreshReport();
             reportViewerBC.RefreshReport();
+            cboLoaiBC.SelectedIndex = 0;
         }
 
         /// <summary>
@@ -374,9 +377,9 @@ namespace FormDesignFSS2.GUI
                 suaNguon.dataGridView = gridDSNguon;
                 suaNguon.nguon.maNg = gridDSNguon.SelectedRows[0].Cells[0].Value.ToString();
                 suaNguon.nguon.tenNg = gridDSNguon.SelectedRows[0].Cells[1].Value.ToString();
-                suaNguon.nguon.hanMucNg = Int64.Parse(gridDSNguon.SelectedRows[0].Cells[2].Value.ToString());
-                suaNguon.nguon.tienDaChoVay = Int64.Parse(gridDSNguon.SelectedRows[0].Cells[3].Value.ToString());
-                suaNguon.nguon.tienCoTheChoVay = Int64.Parse(gridDSNguon.SelectedRows[0].Cells[4].Value.ToString());
+                suaNguon.nguon.hanMucNg = Int64.Parse(gridDSNguon.SelectedRows[0].Cells[2].Value.ToString().Replace(",", ""));
+                suaNguon.nguon.tienDaChoVay = Int64.Parse(gridDSNguon.SelectedRows[0].Cells[3].Value.ToString().Replace(",", ""));
+                suaNguon.nguon.tienCoTheChoVay = Int64.Parse(gridDSNguon.SelectedRows[0].Cells[4].Value.ToString().Replace(",", ""));
 
                 suaNguon.ShowDialog();
             }
@@ -429,14 +432,14 @@ namespace FormDesignFSS2.GUI
             gridDSNguon.Rows.Clear();
 
             NguonBUS nguonBUS = new NguonBUS();
-            string jsonData = nguonBUS.TimKiemNguon(txtTenNguon.Text);
+            string jsonData = nguonBUS.TimKiemNguon(txtTenNguon.Text, txtMaNguon.Text);
 
             List<Nguon> list = JsonConvert.DeserializeObject<List<Nguon>>(jsonData);
             if(list != null && list.Count > 0)
             {
                 foreach(Nguon temp in list)
                 {
-                    gridDSNguon.Rows.Add(temp.maNg, temp.tenNg, temp.hanMucNg.ToString(), temp.tienDaChoVay.ToString(), temp.tienCoTheChoVay.ToString());
+                    gridDSNguon.Rows.Add(temp.maNg, temp.tenNg, temp.hanMucNg.ToString("#,##0"), temp.tienDaChoVay.ToString("#,##0"), temp.tienCoTheChoVay.ToString("#,##0"));
                 }
             }
         }
@@ -461,6 +464,40 @@ namespace FormDesignFSS2.GUI
         {
             ThemKH themKH = new ThemKH();
             themKH.ShowDialog();
+        }
+
+        /// <summary>
+        /// Xử lý sự kiện click button xuất báo cáo
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnXuatBC_Click(object sender, EventArgs e)
+        {
+            // Lấy danh sách khách hàng
+            KhachHangBUS khachHangBUS = new KhachHangBUS();
+            string jsonData = khachHangBUS.KhachHangReport();
+            List<KhachHangReport> list = JsonConvert.DeserializeObject<List<KhachHangReport>>(jsonData);
+            // Chuyển danh sách khách hàng sang data table
+            DataTable dataTable = DataTableConvert.ConvertToDataTable(list);
+            // Add data table vào dataset
+            DataSet dataSet = new DataSet("DSKH");
+            dataSet.Tables.Add(dataTable);
+            // Parameter
+            string name = "Trần Viết Tiệp";
+            string name2 = "Trần Viết Nhật";
+            // Thiết lập báo cáo
+            reportViewerBC.LocalReport.ReportPath = "Report/DanhSachKH.rdlc";
+            ReportDataSource reportDataSource = new ReportDataSource();
+            ReportParameter[] reportParameter = new ReportParameter[2];
+            reportParameter[0] = new ReportParameter("demoParameter", name, true);
+            reportParameter[1] = new ReportParameter("demoParameter2", name2, true);
+            reportViewerBC.LocalReport.SetParameters(reportParameter);
+
+            reportDataSource.Name = "DSKH";
+            reportDataSource.Value = dataSet.Tables[0];
+            reportViewerBC.LocalReport.DataSources.Add(reportDataSource);
+            // Hiển thị báo cáo
+            reportViewerBC.RefreshReport();
         }
     }
 }

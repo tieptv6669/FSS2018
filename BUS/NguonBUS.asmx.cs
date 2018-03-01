@@ -48,14 +48,14 @@ namespace BUS
         }
 
         /// <summary>
-        /// Tìm kiếm nguồn theo tên nguồn
+        /// Tìm kiếm nguồn theo tên nguồn và mã nguồn
         /// </summary>
         /// <param name="tenNguon"></param>
         /// <returns></returns>
         [WebMethod]
-        public string TimKiemNguon(string tenNguon)
+        public string TimKiemNguon(string tenNguon, string maNguon)
         {
-            List<Nguon> list = NguonDAO.TimKiemNguon(tenNguon);
+            List<Nguon> list = NguonDAO.TimKiemNguon(tenNguon, maNguon);
             string jsonData = JsonConvert.SerializeObject(list);
 
             return jsonData;

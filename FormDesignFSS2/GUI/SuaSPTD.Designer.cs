@@ -132,7 +132,7 @@
             this.button2.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.button2.Image = global::FormDesignFSS2.Properties.Resources._101;
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(308, 233);
+            this.button2.Location = new System.Drawing.Point(310, 240);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(86, 39);
             this.button2.TabIndex = 31;
@@ -145,7 +145,7 @@
             this.button1.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.button1.Image = global::FormDesignFSS2.Properties.Resources._155;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(216, 233);
+            this.button1.Location = new System.Drawing.Point(218, 240);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(86, 39);
             this.button1.TabIndex = 30;
@@ -214,7 +214,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(405, 281);
+            this.ClientSize = new System.Drawing.Size(400, 281);
             this.Controls.Add(this.textBox5);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.textBox2);

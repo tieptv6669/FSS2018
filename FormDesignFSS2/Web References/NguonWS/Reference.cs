@@ -136,24 +136,26 @@ namespace FormDesignFSS2.NguonWS {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/TimKiemNguon", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public string TimKiemNguon(string tenNguon) {
+        public string TimKiemNguon(string tenNguon, string maNguon) {
             object[] results = this.Invoke("TimKiemNguon", new object[] {
-                        tenNguon});
+                        tenNguon,
+                        maNguon});
             return ((string)(results[0]));
         }
         
         /// <remarks/>
-        public void TimKiemNguonAsync(string tenNguon) {
-            this.TimKiemNguonAsync(tenNguon, null);
+        public void TimKiemNguonAsync(string tenNguon, string maNguon) {
+            this.TimKiemNguonAsync(tenNguon, maNguon, null);
         }
         
         /// <remarks/>
-        public void TimKiemNguonAsync(string tenNguon, object userState) {
+        public void TimKiemNguonAsync(string tenNguon, string maNguon, object userState) {
             if ((this.TimKiemNguonOperationCompleted == null)) {
                 this.TimKiemNguonOperationCompleted = new System.Threading.SendOrPostCallback(this.OnTimKiemNguonOperationCompleted);
             }
             this.InvokeAsync("TimKiemNguon", new object[] {
-                        tenNguon}, this.TimKiemNguonOperationCompleted, userState);
+                        tenNguon,
+                        maNguon}, this.TimKiemNguonOperationCompleted, userState);
         }
         
         private void OnTimKiemNguonOperationCompleted(object arg) {

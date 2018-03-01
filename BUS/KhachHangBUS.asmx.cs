@@ -234,5 +234,17 @@ namespace BUS
             khachHang = JsonConvert.DeserializeObject<KhachHang>(jsonData);
             return KhachHangDAO.ThemKH(khachHang);
         }
+
+        /// <summary>
+        /// Lấy danh sách khách hàng để tạo báo cáo
+        /// </summary>
+        /// <returns></returns>
+        [WebMethod]
+        public string KhachHangReport()
+        {
+            List<KhachHangReport> list = KhachHangDAO.GetListKhachHangReport();
+            string jsonData = JsonConvert.SerializeObject(list);
+            return jsonData;
+        }
     }
 }

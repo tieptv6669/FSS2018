@@ -43,7 +43,7 @@ namespace FormDesignFSS2.GUI
         /// <param name="e"></param>
         private void btnXacNhan_Click(object sender, EventArgs e)
         {
-            if(btnXacNhan.Text == "Xác nhận")
+            if (btnXacNhan.Text == "Xác nhận")
             {
                 NguonBUS nguonBUS = new NguonBUS();
                 switch (nguonBUS.KTThongTinThemNguon(txtTenNguon.Text, txtHanMuc.Text))
@@ -73,6 +73,7 @@ namespace FormDesignFSS2.GUI
                             lblError.Text = "";
                             txtTenNguon.Enabled = false;
                             txtHanMuc.Enabled = false;
+                            txtHanMuc.Text = Int64.Parse(txtHanMuc.Text).ToString("#,##0");
                             btnXacNhan.Text = "Lưu";
                             btnHuy.Text = "Quay lại";
                             btnHuy.Image = Properties.Resources._101;
@@ -83,11 +84,10 @@ namespace FormDesignFSS2.GUI
             else
             {
                 NguonBUS nguonBUS = new NguonBUS();
-
                 Nguon nguon = new Nguon();
                 nguon.maNg = txtMaNguon.Text;
                 nguon.tenNg = txtTenNguon.Text;
-                nguon.hanMucNg = long.Parse(txtHanMuc.Text);
+                nguon.hanMucNg = long.Parse(txtHanMuc.Text.Replace(",", ""));
                 nguon.tienDaChoVay = 0;
                 nguon.tienCoTheChoVay = nguon.hanMucNg;
 
@@ -123,6 +123,7 @@ namespace FormDesignFSS2.GUI
             {
                 txtTenNguon.Enabled = true;
                 txtHanMuc.Enabled = true;
+                txtHanMuc.Text = txtHanMuc.Text.Replace(",", "");
                 btnXacNhan.Text = "Xác nhận";
                 btnHuy.Text = "Hủy";
                 btnHuy.Image = Properties.Resources._168;

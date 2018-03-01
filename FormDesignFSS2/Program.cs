@@ -22,18 +22,6 @@ namespace FSS2018
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new DangNhap());
-
-            //NguoiDungBUS nguoiDungBUS = new NguoiDungBUS();
-            //List<DTO.NguoiDung> list = new List<DTO.NguoiDung>();
-
-            //string json = nguoiDungBUS.LayDSNguoiDung();
-
-            //list = JsonConvert.DeserializeObject<List<DTO.NguoiDung>>(json);
-
-            //foreach (DTO.NguoiDung x in list)
-            //{
-            //    Console.WriteLine(x.hoTenND);
-            //}
         }
     }
 }

@@ -28,7 +28,7 @@ namespace DAO
                 OracleDataReader oracleDataReader;
                 OracleCommand oracleCommand = new OracleCommand();
 
-                oracleCommand.CommandText = "SELECT * FROM NGUOIDUNG WHERE TENDANGNHAP = :tenDangNhap AND MATKHAU = :matKhau";
+                oracleCommand.CommandText = "SELECT * FROM NGUOIDUNG WHERE TENDANGNHAP = :tenDangNhap AND MATKHAU = :matKhau AND TRANGTHAI = '1'";
                 oracleCommand.Parameters.Add(new OracleParameter("tenDangNhap", tenDangNhap));
                 oracleCommand.Parameters.Add(new OracleParameter("matKhau", matKhau));
 
@@ -46,6 +46,7 @@ namespace DAO
                     nguoiDung.chucVuND = oracleDataReader.GetString(4);
                     nguoiDung.phongBanND = oracleDataReader.GetString(5);
                     nguoiDung.quyenND = oracleDataReader.GetString(6);
+                    nguoiDung.trangthaiND = oracleDataReader.GetInt32(7);
 
                     return nguoiDung;
                 }
@@ -72,7 +73,7 @@ namespace DAO
                 List<NguoiDung> list = new List<NguoiDung>();
 
                 OracleCommand oracleCommand = new OracleCommand();
-                oracleCommand.CommandText = "SELECT * FROM NGUOIDUNG";
+                oracleCommand.CommandText = "SELECT * FROM NGUOIDUNG WHERE TRANGTHAI = '1'";
 
                 OracleDataReader oracleDataReader = DataProvider.GetOracleDataReader(oracleCommand);
 
@@ -89,6 +90,7 @@ namespace DAO
                         nguoiDung.chucVuND = oracleDataReader.GetString(4);
                         nguoiDung.phongBanND = oracleDataReader.GetString(5);
                         nguoiDung.quyenND = oracleDataReader.GetString(6);
+                        nguoiDung.trangthaiND = oracleDataReader.GetInt32(7);
 
                         list.Add(nguoiDung);
                     }
@@ -113,14 +115,15 @@ namespace DAO
             try
             {
                 OracleCommand oracleCommand = new OracleCommand();
-                oracleCommand.CommandText = "INSERT INTO NGUOIDUNG (TENDANGNHAP, MATKHAU, HOTEN, CHUCVU, PHONGBAN, QUYEN) " +
-                    "VALUES (:tenDangNhap, :matKhau, :hoTen, :chucVu, :phongBan, :quyen)";
+                oracleCommand.CommandText = "INSERT INTO NGUOIDUNG (TENDANGNHAP, MATKHAU, HOTEN, CHUCVU, PHONGBAN, QUYEN, TRANGTHAI) " +
+                    "VALUES (:tenDangNhap, :matKhau, :hoTen, :chucVu, :phongBan, :quyen, :trangThai)";
                 oracleCommand.Parameters.Add(new OracleParameter("tenDangNhap", nguoiDung.tenDangNhapND));
                 oracleCommand.Parameters.Add(new OracleParameter("matKhau", nguoiDung.matKhauND));
                 oracleCommand.Parameters.Add(new OracleParameter("hoTen", nguoiDung.hoTenND));
                 oracleCommand.Parameters.Add(new OracleParameter("chucVu", nguoiDung.chucVuND));
                 oracleCommand.Parameters.Add(new OracleParameter("phongBan", nguoiDung.phongBanND));
                 oracleCommand.Parameters.Add(new OracleParameter("quyen", nguoiDung.quyenND));
+                oracleCommand.Parameters.Add(new OracleParameter("trangThai", nguoiDung.trangthaiND));
 
                 return DataProvider.ExcuteNonQuery(oracleCommand);
             }catch(Exception e)
@@ -143,7 +146,7 @@ namespace DAO
                 List<NguoiDung> list = new List<NguoiDung>();
                 OracleCommand oracleCommand = new OracleCommand();
                 oracleCommand.CommandText = "SELECT * FROM NGUOIDUNG " +
-                    "WHERE HOTEN LIKE '%' || :tenNguoiDung || '%' " +
+                    "WHERE TRANGTHAI = '1' AND HOTEN LIKE '%' || :tenNguoiDung || '%' " +
                     "AND TENDANGNHAP LIKE '%' || :tenDangNhap || '%'";
                 oracleCommand.Parameters.Add(new OracleParameter("tenNguoiDung", tenNguoiDung));
                 oracleCommand.Parameters.Add(new OracleParameter("tenDangNhap", tenDangNhap));
@@ -162,6 +165,7 @@ namespace DAO
                         nguoiDung.chucVuND = oracleDataReader.GetString(4);
                         nguoiDung.phongBanND = oracleDataReader.GetString(5);
                         nguoiDung.quyenND = oracleDataReader.GetString(6);
+                        nguoiDung.trangthaiND = oracleDataReader.GetInt32(7);
 
                         list.Add(nguoiDung);
                     }
@@ -217,7 +221,7 @@ namespace DAO
             try
             {
                 OracleCommand oracleCommand = new OracleCommand();
-                oracleCommand.CommandText = "DELETE FROM NGUOIDUNG WHERE TENDANGNHAP = :tenDN";
+                oracleCommand.CommandText = "UPDATE NGUOIDUNG SET TRANGTHAI = '0' WHERE TENDANGNHAP = :tenDN";
                 oracleCommand.Parameters.Add(new OracleParameter("tenDN", tenDN));
 
                 return DataProvider.ExcuteNonQuery(oracleCommand);

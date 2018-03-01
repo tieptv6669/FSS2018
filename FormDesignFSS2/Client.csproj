@@ -181,6 +181,7 @@
     <Compile Include="GUI\XemChiTietKH.Designer.cs">
       <DependentUpon>XemChiTietKH.cs</DependentUpon>
     </Compile>
+    <Compile Include="Report\DataTableConvert.cs" />
     <Compile Include="Web References\KhachHangWS\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -263,7 +264,14 @@
     <EmbeddedResource Include="GUI\XemChiTietKH.resx">
       <DependentUpon>XemChiTietKH.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Report\DanhSachKH.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\DTO.KhachHang.datasource" />
+    <None Include="Properties\DataSources\DTO.KhachHangReport.datasource" />
+    <None Include="Properties\DataSources\DTO.NguoiDung.datasource" />
+    <None Include="Properties\DataSources\DTO.Nguon.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

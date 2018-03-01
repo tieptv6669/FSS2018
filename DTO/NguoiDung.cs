@@ -19,6 +19,7 @@ namespace DTO
         private string chucVu;
         private string phongBan;
         private string quyen;
+        private int trangthai;
 
         public int idND { get; set; }
         public string tenDangNhapND { get; set; }
@@ -27,5 +28,6 @@ namespace DTO
         public string chucVuND { get; set; }
         public string phongBanND { get; set; }
         public string quyenND { get; set; }
+        public int trangthaiND { get; set; }
     }
 }

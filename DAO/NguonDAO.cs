@@ -55,18 +55,20 @@ namespace DAO
         }
 
         /// <summary>
-        /// Tìm kiếm nguồn theo tên nguồn
+        /// Tìm kiếm nguồn theo tên nguồn và mã nguồn
         /// </summary>
         /// <param name="tenNguon"></param>
         /// <returns></returns>
-        public static List<Nguon> TimKiemNguon(string tenNguon)
+        public static List<Nguon> TimKiemNguon(string tenNguon, string maNguon)
         {
             try
             {
                 List<Nguon> list = new List<Nguon>();
                 OracleCommand oracleCommand = new OracleCommand();
-                oracleCommand.CommandText = "SELECT * FROM NGUON WHERE TENNGUON LIKE '%' || :tenNguon || '%'";
+                oracleCommand.CommandText = "SELECT * FROM NGUON WHERE TENNGUON LIKE '%' || :tenNguon || '%' " +
+                    "AND MANGUON LIKE '%' || :maNguon || '%'";
                 oracleCommand.Parameters.Add(new OracleParameter("tenNguon", tenNguon));
+                oracleCommand.Parameters.Add(new OracleParameter("maNguon", maNguon));
 
                 OracleDataReader oracleDataReader = DataProvider.GetOracleDataReader(oracleCommand);
 

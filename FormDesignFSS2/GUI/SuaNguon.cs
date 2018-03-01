@@ -40,9 +40,9 @@ namespace FormDesignFSS2.GUI
             lblError.ForeColor = Color.Red;
             txtMaNguon.Text = nguon.maNg;
             txtTenNguon.Text = nguon.tenNg;
-            txtHanMuc.Text = nguon.hanMucNg.ToString();
-            txtTienDaChoVay.Text = nguon.tienDaChoVay.ToString();
-            txtTienCoTheChoVay.Text = nguon.tienCoTheChoVay.ToString();
+            txtHanMuc.Text = nguon.hanMucNg.ToString("#,##0");
+            txtTienDaChoVay.Text = nguon.tienDaChoVay.ToString("#,##0");
+            txtTienCoTheChoVay.Text = nguon.tienCoTheChoVay.ToString("#,##0");
         }
 
         /// <summary>
@@ -55,7 +55,7 @@ namespace FormDesignFSS2.GUI
             if(btnXacNhan.Text == "Xác nhận")
             {
                 NguonBUS nguonBUS = new NguonBUS();
-                switch(nguonBUS.KTThongTinSuaNguon(txtHanMuc.Text, txtTienDaChoVay.Text))
+                switch(nguonBUS.KTThongTinSuaNguon(txtHanMuc.Text, txtTienDaChoVay.Text.Replace(",", "")))
                 {
                     case 1:
                         {
@@ -79,7 +79,7 @@ namespace FormDesignFSS2.GUI
                             txtTenNguon.Enabled = false;
                             txtHanMuc.Enabled = false;
                             txtTienDaChoVay.Enabled = false;
-                            txtTienCoTheChoVay.Text = (Int64.Parse(txtHanMuc.Text) - Int64.Parse(txtTienDaChoVay.Text)).ToString();
+                            txtTienCoTheChoVay.Text = (Int64.Parse(txtHanMuc.Text) - Int64.Parse(txtTienDaChoVay.Text.Replace(",", ""))).ToString("#,##0");
                             txtTienCoTheChoVay.Enabled = false;
                             btnXacNhan.Text = "Lưu";
                             btnHuy.Text = "Quay lại";
@@ -92,7 +92,7 @@ namespace FormDesignFSS2.GUI
             {
                 // Sửa nguồn
                 NguonBUS nguonBUS = new NguonBUS();
-                if (nguonBUS.SuaNguon(txtMaNguon.Text, txtHanMuc.Text, txtTienCoTheChoVay.Text))
+                if (nguonBUS.SuaNguon(txtMaNguon.Text, txtHanMuc.Text, txtTienCoTheChoVay.Text.Replace(",", "")))
                 {
                     // Cập nhật lại danh sách 
                     foreach(DataGridViewRow temp in dataGridView.Rows)
@@ -100,7 +100,7 @@ namespace FormDesignFSS2.GUI
                         if(temp.Cells[0].Value.ToString() == txtMaNguon.Text)
                         {
                             temp.Cells[1].Value = txtTenNguon.Text;
-                            temp.Cells[2].Value = txtHanMuc.Text;
+                            temp.Cells[2].Value = Int64.Parse(txtHanMuc.Text).ToString("#,##0");
                             temp.Cells[3].Value = txtTienDaChoVay.Text;
                             temp.Cells[4].Value = txtTienCoTheChoVay.Text;
                         }

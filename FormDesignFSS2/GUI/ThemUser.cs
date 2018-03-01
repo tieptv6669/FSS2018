@@ -144,6 +144,7 @@ namespace FormDesignFSS2.GUI
                 nguoiDung.chucVuND = txtChucVu.Text;
                 nguoiDung.phongBanND = txtPhongBan.Text;
                 nguoiDung.quyenND = cboChonQuyen.SelectedItem.ToString();
+                nguoiDung.trangthaiND = 1;
                 try
                 {
                     NguoiDungBUS nguoiDungBUS = new NguoiDungBUS();
