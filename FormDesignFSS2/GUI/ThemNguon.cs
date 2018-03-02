@@ -68,6 +68,11 @@ namespace FormDesignFSS2.GUI
                             lblError.Text = "Hạn mức không hợp lệ";
                             break;
                         }
+                    case 5:
+                        {
+                            lblError.Text = "Tên nguồn đã tồn tại";
+                            break;
+                        }
                     case 0:
                         {
                             lblError.Text = "";

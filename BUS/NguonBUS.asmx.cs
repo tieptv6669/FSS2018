@@ -133,6 +133,10 @@ namespace BUS
             {
                 return 4;
             }
+            if(NguonDAO.GetNguon(tenNguon) != null)
+            {
+                return 5;
+            }
 
             return 0;
         }

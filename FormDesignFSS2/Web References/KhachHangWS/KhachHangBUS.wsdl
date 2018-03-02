@@ -69,6 +69,20 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="GetKH">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="soCMND" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetKHResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetKHResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="TimKiemKH">
         <s:complexType>
           <s:sequence>
@@ -159,6 +173,12 @@
   <wsdl:message name="layMotKhachHangSoapOut">
     <wsdl:part name="parameters" element="tns:layMotKhachHangResponse" />
   </wsdl:message>
+  <wsdl:message name="GetKHSoapIn">
+    <wsdl:part name="parameters" element="tns:GetKH" />
+  </wsdl:message>
+  <wsdl:message name="GetKHSoapOut">
+    <wsdl:part name="parameters" element="tns:GetKHResponse" />
+  </wsdl:message>
   <wsdl:message name="TimKiemKHSoapIn">
     <wsdl:part name="parameters" element="tns:TimKiemKH" />
   </wsdl:message>
@@ -199,6 +219,10 @@
     <wsdl:operation name="layMotKhachHang">
       <wsdl:input message="tns:layMotKhachHangSoapIn" />
       <wsdl:output message="tns:layMotKhachHangSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetKH">
+      <wsdl:input message="tns:GetKHSoapIn" />
+      <wsdl:output message="tns:GetKHSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="TimKiemKH">
       <wsdl:input message="tns:TimKiemKHSoapIn" />
@@ -248,6 +272,15 @@
     </wsdl:operation>
     <wsdl:operation name="layMotKhachHang">
       <soap:operation soapAction="http://tempuri.org/layMotKhachHang" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetKH">
+      <soap:operation soapAction="http://tempuri.org/GetKH" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -323,6 +356,15 @@
     </wsdl:operation>
     <wsdl:operation name="layMotKhachHang">
       <soap12:operation soapAction="http://tempuri.org/layMotKhachHang" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetKH">
+      <soap12:operation soapAction="http://tempuri.org/GetKH" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

@@ -121,6 +121,11 @@ namespace FormDesignFSS2.GUI
                             lblError.Text = "Số TKLK không hợp lệ";
                             break;
                         }
+                    case 15:
+                        {
+                            lblError.Text = "Số CMND đã tồn tại";
+                            break;
+                        }
                     case 0:
                         {
                             lblError.Text = "";

@@ -109,6 +109,55 @@ namespace DAO
         }
 
         /// <summary>
+        /// Lấy ra một khách hàng khi biết số CMND
+        /// </summary>
+        /// <param name="soCMND"></param>
+        /// <returns></returns>
+        public static KhachHang GetKhachHang(string soCMND)
+        {
+            try
+            {
+                OracleCommand oracleCommand = new OracleCommand();
+                oracleCommand.CommandText = "SELECT * FROM KHACHHANG WHERE SOCMND = :soCMND";
+
+                oracleCommand.Parameters.Add(new OracleParameter("soCMND", soCMND));
+
+                OracleDataReader oracleDataReader = DataProvider.GetOracleDataReader(oracleCommand);
+
+                if (oracleDataReader != null && oracleDataReader.HasRows)
+                {
+                    oracleDataReader.Read();
+                    KhachHang khachHang = new KhachHang();
+
+                    khachHang.idKH = oracleDataReader.GetInt32(0);
+                    khachHang.STKLK = oracleDataReader.GetString(1);
+                    khachHang.hoTenKH = oracleDataReader.GetString(2);
+                    khachHang.ngaySinhKH = oracleDataReader.GetDateTime(3);
+                    khachHang.ngayMoTKKH = oracleDataReader.GetDateTime(4);
+                    khachHang.ngheNghiepKH = oracleDataReader.GetString(5);
+                    khachHang.soCMNNKH = oracleDataReader.GetString(6);
+                    khachHang.emailKH = oracleDataReader.GetString(7);
+                    khachHang.gioiTinhKH = oracleDataReader.GetString(8);
+                    khachHang.loai = oracleDataReader.GetString(9);
+                    khachHang.diaChiKH = oracleDataReader.GetString(10);
+                    khachHang.SDTKH = oracleDataReader.GetString(11);
+                    khachHang.ghiChuKH = oracleDataReader.GetString(12);
+
+                    return khachHang;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show("Lỗi: " + e.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+        }
+
+        /// <summary>
         /// Tìm kiếm khách hàng
         /// </summary>
         /// <param name="soTKLK"></param>

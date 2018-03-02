@@ -1,3 +1,4 @@
+G:\FSS2018\FormDesignFSS2\bin\Debug\Report\DanhSachKH.rdlc
 G:\FSS2018\FormDesignFSS2\bin\Debug\FormDesignFSS2.exe.config
 G:\FSS2018\FormDesignFSS2\bin\Debug\FormDesignFSS2.exe
 G:\FSS2018\FormDesignFSS2\bin\Debug\FormDesignFSS2.pdb
@@ -95,4 +96,3 @@ G:\FSS2018\FormDesignFSS2\obj\Debug\Client.csproj.GenerateResource.Cache
 G:\FSS2018\FormDesignFSS2\obj\Debug\Client.csproj.CoreCompileInputs.cache
 G:\FSS2018\FormDesignFSS2\obj\Debug\FormDesignFSS2.exe
 G:\FSS2018\FormDesignFSS2\obj\Debug\FormDesignFSS2.pdb
-G:\FSS2018\FormDesignFSS2\bin\Debug\Report\DanhSachKH.rdlc

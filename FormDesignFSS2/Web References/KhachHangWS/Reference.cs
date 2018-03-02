@@ -37,6 +37,8 @@ namespace FormDesignFSS2.KhachHangWS {
         
         private System.Threading.SendOrPostCallback layMotKhachHangOperationCompleted;
         
+        private System.Threading.SendOrPostCallback GetKHOperationCompleted;
+        
         private System.Threading.SendOrPostCallback TimKiemKHOperationCompleted;
         
         private System.Threading.SendOrPostCallback suaThongTinKHOperationCompleted;
@@ -94,6 +96,9 @@ namespace FormDesignFSS2.KhachHangWS {
         
         /// <remarks/>
         public event layMotKhachHangCompletedEventHandler layMotKhachHangCompleted;
+        
+        /// <remarks/>
+        public event GetKHCompletedEventHandler GetKHCompleted;
         
         /// <remarks/>
         public event TimKiemKHCompletedEventHandler TimKiemKHCompleted;
@@ -248,6 +253,35 @@ namespace FormDesignFSS2.KhachHangWS {
             if ((this.layMotKhachHangCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.layMotKhachHangCompleted(this, new layMotKhachHangCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetKH", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string GetKH(string soCMND) {
+            object[] results = this.Invoke("GetKH", new object[] {
+                        soCMND});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetKHAsync(string soCMND) {
+            this.GetKHAsync(soCMND, null);
+        }
+        
+        /// <remarks/>
+        public void GetKHAsync(string soCMND, object userState) {
+            if ((this.GetKHOperationCompleted == null)) {
+                this.GetKHOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetKHOperationCompleted);
+            }
+            this.InvokeAsync("GetKH", new object[] {
+                        soCMND}, this.GetKHOperationCompleted, userState);
+        }
+        
+        private void OnGetKHOperationCompleted(object arg) {
+            if ((this.GetKHCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetKHCompleted(this, new GetKHCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -499,6 +533,32 @@ namespace FormDesignFSS2.KhachHangWS {
         private object[] results;
         
         internal layMotKhachHangCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
+    public delegate void GetKHCompletedEventHandler(object sender, GetKHCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetKHCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetKHCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }

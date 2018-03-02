@@ -93,6 +93,10 @@ namespace BUS
             {
                 return 14;
             }
+            if(KhachHangDAO.GetKhachHang(soCMND) != null)
+            {
+                return 15;
+            }
             return 0;
         }
 
@@ -174,7 +178,7 @@ namespace BUS
         }
 
         /// <summary>
-        /// Lấy ra một khách hàng
+        /// Lấy ra một khách hàng khi biết số TKLK
         /// </summary>
         /// <param name="soTKLK"></param>
         /// <returns></returns>
@@ -182,6 +186,19 @@ namespace BUS
         public string layMotKhachHang(string soTKLK)
         {
             KhachHang khachHang = KhachHangDAO.layMotKhachHang(soTKLK);
+            string jsonData = JsonConvert.SerializeObject(khachHang);
+            return jsonData;
+        }
+
+        /// <summary>
+        /// Lấy ra một khách hàng khi biết số cmnd
+        /// </summary>
+        /// <param name="soCMND"></param>
+        /// <returns></returns>
+        [WebMethod]
+        public string GetKH(string soCMND)
+        {
+            KhachHang khachHang = KhachHangDAO.GetKhachHang(soCMND);
             string jsonData = JsonConvert.SerializeObject(khachHang);
             return jsonData;
         }
