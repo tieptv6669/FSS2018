@@ -84,124 +84,130 @@ namespace FormDesignFSS2.GUI
         /// <param name="e"></param>
         private void btnXacNhan_Click(object sender, EventArgs e)
         {
-            if (btnXacNhan.Text == "Xác nhận")
+            try
             {
-                KhachHangBUS khachHangBUS = new KhachHangBUS();
-                switch (khachHangBUS.KTThongTinSuaKH(Convert.ToDateTime(txtNgayMoTK.Text), txtHoTenKH.Text, dateNgaySinh.Value, txtNgheNghiep.Text, txtSoCMND.Text, txtDiaChi.Text, txtEmail.Text, txtSDT.Text))
+                if (btnXacNhan.Text == "Xác nhận")
                 {
-                    case 2:
-                        {
-                            lblError.Text = "Bạn chưa nhập họ tên";
-                            break;
-                        }
-                    case 3:
-                        {
-                            lblError.Text = "Bạn chưa nhập nghề nghiệp";
-                            break;
-                        }
-                    case 4:
-                        {
-                            lblError.Text = "Bạn chưa nhập số CMND/giấy phép kinh doanh";
-                            break;
-                        }
-                    case 5:
-                        {
-                            lblError.Text = "Bạn chưa nhập địa chỉ";
-                            break;
-                        }
-                    case 6:
-                        {
-                            lblError.Text = "Bạn chưa nhập email";
-                            break;
-                        }
-                    case 7:
-                        {
-                            lblError.Text = "Bạn chưa nhập số điện thoại";
-                            break;
-                        }
-                    case 8:
-                        {
-                            lblError.Text = "Khách hàng chưa đủ 18 tuổi";
-                            break;
-                        }
-                    case 9:
-                        {
-                            lblError.Text = "Tên nhập không hợp lệ";
-                            break;
-                        }
-                    case 10:
-                        {
-                            lblError.Text = "Nghề nghiệp nhập không hợp lệ";
-                            break;
-                        }
-                    case 0:
-                        {
-                            btnXacNhan.Text = "Lưu";
-                            btnHuy.Text = "Quay lại";
-                            btnHuy.Image = Properties.Resources._101;
-                            if(txtGhiChu.Text.Length == 0)
+                    KhachHangBUS khachHangBUS = new KhachHangBUS();
+                    switch (khachHangBUS.KTThongTinSuaKH(Convert.ToDateTime(txtNgayMoTK.Text), txtHoTenKH.Text, dateNgaySinh.Value, txtNgheNghiep.Text, txtSoCMND.Text, txtDiaChi.Text, txtEmail.Text, txtSDT.Text))
+                    {
+                        case 2:
                             {
-                                txtGhiChu.Text = " ";
+                                lblError.Text = "Bạn chưa nhập họ tên";
+                                break;
                             }
-                            txtSoTKLK.Enabled = false;
-                            txtHoTenKH.Enabled = false;
-                            cmbLoaiKH.Enabled = false;
-                            dateNgaySinh.Enabled = false;
-                            txtNgheNghiep.Enabled = false;
-                            txtSoCMND.Enabled = false;
-                            txtDiaChi.Enabled = false;
-                            radioGTNam.Enabled = false;
-                            radioGTNu.Enabled = false;
-                            txtEmail.Enabled = false;
-                            txtSDT.Enabled = false;
-                            txtGhiChu.Enabled = false;
-                            break;
-                        }
-                }
-            }
-            else
-            {
-                if (khachHang.hoTenKH == txtHoTenKH.Text && khachHang.loai == cmbLoaiKH.SelectedItem.ToString() &&
-                     khachHang.ngaySinhKH == dateNgaySinh.Value && khachHang.ngheNghiepKH == txtNgheNghiep.Text && 
-                     khachHang.soCMNNKH == txtSoCMND.Text 
-                     && khachHang.diaChiKH == txtDiaChi.Text && khachHang.emailKH == txtEmail.Text && 
-                     khachHang.SDTKH == txtSDT.Text && khachHang.ghiChuKH == txtGhiChu.Text)
-                {
-                    MessageBox.Show("Thao tác lỗi. Bạn chưa thay đổi thông tin nào của khách hàng", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        case 3:
+                            {
+                                lblError.Text = "Bạn chưa nhập nghề nghiệp";
+                                break;
+                            }
+                        case 4:
+                            {
+                                lblError.Text = "Bạn chưa nhập số CMND/giấy phép kinh doanh";
+                                break;
+                            }
+                        case 5:
+                            {
+                                lblError.Text = "Bạn chưa nhập địa chỉ";
+                                break;
+                            }
+                        case 6:
+                            {
+                                lblError.Text = "Bạn chưa nhập email";
+                                break;
+                            }
+                        case 7:
+                            {
+                                lblError.Text = "Bạn chưa nhập số điện thoại";
+                                break;
+                            }
+                        case 8:
+                            {
+                                lblError.Text = "Khách hàng chưa đủ 18 tuổi";
+                                break;
+                            }
+                        case 9:
+                            {
+                                lblError.Text = "Tên nhập không hợp lệ";
+                                break;
+                            }
+                        case 10:
+                            {
+                                lblError.Text = "Nghề nghiệp nhập không hợp lệ";
+                                break;
+                            }
+                        case 0:
+                            {
+                                btnXacNhan.Text = "Lưu";
+                                btnHuy.Text = "Quay lại";
+                                btnHuy.Image = Properties.Resources._101;
+                                if (txtGhiChu.Text.Length == 0)
+                                {
+                                    txtGhiChu.Text = " ";
+                                }
+                                txtSoTKLK.Enabled = false;
+                                txtHoTenKH.Enabled = false;
+                                cmbLoaiKH.Enabled = false;
+                                dateNgaySinh.Enabled = false;
+                                txtNgheNghiep.Enabled = false;
+                                txtSoCMND.Enabled = false;
+                                txtDiaChi.Enabled = false;
+                                radioGTNam.Enabled = false;
+                                radioGTNu.Enabled = false;
+                                txtEmail.Enabled = false;
+                                txtSDT.Enabled = false;
+                                txtGhiChu.Enabled = false;
+                                break;
+                            }
+                    }
                 }
                 else
                 {
-                    KhachHangBUS khachHangBUS = new KhachHangBUS();
-                    string gioiTinh;
-                    if(radioGTNam.Checked == true)
+                    if (khachHang.hoTenKH == txtHoTenKH.Text && khachHang.loai == cmbLoaiKH.SelectedItem.ToString() &&
+                         khachHang.ngaySinhKH == dateNgaySinh.Value && khachHang.ngheNghiepKH == txtNgheNghiep.Text &&
+                         khachHang.soCMNNKH == txtSoCMND.Text
+                         && khachHang.diaChiKH == txtDiaChi.Text && khachHang.emailKH == txtEmail.Text &&
+                         khachHang.SDTKH == txtSDT.Text && khachHang.ghiChuKH == txtGhiChu.Text)
                     {
-                        gioiTinh = "Nam";
+                        MessageBox.Show("Thao tác lỗi. Bạn chưa thay đổi thông tin nào của khách hàng", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     else
                     {
-                        gioiTinh = "Nữ";
-                    }
-                    if (khachHangBUS.suaThongTinKH(txtSoTKLK.Text, txtHoTenKH.Text, cmbLoaiKH.SelectedItem.ToString(), dateNgaySinh.Value, gioiTinh, txtNgheNghiep.Text, txtSoCMND.Text, txtDiaChi.Text, txtEmail.Text, txtSDT.Text, txtGhiChu.Text))
-                    {
-                        // Hiển thị lại dữ liệu lên grid view
-                        foreach(DataGridViewRow temp in dataGridView.Rows)
+                        KhachHangBUS khachHangBUS = new KhachHangBUS();
+                        string gioiTinh;
+                        if (radioGTNam.Checked == true)
                         {
-                            if(temp.Cells[0].Value.ToString() == txtSoTKLK.Text)
-                            {
-                                temp.Cells[1].Value = txtHoTenKH.Text;
-                                temp.Cells[2].Value = cmbLoaiKH.SelectedItem.ToString();
-                                temp.Cells[3].Value = txtSoCMND.Text;
-                                temp.Cells[4].Value = txtGhiChu.Text;
-                            }
+                            gioiTinh = "Nam";
                         }
-                        MessageBox.Show("Sửa thông tin người dùng thành công", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        Close();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Đã có lỗi sảy ra, sửa người dùng mới thất bại", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        else
+                        {
+                            gioiTinh = "Nữ";
+                        }
+                        if (khachHangBUS.suaThongTinKH(txtSoTKLK.Text, txtHoTenKH.Text, cmbLoaiKH.SelectedItem.ToString(), dateNgaySinh.Value, gioiTinh, txtNgheNghiep.Text, txtSoCMND.Text, txtDiaChi.Text, txtEmail.Text, txtSDT.Text, txtGhiChu.Text))
+                        {
+                            // Hiển thị lại dữ liệu lên grid view
+                            foreach (DataGridViewRow temp in dataGridView.Rows)
+                            {
+                                if (temp.Cells[0].Value.ToString() == txtSoTKLK.Text)
+                                {
+                                    temp.Cells[1].Value = txtHoTenKH.Text;
+                                    temp.Cells[2].Value = cmbLoaiKH.SelectedItem.ToString();
+                                    temp.Cells[3].Value = txtSoCMND.Text;
+                                    temp.Cells[4].Value = txtGhiChu.Text;
+                                }
+                            }
+                            MessageBox.Show("Sửa thông tin người dùng thành công", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            Close();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Đã có lỗi sảy ra, sửa người dùng mới thất bại", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
                 }
+            }catch(Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

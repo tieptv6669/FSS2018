@@ -62,69 +62,76 @@ namespace FormDesignFSS2.GUI
         /// <param name="e"></param>
         private void btnXacNhan_Click(object sender, EventArgs e)
         {
-            if(btnXacNhan.Text == "Xác nhận")
+            try
             {
-                NguoiDungBUS nguoiDungBUS = new NguoiDungBUS();
+                if (btnXacNhan.Text == "Xác nhận")
+                {
+                    NguoiDungBUS nguoiDungBUS = new NguoiDungBUS();
 
-                switch(nguoiDungBUS.KTThongTinDoiMK(txtTenDangNhap.Text, txtMatKhauCu.Text, txtMatKhauMoi.Text, txtNhapLaiMatKhauMoi.Text))
-                {
-                    case 1:
-                        {
-                            lblError.Text = "Bạn chưa nhập mật khẩu cũ";
-                            break;
-                        }
-                    case 2:
-                        {
-                            lblError.Text = "Bạn chưa nhập mật khẩu mới";
-                            break;
-                        }
-                    case 3:
-                        {
-                            lblError.Text = "Bạn chưa nhập lại mật khẩu mới";
-                            break;
-                        }
-                    case 4:
-                        {
-                            lblError.Text = "Mật khẩu cũ không chính xác";
-                            break;
-                        }
-                    case 5:
-                        {
-                            lblError.Text = "Độ dài mật khẩu ít nhất là 6 kí tự";
-                            break;
-                        }
-                    case 6:
-                        {
-                            lblError.Text = "Mật khẩu nhập lại không khớp";
-                            break;
-                        }
-                    case 0:
-                        {
-                            lblError.Text = "";
-                            txtMatKhauCu.Enabled = false;
-                            txtMatKhauMoi.Enabled = false;
-                            txtNhapLaiMatKhauMoi.Enabled = false;
-                            btnXacNhan.Text = "Lưu";
-                            btnHuy.Text = "Quay lại";
-                            btnHuy.Image = Properties.Resources._101;
-                            break;
-                        }
-                }
-            }
-            else
-            {
-                // Cập nhật mật khẩu mới
-                NguoiDungBUS nguoiDungBUS = new NguoiDungBUS();
-                
-                if(nguoiDungBUS.DoiMatKhau(txtTenDangNhap.Text, txtMatKhauMoi.Text))
-                {
-                    MessageBox.Show("Đổi mật khẩu thành công", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    Close();
+                    switch (nguoiDungBUS.KTThongTinDoiMK(txtTenDangNhap.Text, txtMatKhauCu.Text, txtMatKhauMoi.Text, txtNhapLaiMatKhauMoi.Text))
+                    {
+                        case 1:
+                            {
+                                lblError.Text = "Bạn chưa nhập mật khẩu cũ";
+                                break;
+                            }
+                        case 2:
+                            {
+                                lblError.Text = "Bạn chưa nhập mật khẩu mới";
+                                break;
+                            }
+                        case 3:
+                            {
+                                lblError.Text = "Bạn chưa nhập lại mật khẩu mới";
+                                break;
+                            }
+                        case 4:
+                            {
+                                lblError.Text = "Mật khẩu cũ không chính xác";
+                                break;
+                            }
+                        case 5:
+                            {
+                                lblError.Text = "Độ dài mật khẩu ít nhất là 6 kí tự";
+                                break;
+                            }
+                        case 6:
+                            {
+                                lblError.Text = "Mật khẩu nhập lại không khớp";
+                                break;
+                            }
+                        case 0:
+                            {
+                                lblError.Text = "";
+                                txtMatKhauCu.Enabled = false;
+                                txtMatKhauMoi.Enabled = false;
+                                txtNhapLaiMatKhauMoi.Enabled = false;
+                                btnXacNhan.Text = "Lưu";
+                                btnHuy.Text = "Quay lại";
+                                btnHuy.Image = Properties.Resources._101;
+                                break;
+                            }
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Đã có lỗi sảy ra, đổi mật khẩu thất bại", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    // Cập nhật mật khẩu mới
+                    NguoiDungBUS nguoiDungBUS = new NguoiDungBUS();
+
+                    if (nguoiDungBUS.DoiMatKhau(txtTenDangNhap.Text, txtMatKhauMoi.Text))
+                    {
+                        MessageBox.Show("Đổi mật khẩu thành công", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Đã có lỗi sảy ra, đổi mật khẩu thất bại", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

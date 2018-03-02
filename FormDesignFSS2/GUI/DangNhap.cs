@@ -84,7 +84,6 @@ namespace FormDesignFSS2.GUI
             {
                 MessageBox.Show("Lỗi: " + ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
         }
 
         /// <summary>

@@ -52,67 +52,74 @@ namespace FormDesignFSS2.GUI
         /// <param name="e"></param>
         private void btnXacNhan_Click(object sender, EventArgs e)
         {
-            if(btnXacNhan.Text == "Xác nhận")
+            try
             {
-                NguonBUS nguonBUS = new NguonBUS();
-                switch(nguonBUS.KTThongTinSuaNguon(txtHanMuc.Text, txtTienDaChoVay.Text.Replace(",", "")))
+                if (btnXacNhan.Text == "Xác nhận")
                 {
-                    case 1:
-                        {
-                            lblError.Text = "Bạn chưa nhập hạn mức";
-                            break;
-                        }
-                    case 2:
-                        {
-                            lblError.Text = "Hạn mức không hợp lệ";
-                            break;
-                        }
-                    case 3:
-                        {
-                            lblError.Text = "Hạn mức phải lớn hơn số tiền đã cho vay";
-                            break;
-                        }
-                    case 0:
-                        {
-                            lblError.Text = "";
-                            txtMaNguon.Enabled = false;
-                            txtTenNguon.Enabled = false;
-                            txtHanMuc.Enabled = false;
-                            txtTienDaChoVay.Enabled = false;
-                            txtTienCoTheChoVay.Text = (Int64.Parse(txtHanMuc.Text) - Int64.Parse(txtTienDaChoVay.Text.Replace(",", ""))).ToString("#,##0");
-                            txtTienCoTheChoVay.Enabled = false;
-                            btnXacNhan.Text = "Lưu";
-                            btnHuy.Text = "Quay lại";
-                            btnHuy.Image = Properties.Resources._101;
-                            break;
-                        }
-                }
-            }
-            else
-            {
-                // Sửa nguồn
-                NguonBUS nguonBUS = new NguonBUS();
-                if (nguonBUS.SuaNguon(txtMaNguon.Text, txtHanMuc.Text, txtTienCoTheChoVay.Text.Replace(",", "")))
-                {
-                    // Cập nhật lại danh sách 
-                    foreach(DataGridViewRow temp in dataGridView.Rows)
+                    NguonBUS nguonBUS = new NguonBUS();
+                    switch (nguonBUS.KTThongTinSuaNguon(txtHanMuc.Text, txtTienDaChoVay.Text.Replace(",", "")))
                     {
-                        if(temp.Cells[0].Value.ToString() == txtMaNguon.Text)
-                        {
-                            temp.Cells[1].Value = txtTenNguon.Text;
-                            temp.Cells[2].Value = Int64.Parse(txtHanMuc.Text).ToString("#,##0");
-                            temp.Cells[3].Value = txtTienDaChoVay.Text;
-                            temp.Cells[4].Value = txtTienCoTheChoVay.Text;
-                        }
+                        case 1:
+                            {
+                                lblError.Text = "Bạn chưa nhập hạn mức";
+                                break;
+                            }
+                        case 2:
+                            {
+                                lblError.Text = "Hạn mức không hợp lệ";
+                                break;
+                            }
+                        case 3:
+                            {
+                                lblError.Text = "Hạn mức phải lớn hơn số tiền đã cho vay";
+                                break;
+                            }
+                        case 0:
+                            {
+                                lblError.Text = "";
+                                txtMaNguon.Enabled = false;
+                                txtTenNguon.Enabled = false;
+                                txtHanMuc.Enabled = false;
+                                txtTienDaChoVay.Enabled = false;
+                                txtTienCoTheChoVay.Text = (Int64.Parse(txtHanMuc.Text) - Int64.Parse(txtTienDaChoVay.Text.Replace(",", ""))).ToString("#,##0");
+                                txtTienCoTheChoVay.Enabled = false;
+                                btnXacNhan.Text = "Lưu";
+                                btnHuy.Text = "Quay lại";
+                                btnHuy.Image = Properties.Resources._101;
+                                break;
+                            }
                     }
-                    MessageBox.Show("Sửa thông tin nguồn thành công", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    Close();
                 }
                 else
                 {
-                    MessageBox.Show("Đã có lỗi sảy ra, sửa thông tin nguồn thất bại", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    // Sửa nguồn
+                    NguonBUS nguonBUS = new NguonBUS();
+                    if (nguonBUS.SuaNguon(txtMaNguon.Text, txtHanMuc.Text, txtTienCoTheChoVay.Text.Replace(",", "")))
+                    {
+                        // Cập nhật lại danh sách 
+                        foreach (DataGridViewRow temp in dataGridView.Rows)
+                        {
+                            if (temp.Cells[0].Value.ToString() == txtMaNguon.Text)
+                            {
+                                temp.Cells[1].Value = txtTenNguon.Text;
+                                temp.Cells[2].Value = Int64.Parse(txtHanMuc.Text).ToString("#,##0");
+                                temp.Cells[3].Value = txtTienDaChoVay.Text;
+                                temp.Cells[4].Value = txtTienCoTheChoVay.Text;
+                            }
+                        }
+                        MessageBox.Show("Sửa thông tin nguồn thành công", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Đã có lỗi sảy ra, sửa thông tin nguồn thất bại", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
+            }catch(Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
         }
 
         /// <summary>

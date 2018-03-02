@@ -43,73 +43,79 @@ namespace FormDesignFSS2.GUI
         /// <param name="e"></param>
         private void btnXacNhan_Click(object sender, EventArgs e)
         {
-            if (btnXacNhan.Text == "Xác nhận")
+            try
             {
-                NguonBUS nguonBUS = new NguonBUS();
-                switch (nguonBUS.KTThongTinThemNguon(txtTenNguon.Text, txtHanMuc.Text))
+                if (btnXacNhan.Text == "Xác nhận")
                 {
-                    case 1:
-                        {
-                            lblError.Text = "Bạn chưa nhập tên nguồn"; 
-                            break;
-                        }
-                    case 2:
-                        {
-                            lblError.Text = "Bạn chưa nhập hạn mức";
-                            break;
-                        }
-                    case 3:
-                        {
-                            lblError.Text = "Tên nguồn không hợp lệ";
-                            break;
-                        }
-                    case 4:
-                        {
-                            lblError.Text = "Hạn mức không hợp lệ";
-                            break;
-                        }
-                    case 5:
-                        {
-                            lblError.Text = "Tên nguồn đã tồn tại";
-                            break;
-                        }
-                    case 0:
-                        {
-                            lblError.Text = "";
-                            txtTenNguon.Enabled = false;
-                            txtHanMuc.Enabled = false;
-                            txtHanMuc.Text = Int64.Parse(txtHanMuc.Text).ToString("#,##0");
-                            btnXacNhan.Text = "Lưu";
-                            btnHuy.Text = "Quay lại";
-                            btnHuy.Image = Properties.Resources._101;
-                            break;
-                        }
-                }
-            }
-            else
-            {
-                NguonBUS nguonBUS = new NguonBUS();
-                Nguon nguon = new Nguon();
-                nguon.maNg = txtMaNguon.Text;
-                nguon.tenNg = txtTenNguon.Text;
-                nguon.hanMucNg = long.Parse(txtHanMuc.Text.Replace(",", ""));
-                nguon.tienDaChoVay = 0;
-                nguon.tienCoTheChoVay = nguon.hanMucNg;
-
-                string jsonData = JsonConvert.SerializeObject(nguon);
-
-                if (nguonBUS.ThemNguonMoi(jsonData))
-                {
-                    MessageBox.Show("Thêm nguồn mới thành công", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    Hide();
-                    ThemNguon themNguon = new ThemNguon();
-                    themNguon.ShowDialog();
-                    Close();
+                    NguonBUS nguonBUS = new NguonBUS();
+                    switch (nguonBUS.KTThongTinThemNguon(txtTenNguon.Text, txtHanMuc.Text))
+                    {
+                        case 1:
+                            {
+                                lblError.Text = "Bạn chưa nhập tên nguồn";
+                                break;
+                            }
+                        case 2:
+                            {
+                                lblError.Text = "Bạn chưa nhập hạn mức";
+                                break;
+                            }
+                        case 3:
+                            {
+                                lblError.Text = "Tên nguồn không hợp lệ";
+                                break;
+                            }
+                        case 4:
+                            {
+                                lblError.Text = "Hạn mức không hợp lệ";
+                                break;
+                            }
+                        case 5:
+                            {
+                                lblError.Text = "Tên nguồn đã tồn tại";
+                                break;
+                            }
+                        case 0:
+                            {
+                                lblError.Text = "";
+                                txtTenNguon.Enabled = false;
+                                txtHanMuc.Enabled = false;
+                                txtHanMuc.Text = Int64.Parse(txtHanMuc.Text).ToString("#,##0");
+                                btnXacNhan.Text = "Lưu";
+                                btnHuy.Text = "Quay lại";
+                                btnHuy.Image = Properties.Resources._101;
+                                break;
+                            }
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Đã có lỗi sảy ra, thêm nguồn mới thất bại", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    NguonBUS nguonBUS = new NguonBUS();
+                    Nguon nguon = new Nguon();
+                    nguon.maNg = txtMaNguon.Text;
+                    nguon.tenNg = txtTenNguon.Text;
+                    nguon.hanMucNg = long.Parse(txtHanMuc.Text.Replace(",", ""));
+                    nguon.tienDaChoVay = 0;
+                    nguon.tienCoTheChoVay = nguon.hanMucNg;
+
+                    string jsonData = JsonConvert.SerializeObject(nguon);
+
+                    if (nguonBUS.ThemNguonMoi(jsonData))
+                    {
+                        MessageBox.Show("Thêm nguồn mới thành công", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        Hide();
+                        ThemNguon themNguon = new ThemNguon();
+                        themNguon.ShowDialog();
+                        Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Đã có lỗi sảy ra, thêm nguồn mới thất bại", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
+            }catch(Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

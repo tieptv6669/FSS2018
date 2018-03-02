@@ -132,24 +132,31 @@ namespace FormDesignFSS2.GUI
         /// <param name="e"></param>
         private void btnTimKiemTabUser_Click(object sender, EventArgs e)
         {
-            // Xóa dữ liệu hiển thị cũ
-            gridTabUser.Rows.Clear();
-            // Lấy DS người dùng
-            List<NguoiDung> list = new List<NguoiDung>();
-
-            NguoiDungBUS nguoiDungBUS = new NguoiDungBUS();
-            string jsonData = nguoiDungBUS.TimKiemNguoiDung(txtTenNhanVien.Text, txtTenDangNhap.Text);
-
-            list = JsonConvert.DeserializeObject<List<NguoiDung>>(jsonData);
-
-            // Hiển thị danh sách người dùng lên grid view
-            foreach(NguoiDung temp in list)
+            try
             {
-                gridTabUser.Rows.Add(temp.tenDangNhapND, temp.hoTenND, temp.chucVuND, temp.phongBanND, temp.quyenND);
+                // Xóa dữ liệu hiển thị cũ
+                gridTabUser.Rows.Clear();
+                // Lấy DS người dùng
+                List<NguoiDung> list = new List<NguoiDung>();
+
+                NguoiDungBUS nguoiDungBUS = new NguoiDungBUS();
+                string jsonData = nguoiDungBUS.TimKiemNguoiDung(txtTenNhanVien.Text, txtTenDangNhap.Text);
+
+                list = JsonConvert.DeserializeObject<List<NguoiDung>>(jsonData);
+
+                // Hiển thị danh sách người dùng lên grid view
+                foreach (NguoiDung temp in list)
+                {
+                    gridTabUser.Rows.Add(temp.tenDangNhapND, temp.hoTenND, temp.chucVuND, temp.phongBanND, temp.quyenND);
+                }
+                if (list.Count > 0)
+                {
+                    gridTabUser.Rows[0].Selected = true;
+                }
             }
-            if(list.Count > 0)
+            catch(Exception ex)
             {
-                gridTabUser.Rows[0].Selected = true;
+                MessageBox.Show("Lỗi: " + ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -160,22 +167,29 @@ namespace FormDesignFSS2.GUI
         /// <param name="e"></param>
         private void btnSuaTabUser_Click(object sender, EventArgs e)
         {
-            if (gridTabUser.RowCount > 0 && gridTabUser.SelectedRows.Count > 0)
+            try
             {
-                SuaUser suaUser = new SuaUser();
-                suaUser.nguoiDung.tenDangNhapND = gridTabUser.SelectedRows[0].Cells[0].Value.ToString();
-                suaUser.nguoiDung.hoTenND = gridTabUser.SelectedRows[0].Cells[1].Value.ToString();
-                suaUser.nguoiDung.chucVuND = gridTabUser.SelectedRows[0].Cells[2].Value.ToString();
-                suaUser.nguoiDung.phongBanND = gridTabUser.SelectedRows[0].Cells[3].Value.ToString();
-                suaUser.nguoiDung.quyenND = gridTabUser.SelectedRows[0].Cells[4].Value.ToString();
-                suaUser.dataGridView = gridTabUser;
+                if (gridTabUser.RowCount > 0 && gridTabUser.SelectedRows.Count > 0)
+                {
+                    SuaUser suaUser = new SuaUser();
+                    suaUser.nguoiDung.tenDangNhapND = gridTabUser.SelectedRows[0].Cells[0].Value.ToString();
+                    suaUser.nguoiDung.hoTenND = gridTabUser.SelectedRows[0].Cells[1].Value.ToString();
+                    suaUser.nguoiDung.chucVuND = gridTabUser.SelectedRows[0].Cells[2].Value.ToString();
+                    suaUser.nguoiDung.phongBanND = gridTabUser.SelectedRows[0].Cells[3].Value.ToString();
+                    suaUser.nguoiDung.quyenND = gridTabUser.SelectedRows[0].Cells[4].Value.ToString();
+                    suaUser.dataGridView = gridTabUser;
 
-                suaUser.ShowDialog();
-            }
-            else
+                    suaUser.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("Thao tác lỗi. Bạn chưa chọn người dùng nào", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }catch(Exception ex)
             {
-                MessageBox.Show("Thao tác lỗi. Bạn chưa chọn người dùng nào", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Lỗi: " + ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
         }
 
         /// <summary>
@@ -185,27 +199,33 @@ namespace FormDesignFSS2.GUI
         /// <param name="e"></param>
         private void btnXoaTabUser_Click(object sender, EventArgs e)
         {
-            if(gridTabUser.RowCount > 0 && gridTabUser.SelectedRows.Count > 0)
+            try
             {
-                DialogResult dialogResult = MessageBox.Show("Bạn chắc chắn muốn xóa " + gridTabUser.SelectedRows[0].Cells[1].Value.ToString() + "?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning); 
-                if(dialogResult == DialogResult.Yes)
+                if (gridTabUser.RowCount > 0 && gridTabUser.SelectedRows.Count > 0)
                 {
-                    NguoiDungBUS nguoiDungBUS = new NguoiDungBUS();
-                    if (nguoiDungBUS.XoaNguoiDung(gridTabUser.SelectedRows[0].Cells[0].Value.ToString()))
+                    DialogResult dialogResult = MessageBox.Show("Bạn chắc chắn muốn xóa " + gridTabUser.SelectedRows[0].Cells[1].Value.ToString() + "?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (dialogResult == DialogResult.Yes)
                     {
-                        // Cập nhật grid view
-                        gridTabUser.Rows.Remove(gridTabUser.SelectedRows[0]);
-                        MessageBox.Show("Xóa người dùng thành công", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                    else
-                    {
-                        MessageBox.Show("Đã có lỗi sảy ra, xóa người dùng thất bại", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        NguoiDungBUS nguoiDungBUS = new NguoiDungBUS();
+                        if (nguoiDungBUS.XoaNguoiDung(gridTabUser.SelectedRows[0].Cells[0].Value.ToString()))
+                        {
+                            // Cập nhật grid view
+                            gridTabUser.Rows.Remove(gridTabUser.SelectedRows[0]);
+                            MessageBox.Show("Xóa người dùng thành công", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Đã có lỗi sảy ra, xóa người dùng thất bại", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
                 }
-            }
-            else
+                else
+                {
+                    MessageBox.Show("Thao tác lỗi. Bạn chưa chọn người dùng nào", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }catch(Exception ex)
             {
-                MessageBox.Show("Thao tác lỗi. Bạn chưa chọn người dùng nào", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Lỗi: " + ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -227,26 +247,31 @@ namespace FormDesignFSS2.GUI
         /// <param name="e"></param>
         private void btnTimKiemTabKH_Click(object sender, EventArgs e)
         {
-            // Xóa dữ liệu hiển thị cũ
-            gridTabKH.Rows.Clear();
-            // Lấy DS khách hàng
-            List<KhachHang> list = new List<KhachHang>();
-
-            KhachHangBUS khachHangBUS = new KhachHangBUS();
-            string jsonData = khachHangBUS.TimKiemKH(txtSoTKLKTabKH.Text, txtTenKHTabKH.Text, txtSoCMNDTabKH.Text);
-
-            list = JsonConvert.DeserializeObject<List<KhachHang>>(jsonData);
-
-            // Hiển thị danh sách khách hàng lên grid view
-            foreach (KhachHang temp in list)
+            try
             {
-                gridTabKH.Rows.Add(temp.STKLK, temp.hoTenKH, temp.loai, temp.soCMNNKH, temp.ghiChuKH);
-            }
-            if (list.Count > 0)
-            {
-                gridTabKH.Rows[0].Selected = true;
-            }
+                // Xóa dữ liệu hiển thị cũ
+                gridTabKH.Rows.Clear();
+                // Lấy DS khách hàng
+                List<KhachHang> list = new List<KhachHang>();
 
+                KhachHangBUS khachHangBUS = new KhachHangBUS();
+                string jsonData = khachHangBUS.TimKiemKH(txtSoTKLKTabKH.Text, txtTenKHTabKH.Text, txtSoCMNDTabKH.Text);
+
+                list = JsonConvert.DeserializeObject<List<KhachHang>>(jsonData);
+
+                // Hiển thị danh sách khách hàng lên grid view
+                foreach (KhachHang temp in list)
+                {
+                    gridTabKH.Rows.Add(temp.STKLK, temp.hoTenKH, temp.loai, temp.soCMNNKH, temp.ghiChuKH);
+                }
+                if (list.Count > 0)
+                {
+                    gridTabKH.Rows[0].Selected = true;
+                }
+            }catch(Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         /// Xử lý sự kiện click button reset mật khẩu
@@ -255,28 +280,35 @@ namespace FormDesignFSS2.GUI
         /// <param name="e"></param>
         private void btnResetTabUser_Click(object sender, EventArgs e)
         {
-            if(gridTabUser.RowCount > 0 && gridTabUser.SelectedRows.Count > 0)
+            try
             {
-                string tenDN = gridTabUser.SelectedRows[0].Cells[0].Value.ToString();
-                string tenNguoiDung = gridTabUser.SelectedRows[0].Cells[1].Value.ToString();
-                DialogResult dialogResult = MessageBox.Show("Bạn chắc chắn muốn reset mật khẩu cho " + tenNguoiDung + "?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if(dialogResult == DialogResult.Yes)
+                if (gridTabUser.RowCount > 0 && gridTabUser.SelectedRows.Count > 0)
                 {
-                    // reset mật khẩu cho người dùng 
-                    NguoiDungBUS nguoiDungBUS = new NguoiDungBUS();
-                    if (nguoiDungBUS.ResetMatKhau(tenDN)){
-                        MessageBox.Show("Reset mật khẩu thành công", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                    else
+                    string tenDN = gridTabUser.SelectedRows[0].Cells[0].Value.ToString();
+                    string tenNguoiDung = gridTabUser.SelectedRows[0].Cells[1].Value.ToString();
+                    DialogResult dialogResult = MessageBox.Show("Bạn chắc chắn muốn reset mật khẩu cho " + tenNguoiDung + "?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (dialogResult == DialogResult.Yes)
                     {
-                        MessageBox.Show("Đã có lỗi sảy ra, reset mật khẩu người dùng thất bại", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        // reset mật khẩu cho người dùng 
+                        NguoiDungBUS nguoiDungBUS = new NguoiDungBUS();
+                        if (nguoiDungBUS.ResetMatKhau(tenDN))
+                        {
+                            MessageBox.Show("Reset mật khẩu thành công", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Đã có lỗi sảy ra, reset mật khẩu người dùng thất bại", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
                 }
-            }
-            else
-            {
-                MessageBox.Show("Thao tác lỗi. Bạn chưa chọn người dùng nào", "", MessageBoxButtons.OK, MessageBoxIcon.Error);  
+                else
+                {
+                    MessageBox.Show("Thao tác lỗi. Bạn chưa chọn người dùng nào", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
+                }
+            }catch(Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -287,15 +319,21 @@ namespace FormDesignFSS2.GUI
         /// <param name="e"></param>
         private void btnXemChiTietTabKH_Click(object sender, EventArgs e)
         {
-            if (gridTabKH.RowCount > 0 && gridTabKH.SelectedRows.Count > 0)
+            try
             {
-                XemChiTietKH xemChiTietKH = new XemChiTietKH();
-                KhachHangBUS khachHangBUS = new KhachHangBUS();
-                KhachHang khachHang = new KhachHang();
-                string jsonData = khachHangBUS.layMotKhachHang(gridTabKH.SelectedRows[0].Cells[0].Value.ToString());
-                khachHang = JsonConvert.DeserializeObject<KhachHang>(jsonData);
-                xemChiTietKH.khachHang = khachHang;
-                xemChiTietKH.ShowDialog();
+                if (gridTabKH.RowCount > 0 && gridTabKH.SelectedRows.Count > 0)
+                {
+                    XemChiTietKH xemChiTietKH = new XemChiTietKH();
+                    KhachHangBUS khachHangBUS = new KhachHangBUS();
+                    KhachHang khachHang = new KhachHang();
+                    string jsonData = khachHangBUS.layMotKhachHang(gridTabKH.SelectedRows[0].Cells[0].Value.ToString());
+                    khachHang = JsonConvert.DeserializeObject<KhachHang>(jsonData);
+                    xemChiTietKH.khachHang = khachHang;
+                    xemChiTietKH.ShowDialog();
+                }
+            }catch(Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -306,23 +344,29 @@ namespace FormDesignFSS2.GUI
         /// <param name="e"></param>
         private void btnSuaTabKH_Click(object sender, EventArgs e)
         {
-            if (gridTabKH.RowCount > 0 && gridTabKH.SelectedRows.Count > 0)
+            try
             {
-                SuaKH suaKH = new SuaKH();
-                suaKH.dataGridView = gridTabKH;
-                KhachHang khachHang = new KhachHang();
-                KhachHangBUS khachHangBUS = new KhachHangBUS();
-                string jsonData = khachHangBUS.layMotKhachHang(gridTabKH.SelectedRows[0].Cells[0].Value.ToString());
+                if (gridTabKH.RowCount > 0 && gridTabKH.SelectedRows.Count > 0)
+                {
+                    SuaKH suaKH = new SuaKH();
+                    suaKH.dataGridView = gridTabKH;
+                    KhachHang khachHang = new KhachHang();
+                    KhachHangBUS khachHangBUS = new KhachHangBUS();
+                    string jsonData = khachHangBUS.layMotKhachHang(gridTabKH.SelectedRows[0].Cells[0].Value.ToString());
 
-                khachHang = JsonConvert.DeserializeObject<KhachHang>(jsonData);
+                    khachHang = JsonConvert.DeserializeObject<KhachHang>(jsonData);
 
-                suaKH.khachHang = khachHang;
+                    suaKH.khachHang = khachHang;
 
-                suaKH.ShowDialog();
-            }
-            else
+                    suaKH.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("Thao tác lỗi. Bạn chưa chọn khách hàng nào", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }catch(Exception ex)
             {
-                MessageBox.Show("Thao tác lỗi. Bạn chưa chọn khách hàng nào", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Lỗi: " + ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -331,25 +375,31 @@ namespace FormDesignFSS2.GUI
         /// </summary>
         public void HienThiDSNguon()
         {
-            // Xóa dữ liệu hiển thị cũ 
-            gridDSNguon.Rows.Clear();
-            // Lấy danh sách nguồn
-            NguonBUS nguonBUS = new NguonBUS();
-            List<Nguon> list = new List<Nguon>();
-            string jsonData = nguonBUS.LayDSNguon();
-
-            if (jsonData != null)
+            try
             {
-                // Hiển thị danh sách nguồn lên gridview 
-                list = JsonConvert.DeserializeObject<List<Nguon>>(jsonData);
-                foreach(Nguon temp in list)
+                // Xóa dữ liệu hiển thị cũ 
+                gridDSNguon.Rows.Clear();
+                // Lấy danh sách nguồn
+                NguonBUS nguonBUS = new NguonBUS();
+                List<Nguon> list = new List<Nguon>();
+                string jsonData = nguonBUS.LayDSNguon();
+
+                if (jsonData != null)
                 {
-                    gridDSNguon.Rows.Add(temp.maNg, temp.tenNg, temp.hanMucNg, temp.tienDaChoVay, temp.tienCoTheChoVay);
+                    // Hiển thị danh sách nguồn lên gridview 
+                    list = JsonConvert.DeserializeObject<List<Nguon>>(jsonData);
+                    foreach (Nguon temp in list)
+                    {
+                        gridDSNguon.Rows.Add(temp.maNg, temp.tenNg, temp.hanMucNg, temp.tienDaChoVay, temp.tienCoTheChoVay);
+                    }
+                    if (gridDSNguon.RowCount > 1)
+                    {
+                        gridDSNguon.Rows[0].Selected = true;
+                    }
                 }
-                if(gridDSNguon.RowCount > 1)
-                {
-                    gridDSNguon.Rows[0].Selected = true; 
-                }
+            }catch(Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -371,21 +421,27 @@ namespace FormDesignFSS2.GUI
         /// <param name="e"></param>
         private void btnSuaTabNguon_Click(object sender, EventArgs e)
         {
-            if(gridDSNguon.RowCount > 0 && gridDSNguon.SelectedRows.Count > 0)
+            try
             {
-                SuaNguon suaNguon = new SuaNguon();
-                suaNguon.dataGridView = gridDSNguon;
-                suaNguon.nguon.maNg = gridDSNguon.SelectedRows[0].Cells[0].Value.ToString();
-                suaNguon.nguon.tenNg = gridDSNguon.SelectedRows[0].Cells[1].Value.ToString();
-                suaNguon.nguon.hanMucNg = Int64.Parse(gridDSNguon.SelectedRows[0].Cells[2].Value.ToString().Replace(",", ""));
-                suaNguon.nguon.tienDaChoVay = Int64.Parse(gridDSNguon.SelectedRows[0].Cells[3].Value.ToString().Replace(",", ""));
-                suaNguon.nguon.tienCoTheChoVay = Int64.Parse(gridDSNguon.SelectedRows[0].Cells[4].Value.ToString().Replace(",", ""));
+                if (gridDSNguon.RowCount > 0 && gridDSNguon.SelectedRows.Count > 0)
+                {
+                    SuaNguon suaNguon = new SuaNguon();
+                    suaNguon.dataGridView = gridDSNguon;
+                    suaNguon.nguon.maNg = gridDSNguon.SelectedRows[0].Cells[0].Value.ToString();
+                    suaNguon.nguon.tenNg = gridDSNguon.SelectedRows[0].Cells[1].Value.ToString();
+                    suaNguon.nguon.hanMucNg = Int64.Parse(gridDSNguon.SelectedRows[0].Cells[2].Value.ToString().Replace(",", ""));
+                    suaNguon.nguon.tienDaChoVay = Int64.Parse(gridDSNguon.SelectedRows[0].Cells[3].Value.ToString().Replace(",", ""));
+                    suaNguon.nguon.tienCoTheChoVay = Int64.Parse(gridDSNguon.SelectedRows[0].Cells[4].Value.ToString().Replace(",", ""));
 
-                suaNguon.ShowDialog();
-            }
-            else
+                    suaNguon.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("Thao tác lỗi. Bạn chưa chọn nguồn nào", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }catch(Exception ex)
             {
-                MessageBox.Show("Thao tác lỗi. Bạn chưa chọn nguồn nào", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Lỗi: " + ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -396,29 +452,35 @@ namespace FormDesignFSS2.GUI
         /// <param name="e"></param>
         private void btnXoaTabNguon_Click(object sender, EventArgs e)
         {
-            if(gridDSNguon.RowCount > 0 && gridDSNguon.SelectedRows.Count > 0)
+            try
             {
-                DialogResult dialogResult = MessageBox.Show("Bạn có chắc chắn muốn xóa nguồn " + gridDSNguon.SelectedRows[0].Cells[1].Value.ToString() + "?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if(dialogResult == DialogResult.Yes)
+                if (gridDSNguon.RowCount > 0 && gridDSNguon.SelectedRows.Count > 0)
                 {
-                    // Lấy mã của nguồn được chọn
-                    string maNguon = gridDSNguon.SelectedRows[0].Cells[0].Value.ToString();
+                    DialogResult dialogResult = MessageBox.Show("Bạn có chắc chắn muốn xóa nguồn " + gridDSNguon.SelectedRows[0].Cells[1].Value.ToString() + "?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        // Lấy mã của nguồn được chọn
+                        string maNguon = gridDSNguon.SelectedRows[0].Cells[0].Value.ToString();
 
-                    NguonBUS nguonBUS = new NguonBUS();
-                    if (nguonBUS.XoaNguon(maNguon))
-                    {
-                        gridDSNguon.Rows.Remove(gridDSNguon.SelectedRows[0]);
-                        MessageBox.Show("Xóa nguồn thành công", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                    else
-                    {
-                        MessageBox.Show("Đã có lỗi sảy ra, xóa nguồn thất bại", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        NguonBUS nguonBUS = new NguonBUS();
+                        if (nguonBUS.XoaNguon(maNguon))
+                        {
+                            gridDSNguon.Rows.Remove(gridDSNguon.SelectedRows[0]);
+                            MessageBox.Show("Xóa nguồn thành công", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Đã có lỗi sảy ra, xóa nguồn thất bại", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
                 }
-            }
-            else
+                else
+                {
+                    MessageBox.Show("Thao tác lỗi. Bạn chưa chọn nguồn nào", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }catch(Exception ex)
             {
-                MessageBox.Show("Thao tác lỗi. Bạn chưa chọn nguồn nào", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Lỗi: " + ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -429,18 +491,24 @@ namespace FormDesignFSS2.GUI
         /// <param name="e"></param>
         private void btnTimKiemTabNguon_Click(object sender, EventArgs e)
         {
-            gridDSNguon.Rows.Clear();
-
-            NguonBUS nguonBUS = new NguonBUS();
-            string jsonData = nguonBUS.TimKiemNguon(txtTenNguon.Text, txtMaNguon.Text);
-
-            List<Nguon> list = JsonConvert.DeserializeObject<List<Nguon>>(jsonData);
-            if(list != null && list.Count > 0)
+            try
             {
-                foreach(Nguon temp in list)
+                gridDSNguon.Rows.Clear();
+
+                NguonBUS nguonBUS = new NguonBUS();
+                string jsonData = nguonBUS.TimKiemNguon(txtTenNguon.Text, txtMaNguon.Text);
+
+                List<Nguon> list = JsonConvert.DeserializeObject<List<Nguon>>(jsonData);
+                if (list != null && list.Count > 0)
                 {
-                    gridDSNguon.Rows.Add(temp.maNg, temp.tenNg, temp.hanMucNg.ToString("#,##0"), temp.tienDaChoVay.ToString("#,##0"), temp.tienCoTheChoVay.ToString("#,##0"));
+                    foreach (Nguon temp in list)
+                    {
+                        gridDSNguon.Rows.Add(temp.maNg, temp.tenNg, temp.hanMucNg.ToString("#,##0"), temp.tienDaChoVay.ToString("#,##0"), temp.tienCoTheChoVay.ToString("#,##0"));
+                    }
                 }
+            }catch(Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

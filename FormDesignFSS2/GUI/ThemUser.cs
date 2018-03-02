@@ -31,23 +31,29 @@ namespace FormDesignFSS2.GUI
         /// <param name="e"></param>
         private void ThemUser_Load(object sender, EventArgs e)
         {
-            NguoiDungBUS nguoiDungBUS = new NguoiDungBUS();
-            // Lấy danh sách người dùng hiện tại
-            List<NguoiDung> listNguoiDung = new List<NguoiDung>();
-            listNguoiDung = JsonConvert.DeserializeObject<List<NguoiDung>>(nguoiDungBUS.LayDSNguoiDung());
-            // Lấy danh sách tên đăng nhập hiện tại
-            List<string> listTenDangNhap = new List<string>();
-            foreach(NguoiDung temp in listNguoiDung)
+            try
             {
-                listTenDangNhap.Add(temp.tenDangNhapND);
-            }
-            // Tạo tên đăng nhập
-            string tenDangNhap = nguoiDungBUS.TaoTenDangNhap(listTenDangNhap.ToArray());
+                NguoiDungBUS nguoiDungBUS = new NguoiDungBUS();
+                // Lấy danh sách người dùng hiện tại
+                List<NguoiDung> listNguoiDung = new List<NguoiDung>();
+                listNguoiDung = JsonConvert.DeserializeObject<List<NguoiDung>>(nguoiDungBUS.LayDSNguoiDung());
+                // Lấy danh sách tên đăng nhập hiện tại
+                List<string> listTenDangNhap = new List<string>();
+                foreach (NguoiDung temp in listNguoiDung)
+                {
+                    listTenDangNhap.Add(temp.tenDangNhapND);
+                }
+                // Tạo tên đăng nhập
+                string tenDangNhap = nguoiDungBUS.TaoTenDangNhap(listTenDangNhap.ToArray());
 
-            txtTenDangNhap.Text = tenDangNhap;
-            txtMatKhau.Text = tenDangNhap;
-            lblError.ForeColor = Color.Red;
-            cboChonQuyen.SelectedIndex = 0;
+                txtTenDangNhap.Text = tenDangNhap;
+                txtMatKhau.Text = tenDangNhap;
+                lblError.ForeColor = Color.Red;
+                cboChonQuyen.SelectedIndex = 0;
+            }catch(Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         /// <summary>
@@ -80,91 +86,97 @@ namespace FormDesignFSS2.GUI
         /// <param name="e"></param>
         private void btnXacNhan_Click(object sender, EventArgs e)
         {
-            if(btnXacNhan.Text == "Xác nhận")
+            try
             {
-                NguoiDungBUS nguoiDungBUS = new NguoiDungBUS();
-                switch (nguoiDungBUS.KTThongTinThemNguoiDung(txtHoTen.Text, txtChucVu.Text, txtPhongBan.Text, cboChonQuyen.SelectedItem.ToString()))
-                {
-                    case 1:
-                        {
-                            lblError.Text = "Bạn chưa nhập họ tên";
-                            break;
-                        }
-                    case 2:
-                        {
-                            lblError.Text = "Bạn chưa nhập chức vụ";
-                            break;
-                        }
-                    case 3:
-                        {
-                            lblError.Text = "Bạn chưa nhập phòng ban";
-                            break;
-                        }
-                    case 4:
-                        {
-                            lblError.Text = "Bạn chưa chọn quyền";
-                            break;
-                        }
-                    case 5:
-                        {
-                            lblError.Text = "Họ tên không hợp lệ";
-                            break;
-                        }
-                    case 6:
-                        {
-                            lblError.Text = "Tên chức vụ không hợp lệ";
-                            break;
-                        }
-                    case 7:
-                        {
-                            lblError.Text = "Tên phòng ban không hợp lệ";
-                            break;
-                        }
-                    case 0:
-                        {
-                            lblError.Text = "";
-                            btnXacNhan.Text = "Lưu";
-                            btnHuy.Text = "Quay lại";
-                            btnHuy.Image = Properties.Resources._101;
-                            txtHoTen.Enabled = false;
-                            txtChucVu.Enabled = false;
-                            txtPhongBan.Enabled = false;
-                            cboChonQuyen.Enabled = false;
-                            break;
-                        }
-                }
-            }
-            else
-            {
-                // Thêm người dùng mới vào CSDL
-                NguoiDung nguoiDung = new NguoiDung();
-                nguoiDung.tenDangNhapND = txtTenDangNhap.Text;
-                nguoiDung.matKhauND = txtMatKhau.Text;
-                nguoiDung.hoTenND = txtHoTen.Text;
-                nguoiDung.chucVuND = txtChucVu.Text;
-                nguoiDung.phongBanND = txtPhongBan.Text;
-                nguoiDung.quyenND = cboChonQuyen.SelectedItem.ToString();
-                nguoiDung.trangthaiND = 1;
-                try
+                if (btnXacNhan.Text == "Xác nhận")
                 {
                     NguoiDungBUS nguoiDungBUS = new NguoiDungBUS();
-                    string jsonData = JsonConvert.SerializeObject(nguoiDung);
-                    if (nguoiDungBUS.ThemNguoiDung(jsonData))
+                    switch (nguoiDungBUS.KTThongTinThemNguoiDung(txtHoTen.Text, txtChucVu.Text, txtPhongBan.Text, cboChonQuyen.SelectedItem.ToString()))
                     {
-                        MessageBox.Show("Thêm người dùng mới thành công", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        Close();
-                        ThemUser themUser = new ThemUser();
-                        themUser.ShowDialog();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Đã có lỗi sảy ra, thêm người dùng mới thất bại", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        case 1:
+                            {
+                                lblError.Text = "Bạn chưa nhập họ tên";
+                                break;
+                            }
+                        case 2:
+                            {
+                                lblError.Text = "Bạn chưa nhập chức vụ";
+                                break;
+                            }
+                        case 3:
+                            {
+                                lblError.Text = "Bạn chưa nhập phòng ban";
+                                break;
+                            }
+                        case 4:
+                            {
+                                lblError.Text = "Bạn chưa chọn quyền";
+                                break;
+                            }
+                        case 5:
+                            {
+                                lblError.Text = "Họ tên không hợp lệ";
+                                break;
+                            }
+                        case 6:
+                            {
+                                lblError.Text = "Tên chức vụ không hợp lệ";
+                                break;
+                            }
+                        case 7:
+                            {
+                                lblError.Text = "Tên phòng ban không hợp lệ";
+                                break;
+                            }
+                        case 0:
+                            {
+                                lblError.Text = "";
+                                btnXacNhan.Text = "Lưu";
+                                btnHuy.Text = "Quay lại";
+                                btnHuy.Image = Properties.Resources._101;
+                                txtHoTen.Enabled = false;
+                                txtChucVu.Enabled = false;
+                                txtPhongBan.Enabled = false;
+                                cboChonQuyen.Enabled = false;
+                                break;
+                            }
                     }
                 }
-                catch (Exception ex)
+                else
                 {
-                    MessageBox.Show("Lỗi: " + ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    // Thêm người dùng mới vào CSDL
+                    NguoiDung nguoiDung = new NguoiDung();
+                    nguoiDung.tenDangNhapND = txtTenDangNhap.Text;
+                    nguoiDung.matKhauND = txtMatKhau.Text;
+                    nguoiDung.hoTenND = txtHoTen.Text;
+                    nguoiDung.chucVuND = txtChucVu.Text;
+                    nguoiDung.phongBanND = txtPhongBan.Text;
+                    nguoiDung.quyenND = cboChonQuyen.SelectedItem.ToString();
+                    nguoiDung.trangthaiND = 1;
+                    try
+                    {
+                        NguoiDungBUS nguoiDungBUS = new NguoiDungBUS();
+                        string jsonData = JsonConvert.SerializeObject(nguoiDung);
+                        if (nguoiDungBUS.ThemNguoiDung(jsonData))
+                        {
+                            MessageBox.Show("Thêm người dùng mới thành công", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            Close();
+                            ThemUser themUser = new ThemUser();
+                            themUser.ShowDialog();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Đã có lỗi sảy ra, thêm người dùng mới thất bại", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Lỗi: " + ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
+            }catch(Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
