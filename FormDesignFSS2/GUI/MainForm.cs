@@ -11,6 +11,7 @@ using DTO;
 using FormDesignFSS2.NguoiDungWS;
 using FormDesignFSS2.KhachHangWS;
 using FormDesignFSS2.NguonWS;
+using FormDesignFSS2.SanPhamTinDungWS;
 using FormDesignFSS2.Report;
 using Newtonsoft.Json;
 using Microsoft.Reporting.WinForms;
@@ -149,10 +150,6 @@ namespace FormDesignFSS2.GUI
                 {
                     gridTabUser.Rows.Add(temp.tenDangNhapND, temp.hoTenND, temp.chucVuND, temp.phongBanND, temp.quyenND);
                 }
-                if (list.Count > 0)
-                {
-                    gridTabUser.Rows[0].Selected = true;
-                }
             }
             catch(Exception ex)
             {
@@ -263,10 +260,6 @@ namespace FormDesignFSS2.GUI
                 foreach (KhachHang temp in list)
                 {
                     gridTabKH.Rows.Add(temp.STKLK, temp.hoTenKH, temp.loai, temp.soCMNNKH, temp.ghiChuKH);
-                }
-                if (list.Count > 0)
-                {
-                    gridTabKH.Rows[0].Selected = true;
                 }
             }catch(Exception ex)
             {
@@ -566,6 +559,43 @@ namespace FormDesignFSS2.GUI
             reportViewerBC.LocalReport.DataSources.Add(reportDataSource);
             // Hiển thị báo cáo
             reportViewerBC.RefreshReport();
+        }
+
+        /// <summary>
+        /// Xử lý sự kiện click button tìm kiếm sản phẩm tín dụng
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnTimKiemTabSPTD_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Lấy danh sách SPTD
+                SanPhamTinDungBUS sanPhamTinDungBUS = new SanPhamTinDungBUS();
+                string jsonData = sanPhamTinDungBUS.TimKiemSPTD(txtTenSPTDTabSPTD.Text, txtMaSPTDTabSPTD.Text, txtNguonTabSPTD.Text);
+                List<SanPhamTinDung> list = JsonConvert.DeserializeObject<List<SanPhamTinDung>>(jsonData);
+                // Hiển thị danh sách
+                gridDSSPTD.Rows.Clear();
+                foreach (SanPhamTinDung temp in list)
+                {
+                    gridDSSPTD.Rows.Add(temp.MaSPTD, temp.TenSPTD, temp.TenNguon, temp.ThoiHanVay, temp.LaiSuat, temp.LaiSuatQuaHan, temp.TrangThai);
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
+        /// Xử lý sự kiện click button thêm sản phẩm tín dụng
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnThemTabSPTD_Click(object sender, EventArgs e)
+        {
+            ThemMoiSPTD themMoiSPTD = new ThemMoiSPTD();
+            themMoiSPTD.ShowDialog();
         }
     }
 }

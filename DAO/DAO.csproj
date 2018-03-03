@@ -44,6 +44,7 @@
     <Compile Include="NguoiDungDAO.cs" />
     <Compile Include="NguonDAO.cs" />
     <Compile Include="Program.cs" />
+    <Compile Include="SanPhamTinDungDAO.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DTO\DTO.csproj">

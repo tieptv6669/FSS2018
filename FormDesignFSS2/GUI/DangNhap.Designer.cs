@@ -80,7 +80,7 @@
             this.btnDangNhap.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDangNhap.Image = global::FormDesignFSS2.Properties.Resources._129;
             this.btnDangNhap.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDangNhap.Location = new System.Drawing.Point(52, 113);
+            this.btnDangNhap.Location = new System.Drawing.Point(52, 105);
             this.btnDangNhap.Name = "btnDangNhap";
             this.btnDangNhap.Size = new System.Drawing.Size(96, 40);
             this.btnDangNhap.TabIndex = 4;
@@ -94,7 +94,7 @@
             this.btnThoat.BackColor = System.Drawing.SystemColors.HighlightText;
             this.btnThoat.Image = global::FormDesignFSS2.Properties.Resources._114;
             this.btnThoat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnThoat.Location = new System.Drawing.Point(177, 113);
+            this.btnThoat.Location = new System.Drawing.Point(177, 105);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(96, 40);
             this.btnThoat.TabIndex = 5;
@@ -105,7 +105,7 @@
             // lblError
             // 
             this.lblError.AutoSize = true;
-            this.lblError.Location = new System.Drawing.Point(44, 9);
+            this.lblError.Location = new System.Drawing.Point(27, 9);
             this.lblError.Name = "lblError";
             this.lblError.Size = new System.Drawing.Size(0, 13);
             this.lblError.TabIndex = 6;
@@ -115,7 +115,7 @@
             this.AcceptButton = this.btnDangNhap;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 165);
+            this.ClientSize = new System.Drawing.Size(280, 153);
             this.Controls.Add(this.lblError);
             this.Controls.Add(this.btnThoat);
             this.Controls.Add(this.btnDangNhap);

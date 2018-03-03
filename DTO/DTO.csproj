@@ -42,6 +42,7 @@
     <Compile Include="NguoiDung.cs" />
     <Compile Include="Nguon.cs" />
     <Compile Include="Program.cs" />
+    <Compile Include="SanPhamTinDung.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -197,6 +197,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
     </Compile>
+    <Compile Include="Web References\SanPhamTinDungWS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="GUI\ChayQuaNgay.resx">
       <DependentUpon>ChayQuaNgay.cs</DependentUpon>
     </EmbeddedResource>
@@ -296,6 +301,11 @@
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <None Include="Web References\SanPhamTinDungWS\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\SanPhamTinDungWS\SanPhamTinDungBUS.wsdl" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
@@ -960,6 +970,17 @@
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>FormDesignFSS2_NguonWS_NguonBUS</CachedSettingsPropName>
     </WebReferenceUrl>
+    <WebReferenceUrl Include="http://localhost:49220/SanPhamTinDungBUS.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\SanPhamTinDungWS\</RelPath>
+      <UpdateFromURL>http://localhost:49220/SanPhamTinDungBUS.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>FormDesignFSS2_SanPhamTinDungWS_SanPhamTinDungBUS</CachedSettingsPropName>
+    </WebReferenceUrl>
   </ItemGroup>
   <ItemGroup>
     <None Include="Web References\NguoiDungWS\NguoiDungBUS.disco" />
@@ -975,6 +996,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Web References\NguonWS\NguonBUS.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\SanPhamTinDungWS\SanPhamTinDungBUS.disco" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

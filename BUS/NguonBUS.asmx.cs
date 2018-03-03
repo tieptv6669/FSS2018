@@ -35,16 +35,8 @@ namespace BUS
             List<Nguon> list = new List<Nguon>();
             list = NguonDAO.LayDanhSachNguon();
 
-            if(list != null)
-            {
-                jsonData = JsonConvert.SerializeObject(list);
-
-                return jsonData;
-            }
-            else
-            {
-                return null;
-            }
+            jsonData = JsonConvert.SerializeObject(list);
+            return jsonData;
         }
 
         /// <summary>
