@@ -597,5 +597,43 @@ namespace FormDesignFSS2.GUI
             ThemMoiSPTD themMoiSPTD = new ThemMoiSPTD();
             themMoiSPTD.ShowDialog();
         }
+
+        /// <summary>
+        /// Xử lý sự kiện click button sửa sản phẩm tín dụng
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnSuaTabSPTD_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (gridDSSPTD.RowCount > 0 && gridDSSPTD.SelectedRows.Count > 0)
+                {
+                    SuaSPTD suaSPTD = new SuaSPTD();
+                    // Lấy sản phẩm tín dụng được chọn
+                    SanPhamTinDung sanPhamTinDung = new SanPhamTinDung();
+                    sanPhamTinDung.MaSPTD = gridDSSPTD.SelectedRows[0].Cells[0].Value.ToString();
+                    sanPhamTinDung.TenSPTD = gridDSSPTD.SelectedRows[0].Cells[1].Value.ToString();
+                    sanPhamTinDung.TenNguon = gridDSSPTD.SelectedRows[0].Cells[2].Value.ToString();
+                    sanPhamTinDung.ThoiHanVay = Int32.Parse(gridDSSPTD.SelectedRows[0].Cells[3].Value.ToString());
+                    sanPhamTinDung.LaiSuat = Int32.Parse(gridDSSPTD.SelectedRows[0].Cells[4].Value.ToString());
+                    sanPhamTinDung.LaiSuatQuaHan = Int32.Parse(gridDSSPTD.SelectedRows[0].Cells[5].Value.ToString());
+                    sanPhamTinDung.TrangThai = gridDSSPTD.SelectedRows[0].Cells[6].Value.ToString();
+
+                    suaSPTD.sanPhamTinDung = sanPhamTinDung;
+                    suaSPTD.dataGridView = gridDSSPTD;
+
+                    suaSPTD.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("Thao tác lỗi. Bạn chưa chọn SPTD nào", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

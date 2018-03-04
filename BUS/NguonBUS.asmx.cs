@@ -197,5 +197,18 @@ namespace BUS
         {
             return NguonDAO.XoaNguon(maNguon);
         }
+
+        /// <summary>
+        /// Lấy nguồn khi biết tên nguồn
+        /// </summary>
+        /// <param name="tenNguon"></param>
+        /// <returns></returns>
+        [WebMethod]
+        public string GetNguon(string tenNguon)
+        {
+            Nguon nguon = NguonDAO.GetNguon(tenNguon);
+            string jsonData = JsonConvert.SerializeObject(nguon);
+            return jsonData;
+        }
     }
 }

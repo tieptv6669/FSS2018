@@ -19,7 +19,14 @@ namespace BUS
     // [System.Web.Script.Services.ScriptService]
     public class SanPhamTinDungBUS : System.Web.Services.WebService
     {
-
+        /// <summary>
+        /// Kiểm tra thông tin thêm mới SPTD
+        /// </summary>
+        /// <param name="tenSPTD"></param>
+        /// <param name="thoiHanVay"></param>
+        /// <param name="laiSuat"></param>
+        /// <param name="laiSuatQuaHan"></param>
+        /// <returns></returns>
         [WebMethod]
         public int KTThongTinThemMoiSPTD(string tenSPTD, string thoiHanVay, string laiSuat, string laiSuatQuaHan)
         {
@@ -142,6 +149,95 @@ namespace BUS
         {
             SanPhamTinDung sanPhamTinDung = JsonConvert.DeserializeObject<SanPhamTinDung>(jsonData);
             return SanPhamTinDungDAO.ThemMoiSPTD(sanPhamTinDung);
+        }
+
+        /// <summary>
+        /// Kiểm tra thông tin sửa sản phẩm tín dụng
+        /// </summary>
+        /// <param name="tenSPTD"></param>
+        /// <param name="thoiHanVay"></param>
+        /// <param name="laiSuat"></param>
+        /// <param name="laiSuatQuaHan"></param>
+        /// <returns></returns>
+        [WebMethod]
+        public int KTThongTinSuaSPTD(string tenMoiSPTD, string tenCuSPTD, string thoiHanVay, string laiSuat, string laiSuatQuaHan)
+        {
+            Helper helper = new Helper();
+            SanPhamTinDungBUS sanPhamTinDungBUS = new SanPhamTinDungBUS();
+            if (tenMoiSPTD == "")
+            {
+                return 1;
+            }
+            if (thoiHanVay == "")
+            {
+                return 2;
+            }
+            if (laiSuat == "")
+            {
+                return 3;
+            }
+            if (laiSuatQuaHan == "")
+            {
+                return 4;
+            }
+            if (!helper.ChiChuaChuCai(tenMoiSPTD))
+            {
+                return 5;
+            }
+            if (!helper.LaMotSoNguyenDuong(thoiHanVay))
+            {
+                return 6;
+            }
+            if (!helper.LaMotSoNguyenDuong(laiSuat))
+            {
+                return 7;
+            }
+            if (!helper.LaMotSoNguyenDuong(laiSuatQuaHan))
+            {
+                return 8;
+            }
+            if (sanPhamTinDungBUS.KTThayDoiTenSPTD(tenMoiSPTD, tenCuSPTD) == false)
+            {
+                return 9;
+            }
+
+            return 0;
+        }
+
+        /// <summary>
+        /// Kiểm tra thay đổi tên SPTD
+        /// </summary>
+        /// <param name="tenMoiSPTD"></param>
+        /// <returns></returns>
+        [WebMethod]
+        public bool KTThayDoiTenSPTD(string tenMoiSPTD, string tenCuSPTD)
+        {
+            List<SanPhamTinDung> list = SanPhamTinDungDAO.GetListSPTD(tenCuSPTD);
+            foreach(SanPhamTinDung temp in list)
+            {
+                if(temp.TenSPTD == tenMoiSPTD)
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        /// <summary>
+        /// Sửa thông tin SPTD
+        /// </summary>
+        /// <param name="maSPTD"></param>
+        /// <param name="tenSPTD"></param>
+        /// <param name="thoiHanVay"></param>
+        /// <param name="laiSuat"></param>
+        /// <param name="laiSuatQuaHan"></param>
+        /// <param name="trangThai"></param>
+        /// <returns></returns>
+        [WebMethod]
+        public bool SuaSPTD(string maSPTD, string tenSPTD, int thoiHanVay, int laiSuat, int laiSuatQuaHan, string trangThai)
+        {
+            return SanPhamTinDungDAO.SuaSPTD(maSPTD, tenSPTD, thoiHanVay, laiSuat, laiSuatQuaHan, trangThai);
         }
     }
 }

@@ -73,6 +73,58 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="KTThongTinSuaSPTD">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="tenMoiSPTD" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="tenCuSPTD" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="thoiHanVay" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="laiSuat" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="laiSuatQuaHan" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KTThongTinSuaSPTDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="KTThongTinSuaSPTDResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KTThayDoiTenSPTD">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="tenMoiSPTD" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="tenCuSPTD" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KTThayDoiTenSPTDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="KTThayDoiTenSPTDResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SuaSPTD">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="maSPTD" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="tenSPTD" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="thoiHanVay" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="laiSuat" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="laiSuatQuaHan" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="trangThai" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SuaSPTDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SuaSPTDResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="KTThongTinThemMoiSPTDSoapIn">
@@ -105,6 +157,24 @@
   <wsdl:message name="ThemMoiSPTDSoapOut">
     <wsdl:part name="parameters" element="tns:ThemMoiSPTDResponse" />
   </wsdl:message>
+  <wsdl:message name="KTThongTinSuaSPTDSoapIn">
+    <wsdl:part name="parameters" element="tns:KTThongTinSuaSPTD" />
+  </wsdl:message>
+  <wsdl:message name="KTThongTinSuaSPTDSoapOut">
+    <wsdl:part name="parameters" element="tns:KTThongTinSuaSPTDResponse" />
+  </wsdl:message>
+  <wsdl:message name="KTThayDoiTenSPTDSoapIn">
+    <wsdl:part name="parameters" element="tns:KTThayDoiTenSPTD" />
+  </wsdl:message>
+  <wsdl:message name="KTThayDoiTenSPTDSoapOut">
+    <wsdl:part name="parameters" element="tns:KTThayDoiTenSPTDResponse" />
+  </wsdl:message>
+  <wsdl:message name="SuaSPTDSoapIn">
+    <wsdl:part name="parameters" element="tns:SuaSPTD" />
+  </wsdl:message>
+  <wsdl:message name="SuaSPTDSoapOut">
+    <wsdl:part name="parameters" element="tns:SuaSPTDResponse" />
+  </wsdl:message>
   <wsdl:portType name="SanPhamTinDungBUSSoap">
     <wsdl:operation name="KTThongTinThemMoiSPTD">
       <wsdl:input message="tns:KTThongTinThemMoiSPTDSoapIn" />
@@ -125,6 +195,18 @@
     <wsdl:operation name="ThemMoiSPTD">
       <wsdl:input message="tns:ThemMoiSPTDSoapIn" />
       <wsdl:output message="tns:ThemMoiSPTDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="KTThongTinSuaSPTD">
+      <wsdl:input message="tns:KTThongTinSuaSPTDSoapIn" />
+      <wsdl:output message="tns:KTThongTinSuaSPTDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="KTThayDoiTenSPTD">
+      <wsdl:input message="tns:KTThayDoiTenSPTDSoapIn" />
+      <wsdl:output message="tns:KTThayDoiTenSPTDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SuaSPTD">
+      <wsdl:input message="tns:SuaSPTDSoapIn" />
+      <wsdl:output message="tns:SuaSPTDSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="SanPhamTinDungBUSSoap" type="tns:SanPhamTinDungBUSSoap">
@@ -174,6 +256,33 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="KTThongTinSuaSPTD">
+      <soap:operation soapAction="http://tempuri.org/KTThongTinSuaSPTD" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KTThayDoiTenSPTD">
+      <soap:operation soapAction="http://tempuri.org/KTThayDoiTenSPTD" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SuaSPTD">
+      <soap:operation soapAction="http://tempuri.org/SuaSPTD" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="SanPhamTinDungBUSSoap12" type="tns:SanPhamTinDungBUSSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -215,6 +324,33 @@
     </wsdl:operation>
     <wsdl:operation name="ThemMoiSPTD">
       <soap12:operation soapAction="http://tempuri.org/ThemMoiSPTD" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KTThongTinSuaSPTD">
+      <soap12:operation soapAction="http://tempuri.org/KTThongTinSuaSPTD" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KTThayDoiTenSPTD">
+      <soap12:operation soapAction="http://tempuri.org/KTThayDoiTenSPTD" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SuaSPTD">
+      <soap12:operation soapAction="http://tempuri.org/SuaSPTD" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

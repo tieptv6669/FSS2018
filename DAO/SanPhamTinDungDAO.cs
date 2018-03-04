@@ -164,5 +164,83 @@ namespace DAO
                 return false;
             }
         }
+
+        /// <summary>
+        /// Lấy danh sách sản phẩm tín dụng ngoại trừ sản phẩm tín dụng có tên 'tenSPTD'
+        /// </summary>
+        /// <param name="tenSPTD"></param>
+        /// <returns></returns>
+        public static List<SanPhamTinDung> GetListSPTD(string tenSPTD)
+        {
+            try
+            {
+                List<SanPhamTinDung> list = new List<SanPhamTinDung>();
+
+                OracleCommand oracleCommand = new OracleCommand();
+                oracleCommand.CommandText = "SELECT * FROM SPTD WHERE TENSPTD <> :tenSPTD";
+                oracleCommand.Parameters.Add("tenSPTD", tenSPTD);
+
+                OracleDataReader oracleDataReader = DataProvider.GetOracleDataReader(oracleCommand);
+                if (oracleDataReader != null && oracleDataReader.HasRows)
+                {
+                    while (oracleDataReader.Read())
+                    {
+                        SanPhamTinDung sanPhamTinDung = new SanPhamTinDung();
+                        sanPhamTinDung.IdSPTD = oracleDataReader.GetInt32(0);
+                        sanPhamTinDung.MaSPTD = oracleDataReader.GetString(1);
+                        sanPhamTinDung.TenSPTD = oracleDataReader.GetString(2);
+                        sanPhamTinDung.ThoiHanVay = oracleDataReader.GetInt32(3);
+                        sanPhamTinDung.LaiSuat = oracleDataReader.GetInt32(4);
+                        sanPhamTinDung.LaiSuatQuaHan = oracleDataReader.GetInt32(5);
+                        sanPhamTinDung.TrangThai = oracleDataReader.GetString(6);
+                        sanPhamTinDung.IdNguon = oracleDataReader.GetInt32(7);
+
+                        list.Add(sanPhamTinDung);
+                    }
+                }
+
+                return list;
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show("Lỗi: " + e.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// Sửa thông tin SPTD
+        /// </summary>
+        /// <param name="maSPTD"></param>
+        /// <param name="tenSPTD"></param>
+        /// <param name="thoiHanVay"></param>
+        /// <param name="laiSuat"></param>
+        /// <param name="laiSuatQuaHan"></param>
+        /// <param name="trangThai"></param>
+        /// <returns></returns>
+        public static bool SuaSPTD(string maSPTD, string tenSPTD, int thoiHanVay, int laiSuat, int laiSuatQuaHan, string trangThai)
+        {
+            try
+            {
+                OracleCommand oracleCommand = new OracleCommand();
+                oracleCommand.CommandText = "UPDATE SPTD SET TENSPTD = :tenSPTD, THOIHANVAY = :thoiHanVay, " +
+                    "LAISUAT = :laiSuat, LAISUATQUAHAN = :laiSuatQuaHan, " +
+                    "TRANGTHAI = :trangThai WHERE MASPTD = :maSPTD";
+                oracleCommand.Parameters.Add("tenSPTD", tenSPTD);
+                oracleCommand.Parameters.Add("thoiHanVay", thoiHanVay);
+                oracleCommand.Parameters.Add("laiSuat", laiSuat);
+                oracleCommand.Parameters.Add("laiSuatQuaHan", laiSuatQuaHan);
+                oracleCommand.Parameters.Add("trangThai", trangThai);
+                oracleCommand.Parameters.Add("maSPTD", maSPTD);
+
+                return DataProvider.ExcuteNonQuery(oracleCommand);
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Lỗi: " + e.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
     }
 }

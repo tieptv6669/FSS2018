@@ -45,6 +45,8 @@ namespace FormDesignFSS2.NguonWS {
         
         private System.Threading.SendOrPostCallback XoaNguonOperationCompleted;
         
+        private System.Threading.SendOrPostCallback GetNguonOperationCompleted;
+        
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
@@ -106,6 +108,9 @@ namespace FormDesignFSS2.NguonWS {
         
         /// <remarks/>
         public event XoaNguonCompletedEventHandler XoaNguonCompleted;
+        
+        /// <remarks/>
+        public event GetNguonCompletedEventHandler GetNguonCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/LayDSNguon", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -346,6 +351,35 @@ namespace FormDesignFSS2.NguonWS {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetNguon", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string GetNguon(string tenNguon) {
+            object[] results = this.Invoke("GetNguon", new object[] {
+                        tenNguon});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetNguonAsync(string tenNguon) {
+            this.GetNguonAsync(tenNguon, null);
+        }
+        
+        /// <remarks/>
+        public void GetNguonAsync(string tenNguon, object userState) {
+            if ((this.GetNguonOperationCompleted == null)) {
+                this.GetNguonOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetNguonOperationCompleted);
+            }
+            this.InvokeAsync("GetNguon", new object[] {
+                        tenNguon}, this.GetNguonOperationCompleted, userState);
+        }
+        
+        private void OnGetNguonOperationCompleted(object arg) {
+            if ((this.GetNguonCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetNguonCompleted(this, new GetNguonCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         public new void CancelAsync(object userState) {
             base.CancelAsync(userState);
         }
@@ -568,6 +602,32 @@ namespace FormDesignFSS2.NguonWS {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((bool)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
+    public delegate void GetNguonCompletedEventHandler(object sender, GetNguonCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetNguonCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetNguonCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
             }
         }
     }
