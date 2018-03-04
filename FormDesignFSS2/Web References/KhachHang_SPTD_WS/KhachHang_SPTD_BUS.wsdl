@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="LayDSKH_SPTD">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="soTKLK" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="tenKH" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="maSPTD" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LayDSKH_SPTDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LayDSKH_SPTDResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="LayDSKH_SPTDSoapIn">
+    <wsdl:part name="parameters" element="tns:LayDSKH_SPTD" />
+  </wsdl:message>
+  <wsdl:message name="LayDSKH_SPTDSoapOut">
+    <wsdl:part name="parameters" element="tns:LayDSKH_SPTDResponse" />
+  </wsdl:message>
+  <wsdl:portType name="KhachHang_SPTD_BUSSoap">
+    <wsdl:operation name="LayDSKH_SPTD">
+      <wsdl:input message="tns:LayDSKH_SPTDSoapIn" />
+      <wsdl:output message="tns:LayDSKH_SPTDSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="KhachHang_SPTD_BUSSoap" type="tns:KhachHang_SPTD_BUSSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="LayDSKH_SPTD">
+      <soap:operation soapAction="http://tempuri.org/LayDSKH_SPTD" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="KhachHang_SPTD_BUSSoap12" type="tns:KhachHang_SPTD_BUSSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="LayDSKH_SPTD">
+      <soap12:operation soapAction="http://tempuri.org/LayDSKH_SPTD" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="KhachHang_SPTD_BUS">
+    <wsdl:port name="KhachHang_SPTD_BUSSoap" binding="tns:KhachHang_SPTD_BUSSoap">
+      <soap:address location="http://localhost:49220/KhachHang_SPTD_BUS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="KhachHang_SPTD_BUSSoap12" binding="tns:KhachHang_SPTD_BUSSoap12">
+      <soap12:address location="http://localhost:49220/KhachHang_SPTD_BUS.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

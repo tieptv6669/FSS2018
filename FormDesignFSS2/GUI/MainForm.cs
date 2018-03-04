@@ -13,6 +13,7 @@ using FormDesignFSS2.KhachHangWS;
 using FormDesignFSS2.NguonWS;
 using FormDesignFSS2.SanPhamTinDungWS;
 using FormDesignFSS2.Report;
+using FormDesignFSS2.KhachHang_SPTD_WS;
 using Newtonsoft.Json;
 using Microsoft.Reporting.WinForms;
 
@@ -633,6 +634,25 @@ namespace FormDesignFSS2.GUI
             catch(Exception ex)
             {
                 MessageBox.Show("Lỗi: " + ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
+        /// Xử lý sự kiện 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnTimKiem_Click(object sender, EventArgs e)
+        {
+            // Lấy danh sách KH & SPTD
+            KhachHang_SPTD_BUS khachHang_SPTD_BUS = new KhachHang_SPTD_BUS();
+            string jsonData = khachHang_SPTD_BUS.LayDSKH_SPTD(txtSoTKLK.Text, txtTenKH.Text, txtMaSPTD.Text);
+            List<KhachHang_SPTD> list = JsonConvert.DeserializeObject<List<KhachHang_SPTD>>(jsonData);
+            // Hiển thị lên grid view
+            gridDSKHSPTD.Rows.Clear();
+            foreach(KhachHang_SPTD temp in list)
+            {
+                gridDSKHSPTD.Rows.Add(temp.MaSPTD, temp.TenSPTD, temp.SoTKLK, temp.TenKH, temp.TenNguon, temp.TrangThai);
             }
         }
     }

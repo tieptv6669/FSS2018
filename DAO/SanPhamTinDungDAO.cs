@@ -146,8 +146,8 @@ namespace DAO
             try
             {
                 OracleCommand oracleCommand = new OracleCommand();
-                oracleCommand.CommandText = "INSERT INTO SPTD (MASPTD, TENSPTD, THOIHANVAY, LAISUAT, LAISUATQUAHAN, TRANGTHAI, IDNGUON)" +
-                    "VALUES (:maSPTD, :tenSPTD, :thoiHanVay, :laiSuat, :laiSuatQuaHan, :trangThai, :idNguon)";
+                oracleCommand.CommandText = "INSERT INTO SPTD (MASPTD, TENSPTD, THOIHANVAY, LAISUAT, LAISUATQUAHAN, TRANGTHAI, IDNGUON, TENNGUON)" +
+                    "VALUES (:maSPTD, :tenSPTD, :thoiHanVay, :laiSuat, :laiSuatQuaHan, :trangThai, :idNguon, :tenNguon)";
                 oracleCommand.Parameters.Add("maSPTD", sanPhamTinDung.MaSPTD);
                 oracleCommand.Parameters.Add("tenSPTD", sanPhamTinDung.TenSPTD);
                 oracleCommand.Parameters.Add("thoiHanVay",sanPhamTinDung.ThoiHanVay);
@@ -155,6 +155,7 @@ namespace DAO
                 oracleCommand.Parameters.Add("laiSuatQuaHan", sanPhamTinDung.LaiSuatQuaHan);
                 oracleCommand.Parameters.Add("trangThai", sanPhamTinDung.TrangThai);
                 oracleCommand.Parameters.Add("idNguon", sanPhamTinDung.IdNguon);
+                oracleCommand.Parameters.Add("tenNguon", sanPhamTinDung.TenNguon);
 
                 return DataProvider.ExcuteNonQuery(oracleCommand);
             }

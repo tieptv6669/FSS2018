@@ -241,6 +241,7 @@
             this.Controls.Add(this.lblThoiHanVay);
             this.Controls.Add(this.txtTenSPTD);
             this.Controls.Add(this.TenSPTD);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ThemMoiSPTD";

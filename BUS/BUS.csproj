@@ -82,6 +82,7 @@
     <Content Include="GiaiNganBUS.asmx" />
     <Content Include="Helper.asmx" />
     <Content Include="KhachHangBUS.asmx" />
+    <Content Include="KhachHang_SPTD_BUS.asmx" />
     <Content Include="NguoiDungBUS.asmx" />
     <Content Include="NguonBUS.asmx" />
     <Content Include="SanPhamTinDungBUS.asmx" />
@@ -100,6 +101,10 @@
     </Compile>
     <Compile Include="KhachHangBUS.asmx.cs">
       <DependentUpon>KhachHangBUS.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="KhachHang_SPTD_BUS.asmx.cs">
+      <DependentUpon>KhachHang_SPTD_BUS.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="NguoiDungBUS.asmx.cs">

@@ -831,7 +831,7 @@
             // lblTenKH
             // 
             this.lblTenKH.AutoSize = true;
-            this.lblTenKH.Location = new System.Drawing.Point(22, 47);
+            this.lblTenKH.Location = new System.Drawing.Point(22, 43);
             this.lblTenKH.Name = "lblTenKH";
             this.lblTenKH.Size = new System.Drawing.Size(51, 15);
             this.lblTenKH.TabIndex = 7;
@@ -912,7 +912,7 @@
             // lblSoTKLK
             // 
             this.lblSoTKLK.AutoSize = true;
-            this.lblSoTKLK.Location = new System.Drawing.Point(15, 21);
+            this.lblSoTKLK.Location = new System.Drawing.Point(15, 17);
             this.lblSoTKLK.Name = "lblSoTKLK";
             this.lblSoTKLK.Size = new System.Drawing.Size(58, 15);
             this.lblSoTKLK.TabIndex = 0;
@@ -930,6 +930,7 @@
             this.btnTimKiem.Text = "Tìm kiếm";
             this.btnTimKiem.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnTimKiem.UseVisualStyleBackColor = false;
+            this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
             // 
             // btnHuyDangKySPTD
             // 

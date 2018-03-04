@@ -14,5 +14,8 @@
     <Setting Name="FormDesignFSS2_SanPhamTinDungWS_SanPhamTinDungBUS" Type="(Web Service URL)" Scope="Application">
       <Value Profile="(Default)">http://localhost:49220/SanPhamTinDungBUS.asmx</Value>
     </Setting>
+    <Setting Name="FormDesignFSS2_KhachHang_SPTD_WS_KhachHang_SPTD_BUS" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:49220/KhachHang_SPTD_BUS.asmx</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

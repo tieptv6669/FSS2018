@@ -187,6 +187,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
     </Compile>
+    <Compile Include="Web References\KhachHang_SPTD_WS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
     <Compile Include="Web References\NguoiDungWS\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -288,6 +293,11 @@
     </Compile>
     <None Include="Web References\KhachHangWS\KhachHangBUS.wsdl" />
     <None Include="Web References\KhachHangWS\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\KhachHang_SPTD_WS\KhachHang_SPTD_BUS.wsdl" />
+    <None Include="Web References\KhachHang_SPTD_WS\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
@@ -948,6 +958,17 @@
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>FormDesignFSS2_KhachHangWS_KhachHangBUS</CachedSettingsPropName>
     </WebReferenceUrl>
+    <WebReferenceUrl Include="http://localhost:49220/KhachHang_SPTD_BUS.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\KhachHang_SPTD_WS\</RelPath>
+      <UpdateFromURL>http://localhost:49220/KhachHang_SPTD_BUS.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>FormDesignFSS2_KhachHang_SPTD_WS_KhachHang_SPTD_BUS</CachedSettingsPropName>
+    </WebReferenceUrl>
     <WebReferenceUrl Include="http://localhost:49220/NguoiDungBUS.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\NguoiDungWS\</RelPath>
@@ -999,6 +1020,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Web References\SanPhamTinDungWS\SanPhamTinDungBUS.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\KhachHang_SPTD_WS\KhachHang_SPTD_BUS.disco" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

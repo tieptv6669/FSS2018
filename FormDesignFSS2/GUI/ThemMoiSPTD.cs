@@ -187,6 +187,7 @@ namespace FormDesignFSS2.GUI
                     sanPhamTinDung.LaiSuatQuaHan = Int32.Parse(txtLaiSuatQuaHan.Text);
                     sanPhamTinDung.TrangThai = cboTrangThai.SelectedItem.ToString();
                     sanPhamTinDung.IdNguon = nguon.idNg;
+                    sanPhamTinDung.TenNguon = nguon.tenNg;
 
                     string jsonData = JsonConvert.SerializeObject(sanPhamTinDung);
                     SanPhamTinDungBUS sanPhamTinDungBUS = new SanPhamTinDungBUS();

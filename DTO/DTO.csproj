@@ -39,6 +39,7 @@
   <ItemGroup>
     <Compile Include="KhachHang.cs" />
     <Compile Include="KhachHangReport.cs" />
+    <Compile Include="KhachHang_SPTD.cs" />
     <Compile Include="NguoiDung.cs" />
     <Compile Include="Nguon.cs" />
     <Compile Include="Program.cs" />
