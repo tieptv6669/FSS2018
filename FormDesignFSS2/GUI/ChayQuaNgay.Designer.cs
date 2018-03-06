@@ -37,7 +37,7 @@
             this.btnThoat = new System.Windows.Forms.Button();
             this.btnBatDau = new System.Windows.Forms.Button();
             this.processPercent = new System.Windows.Forms.Label();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.timerXuLyCuoiNgay = new System.Windows.Forms.Timer(this.components);
             this.lblError = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -122,9 +122,9 @@
             this.processPercent.Size = new System.Drawing.Size(0, 13);
             this.processPercent.TabIndex = 7;
             // 
-            // timer1
+            // timerXuLyCuoiNgay
             // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            this.timerXuLyCuoiNgay.Tick += new System.EventHandler(this.timerXuLyCuoiNgay_Tick);
             // 
             // lblError
             // 
@@ -171,7 +171,7 @@
         private System.Windows.Forms.Button btnBatDau;
         private System.Windows.Forms.Button btnThoat;
         private System.Windows.Forms.Label processPercent;
-        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer timerXuLyCuoiNgay;
         private System.Windows.Forms.Label lblError;
     }
 }

@@ -34,7 +34,7 @@ namespace FormDesignFSS2.GUI
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void timer1_Tick(object sender, EventArgs e)
+        private void timerXuLyCuoiNgay_Tick(object sender, EventArgs e)
         {
             progressBar.Increment(1);
             progressBarStatus++;
@@ -118,7 +118,7 @@ namespace FormDesignFSS2.GUI
                             {
                                 // Xử lý cuối ngày
 
-                                timer1.Start();
+                                timerXuLyCuoiNgay.Start();
                                 btnBatDau.Enabled = false;
                                 dateTPNgayLamViecTiepTheo.Enabled = false;
                             }

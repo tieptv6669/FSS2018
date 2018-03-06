@@ -729,6 +729,11 @@ namespace FormDesignFSS2.GUI
             }
         }
 
+        /// <summary>
+        /// Xử lý sự kiện click button lịch sử trả nợ
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnLichSuTN_Click(object sender, EventArgs e)
         {
             LichSuTraNo lichSuTraNo = new LichSuTraNo();
