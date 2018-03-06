@@ -34,5 +34,73 @@ namespace BUS
             string jsonData = JsonConvert.SerializeObject(list);
             return jsonData;
         }
+
+        /// <summary>
+        /// Kiểm tra thông tin đăng ký sản phẩm tín dụng
+        /// </summary>
+        /// <param name="soTKLK"></param>
+        /// <param name="tenKH"></param>
+        /// <param name="diaChi"></param>
+        /// <param name="maSPTD"></param>
+        /// <returns></returns>
+        [WebMethod]
+        public int KTThongTinDangKySPTD(string soTKLK, string tenKH, string diaChi, string maSPTD)
+        {
+            if(soTKLK == "" || tenKH == "" || diaChi == "")
+            {
+                return 1;
+            }
+
+            return 0;
+        }
+
+        /// <summary>
+        /// Kiểm tra khách hàng đã đăng ký sử dụng sptd chưa
+        /// Nếu đã đăng ký thì trạng thái là sử dụng hay ngừng sử dụng
+        /// </summary>
+        /// <param name="idKH"></param>
+        /// <param name="idSPTD"></param>
+        /// <returns></returns>
+        [WebMethod]
+        public int KiemTraTinhTrangSPTD(int idKH, int idSPTD)
+        {
+            return KhachHang_SPTD_DAO.KiemTraTinhTrangSPTD(idKH, idSPTD);
+        }
+
+        /// <summary>
+        /// Đăng ký mới SPTD
+        /// </summary>
+        /// <param name="idKH"></param>
+        /// <param name="idSPTD"></param>
+        /// <returns></returns>
+        [WebMethod]
+        public bool DangKyMoi(int idKH, int idSPTD)
+        {
+            return KhachHang_SPTD_DAO.DangKyMoi(idKH, idSPTD);
+        }
+
+        /// <summary>
+        /// Sử dụng lại SPTD
+        /// </summary>
+        /// <param name="idKH"></param>
+        /// <param name="idSPTD"></param>
+        /// <returns></returns>
+        [WebMethod]
+        public bool SuDungLai(int idKH, int idSPTD)
+        {
+            return KhachHang_SPTD_DAO.SuDungLai(idKH, idSPTD);
+        }
+
+        /// <summary>
+        /// Hủy đăng ký sản phẩm tín dụng
+        /// </summary>
+        /// <param name="idKH"></param>
+        /// <param name="idSPTD"></param>
+        /// <returns></returns>
+        [WebMethod]
+        public bool HuyDangKy(int idKH, int idSPTD)
+        {
+            return KhachHang_SPTD_DAO.HuyDangKy(idKH, idSPTD);
+        }
     }
 }

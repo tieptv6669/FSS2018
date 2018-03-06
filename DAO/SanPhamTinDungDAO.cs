@@ -42,6 +42,7 @@ namespace DAO
                         sanPhamTinDung.LaiSuatQuaHan = oracleDataReader.GetInt32(5);
                         sanPhamTinDung.TrangThai = oracleDataReader.GetString(6);
                         sanPhamTinDung.IdNguon = oracleDataReader.GetInt32(7);
+                        sanPhamTinDung.TenNguon = oracleDataReader.GetString(8);
 
                         list.Add(sanPhamTinDung);
                     }
@@ -241,6 +242,89 @@ namespace DAO
             {
                 MessageBox.Show("Lỗi: " + e.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
+            }
+        }
+
+        /// <summary>
+        /// Lấy danh sách các SPTD còn hoạt động
+        /// </summary>
+        /// <returns></returns>
+        public static List<SanPhamTinDung> GetList()
+        {
+            try
+            {
+                List<SanPhamTinDung> list = new List<SanPhamTinDung>();
+
+                OracleCommand oracleCommand = new OracleCommand();
+                oracleCommand.CommandText = "SELECT * FROM SPTD WHERE TRANGTHAI = 'Hoạt động'";
+
+                OracleDataReader oracleDataReader = DataProvider.GetOracleDataReader(oracleCommand);
+                if (oracleDataReader != null && oracleDataReader.HasRows)
+                {
+                    while (oracleDataReader.Read())
+                    {
+                        SanPhamTinDung sanPhamTinDung = new SanPhamTinDung();
+                        sanPhamTinDung.IdSPTD = oracleDataReader.GetInt32(0);
+                        sanPhamTinDung.MaSPTD = oracleDataReader.GetString(1);
+                        sanPhamTinDung.TenSPTD = oracleDataReader.GetString(2);
+                        sanPhamTinDung.ThoiHanVay = oracleDataReader.GetInt32(3);
+                        sanPhamTinDung.LaiSuat = oracleDataReader.GetInt32(4);
+                        sanPhamTinDung.LaiSuatQuaHan = oracleDataReader.GetInt32(5);
+                        sanPhamTinDung.TrangThai = oracleDataReader.GetString(6);
+                        sanPhamTinDung.IdNguon = oracleDataReader.GetInt32(7);
+                        sanPhamTinDung.TenNguon = oracleDataReader.GetString(8);
+
+                        list.Add(sanPhamTinDung);
+                    }
+                }
+
+                return list;
+            }catch(Exception e)
+            {
+                MessageBox.Show("Lỗi: " + e.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// Lấy một sptd khi biết mã SPTD
+        /// </summary>
+        /// <param name="maSPTD"></param>
+        /// <returns></returns>
+        public static SanPhamTinDung LaySanPhamTinDung(string maSPTD)
+        {
+            try
+            {
+                OracleCommand oracleCommand = new OracleCommand();
+                oracleCommand.CommandText = "SELECT * FROM SPTD WHERE MASPTD = :maSPTD";
+                oracleCommand.Parameters.Add("maSPTD", maSPTD);
+
+                OracleDataReader oracleDataReader = DataProvider.GetOracleDataReader(oracleCommand);
+
+                if(oracleDataReader != null && oracleDataReader.HasRows)
+                {
+                    oracleDataReader.Read();
+                    SanPhamTinDung sanPhamTinDung = new SanPhamTinDung();
+                    sanPhamTinDung.IdSPTD = oracleDataReader.GetInt32(0);
+                    sanPhamTinDung.MaSPTD = oracleDataReader.GetString(1);
+                    sanPhamTinDung.TenSPTD = oracleDataReader.GetString(2);
+                    sanPhamTinDung.ThoiHanVay = oracleDataReader.GetInt32(3);
+                    sanPhamTinDung.LaiSuat = oracleDataReader.GetInt32(4);
+                    sanPhamTinDung.LaiSuatQuaHan = oracleDataReader.GetInt32(5);
+                    sanPhamTinDung.TrangThai = oracleDataReader.GetString(6);
+                    sanPhamTinDung.IdNguon = oracleDataReader.GetInt32(7);
+                    sanPhamTinDung.TenNguon = oracleDataReader.GetString(8);
+                    return sanPhamTinDung;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show("Lỗi: " + e.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
             }
         }
     }

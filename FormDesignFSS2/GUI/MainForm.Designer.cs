@@ -135,6 +135,7 @@
             this.txtSoTKLKTabGN = new System.Windows.Forms.TextBox();
             this.lblSoTKLKTabGN = new System.Windows.Forms.Label();
             this.tabTraNo = new System.Windows.Forms.TabPage();
+            this.btnLichSuTN = new System.Windows.Forms.Button();
             this.btnDuTinhLai = new System.Windows.Forms.Button();
             this.btnTraNo = new System.Windows.Forms.Button();
             this.gridDSMonNo = new System.Windows.Forms.DataGridView();
@@ -944,6 +945,7 @@
             this.btnHuyDangKySPTD.Text = "Hủy đăng ký";
             this.btnHuyDangKySPTD.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnHuyDangKySPTD.UseVisualStyleBackColor = false;
+            this.btnHuyDangKySPTD.Click += new System.EventHandler(this.btnHuyDangKySPTD_Click);
             // 
             // btnDangKyMoiSPTD
             // 
@@ -957,6 +959,7 @@
             this.btnDangKyMoiSPTD.Text = "Đăng ký mới";
             this.btnDangKyMoiSPTD.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnDangKyMoiSPTD.UseVisualStyleBackColor = false;
+            this.btnDangKyMoiSPTD.Click += new System.EventHandler(this.btnDangKyMoiSPTD_Click);
             // 
             // tabNguon
             // 
@@ -1306,6 +1309,7 @@
             // 
             // tabTraNo
             // 
+            this.tabTraNo.Controls.Add(this.btnLichSuTN);
             this.tabTraNo.Controls.Add(this.btnDuTinhLai);
             this.tabTraNo.Controls.Add(this.btnTraNo);
             this.tabTraNo.Controls.Add(this.gridDSMonNo);
@@ -1323,14 +1327,28 @@
             this.tabTraNo.Text = "Trả nợ";
             this.tabTraNo.UseVisualStyleBackColor = true;
             // 
+            // btnLichSuTN
+            // 
+            this.btnLichSuTN.BackColor = System.Drawing.Color.White;
+            this.btnLichSuTN.Image = global::FormDesignFSS2.Properties.Resources._32;
+            this.btnLichSuTN.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLichSuTN.Location = new System.Drawing.Point(398, 315);
+            this.btnLichSuTN.Name = "btnLichSuTN";
+            this.btnLichSuTN.Size = new System.Drawing.Size(97, 38);
+            this.btnLichSuTN.TabIndex = 17;
+            this.btnLichSuTN.Text = "Lịch sử TN";
+            this.btnLichSuTN.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnLichSuTN.UseVisualStyleBackColor = false;
+            this.btnLichSuTN.Click += new System.EventHandler(this.btnLichSuTN_Click);
+            // 
             // btnDuTinhLai
             // 
             this.btnDuTinhLai.BackColor = System.Drawing.Color.White;
             this.btnDuTinhLai.Image = global::FormDesignFSS2.Properties.Resources._87;
             this.btnDuTinhLai.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDuTinhLai.Location = new System.Drawing.Point(379, 314);
+            this.btnDuTinhLai.Location = new System.Drawing.Point(261, 314);
             this.btnDuTinhLai.Name = "btnDuTinhLai";
-            this.btnDuTinhLai.Size = new System.Drawing.Size(108, 38);
+            this.btnDuTinhLai.Size = new System.Drawing.Size(97, 38);
             this.btnDuTinhLai.TabIndex = 16;
             this.btnDuTinhLai.Text = "Dự tính lãi";
             this.btnDuTinhLai.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -2061,6 +2079,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn laiSuat;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn columm1;
+        private System.Windows.Forms.Button btnLichSuTN;
     }
 }
 

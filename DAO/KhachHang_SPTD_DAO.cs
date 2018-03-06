@@ -62,5 +62,119 @@ namespace DAO
                 return null;
             }
         }
+
+        /// <summary>
+        /// Kiểm tra khách hàng đã đăng ký sử dụng sptd chưa
+        /// Nếu đã đăng ký thì trạng thái là sử dụng hay ngừng sử dụng
+        /// </summary>
+        /// <param name="idKH"></param>
+        /// <param name="idSPTD"></param>
+        /// <returns></returns>
+        public static int KiemTraTinhTrangSPTD(int idKH, int idSPTD)
+        {
+            try
+            {
+                OracleCommand oracleCommand = new OracleCommand();
+                oracleCommand.CommandText = "SELECT * FROM KH_SPTD WHERE IDKH = :idKH AND IDSPTD = :idSPTD";
+                oracleCommand.Parameters.Add("idKH", idKH);
+                oracleCommand.Parameters.Add("idSPTD", idSPTD);
+
+                OracleDataReader oracleDataReader = DataProvider.GetOracleDataReader(oracleCommand);
+
+                if(oracleDataReader != null && oracleDataReader.HasRows)
+                {
+                    oracleDataReader.Read();
+                    if(oracleDataReader.GetString(2) == "Sử dụng")
+                    {
+                        return 1;
+                    }
+                    else
+                    {
+                        return 2;
+                    }
+                }
+                else
+                {
+                    return 3;
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Lỗi: " + e.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return 4;
+            }
+        }
+
+        /// <summary>
+        /// Đăng ký mới sản phẩm tín dụng
+        /// </summary>
+        /// <param name="idKH"></param>
+        /// <param name="idSPTD"></param>
+        /// <returns></returns>
+        public static bool DangKyMoi(int idKH, int idSPTD)
+        {
+            try
+            {
+                OracleCommand oracleCommand = new OracleCommand();
+                oracleCommand.CommandText = "INSERT INTO KH_SPTD (IDKH, IDSPTD, TRANGTHAI) VALUES (:idKH, :idSPTD, 'Sử dụng')";
+                oracleCommand.Parameters.Add("idKH", idKH);
+                oracleCommand.Parameters.Add("idSPTD", idSPTD);
+
+                return DataProvider.ExcuteNonQuery(oracleCommand);
+            }catch(Exception e)
+            {
+                MessageBox.Show("Lỗi: " + e.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Sử dụng lại sptd
+        /// </summary>
+        /// <param name="idKH"></param>
+        /// <param name="idSPTD"></param>
+        /// <returns></returns>
+        public static bool SuDungLai(int idKH, int idSPTD)
+        {
+            try
+            {
+                OracleCommand oracleCommand = new OracleCommand();
+                oracleCommand.CommandText = "UPDATE KH_SPTD SET TRANGTHAI = 'Sử dụng' WHERE IDKH = :idKH AND IDSPTD = :idSPTD";
+                oracleCommand.Parameters.Add("idKH", idKH);
+                oracleCommand.Parameters.Add("idSPTD", idSPTD);
+
+                return DataProvider.ExcuteNonQuery(oracleCommand);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Lỗi: " + e.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Hủy đăng ký sptd
+        /// </summary>
+        /// <param name="idKH"></param>
+        /// <param name="idSPTD"></param>
+        /// <returns></returns>
+        public static bool HuyDangKy(int idKH, int idSPTD)
+        {
+            try
+            {
+                OracleCommand oracleCommand = new OracleCommand();
+                oracleCommand.CommandText = "UPDATE KH_SPTD SET TRANGTHAI = 'Ngừng sử dụng' " +
+                    "WHERE IDKH = :idKH AND idSPTD = :idSPTD";
+                oracleCommand.Parameters.Add("idKH", idKH);
+                oracleCommand.Parameters.Add("idSPTD", idSPTD);
+
+                return DataProvider.ExcuteNonQuery(oracleCommand);
+
+            }catch(Exception e)
+            {
+                MessageBox.Show("Lỗi: " + e.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
     }
 }

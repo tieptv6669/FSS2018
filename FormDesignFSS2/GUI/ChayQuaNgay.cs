@@ -28,7 +28,7 @@ namespace FormDesignFSS2.GUI
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            progressBar1.Increment(1);
+            progressBar.Increment(1);
             progressBarStatus++;
             if(progressBarStatus <= 99)
             {

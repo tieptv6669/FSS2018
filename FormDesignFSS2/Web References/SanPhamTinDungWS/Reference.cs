@@ -45,6 +45,10 @@ namespace FormDesignFSS2.SanPhamTinDungWS {
         
         private System.Threading.SendOrPostCallback SuaSPTDOperationCompleted;
         
+        private System.Threading.SendOrPostCallback GetListSPTDOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GetSPTDOperationCompleted;
+        
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
@@ -106,6 +110,12 @@ namespace FormDesignFSS2.SanPhamTinDungWS {
         
         /// <remarks/>
         public event SuaSPTDCompletedEventHandler SuaSPTDCompleted;
+        
+        /// <remarks/>
+        public event GetListSPTDCompletedEventHandler GetListSPTDCompleted;
+        
+        /// <remarks/>
+        public event GetSPTDCompletedEventHandler GetSPTDCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/KTThongTinThemMoiSPTD", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -368,6 +378,62 @@ namespace FormDesignFSS2.SanPhamTinDungWS {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetListSPTD", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string GetListSPTD() {
+            object[] results = this.Invoke("GetListSPTD", new object[0]);
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetListSPTDAsync() {
+            this.GetListSPTDAsync(null);
+        }
+        
+        /// <remarks/>
+        public void GetListSPTDAsync(object userState) {
+            if ((this.GetListSPTDOperationCompleted == null)) {
+                this.GetListSPTDOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetListSPTDOperationCompleted);
+            }
+            this.InvokeAsync("GetListSPTD", new object[0], this.GetListSPTDOperationCompleted, userState);
+        }
+        
+        private void OnGetListSPTDOperationCompleted(object arg) {
+            if ((this.GetListSPTDCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetListSPTDCompleted(this, new GetListSPTDCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetSPTD", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string GetSPTD(string maSPTD) {
+            object[] results = this.Invoke("GetSPTD", new object[] {
+                        maSPTD});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetSPTDAsync(string maSPTD) {
+            this.GetSPTDAsync(maSPTD, null);
+        }
+        
+        /// <remarks/>
+        public void GetSPTDAsync(string maSPTD, object userState) {
+            if ((this.GetSPTDOperationCompleted == null)) {
+                this.GetSPTDOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetSPTDOperationCompleted);
+            }
+            this.InvokeAsync("GetSPTD", new object[] {
+                        maSPTD}, this.GetSPTDOperationCompleted, userState);
+        }
+        
+        private void OnGetSPTDOperationCompleted(object arg) {
+            if ((this.GetSPTDCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetSPTDCompleted(this, new GetSPTDCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         public new void CancelAsync(object userState) {
             base.CancelAsync(userState);
         }
@@ -590,6 +656,58 @@ namespace FormDesignFSS2.SanPhamTinDungWS {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((bool)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
+    public delegate void GetListSPTDCompletedEventHandler(object sender, GetListSPTDCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetListSPTDCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetListSPTDCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
+    public delegate void GetSPTDCompletedEventHandler(object sender, GetSPTDCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetSPTDCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetSPTDCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
             }
         }
     }

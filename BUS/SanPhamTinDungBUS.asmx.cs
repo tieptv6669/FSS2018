@@ -239,5 +239,30 @@ namespace BUS
         {
             return SanPhamTinDungDAO.SuaSPTD(maSPTD, tenSPTD, thoiHanVay, laiSuat, laiSuatQuaHan, trangThai);
         }
+
+        /// <summary>
+        /// Lấy danh sách các sản phẩm tín dụng còn hoạt động
+        /// </summary>
+        /// <returns></returns>
+        [WebMethod]
+        public string GetListSPTD()
+        {
+            List<SanPhamTinDung> list = SanPhamTinDungDAO.GetList();
+            string jsonData = JsonConvert.SerializeObject(list);
+            return jsonData;
+        }
+
+        /// <summary>
+        /// Lấy sản phẩm tín dụng khi biết mã SPTD
+        /// </summary>
+        /// <param name="maSPTD"></param>
+        /// <returns></returns>
+        [WebMethod]
+        public string GetSPTD(string maSPTD)
+        {
+            SanPhamTinDung sanPhamTinDung = SanPhamTinDungDAO.LaySanPhamTinDung(maSPTD);
+            string jsonData = JsonConvert.SerializeObject(sanPhamTinDung);
+            return jsonData;
+        }
     }
 }

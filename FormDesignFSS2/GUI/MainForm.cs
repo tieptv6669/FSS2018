@@ -638,22 +638,101 @@ namespace FormDesignFSS2.GUI
         }
 
         /// <summary>
-        /// Xử lý sự kiện 
+        /// Xử lý sự kiện click button tìm kiếm khách hàng & sptd
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
-            // Lấy danh sách KH & SPTD
-            KhachHang_SPTD_BUS khachHang_SPTD_BUS = new KhachHang_SPTD_BUS();
-            string jsonData = khachHang_SPTD_BUS.LayDSKH_SPTD(txtSoTKLK.Text, txtTenKH.Text, txtMaSPTD.Text);
-            List<KhachHang_SPTD> list = JsonConvert.DeserializeObject<List<KhachHang_SPTD>>(jsonData);
-            // Hiển thị lên grid view
-            gridDSKHSPTD.Rows.Clear();
-            foreach(KhachHang_SPTD temp in list)
+            try
             {
-                gridDSKHSPTD.Rows.Add(temp.MaSPTD, temp.TenSPTD, temp.SoTKLK, temp.TenKH, temp.TenNguon, temp.TrangThai);
+                // Lấy danh sách KH & SPTD
+                KhachHang_SPTD_BUS khachHang_SPTD_BUS = new KhachHang_SPTD_BUS();
+                string jsonData = khachHang_SPTD_BUS.LayDSKH_SPTD(txtSoTKLK.Text, txtTenKH.Text, txtMaSPTD.Text);
+                List<KhachHang_SPTD> list = JsonConvert.DeserializeObject<List<KhachHang_SPTD>>(jsonData);
+                // Hiển thị lên grid view
+                gridDSKHSPTD.Rows.Clear();
+                foreach (KhachHang_SPTD temp in list)
+                {
+                    gridDSKHSPTD.Rows.Add(temp.MaSPTD, temp.TenSPTD, temp.SoTKLK, temp.TenKH, temp.TenNguon, temp.TrangThai);
+                }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
+        /// Xử lý sự kiện click button đăng ký mới sptd
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnDangKyMoiSPTD_Click(object sender, EventArgs e)
+        {
+            DangKyMoiSPTD dangKyMoiSPTD = new DangKyMoiSPTD();
+            dangKyMoiSPTD.dataGridView = gridDSKHSPTD;
+            dangKyMoiSPTD.ShowDialog();
+        }
+
+        /// <summary>
+        /// Xử lý sự kiện click button hủy đăng ký sử dụng sptd
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnHuyDangKySPTD_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (gridDSKHSPTD.RowCount > 0 && gridDSKHSPTD.SelectedRows.Count > 0)
+                {
+                    DialogResult dialogResult = MessageBox.Show("Bạn chắc chắn muốn hủy đăng ký SPTD này?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        if (gridDSKHSPTD.SelectedRows[0].Cells[5].Value.ToString() == "Ngừng sử dụng")
+                        {
+                            MessageBox.Show("Bạn đã ngừng sử dụng SPTD, không cần hủy", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            // Hủy đăng ký
+                            KhachHangBUS khachHangBUS = new KhachHangBUS();
+                            string jsonDataKH = khachHangBUS.layMotKhachHang(gridDSKHSPTD.SelectedRows[0].Cells[2].Value.ToString());
+                            KhachHang khachHang = JsonConvert.DeserializeObject<KhachHang>(jsonDataKH);
+                            SanPhamTinDungBUS sanPhamTinDungBUS = new SanPhamTinDungBUS();
+                            string jsonDataSPTD = sanPhamTinDungBUS.GetSPTD(gridDSKHSPTD.SelectedRows[0].Cells[0].Value.ToString());
+                            SanPhamTinDung sanPhamTinDung = JsonConvert.DeserializeObject<SanPhamTinDung>(jsonDataSPTD);
+
+                            KhachHang_SPTD_BUS khachHang_SPTD_BUS = new KhachHang_SPTD_BUS();
+                            if (khachHang_SPTD_BUS.HuyDangKy(khachHang.idKH, sanPhamTinDung.IdSPTD))
+                            {
+                                MessageBox.Show("Hủy đăng ký sử dụng SPTD thành công", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                // Cập nhật grid view
+                                foreach (DataGridViewRow temp in gridDSKHSPTD.Rows)
+                                {
+                                    if (temp.Cells[0].Value.ToString() == sanPhamTinDung.MaSPTD && temp.Cells[2].Value.ToString() == khachHang.STKLK)
+                                    {
+                                        temp.Cells[5].Value = "Ngừng sử dụng";
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Thao tác lỗi. Bạn chưa chọn SPTD nào", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }catch(Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnLichSuTN_Click(object sender, EventArgs e)
+        {
+            LichSuTraNo lichSuTraNo = new LichSuTraNo();
+            lichSuTraNo.ShowDialog();
         }
     }
 }

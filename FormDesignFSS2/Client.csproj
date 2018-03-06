@@ -95,6 +95,12 @@
     <Compile Include="GUI\DuTinhLai.Designer.cs">
       <DependentUpon>DuTinhLai.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\LichSuTraNo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\LichSuTraNo.Designer.cs">
+      <DependentUpon>LichSuTraNo.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -221,6 +227,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\DuTinhLai.resx">
       <DependentUpon>DuTinhLai.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\LichSuTraNo.resx">
+      <DependentUpon>LichSuTraNo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
