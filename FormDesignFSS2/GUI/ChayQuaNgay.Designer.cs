@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.lblNgayLamViecHienTai = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtNgayLVHienTai = new System.Windows.Forms.TextBox();
             this.lblNgayLamViecTiepTheo = new System.Windows.Forms.Label();
             this.dateTPNgayLamViecTiepTheo = new System.Windows.Forms.DateTimePicker();
             this.progressBar = new System.Windows.Forms.ProgressBar();
@@ -38,6 +38,7 @@
             this.btnBatDau = new System.Windows.Forms.Button();
             this.processPercent = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.lblError = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblNgayLamViecHienTai
@@ -50,15 +51,16 @@
             this.lblNgayLamViecHienTai.TabIndex = 0;
             this.lblNgayLamViecHienTai.Text = "Ngày làm việc hiện tại:";
             // 
-            // textBox1
+            // txtNgayLVHienTai
             // 
-            this.textBox1.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.textBox1.Location = new System.Drawing.Point(147, 8);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(187, 20);
-            this.textBox1.TabIndex = 1;
-            this.textBox1.Text = "04/02/2018";
+            this.txtNgayLVHienTai.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.txtNgayLVHienTai.Location = new System.Drawing.Point(147, 8);
+            this.txtNgayLVHienTai.Name = "txtNgayLVHienTai";
+            this.txtNgayLVHienTai.ReadOnly = true;
+            this.txtNgayLVHienTai.Size = new System.Drawing.Size(187, 20);
+            this.txtNgayLVHienTai.TabIndex = 1;
+            this.txtNgayLVHienTai.TabStop = false;
+            this.txtNgayLVHienTai.Text = "04/02/2018";
             // 
             // lblNgayLamViecTiepTheo
             // 
@@ -75,7 +77,7 @@
             this.dateTPNgayLamViecTiepTheo.Location = new System.Drawing.Point(147, 44);
             this.dateTPNgayLamViecTiepTheo.Name = "dateTPNgayLamViecTiepTheo";
             this.dateTPNgayLamViecTiepTheo.Size = new System.Drawing.Size(187, 20);
-            this.dateTPNgayLamViecTiepTheo.TabIndex = 3;
+            this.dateTPNgayLamViecTiepTheo.TabIndex = 1;
             // 
             // progressBar
             // 
@@ -93,7 +95,7 @@
             this.btnThoat.Location = new System.Drawing.Point(184, 138);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(96, 40);
-            this.btnThoat.TabIndex = 6;
+            this.btnThoat.TabIndex = 3;
             this.btnThoat.Text = "Thoát";
             this.btnThoat.UseVisualStyleBackColor = false;
             this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
@@ -107,10 +109,10 @@
             this.btnBatDau.Location = new System.Drawing.Point(64, 138);
             this.btnBatDau.Name = "btnBatDau";
             this.btnBatDau.Size = new System.Drawing.Size(96, 40);
-            this.btnBatDau.TabIndex = 5;
+            this.btnBatDau.TabIndex = 2;
             this.btnBatDau.Text = "Bắt đầu";
             this.btnBatDau.UseVisualStyleBackColor = false;
-            this.btnBatDau.Click += new System.EventHandler(this.button1_Click);
+            this.btnBatDau.Click += new System.EventHandler(this.btnBatDau_Click);
             // 
             // processPercent
             // 
@@ -124,18 +126,27 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // lblError
+            // 
+            this.lblError.AutoSize = true;
+            this.lblError.Location = new System.Drawing.Point(50, 77);
+            this.lblError.Name = "lblError";
+            this.lblError.Size = new System.Drawing.Size(0, 13);
+            this.lblError.TabIndex = 8;
+            // 
             // ChayQuaNgay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(341, 182);
+            this.Controls.Add(this.lblError);
             this.Controls.Add(this.processPercent);
             this.Controls.Add(this.btnThoat);
             this.Controls.Add(this.btnBatDau);
             this.Controls.Add(this.progressBar);
             this.Controls.Add(this.dateTPNgayLamViecTiepTheo);
             this.Controls.Add(this.lblNgayLamViecTiepTheo);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtNgayLVHienTai);
             this.Controls.Add(this.lblNgayLamViecHienTai);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
@@ -144,7 +155,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Xử lý cuối ngày";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ChayQuaNgay_FormClosing);
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ChayQuaNgay_FormClosed);
+            this.Load += new System.EventHandler(this.ChayQuaNgay_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -153,7 +164,7 @@
         #endregion
 
         private System.Windows.Forms.Label lblNgayLamViecHienTai;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtNgayLVHienTai;
         private System.Windows.Forms.Label lblNgayLamViecTiepTheo;
         private System.Windows.Forms.DateTimePicker dateTPNgayLamViecTiepTheo;
         private System.Windows.Forms.ProgressBar progressBar;
@@ -161,5 +172,6 @@
         private System.Windows.Forms.Button btnThoat;
         private System.Windows.Forms.Label processPercent;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label lblError;
     }
 }

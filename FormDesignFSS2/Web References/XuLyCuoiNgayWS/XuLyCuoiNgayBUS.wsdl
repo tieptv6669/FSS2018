@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="LayNgayLamViecHienTai">
+        <s:complexType />
+      </s:element>
+      <s:element name="LayNgayLamViecHienTaiResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LayNgayLamViecHienTaiResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KTThongTinChayQuaNgay">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ngayLVHienTai" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ngayLVTiepTheo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KTThongTinChayQuaNgayResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="KTThongTinChayQuaNgayResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="LayNgayLamViecHienTaiSoapIn">
+    <wsdl:part name="parameters" element="tns:LayNgayLamViecHienTai" />
+  </wsdl:message>
+  <wsdl:message name="LayNgayLamViecHienTaiSoapOut">
+    <wsdl:part name="parameters" element="tns:LayNgayLamViecHienTaiResponse" />
+  </wsdl:message>
+  <wsdl:message name="KTThongTinChayQuaNgaySoapIn">
+    <wsdl:part name="parameters" element="tns:KTThongTinChayQuaNgay" />
+  </wsdl:message>
+  <wsdl:message name="KTThongTinChayQuaNgaySoapOut">
+    <wsdl:part name="parameters" element="tns:KTThongTinChayQuaNgayResponse" />
+  </wsdl:message>
+  <wsdl:portType name="XuLyCuoiNgayBUSSoap">
+    <wsdl:operation name="LayNgayLamViecHienTai">
+      <wsdl:input message="tns:LayNgayLamViecHienTaiSoapIn" />
+      <wsdl:output message="tns:LayNgayLamViecHienTaiSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="KTThongTinChayQuaNgay">
+      <wsdl:input message="tns:KTThongTinChayQuaNgaySoapIn" />
+      <wsdl:output message="tns:KTThongTinChayQuaNgaySoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="XuLyCuoiNgayBUSSoap" type="tns:XuLyCuoiNgayBUSSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="LayNgayLamViecHienTai">
+      <soap:operation soapAction="http://tempuri.org/LayNgayLamViecHienTai" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KTThongTinChayQuaNgay">
+      <soap:operation soapAction="http://tempuri.org/KTThongTinChayQuaNgay" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="XuLyCuoiNgayBUSSoap12" type="tns:XuLyCuoiNgayBUSSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="LayNgayLamViecHienTai">
+      <soap12:operation soapAction="http://tempuri.org/LayNgayLamViecHienTai" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KTThongTinChayQuaNgay">
+      <soap12:operation soapAction="http://tempuri.org/KTThongTinChayQuaNgay" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="XuLyCuoiNgayBUS">
+    <wsdl:port name="XuLyCuoiNgayBUSSoap" binding="tns:XuLyCuoiNgayBUSSoap">
+      <soap:address location="http://localhost:49220/XuLyCuoiNgayBUS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="XuLyCuoiNgayBUSSoap12" binding="tns:XuLyCuoiNgayBUSSoap12">
+      <soap12:address location="http://localhost:49220/XuLyCuoiNgayBUS.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

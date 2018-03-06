@@ -213,6 +213,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
     </Compile>
+    <Compile Include="Web References\XuLyCuoiNgayWS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="GUI\ChayQuaNgay.resx">
       <DependentUpon>ChayQuaNgay.cs</DependentUpon>
     </EmbeddedResource>
@@ -283,6 +288,21 @@
     <EmbeddedResource Include="GUI\XemChiTietKH.resx">
       <DependentUpon>XemChiTietKH.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Report\DanhSachDuNo.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\DanhSachNoQuaKyHan.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\DanhSachTraNo.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\DanhSachMonGiaiNgan.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\DanhSachSPTD.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="Report\DanhSachKH.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
@@ -325,6 +345,11 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <None Include="Web References\SanPhamTinDungWS\SanPhamTinDungBUS.wsdl" />
+    <None Include="Web References\XuLyCuoiNgayWS\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\XuLyCuoiNgayWS\XuLyCuoiNgayBUS.wsdl" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
@@ -1011,6 +1036,17 @@
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>FormDesignFSS2_SanPhamTinDungWS_SanPhamTinDungBUS</CachedSettingsPropName>
     </WebReferenceUrl>
+    <WebReferenceUrl Include="http://localhost:49220/XuLyCuoiNgayBUS.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\XuLyCuoiNgayWS\</RelPath>
+      <UpdateFromURL>http://localhost:49220/XuLyCuoiNgayBUS.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>FormDesignFSS2_XuLyCuoiNgayWS_XuLyCuoiNgayBUS</CachedSettingsPropName>
+    </WebReferenceUrl>
   </ItemGroup>
   <ItemGroup>
     <None Include="Web References\NguoiDungWS\NguoiDungBUS.disco" />
@@ -1032,6 +1068,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Web References\KhachHang_SPTD_WS\KhachHang_SPTD_BUS.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\XuLyCuoiNgayWS\XuLyCuoiNgayBUS.disco" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

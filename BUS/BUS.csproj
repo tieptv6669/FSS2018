@@ -89,6 +89,7 @@
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="XuLyCuoiNgayBUS.asmx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GiaiNganBUS.asmx.cs">
@@ -118,6 +119,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SanPhamTinDungBUS.asmx.cs">
       <DependentUpon>SanPhamTinDungBUS.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="XuLyCuoiNgayBUS.asmx.cs">
+      <DependentUpon>XuLyCuoiNgayBUS.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
   </ItemGroup>

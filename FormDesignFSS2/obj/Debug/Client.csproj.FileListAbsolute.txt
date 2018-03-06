@@ -1,3 +1,8 @@
+G:\FSS2018\FormDesignFSS2\bin\Debug\Report\DanhSachDuNo.rdlc
+G:\FSS2018\FormDesignFSS2\bin\Debug\Report\DanhSachNoQuaKyHan.rdlc
+G:\FSS2018\FormDesignFSS2\bin\Debug\Report\DanhSachTraNo.rdlc
+G:\FSS2018\FormDesignFSS2\bin\Debug\Report\DanhSachMonGiaiNgan.rdlc
+G:\FSS2018\FormDesignFSS2\bin\Debug\Report\DanhSachSPTD.rdlc
 G:\FSS2018\FormDesignFSS2\bin\Debug\Report\DanhSachKH.rdlc
 G:\FSS2018\FormDesignFSS2\bin\Debug\FormDesignFSS2.exe.config
 G:\FSS2018\FormDesignFSS2\bin\Debug\FormDesignFSS2.exe
@@ -77,6 +82,7 @@ G:\FSS2018\FormDesignFSS2\obj\Debug\FormDesignFSS2.GUI.DangKyMoiSPTD.resources
 G:\FSS2018\FormDesignFSS2\obj\Debug\FormDesignFSS2.GUI.DangNhap.resources
 G:\FSS2018\FormDesignFSS2\obj\Debug\FormDesignFSS2.GUI.DoiMK.resources
 G:\FSS2018\FormDesignFSS2\obj\Debug\FormDesignFSS2.GUI.DuTinhLai.resources
+G:\FSS2018\FormDesignFSS2\obj\Debug\FormDesignFSS2.GUI.LichSuTraNo.resources
 G:\FSS2018\FormDesignFSS2\obj\Debug\FormDesignFSS2.GUI.MainForm.resources
 G:\FSS2018\FormDesignFSS2\obj\Debug\FormDesignFSS2.GUI.SuaNguon.resources
 G:\FSS2018\FormDesignFSS2\obj\Debug\FormDesignFSS2.GUI.SuaUser.resources
@@ -96,4 +102,3 @@ G:\FSS2018\FormDesignFSS2\obj\Debug\Client.csproj.GenerateResource.Cache
 G:\FSS2018\FormDesignFSS2\obj\Debug\Client.csproj.CoreCompileInputs.cache
 G:\FSS2018\FormDesignFSS2\obj\Debug\FormDesignFSS2.exe
 G:\FSS2018\FormDesignFSS2\obj\Debug\FormDesignFSS2.pdb
-G:\FSS2018\FormDesignFSS2\obj\Debug\FormDesignFSS2.GUI.LichSuTraNo.resources

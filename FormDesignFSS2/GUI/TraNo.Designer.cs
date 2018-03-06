@@ -192,7 +192,7 @@
             this.button2.BackColor = System.Drawing.SystemColors.HighlightText;
             this.button2.Image = global::FormDesignFSS2.Properties.Resources._101;
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(314, 331);
+            this.button2.Location = new System.Drawing.Point(314, 335);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(86, 39);
             this.button2.TabIndex = 25;
@@ -206,7 +206,7 @@
             this.button1.BackColor = System.Drawing.SystemColors.HighlightText;
             this.button1.Image = global::FormDesignFSS2.Properties.Resources._155;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(222, 331);
+            this.button1.Location = new System.Drawing.Point(222, 335);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(86, 39);
             this.button1.TabIndex = 24;
