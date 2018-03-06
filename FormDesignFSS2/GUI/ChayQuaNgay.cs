@@ -7,28 +7,36 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using FormDesignFSS2.XuLyCuoiNgayWS;
+using Newtonsoft.Json;
 
 namespace FormDesignFSS2.GUI
 {
+    /// <summary>
+    /// Viết Tiệp
+    /// 6/3/2018
+    /// </summary>
     public partial class ChayQuaNgay : Form
     {
         private int progressBarStatus;
+
+        /// <summary>
+        /// Khởi tạo form
+        /// </summary>
         public ChayQuaNgay()
         {
             progressBarStatus = 0;
             InitializeComponent();
         }
-
-        private void button1_Click(object sender, EventArgs e)
+      
+        /// <summary>
+        /// Đếm thời gian
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void timerXuLyCuoiNgay_Tick(object sender, EventArgs e)
         {
-            timer1.Start();
-   
-            btnBatDau.Enabled = false;
-        }
-
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            progressBar1.Increment(1);
+            progressBar.Increment(1);
             progressBarStatus++;
             if(progressBarStatus <= 99)
             {
@@ -41,11 +49,11 @@ namespace FormDesignFSS2.GUI
             }
         }
 
-        private void ChayQuaNgay_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            
-        }
-
+        /// <summary>
+        /// Xử lý sự kiện đóng form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ChayQuaNgay_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (progressBarStatus > 0 && progressBarStatus <= 99)
@@ -59,6 +67,11 @@ namespace FormDesignFSS2.GUI
             }
         }
 
+        /// <summary>
+        /// Xử lý sự kiện click button thoát
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnThoat_Click(object sender, EventArgs e)
         {
             if (progressBarStatus > 0 && progressBarStatus <= 99)
@@ -69,7 +82,68 @@ namespace FormDesignFSS2.GUI
             {
                 Close();
             }
+        }
+
+        /// <summary>
+        /// Xử lý sự kiện click button bắt đầu
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnBatDau_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                XuLyCuoiNgayBUS xuLyCuoiNgayBUS = new XuLyCuoiNgayBUS();
+                switch (xuLyCuoiNgayBUS.KTThongTinChayQuaNgay(txtNgayLVHienTai.Text, dateTPNgayLamViecTiepTheo.Text)){
+                    case 1:
+                        {
+                            lblError.Text = "Ngày làm việc tiếp theo không phải thứ 7 hoặc chủ nhật";
+                            break;
+                        }
+                    case 2:
+                        {
+                            lblError.Text = "Thời gian nghỉ quá lớn";
+                            break;
+                        }
+                    case 3:
+                        {
+                            lblError.Text = "Ngày làm việc tiếp theo không hợp lệ";
+                            break;
+                        }
+                    case 0:
+                        {
+                            lblError.Text = "";
+                            DialogResult dialogResult = MessageBox.Show("Bạn chắc chắn muốn thực hiện xử lý cuối ngày?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                            if(dialogResult == DialogResult.Yes)
+                            {
+                                // Xử lý cuối ngày
+
+                                timerXuLyCuoiNgay.Start();
+                                btnBatDau.Enabled = false;
+                                dateTPNgayLamViecTiepTheo.Enabled = false;
+                            }
+                            break;
+                        }
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             
+        }
+
+        /// <summary>
+        /// Tải form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ChayQuaNgay_Load(object sender, EventArgs e)
+        {
+            lblError.ForeColor = Color.Red;
+            // Lấy ngày làm việc hiện tại
+            XuLyCuoiNgayBUS xuLyCuoiNgayBUS = new XuLyCuoiNgayBUS();
+            txtNgayLVHienTai.Text = xuLyCuoiNgayBUS.LayNgayLamViecHienTai();
         }
     }
 }

@@ -17,8 +17,13 @@
     <Setting Name="FormDesignFSS2_KhachHang_SPTD_WS_KhachHang_SPTD_BUS" Type="(Web Service URL)" Scope="Application">
       <Value Profile="(Default)">http://localhost:49220/KhachHang_SPTD_BUS.asmx</Value>
     </Setting>
+<<<<<<< HEAD
     <Setting Name="FormDesignFSS2_GiaiNganWS_GiaiNganBUS" Type="(Web Service URL)" Scope="Application">
       <Value Profile="(Default)">http://localhost:49220/GiaiNganBUS.asmx</Value>
+=======
+    <Setting Name="FormDesignFSS2_XuLyCuoiNgayWS_XuLyCuoiNgayBUS" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:49220/XuLyCuoiNgayBUS.asmx</Value>
+>>>>>>> 3f5cd2d5e1fd82d2e2607c8c487c7db7d72fd6d3
     </Setting>
   </Settings>
 </SettingsFile>

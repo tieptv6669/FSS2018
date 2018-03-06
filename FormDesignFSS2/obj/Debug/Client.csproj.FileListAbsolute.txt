@@ -4,7 +4,7 @@ E:\FSS_Project_2018\FormDesignFSS2\obj\Debug\FormDesignFSS2.GUI.DangKyMoiSPTD.re
 E:\FSS_Project_2018\FormDesignFSS2\obj\Debug\FormDesignFSS2.GUI.DangNhap.resources
 E:\FSS_Project_2018\FormDesignFSS2\obj\Debug\FormDesignFSS2.GUI.DoiMK.resources
 E:\FSS_Project_2018\FormDesignFSS2\obj\Debug\FormDesignFSS2.GUI.DuTinhLai.resources
-E:\FSS_Project_2018\FormDesignFSS2\obj\Debug\FormDesignFSS2.GUI.MainForm.resources
+E:\FSS_Project_2018\FormDesignFSS2\obj\Debug\FormDesignFSS2.GUI.LichSuTraNo.resources
 E:\FSS_Project_2018\FormDesignFSS2\obj\Debug\FormDesignFSS2.GUI.SuaNguon.resources
 E:\FSS_Project_2018\FormDesignFSS2\obj\Debug\FormDesignFSS2.GUI.SuaUser.resources
 E:\FSS_Project_2018\FormDesignFSS2\obj\Debug\FormDesignFSS2.GUI.TraNo.resources
@@ -20,7 +20,13 @@ E:\FSS_Project_2018\FormDesignFSS2\obj\Debug\FormDesignFSS2.GUI.ThemUser.resourc
 E:\FSS_Project_2018\FormDesignFSS2\obj\Debug\FormDesignFSS2.GUI.XemChiTietGN.resources
 E:\FSS_Project_2018\FormDesignFSS2\obj\Debug\FormDesignFSS2.GUI.XemChiTietKH.resources
 E:\FSS_Project_2018\FormDesignFSS2\obj\Debug\Client.csproj.GenerateResource.Cache
+E:\FSS_Project_2018\FormDesignFSS2\obj\Debug\FormDesignFSS2.GUI.MainForm.resources
 E:\FSS_Project_2018\FormDesignFSS2\obj\Debug\Client.csproj.CoreCompileInputs.cache
+E:\FSS_Project_2018\FormDesignFSS2\bin\Debug\Report\DanhSachDuNo.rdlc
+E:\FSS_Project_2018\FormDesignFSS2\bin\Debug\Report\DanhSachNoQuaKyHan.rdlc
+E:\FSS_Project_2018\FormDesignFSS2\bin\Debug\Report\DanhSachTraNo.rdlc
+E:\FSS_Project_2018\FormDesignFSS2\bin\Debug\Report\DanhSachMonGiaiNgan.rdlc
+E:\FSS_Project_2018\FormDesignFSS2\bin\Debug\Report\DanhSachSPTD.rdlc
 E:\FSS_Project_2018\FormDesignFSS2\bin\Debug\Report\DanhSachKH.rdlc
 E:\FSS_Project_2018\FormDesignFSS2\bin\Debug\FormDesignFSS2.exe.config
 E:\FSS_Project_2018\FormDesignFSS2\bin\Debug\FormDesignFSS2.exe

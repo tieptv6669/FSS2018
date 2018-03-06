@@ -31,6 +31,16 @@ namespace FormDesignFSS2.KhachHang_SPTD_WS {
         
         private System.Threading.SendOrPostCallback LayDSKH_SPTDOperationCompleted;
         
+        private System.Threading.SendOrPostCallback KTThongTinDangKySPTDOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback KiemTraTinhTrangSPTDOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback DangKyMoiOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback SuDungLaiOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback HuyDangKyOperationCompleted;
+        
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
@@ -73,6 +83,21 @@ namespace FormDesignFSS2.KhachHang_SPTD_WS {
         public event LayDSKH_SPTDCompletedEventHandler LayDSKH_SPTDCompleted;
         
         /// <remarks/>
+        public event KTThongTinDangKySPTDCompletedEventHandler KTThongTinDangKySPTDCompleted;
+        
+        /// <remarks/>
+        public event KiemTraTinhTrangSPTDCompletedEventHandler KiemTraTinhTrangSPTDCompleted;
+        
+        /// <remarks/>
+        public event DangKyMoiCompletedEventHandler DangKyMoiCompleted;
+        
+        /// <remarks/>
+        public event SuDungLaiCompletedEventHandler SuDungLaiCompleted;
+        
+        /// <remarks/>
+        public event HuyDangKyCompletedEventHandler HuyDangKyCompleted;
+        
+        /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/LayDSKH_SPTD", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public string LayDSKH_SPTD(string soTKLK, string tenKH, string maSPTD) {
             object[] results = this.Invoke("LayDSKH_SPTD", new object[] {
@@ -102,6 +127,165 @@ namespace FormDesignFSS2.KhachHang_SPTD_WS {
             if ((this.LayDSKH_SPTDCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.LayDSKH_SPTDCompleted(this, new LayDSKH_SPTDCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/KTThongTinDangKySPTD", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public int KTThongTinDangKySPTD(string soTKLK, string tenKH, string diaChi, string maSPTD) {
+            object[] results = this.Invoke("KTThongTinDangKySPTD", new object[] {
+                        soTKLK,
+                        tenKH,
+                        diaChi,
+                        maSPTD});
+            return ((int)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void KTThongTinDangKySPTDAsync(string soTKLK, string tenKH, string diaChi, string maSPTD) {
+            this.KTThongTinDangKySPTDAsync(soTKLK, tenKH, diaChi, maSPTD, null);
+        }
+        
+        /// <remarks/>
+        public void KTThongTinDangKySPTDAsync(string soTKLK, string tenKH, string diaChi, string maSPTD, object userState) {
+            if ((this.KTThongTinDangKySPTDOperationCompleted == null)) {
+                this.KTThongTinDangKySPTDOperationCompleted = new System.Threading.SendOrPostCallback(this.OnKTThongTinDangKySPTDOperationCompleted);
+            }
+            this.InvokeAsync("KTThongTinDangKySPTD", new object[] {
+                        soTKLK,
+                        tenKH,
+                        diaChi,
+                        maSPTD}, this.KTThongTinDangKySPTDOperationCompleted, userState);
+        }
+        
+        private void OnKTThongTinDangKySPTDOperationCompleted(object arg) {
+            if ((this.KTThongTinDangKySPTDCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.KTThongTinDangKySPTDCompleted(this, new KTThongTinDangKySPTDCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/KiemTraTinhTrangSPTD", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public int KiemTraTinhTrangSPTD(int idKH, int idSPTD) {
+            object[] results = this.Invoke("KiemTraTinhTrangSPTD", new object[] {
+                        idKH,
+                        idSPTD});
+            return ((int)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void KiemTraTinhTrangSPTDAsync(int idKH, int idSPTD) {
+            this.KiemTraTinhTrangSPTDAsync(idKH, idSPTD, null);
+        }
+        
+        /// <remarks/>
+        public void KiemTraTinhTrangSPTDAsync(int idKH, int idSPTD, object userState) {
+            if ((this.KiemTraTinhTrangSPTDOperationCompleted == null)) {
+                this.KiemTraTinhTrangSPTDOperationCompleted = new System.Threading.SendOrPostCallback(this.OnKiemTraTinhTrangSPTDOperationCompleted);
+            }
+            this.InvokeAsync("KiemTraTinhTrangSPTD", new object[] {
+                        idKH,
+                        idSPTD}, this.KiemTraTinhTrangSPTDOperationCompleted, userState);
+        }
+        
+        private void OnKiemTraTinhTrangSPTDOperationCompleted(object arg) {
+            if ((this.KiemTraTinhTrangSPTDCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.KiemTraTinhTrangSPTDCompleted(this, new KiemTraTinhTrangSPTDCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/DangKyMoi", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public bool DangKyMoi(int idKH, int idSPTD) {
+            object[] results = this.Invoke("DangKyMoi", new object[] {
+                        idKH,
+                        idSPTD});
+            return ((bool)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void DangKyMoiAsync(int idKH, int idSPTD) {
+            this.DangKyMoiAsync(idKH, idSPTD, null);
+        }
+        
+        /// <remarks/>
+        public void DangKyMoiAsync(int idKH, int idSPTD, object userState) {
+            if ((this.DangKyMoiOperationCompleted == null)) {
+                this.DangKyMoiOperationCompleted = new System.Threading.SendOrPostCallback(this.OnDangKyMoiOperationCompleted);
+            }
+            this.InvokeAsync("DangKyMoi", new object[] {
+                        idKH,
+                        idSPTD}, this.DangKyMoiOperationCompleted, userState);
+        }
+        
+        private void OnDangKyMoiOperationCompleted(object arg) {
+            if ((this.DangKyMoiCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.DangKyMoiCompleted(this, new DangKyMoiCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/SuDungLai", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public bool SuDungLai(int idKH, int idSPTD) {
+            object[] results = this.Invoke("SuDungLai", new object[] {
+                        idKH,
+                        idSPTD});
+            return ((bool)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void SuDungLaiAsync(int idKH, int idSPTD) {
+            this.SuDungLaiAsync(idKH, idSPTD, null);
+        }
+        
+        /// <remarks/>
+        public void SuDungLaiAsync(int idKH, int idSPTD, object userState) {
+            if ((this.SuDungLaiOperationCompleted == null)) {
+                this.SuDungLaiOperationCompleted = new System.Threading.SendOrPostCallback(this.OnSuDungLaiOperationCompleted);
+            }
+            this.InvokeAsync("SuDungLai", new object[] {
+                        idKH,
+                        idSPTD}, this.SuDungLaiOperationCompleted, userState);
+        }
+        
+        private void OnSuDungLaiOperationCompleted(object arg) {
+            if ((this.SuDungLaiCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.SuDungLaiCompleted(this, new SuDungLaiCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/HuyDangKy", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public bool HuyDangKy(int idKH, int idSPTD) {
+            object[] results = this.Invoke("HuyDangKy", new object[] {
+                        idKH,
+                        idSPTD});
+            return ((bool)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void HuyDangKyAsync(int idKH, int idSPTD) {
+            this.HuyDangKyAsync(idKH, idSPTD, null);
+        }
+        
+        /// <remarks/>
+        public void HuyDangKyAsync(int idKH, int idSPTD, object userState) {
+            if ((this.HuyDangKyOperationCompleted == null)) {
+                this.HuyDangKyOperationCompleted = new System.Threading.SendOrPostCallback(this.OnHuyDangKyOperationCompleted);
+            }
+            this.InvokeAsync("HuyDangKy", new object[] {
+                        idKH,
+                        idSPTD}, this.HuyDangKyOperationCompleted, userState);
+        }
+        
+        private void OnHuyDangKyOperationCompleted(object arg) {
+            if ((this.HuyDangKyCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.HuyDangKyCompleted(this, new HuyDangKyCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -146,6 +330,136 @@ namespace FormDesignFSS2.KhachHang_SPTD_WS {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
+    public delegate void KTThongTinDangKySPTDCompletedEventHandler(object sender, KTThongTinDangKySPTDCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class KTThongTinDangKySPTDCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal KTThongTinDangKySPTDCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public int Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((int)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
+    public delegate void KiemTraTinhTrangSPTDCompletedEventHandler(object sender, KiemTraTinhTrangSPTDCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class KiemTraTinhTrangSPTDCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal KiemTraTinhTrangSPTDCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public int Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((int)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
+    public delegate void DangKyMoiCompletedEventHandler(object sender, DangKyMoiCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class DangKyMoiCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal DangKyMoiCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public bool Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
+    public delegate void SuDungLaiCompletedEventHandler(object sender, SuDungLaiCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class SuDungLaiCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal SuDungLaiCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public bool Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
+    public delegate void HuyDangKyCompletedEventHandler(object sender, HuyDangKyCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class HuyDangKyCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal HuyDangKyCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public bool Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[0]));
             }
         }
     }
