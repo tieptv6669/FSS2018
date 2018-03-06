@@ -72,5 +72,15 @@ namespace FormDesignFSS2.Properties {
                 return ((string)(this["FormDesignFSS2_KhachHang_SPTD_WS_KhachHang_SPTD_BUS"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:49220/GiaiNganBUS.asmx")]
+        public string FormDesignFSS2_GiaiNganWS_GiaiNganBUS {
+            get {
+                return ((string)(this["FormDesignFSS2_GiaiNganWS_GiaiNganBUS"]));
+            }
+        }
     }
 }

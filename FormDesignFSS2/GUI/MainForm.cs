@@ -14,6 +14,7 @@ using FormDesignFSS2.NguonWS;
 using FormDesignFSS2.SanPhamTinDungWS;
 using FormDesignFSS2.Report;
 using FormDesignFSS2.KhachHang_SPTD_WS;
+using FormDesignFSS2.GiaiNganWS;
 using Newtonsoft.Json;
 using Microsoft.Reporting.WinForms;
 
@@ -653,6 +654,71 @@ namespace FormDesignFSS2.GUI
             foreach(KhachHang_SPTD temp in list)
             {
                 gridDSKHSPTD.Rows.Add(temp.MaSPTD, temp.TenSPTD, temp.SoTKLK, temp.TenKH, temp.TenNguon, temp.TrangThai);
+            }
+        }
+
+        /// <summary>
+        /// Tìm kiếm giải ngân
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnTimKiemTabGN_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                GiaiNganBUS giaiNganBUS = new GiaiNganBUS();
+                string jsonData = giaiNganBUS.TimKiemGN(txtSoTKLKTabGN.Text);
+                List<GN_KH> list = JsonConvert.DeserializeObject<List<GN_KH>>(jsonData);
+                gridDSMonGN.Rows.Clear();
+                foreach (GN_KH temp in list)
+                {
+                    gridDSMonGN.Rows.Add(temp.SoTKLK, temp.MaGN, temp.SoTienGN, temp.TrangThai, temp.DuNoGoc, temp.DuNoLaiTrongHan, temp.DuNoLaiQuaHan);
+                }
+                if (gridDSMonGN.RowCount == 1)
+                {
+                    foreach (GN_KH temp in list)
+                    {
+                        txtTenKHTabGN.Text = temp.TenKH;
+                    }
+                }
+                else
+                {
+                    txtTenKHTabGN.Text = "";
+                }
+            }catch(Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+
+        /// <summary>
+        /// Xem chi tiết giải ngân
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnXemChiTietTabGN_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (gridDSMonGN.RowCount > 0 && gridDSMonGN.SelectedRows.Count > 0)
+                {
+                    XemChiTietGN xemChiTietGN = new XemChiTietGN();
+                    GiaiNganBUS giaiNganBUS = new GiaiNganBUS();
+                    GN_SPTD_NGUON gN_SPTD_ = new GN_SPTD_NGUON();
+                    string jsonData = giaiNganBUS.xemChiTietGN(gridDSMonGN.SelectedRows[0].Cells[1].Value.ToString());
+                    gN_SPTD_ = JsonConvert.DeserializeObject<GN_SPTD_NGUON>(jsonData);
+                    xemChiTietGN.GN_SPTD_ = gN_SPTD_;
+                    xemChiTietGN.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("Thao tác lỗi. Bạn chưa chọn giải ngân nào", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

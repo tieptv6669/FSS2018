@@ -7,84 +7,45 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DTO;
+using FormDesignFSS2.GiaiNganWS;
+
 
 namespace FormDesignFSS2.GUI
 {
     public partial class XemChiTietGN : Form
     {
+        public GN_SPTD_NGUON GN_SPTD_;
+
         public XemChiTietGN()
         {
             InitializeComponent();
+            GN_SPTD_ = new GN_SPTD_NGUON();
         }
 
         private void XemChiTietGN_Load(object sender, EventArgs e)
         {
-
+            txtSoTKLK.Text = GN_SPTD_.SoTKLK;
+            txtMaGN.Text = GN_SPTD_.MaGN;
+            txtSPTD.Text = GN_SPTD_.TenSPTD;
+            txtLaiSuat.Text = GN_SPTD_.LaiSuat.ToString();
+            txtLaiQuaHan.Text = GN_SPTD_.LaiSuatQuaHan.ToString();
+            txtKyHan.Text = GN_SPTD_.KyHan.ToString();
+            txtDuNoGoc.Text = GN_SPTD_.DuNoGoc.ToString();
+            txtDuNoLaiTrongHan.Text = GN_SPTD_.DuNoLaiTH.ToString();
+            txtDuNoLaiNgoaiHan.Text = GN_SPTD_.DuNoLaiNH.ToString();
+            txtTenKH.Text = GN_SPTD_.TenKH;
+            txtSoTienGN.Text = GN_SPTD_.SoTienGN.ToString();
+            txtTrangThai.Text = GN_SPTD_.TrangThai;
+            txtNguon.Text = GN_SPTD_.TenNguon;
+            txtNgayGN.Text = GN_SPTD_.NgayGN.ToString();
+            txtNgayDH.Text = GN_SPTD_.NgayDH.ToString();
+            txtGhiChu.Text = GN_SPTD_.GhiChu;
         }
 
-        private void textBox3_TextChanged(object sender, EventArgs e)
+        private void btnDong_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox4_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox6_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox5_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox13_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox12_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox11_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox10_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox9_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox8_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox7_TextChanged(object sender, EventArgs e)
-        {
-
+            Close();
         }
     }
 }

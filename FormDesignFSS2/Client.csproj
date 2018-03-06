@@ -182,6 +182,11 @@
       <DependentUpon>XemChiTietKH.cs</DependentUpon>
     </Compile>
     <Compile Include="Report\DataTableConvert.cs" />
+    <Compile Include="Web References\GiaiNganWS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
     <Compile Include="Web References\KhachHangWS\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -291,6 +296,11 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Web References\GiaiNganWS\GiaiNganBUS.wsdl" />
+    <None Include="Web References\GiaiNganWS\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <None Include="Web References\KhachHangWS\KhachHangBUS.wsdl" />
     <None Include="Web References\KhachHangWS\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
@@ -947,6 +957,17 @@
     <WebReferences Include="Web References\" />
   </ItemGroup>
   <ItemGroup>
+    <WebReferenceUrl Include="http://localhost:49220/GiaiNganBUS.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\GiaiNganWS\</RelPath>
+      <UpdateFromURL>http://localhost:49220/GiaiNganBUS.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>FormDesignFSS2_GiaiNganWS_GiaiNganBUS</CachedSettingsPropName>
+    </WebReferenceUrl>
     <WebReferenceUrl Include="http://localhost:49220/KhachHangBUS.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\KhachHangWS\</RelPath>
@@ -1023,6 +1044,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Web References\KhachHang_SPTD_WS\KhachHang_SPTD_BUS.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\GiaiNganWS\GiaiNganBUS.disco" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

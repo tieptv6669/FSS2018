@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataProvider.cs" />
+    <Compile Include="GiaiNganDAO.cs" />
     <Compile Include="KhachHangDAO.cs" />
     <Compile Include="KhachHang_SPTD_DAO.cs" />
     <Compile Include="NguoiDungDAO.cs" />

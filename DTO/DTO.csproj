@@ -37,6 +37,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GiaiNgan.cs" />
+    <Compile Include="GN_KH.cs" />
+    <Compile Include="GN_SPTD_NGUON.cs" />
     <Compile Include="KhachHang.cs" />
     <Compile Include="KhachHangReport.cs" />
     <Compile Include="KhachHang_SPTD.cs" />

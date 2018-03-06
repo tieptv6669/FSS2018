@@ -22,13 +22,13 @@ namespace FormDesignFSS2.GUI
 
         /// <summary>
         /// Khởi tạo form
+
         /// </summary>
         public XemChiTietKH()
         {
             InitializeComponent();
             khachHang = new KhachHang();
         }
-
         /// <summary>
         /// Tải form
         /// </summary>

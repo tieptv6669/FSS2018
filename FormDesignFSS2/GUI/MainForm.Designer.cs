@@ -118,11 +118,6 @@
             this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblDSNguon = new System.Windows.Forms.Label();
             this.tabGiaiNgan = new System.Windows.Forms.TabPage();
-            this.btnTimKiemTabGN = new System.Windows.Forms.Button();
-            this.btnXemChiTietTabGN = new System.Windows.Forms.Button();
-            this.btnSuaTabGN = new System.Windows.Forms.Button();
-            this.btnThemTabGN = new System.Windows.Forms.Button();
-            this.label15 = new System.Windows.Forms.Label();
             this.gridDSMonGN = new System.Windows.Forms.DataGridView();
             this.SoTKLK = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -130,6 +125,12 @@
             this.Column20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dunolainh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnTimKiemTabGN = new System.Windows.Forms.Button();
+            this.btnXemChiTietTabGN = new System.Windows.Forms.Button();
+            this.btnSuaTabGN = new System.Windows.Forms.Button();
+            this.btnThemTabGN = new System.Windows.Forms.Button();
+            this.label15 = new System.Windows.Forms.Label();
             this.txtTenKHTabGN = new System.Windows.Forms.TextBox();
             this.lblTenKHTabGN = new System.Windows.Forms.Label();
             this.txtSoTKLKTabGN = new System.Windows.Forms.TextBox();
@@ -1131,12 +1132,12 @@
             // 
             // tabGiaiNgan
             // 
+            this.tabGiaiNgan.Controls.Add(this.gridDSMonGN);
             this.tabGiaiNgan.Controls.Add(this.btnTimKiemTabGN);
             this.tabGiaiNgan.Controls.Add(this.btnXemChiTietTabGN);
             this.tabGiaiNgan.Controls.Add(this.btnSuaTabGN);
             this.tabGiaiNgan.Controls.Add(this.btnThemTabGN);
             this.tabGiaiNgan.Controls.Add(this.label15);
-            this.tabGiaiNgan.Controls.Add(this.gridDSMonGN);
             this.tabGiaiNgan.Controls.Add(this.txtTenKHTabGN);
             this.tabGiaiNgan.Controls.Add(this.lblTenKHTabGN);
             this.tabGiaiNgan.Controls.Add(this.txtSoTKLKTabGN);
@@ -1148,6 +1149,75 @@
             this.tabGiaiNgan.TabIndex = 6;
             this.tabGiaiNgan.Text = "Giải ngân";
             this.tabGiaiNgan.UseVisualStyleBackColor = true;
+            // 
+            // gridDSMonGN
+            // 
+            this.gridDSMonGN.AllowUserToAddRows = false;
+            this.gridDSMonGN.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridDSMonGN.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.SoTKLK,
+            this.Column17,
+            this.Column18,
+            this.Column20,
+            this.Column19,
+            this.Column21,
+            this.dunolainh});
+            this.gridDSMonGN.Location = new System.Drawing.Point(0, 90);
+            this.gridDSMonGN.MultiSelect = false;
+            this.gridDSMonGN.Name = "gridDSMonGN";
+            this.gridDSMonGN.ReadOnly = true;
+            this.gridDSMonGN.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.gridDSMonGN.Size = new System.Drawing.Size(760, 220);
+            this.gridDSMonGN.TabIndex = 11;
+            // 
+            // SoTKLK
+            // 
+            this.SoTKLK.HeaderText = "Số TKLK";
+            this.SoTKLK.Name = "SoTKLK";
+            this.SoTKLK.ReadOnly = true;
+            // 
+            // Column17
+            // 
+            this.Column17.FillWeight = 80F;
+            this.Column17.HeaderText = "Mã GN";
+            this.Column17.Name = "Column17";
+            this.Column17.ReadOnly = true;
+            // 
+            // Column18
+            // 
+            this.Column18.FillWeight = 80F;
+            this.Column18.HeaderText = "Số tiền giải ngân";
+            this.Column18.Name = "Column18";
+            this.Column18.ReadOnly = true;
+            // 
+            // Column20
+            // 
+            this.Column20.FillWeight = 50F;
+            this.Column20.HeaderText = "Trạng thái";
+            this.Column20.Name = "Column20";
+            this.Column20.ReadOnly = true;
+            // 
+            // Column19
+            // 
+            this.Column19.HeaderText = "Dư nợ gốc";
+            this.Column19.Name = "Column19";
+            this.Column19.ReadOnly = true;
+            // 
+            // Column21
+            // 
+            this.Column21.FillWeight = 80F;
+            this.Column21.HeaderText = "Dư nợ lãi TH";
+            this.Column21.Name = "Column21";
+            this.Column21.ReadOnly = true;
+            this.Column21.Width = 110;
+            // 
+            // dunolainh
+            // 
+            this.dunolainh.FillWeight = 80F;
+            this.dunolainh.HeaderText = "Dư nợ lãi NH";
+            this.dunolainh.Name = "dunolainh";
+            this.dunolainh.ReadOnly = true;
+            this.dunolainh.Width = 110;
             // 
             // btnTimKiemTabGN
             // 
@@ -1161,6 +1231,7 @@
             this.btnTimKiemTabGN.Text = "Tìm kiếm";
             this.btnTimKiemTabGN.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnTimKiemTabGN.UseVisualStyleBackColor = false;
+            this.btnTimKiemTabGN.Click += new System.EventHandler(this.btnTimKiemTabGN_Click);
             // 
             // btnXemChiTietTabGN
             // 
@@ -1174,6 +1245,7 @@
             this.btnXemChiTietTabGN.Text = "Xem chi tiết";
             this.btnXemChiTietTabGN.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnXemChiTietTabGN.UseVisualStyleBackColor = false;
+            this.btnXemChiTietTabGN.Click += new System.EventHandler(this.btnXemChiTietTabGN_Click);
             // 
             // btnSuaTabGN
             // 
@@ -1211,66 +1283,6 @@
             this.label15.TabIndex = 12;
             this.label15.Text = "Danh sách các món giải ngân:";
             // 
-            // gridDSMonGN
-            // 
-            this.gridDSMonGN.AllowUserToAddRows = false;
-            this.gridDSMonGN.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridDSMonGN.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.SoTKLK,
-            this.Column17,
-            this.Column18,
-            this.Column20,
-            this.Column19,
-            this.Column21});
-            this.gridDSMonGN.Location = new System.Drawing.Point(0, 90);
-            this.gridDSMonGN.MultiSelect = false;
-            this.gridDSMonGN.Name = "gridDSMonGN";
-            this.gridDSMonGN.ReadOnly = true;
-            this.gridDSMonGN.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridDSMonGN.Size = new System.Drawing.Size(760, 220);
-            this.gridDSMonGN.TabIndex = 11;
-            // 
-            // SoTKLK
-            // 
-            this.SoTKLK.HeaderText = "Số TKLK";
-            this.SoTKLK.Name = "SoTKLK";
-            this.SoTKLK.ReadOnly = true;
-            // 
-            // Column17
-            // 
-            this.Column17.HeaderText = "Mã GN";
-            this.Column17.Name = "Column17";
-            this.Column17.ReadOnly = true;
-            this.Column17.Width = 120;
-            // 
-            // Column18
-            // 
-            this.Column18.HeaderText = "Số tiền giải ngân";
-            this.Column18.Name = "Column18";
-            this.Column18.ReadOnly = true;
-            this.Column18.Width = 150;
-            // 
-            // Column20
-            // 
-            this.Column20.HeaderText = "Trạng thái";
-            this.Column20.Name = "Column20";
-            this.Column20.ReadOnly = true;
-            this.Column20.Width = 110;
-            // 
-            // Column19
-            // 
-            this.Column19.HeaderText = "Dư nợ gốc";
-            this.Column19.Name = "Column19";
-            this.Column19.ReadOnly = true;
-            this.Column19.Width = 120;
-            // 
-            // Column21
-            // 
-            this.Column21.HeaderText = "Dư nợ lãi";
-            this.Column21.Name = "Column21";
-            this.Column21.ReadOnly = true;
-            this.Column21.Width = 120;
-            // 
             // txtTenKHTabGN
             // 
             this.txtTenKHTabGN.BackColor = System.Drawing.SystemColors.ScrollBar;
@@ -1294,6 +1306,7 @@
             this.txtSoTKLKTabGN.Name = "txtSoTKLKTabGN";
             this.txtSoTKLKTabGN.Size = new System.Drawing.Size(302, 21);
             this.txtSoTKLKTabGN.TabIndex = 6;
+            this.txtSoTKLKTabGN.Text = "021C000001";
             // 
             // lblSoTKLKTabGN
             // 
@@ -2036,12 +2049,6 @@
         private System.Windows.Forms.Button btnTimKiemTabNguon;
         private System.Windows.Forms.TextBox txtTenNguon;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SoTKLK;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column17;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column18;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column20;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column19;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column21;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column35;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column37;
@@ -2061,6 +2068,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn laiSuat;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn columm1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SoTKLK;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column17;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column18;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column20;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column19;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column21;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dunolainh;
     }
 }
 
