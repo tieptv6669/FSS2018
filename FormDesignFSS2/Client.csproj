@@ -188,6 +188,7 @@
       <DependentUpon>XemChiTietKH.cs</DependentUpon>
     </Compile>
     <Compile Include="Report\DataTableConvert.cs" />
+    <Compile Include="Settings.cs" />
     <Compile Include="Web References\GiaiNganWS\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
