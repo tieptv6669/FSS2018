@@ -742,7 +742,6 @@ namespace FormDesignFSS2.GUI
         }
 
         /// <summary>
-
         /// Tìm kiếm giải ngân
         /// </summary>
         /// <param name="sender"></param>
@@ -808,6 +807,7 @@ namespace FormDesignFSS2.GUI
             }
 
         }
+
         /// Xử lý sự kiện click button lịch sử trả nợ
         /// </summary>
         /// <param name="sender"></param>

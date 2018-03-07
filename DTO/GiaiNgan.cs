@@ -10,10 +10,10 @@ namespace DTO
     {
         private int idGN;
         private string maGN;
-        private int soTienGN;
-        private int duNoGoc;
-        private int duNoLaiTrongHan;
-        private int duNoLaiNgoaiHan;
+        private long soTienGN;
+        private long duNoGoc;
+        private long duNoLaiTrongHan;
+        private long duNoLaiNgoaiHan;
         private DateTime ngayGN;
         private DateTime ngayDaoHan;
         private int idKH;
@@ -23,10 +23,10 @@ namespace DTO
 
         public int IDGN { get; set; }
         public string MaGN { get; set; }
-        public int SoTienGN { get; set; }
-        public int DuNoGoc { get; set; }
-        public int DuNoLaiTrongHan { get; set; }
-        public int DuNoLaiNgoaiHan { get; set; }
+        public long SoTienGN { get; set; }
+        public long DuNoGoc { get; set; }
+        public long DuNoLaiTrongHan { get; set; }
+        public long DuNoLaiNgoaiHan { get; set; }
         public DateTime NgayGN { get; set; }
         public DateTime NgayDaoHan { get; set; }
         public int IDKH { get; set; }

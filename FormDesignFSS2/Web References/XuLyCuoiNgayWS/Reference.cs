@@ -33,6 +33,8 @@ namespace FormDesignFSS2.XuLyCuoiNgayWS {
         
         private System.Threading.SendOrPostCallback KTThongTinChayQuaNgayOperationCompleted;
         
+        private System.Threading.SendOrPostCallback XuLyCuoiNgayOperationCompleted;
+        
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
@@ -76,6 +78,9 @@ namespace FormDesignFSS2.XuLyCuoiNgayWS {
         
         /// <remarks/>
         public event KTThongTinChayQuaNgayCompletedEventHandler KTThongTinChayQuaNgayCompleted;
+        
+        /// <remarks/>
+        public event XuLyCuoiNgayCompletedEventHandler XuLyCuoiNgayCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/LayNgayLamViecHienTai", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -132,6 +137,37 @@ namespace FormDesignFSS2.XuLyCuoiNgayWS {
             if ((this.KTThongTinChayQuaNgayCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.KTThongTinChayQuaNgayCompleted(this, new KTThongTinChayQuaNgayCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/XuLyCuoiNgay", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public bool XuLyCuoiNgay(string ngayLVHienTai, string ngayLVTiepTheo) {
+            object[] results = this.Invoke("XuLyCuoiNgay", new object[] {
+                        ngayLVHienTai,
+                        ngayLVTiepTheo});
+            return ((bool)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void XuLyCuoiNgayAsync(string ngayLVHienTai, string ngayLVTiepTheo) {
+            this.XuLyCuoiNgayAsync(ngayLVHienTai, ngayLVTiepTheo, null);
+        }
+        
+        /// <remarks/>
+        public void XuLyCuoiNgayAsync(string ngayLVHienTai, string ngayLVTiepTheo, object userState) {
+            if ((this.XuLyCuoiNgayOperationCompleted == null)) {
+                this.XuLyCuoiNgayOperationCompleted = new System.Threading.SendOrPostCallback(this.OnXuLyCuoiNgayOperationCompleted);
+            }
+            this.InvokeAsync("XuLyCuoiNgay", new object[] {
+                        ngayLVHienTai,
+                        ngayLVTiepTheo}, this.XuLyCuoiNgayOperationCompleted, userState);
+        }
+        
+        private void OnXuLyCuoiNgayOperationCompleted(object arg) {
+            if ((this.XuLyCuoiNgayCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.XuLyCuoiNgayCompleted(this, new XuLyCuoiNgayCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -202,6 +238,32 @@ namespace FormDesignFSS2.XuLyCuoiNgayWS {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((int)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
+    public delegate void XuLyCuoiNgayCompletedEventHandler(object sender, XuLyCuoiNgayCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class XuLyCuoiNgayCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal XuLyCuoiNgayCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public bool Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[0]));
             }
         }
     }

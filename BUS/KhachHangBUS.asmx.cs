@@ -152,6 +152,10 @@ namespace BUS
             {
                 return 10;
             }
+            if (!helper.ChiChuaChuSo(sdt))
+            {
+                return 11;
+            }
 
             return 0;
         }

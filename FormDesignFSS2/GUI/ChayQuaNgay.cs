@@ -45,7 +45,6 @@ namespace FormDesignFSS2.GUI
             else
             {
                 processPercent.Text = "Đã xong!";
-            
             }
         }
 
@@ -117,10 +116,14 @@ namespace FormDesignFSS2.GUI
                             if(dialogResult == DialogResult.Yes)
                             {
                                 // Xử lý cuối ngày
-
-                                timerXuLyCuoiNgay.Start();
                                 btnBatDau.Enabled = false;
                                 dateTPNgayLamViecTiepTheo.Enabled = false;
+
+                                string ngayHienTai = txtNgayLVHienTai.Text;
+                                string ngayTiepTheo = dateTPNgayLamViecTiepTheo.Value.ToShortDateString();
+
+                                xuLyCuoiNgayBUS.XuLyCuoiNgay(ngayHienTai, ngayTiepTheo);
+                                timerXuLyCuoiNgay.Start();
                             }
                             break;
                         }

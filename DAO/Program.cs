@@ -13,20 +13,7 @@ namespace DAO
     {
         static void Main()
         {
-            //NguoiDung nguoiDung = new NguoiDung();
-            //NguoiDungDAO nguoiDungDAO = new NguoiDungDAO();
-
-            //nguoiDung = nguoiDungDAO.TaiKhoanChinhXac("NV00001", "tieptv1112");
-
-            //if(nguoiDung != null)
-            //{
-            //    Console.WriteLine("Chính xác");
-
-            //}
-            //else
-            //{
-            //    Console.WriteLine("không chính xác");
-            //}
+            
         }
     }
 }
