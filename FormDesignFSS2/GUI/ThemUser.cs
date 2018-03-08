@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using FormDesignFSS2.NguoiDungWS;
 using Newtonsoft.Json;
+using FormDesignFSS2.LichSuWS;
 using DTO;
 
 namespace FormDesignFSS2.GUI
@@ -19,6 +20,7 @@ namespace FormDesignFSS2.GUI
     /// </summary>
     public partial class ThemUser : Form
     {
+        public NguoiDung nguoiDung;
         public ThemUser()
         {
             InitializeComponent();
@@ -160,9 +162,21 @@ namespace FormDesignFSS2.GUI
                         if (nguoiDungBUS.ThemNguoiDung(jsonData))
                         {
                             MessageBox.Show("Thêm người dùng mới thành công", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            Close();
+                            // Ghi log
+                            LichSu lichSu = new LichSu();
+                            lichSu.MaDT = nguoiDung.tenDangNhapND;
+                            lichSu.NoiDung = "Thêm người dùng mới";
+                            lichSu.ThoiGian = DateTime.Now;
+                            lichSu.GiaTriTruoc = "null";
+                            lichSu.GiaTriSau = "null";
+                            lichSu.TenDN = this.nguoiDung.tenDangNhapND;
+                            lichSu.SoTKLK = "null";
+                            LichSuBUS lichSuBUS = new LichSuBUS();
+                            lichSuBUS.ThemLichSu(JsonConvert.SerializeObject(lichSu));
+                            Hide();
                             ThemUser themUser = new ThemUser();
                             themUser.ShowDialog();
+                            Close();
                         }
                         else
                         {

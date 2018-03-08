@@ -204,6 +204,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
     </Compile>
+    <Compile Include="Web References\LichSuWS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
     <Compile Include="Web References\NguoiDungWS\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -339,6 +344,11 @@
     </None>
     <None Include="Web References\KhachHang_SPTD_WS\KhachHang_SPTD_BUS.wsdl" />
     <None Include="Web References\KhachHang_SPTD_WS\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\LichSuWS\LichSuBUS.wsdl" />
+    <None Include="Web References\LichSuWS\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
@@ -1026,6 +1036,17 @@
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>FormDesignFSS2_KhachHang_SPTD_WS_KhachHang_SPTD_BUS</CachedSettingsPropName>
     </WebReferenceUrl>
+    <WebReferenceUrl Include="http://localhost:49220/LichSuBUS.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\LichSuWS\</RelPath>
+      <UpdateFromURL>http://localhost:49220/LichSuBUS.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>FormDesignFSS2_LichSuWS_LichSuBUS</CachedSettingsPropName>
+    </WebReferenceUrl>
     <WebReferenceUrl Include="http://localhost:49220/NguoiDungBUS.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\NguoiDungWS\</RelPath>
@@ -1094,6 +1115,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Web References\XuLyCuoiNgayWS\XuLyCuoiNgayBUS.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\LichSuWS\LichSuBUS.disco" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

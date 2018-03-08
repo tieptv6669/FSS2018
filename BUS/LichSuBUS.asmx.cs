@@ -39,5 +39,18 @@ namespace BUS
 
             return JsonConvert.SerializeObject(list);
         }
+
+        /// <summary>
+        /// Thêm lịch sử mới 
+        /// </summary>
+        /// <param name="jsonData"></param>
+        /// <returns></returns>
+        [WebMethod]
+        public bool ThemLichSu(string jsonData)
+        {
+            LichSu lichSu = JsonConvert.DeserializeObject<LichSu>(jsonData);
+            LichSuDAO.ThemLichSu(lichSu);
+            return true;
+        }
     }
 }

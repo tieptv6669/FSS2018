@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DTO;
+using FormDesignFSS2.LichSuWS;
 using FormDesignFSS2.NguoiDungWS;
 using FormDesignFSS2.KhachHangWS;
 using FormDesignFSS2.NguonWS;
@@ -138,6 +139,7 @@ namespace FormDesignFSS2.GUI
         private void btnThemTabUser_Click(object sender, EventArgs e)
         {
             ThemUser themUser = new ThemUser();
+            themUser.nguoiDung = nguoiDungHienTai;
             themUser.ShowDialog();
         }
 
@@ -190,6 +192,7 @@ namespace FormDesignFSS2.GUI
                     suaUser.nguoiDung.phongBanND = gridTabUser.SelectedRows[0].Cells[3].Value.ToString();
                     suaUser.nguoiDung.quyenND = gridTabUser.SelectedRows[0].Cells[4].Value.ToString();
                     suaUser.dataGridView = gridTabUser;
+                    suaUser.nguoiDungHeThong = nguoiDungHienTai;
 
                     suaUser.ShowDialog();
                 }
@@ -222,9 +225,21 @@ namespace FormDesignFSS2.GUI
                         NguoiDungBUS nguoiDungBUS = new NguoiDungBUS();
                         if (nguoiDungBUS.XoaNguoiDung(gridTabUser.SelectedRows[0].Cells[0].Value.ToString()))
                         {
+                            // Ghi log
+                            LichSu lichSu = new LichSu();
+                            lichSu.MaDT = gridTabUser.SelectedRows[0].Cells[0].Value.ToString();
+                            lichSu.NoiDung = "Xóa người dùng";
+                            lichSu.ThoiGian = DateTime.Now;
+                            lichSu.GiaTriTruoc = "null";
+                            lichSu.GiaTriSau = "null";
+                            lichSu.TenDN = nguoiDungHienTai.tenDangNhapND;
+                            lichSu.SoTKLK = "null";
+                            LichSuBUS lichSuBUS = new LichSuBUS();
+                            lichSuBUS.ThemLichSu(JsonConvert.SerializeObject(lichSu));
                             // Cập nhật grid view
                             gridTabUser.Rows.Remove(gridTabUser.SelectedRows[0]);
                             MessageBox.Show("Xóa người dùng thành công", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            
                         }
                         else
                         {

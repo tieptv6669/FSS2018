@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="TimKiemLichSu">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="tenDangNhap" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="soTKLK" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="maDT" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="startDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="finishDate" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TimKiemLichSuResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TimKiemLichSuResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ThemLichSu">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="jsonData" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ThemLichSuResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ThemLichSuResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="TimKiemLichSuSoapIn">
+    <wsdl:part name="parameters" element="tns:TimKiemLichSu" />
+  </wsdl:message>
+  <wsdl:message name="TimKiemLichSuSoapOut">
+    <wsdl:part name="parameters" element="tns:TimKiemLichSuResponse" />
+  </wsdl:message>
+  <wsdl:message name="ThemLichSuSoapIn">
+    <wsdl:part name="parameters" element="tns:ThemLichSu" />
+  </wsdl:message>
+  <wsdl:message name="ThemLichSuSoapOut">
+    <wsdl:part name="parameters" element="tns:ThemLichSuResponse" />
+  </wsdl:message>
+  <wsdl:portType name="LichSuBUSSoap">
+    <wsdl:operation name="TimKiemLichSu">
+      <wsdl:input message="tns:TimKiemLichSuSoapIn" />
+      <wsdl:output message="tns:TimKiemLichSuSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ThemLichSu">
+      <wsdl:input message="tns:ThemLichSuSoapIn" />
+      <wsdl:output message="tns:ThemLichSuSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="LichSuBUSSoap" type="tns:LichSuBUSSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="TimKiemLichSu">
+      <soap:operation soapAction="http://tempuri.org/TimKiemLichSu" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ThemLichSu">
+      <soap:operation soapAction="http://tempuri.org/ThemLichSu" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="LichSuBUSSoap12" type="tns:LichSuBUSSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="TimKiemLichSu">
+      <soap12:operation soapAction="http://tempuri.org/TimKiemLichSu" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ThemLichSu">
+      <soap12:operation soapAction="http://tempuri.org/ThemLichSu" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="LichSuBUS">
+    <wsdl:port name="LichSuBUSSoap" binding="tns:LichSuBUSSoap">
+      <soap:address location="http://localhost:49220/LichSuBUS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="LichSuBUSSoap12" binding="tns:LichSuBUSSoap12">
+      <soap12:address location="http://localhost:49220/LichSuBUS.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
