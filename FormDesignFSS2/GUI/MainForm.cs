@@ -15,6 +15,7 @@ using FormDesignFSS2.SanPhamTinDungWS;
 using FormDesignFSS2.Report;
 using FormDesignFSS2.KhachHang_SPTD_WS;
 using FormDesignFSS2.GiaiNganWS;
+using FormDesignFSS2.XuLyCuoiNgayWS;
 using Newtonsoft.Json;
 using Microsoft.Reporting.WinForms;
 
@@ -40,18 +41,30 @@ namespace FormDesignFSS2.GUI
         /// <param name="e"></param>
         private void MainForm_Load(object sender, EventArgs e)
         {
-            //DateTime date = DateTime.Now;
-            //Console.WriteLine(date.DayOfWeek.ToString());
-            string quyen = nguoiDungHienTai.quyenND;
+            lblTime.ForeColor = Color.Purple;
+            lblTDN.ForeColor = Color.Blue;
+            lblQuyen.ForeColor = Color.Blue;
 
+            lblTDN.Text = nguoiDungHienTai.tenDangNhapND;
+            lblQuyen.Text = nguoiDungHienTai.quyenND;
+
+            AcceptButton = btnTimKiemTabUser;
+
+            // Lấy ngày hệ thống
+            XuLyCuoiNgayBUS xuLyCuoiNgayBUS = new XuLyCuoiNgayBUS();
+            lblTime.Text = xuLyCuoiNgayBUS.LayNgayLamViecHienTai();
+
+            string quyen = nguoiDungHienTai.quyenND;
             // Phân quyền người dùng
             if (quyen == "Quản lý")
             {
                 tabControl.TabPages.RemoveAt(0);
                 btnChayQuaNgay.Enabled = false;
+                AcceptButton = btnTimKiemTabKH;
             }
             if (quyen == "Nhân viên")
             {
+                AcceptButton = btnTimKiemTabKH;
                 tabControl.TabPages.RemoveAt(0);
                 btnChayQuaNgay.Enabled = false;
                 btnSuaTabUser.Enabled = false;
@@ -816,6 +829,47 @@ namespace FormDesignFSS2.GUI
         {
             LichSuTraNo lichSuTraNo = new LichSuTraNo();
             lichSuTraNo.ShowDialog();
+        }
+
+        /// <summary>
+        /// Xử lý sự kiện khi chọn một tab khác
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void tabControl_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(tabControl.SelectedTab.Text == "User")
+            {
+                AcceptButton = btnTimKiemTabUser;
+            }
+            if(tabControl.SelectedTab.Text == "Khách hàng")
+            {
+                AcceptButton = btnTimKiemTabKH;
+            }
+            if(tabControl.SelectedTab.Text == "Sản phẩm tín dụng")
+            {
+                AcceptButton = btnTimKiemTabSPTD;
+            }
+            if(tabControl.SelectedTab.Text == "Đăng ký sản phẩm tín dụng")
+            {
+                AcceptButton = btnTimKiem;
+            }
+            if(tabControl.SelectedTab.Text == "Nguồn")
+            {
+                AcceptButton = btnTimKiemTabNguon;
+            }
+            if(tabControl.SelectedTab.Text == "Giải ngân")
+            {
+                AcceptButton = btnTimKiemTabGN;
+            }
+            if(tabControl.SelectedTab.Text == "Trả nợ")
+            {
+                AcceptButton = btnTimKiemTabTN;
+            }
+            if(tabControl.SelectedTab.Text == "Lịch sử")
+            {
+                AcceptButton = btnTimKiemTabLS;
+            }
         }
     }
 }
