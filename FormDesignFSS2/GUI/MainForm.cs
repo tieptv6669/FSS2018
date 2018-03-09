@@ -91,6 +91,7 @@ namespace FormDesignFSS2.GUI
         private void btnChayQuaNgay_Click(object sender, EventArgs e)
         {
             ChayQuaNgay cqnForm = new ChayQuaNgay();
+            cqnForm.nguoiDungHeThong = nguoiDungHienTai;
             cqnForm.ShowDialog();
         }
 
@@ -317,8 +318,21 @@ namespace FormDesignFSS2.GUI
                     {
                         // reset mật khẩu cho người dùng 
                         NguoiDungBUS nguoiDungBUS = new NguoiDungBUS();
+                        NguoiDung nguoiDung = JsonConvert.DeserializeObject<NguoiDung>(nguoiDungBUS.LayNguoiDung(tenDN));
                         if (nguoiDungBUS.ResetMatKhau(tenDN))
                         {
+                            // Ghi log
+                            LichSu lichSu = new LichSu();
+                            lichSu.MaDT = tenDN;
+                            lichSu.NoiDung = "Reset mật khẩu";
+                            lichSu.ThoiGian = DateTime.Now;
+                            lichSu.GiaTriTruoc = nguoiDung.matKhauND;
+                            lichSu.GiaTriSau = tenDN;
+                            lichSu.TenDN = nguoiDungHienTai.tenDangNhapND;
+                            lichSu.SoTKLK = "null";
+                            LichSuBUS lichSuBUS = new LichSuBUS();
+                            lichSuBUS.ThemLichSu(JsonConvert.SerializeObject(lichSu));
+
                             MessageBox.Show("Reset mật khẩu thành công", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         else
@@ -358,6 +372,10 @@ namespace FormDesignFSS2.GUI
                     xemChiTietKH.khachHang = khachHang;
                     xemChiTietKH.ShowDialog();
                 }
+                else
+                {
+                    MessageBox.Show("Thao tác lỗi. Bạn chưa chọn khách hàng nào", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             catch (Exception ex)
             {
@@ -385,6 +403,7 @@ namespace FormDesignFSS2.GUI
                     khachHang = JsonConvert.DeserializeObject<KhachHang>(jsonData);
 
                     suaKH.khachHang = khachHang;
+                    suaKH.nguoiDungHeThong = nguoiDungHienTai;
 
                     suaKH.ShowDialog();
                 }
@@ -564,6 +583,7 @@ namespace FormDesignFSS2.GUI
         private void btnThemTabKH_Click(object sender, EventArgs e)
         {
             ThemKH themKH = new ThemKH();
+            themKH.nguoiDungHeThong = nguoiDungHienTai;
             themKH.ShowDialog();
         }
 

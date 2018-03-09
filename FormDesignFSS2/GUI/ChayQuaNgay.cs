@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using FormDesignFSS2.XuLyCuoiNgayWS;
+using FormDesignFSS2.LichSuWS;
+using DTO;
 using Newtonsoft.Json;
 
 namespace FormDesignFSS2.GUI
@@ -19,6 +21,7 @@ namespace FormDesignFSS2.GUI
     public partial class ChayQuaNgay : Form
     {
         private int progressBarStatus;
+        public NguoiDung nguoiDungHeThong;
 
         /// <summary>
         /// Khởi tạo form
@@ -123,6 +126,18 @@ namespace FormDesignFSS2.GUI
                                 string ngayTiepTheo = dateTPNgayLamViecTiepTheo.Value.ToShortDateString();
 
                                 xuLyCuoiNgayBUS.XuLyCuoiNgay(ngayHienTai, ngayTiepTheo);
+                                // Ghi log
+                                LichSu lichSu = new LichSu();
+                                lichSu.MaDT = "null";
+                                lichSu.NoiDung = "Xử lý cuối ngày";
+                                lichSu.ThoiGian = DateTime.Now;
+                                lichSu.GiaTriTruoc = "null";
+                                lichSu.GiaTriSau = "null";
+                                lichSu.TenDN = nguoiDungHeThong.tenDangNhapND;
+                                lichSu.SoTKLK = "null";
+                                LichSuBUS lichSuBUS = new LichSuBUS();
+                                lichSuBUS.ThemLichSu(JsonConvert.SerializeObject(lichSu));
+
                                 timerXuLyCuoiNgay.Start();
                             }
                             break;

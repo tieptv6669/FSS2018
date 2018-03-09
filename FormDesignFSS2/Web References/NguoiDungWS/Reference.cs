@@ -53,6 +53,8 @@ namespace FormDesignFSS2.NguoiDungWS {
         
         private System.Threading.SendOrPostCallback ResetMatKhauOperationCompleted;
         
+        private System.Threading.SendOrPostCallback LayNguoiDungOperationCompleted;
+        
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
@@ -126,6 +128,9 @@ namespace FormDesignFSS2.NguoiDungWS {
         
         /// <remarks/>
         public event ResetMatKhauCompletedEventHandler ResetMatKhauCompleted;
+        
+        /// <remarks/>
+        public event LayNguoiDungCompletedEventHandler LayNguoiDungCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/KTThongTinDangNhap", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -502,6 +507,35 @@ namespace FormDesignFSS2.NguoiDungWS {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/LayNguoiDung", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string LayNguoiDung(string tenDN) {
+            object[] results = this.Invoke("LayNguoiDung", new object[] {
+                        tenDN});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void LayNguoiDungAsync(string tenDN) {
+            this.LayNguoiDungAsync(tenDN, null);
+        }
+        
+        /// <remarks/>
+        public void LayNguoiDungAsync(string tenDN, object userState) {
+            if ((this.LayNguoiDungOperationCompleted == null)) {
+                this.LayNguoiDungOperationCompleted = new System.Threading.SendOrPostCallback(this.OnLayNguoiDungOperationCompleted);
+            }
+            this.InvokeAsync("LayNguoiDung", new object[] {
+                        tenDN}, this.LayNguoiDungOperationCompleted, userState);
+        }
+        
+        private void OnLayNguoiDungOperationCompleted(object arg) {
+            if ((this.LayNguoiDungCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.LayNguoiDungCompleted(this, new LayNguoiDungCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         public new void CancelAsync(object userState) {
             base.CancelAsync(userState);
         }
@@ -828,6 +862,32 @@ namespace FormDesignFSS2.NguoiDungWS {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((bool)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
+    public delegate void LayNguoiDungCompletedEventHandler(object sender, LayNguoiDungCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class LayNguoiDungCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal LayNguoiDungCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
             }
         }
     }

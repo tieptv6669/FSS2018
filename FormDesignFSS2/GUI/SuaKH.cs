@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Newtonsoft.Json;
+using FormDesignFSS2.LichSuWS;
 using DTO;
 using FormDesignFSS2.KhachHangWS;
 using FormDesignFSS2;
@@ -20,6 +22,7 @@ namespace FormDesignFSS2.GUI
     public partial class SuaKH : Form
     {
         public KhachHang khachHang;
+        public NguoiDung nguoiDungHeThong;
         public DataGridView dataGridView;
 
         /// <summary>
@@ -196,12 +199,37 @@ namespace FormDesignFSS2.GUI
                                     temp.Cells[4].Value = txtGhiChu.Text;
                                 }
                             }
-                            MessageBox.Show("Sửa thông tin người dùng thành công", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            // Ghi log
+                            LichSu lichSu = new LichSu();
+                            lichSu.MaDT = khachHang.STKLK;
+                            lichSu.NoiDung = "Sửa thông tin khách hàng";
+                            lichSu.ThoiGian = DateTime.Now;
+                            lichSu.GiaTriTruoc = JsonConvert.SerializeObject(khachHang);
+                            KhachHang khachHangSau = new KhachHang();
+                            khachHangSau.idKH = khachHang.idKH;
+                            khachHangSau.STKLK = khachHang.STKLK;
+                            khachHangSau.hoTenKH = txtHoTenKH.Text;
+                            khachHangSau.ngaySinhKH = dateNgaySinh.Value;
+                            khachHangSau.ngheNghiepKH = txtNgheNghiep.Text;
+                            khachHangSau.soCMNNKH = txtSoCMND.Text;
+                            khachHangSau.emailKH = txtEmail.Text;
+                            khachHangSau.gioiTinhKH = gioiTinh;
+                            khachHangSau.loai = cmbLoaiKH.SelectedItem.ToString();
+                            khachHangSau.diaChiKH = txtDiaChi.Text;
+                            khachHangSau.SDTKH = txtSDT.Text;
+                            khachHangSau.ghiChuKH = txtGhiChu.Text;
+                            lichSu.GiaTriSau = JsonConvert.SerializeObject(khachHangSau);
+                            lichSu.TenDN = nguoiDungHeThong.tenDangNhapND;
+                            lichSu.SoTKLK = khachHang.STKLK;
+                            LichSuBUS lichSuBUS = new LichSuBUS();
+                            lichSuBUS.ThemLichSu(JsonConvert.SerializeObject(lichSu));
+
+                            MessageBox.Show("Sửa thông tin khách hàng thành công", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             Close();
                         }
                         else
                         {
-                            MessageBox.Show("Đã có lỗi sảy ra, sửa người dùng mới thất bại", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("Đã có lỗi sảy ra, sửa thông tin khách hàng thất bại", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                 }

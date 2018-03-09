@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using FormDesignFSS2.KhachHangWS;
 using DTO;
 using Newtonsoft.Json;
+using FormDesignFSS2.LichSuWS;
 
 namespace FormDesignFSS2.GUI
 {
@@ -19,6 +20,7 @@ namespace FormDesignFSS2.GUI
     /// </summary>
     public partial class ThemKH : Form
     {
+        public NguoiDung nguoiDungHeThong;
         /// <summary>
         /// Khởi tạo form
         /// </summary>
@@ -186,10 +188,23 @@ namespace FormDesignFSS2.GUI
                     KhachHangBUS khachHangBUS = new KhachHangBUS();
                     if (khachHangBUS.ThemKH(jsonData))
                     {
+                        // Ghi log
+                        LichSu lichSu = new LichSu();
+                        lichSu.MaDT = khachHang.STKLK;
+                        lichSu.NoiDung = "Thêm khách hàng mới";
+                        lichSu.ThoiGian = DateTime.Now;
+                        lichSu.GiaTriTruoc = "null";
+                        lichSu.GiaTriSau = "null";
+                        lichSu.TenDN = nguoiDungHeThong.tenDangNhapND;
+                        lichSu.SoTKLK = khachHang.STKLK;
+                        LichSuBUS lichSuBUS = new LichSuBUS();
+                        lichSuBUS.ThemLichSu(JsonConvert.SerializeObject(lichSu));
+
                         MessageBox.Show("Thêm khách hàng mới thành công", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        Close();
+                        Hide();
                         ThemKH themKH = new ThemKH();
                         themKH.ShowDialog();
+                        Close();
                     }
                     else
                     {

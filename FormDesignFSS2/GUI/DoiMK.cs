@@ -8,6 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using FormDesignFSS2.NguoiDungWS;
+using DTO;
+using Newtonsoft.Json;
+using FormDesignFSS2.LichSuWS;
 
 namespace FormDesignFSS2.GUI
 {
@@ -117,9 +120,21 @@ namespace FormDesignFSS2.GUI
                 {
                     // Cập nhật mật khẩu mới
                     NguoiDungBUS nguoiDungBUS = new NguoiDungBUS();
-
+                    NguoiDung nguoiDung = JsonConvert.DeserializeObject<NguoiDung>(nguoiDungBUS.LayNguoiDung(txtTenDangNhap.Text));
                     if (nguoiDungBUS.DoiMatKhau(txtTenDangNhap.Text, txtMatKhauMoi.Text))
                     {
+                        // Ghi log
+                        LichSu lichSu = new LichSu();
+                        lichSu.MaDT = txtTenDangNhap.Text;
+                        lichSu.NoiDung = "Đổi mật khẩu";
+                        lichSu.ThoiGian = DateTime.Now;
+                        lichSu.GiaTriTruoc = nguoiDung.matKhauND;
+                        lichSu.GiaTriSau = txtMatKhauMoi.Text;
+                        lichSu.TenDN = txtTenDangNhap.Text;
+                        lichSu.SoTKLK = "null";
+                        LichSuBUS lichSuBUS = new LichSuBUS();
+                        lichSuBUS.ThemLichSu(JsonConvert.SerializeObject(lichSu));
+
                         MessageBox.Show("Đổi mật khẩu thành công", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         Close();
                     }

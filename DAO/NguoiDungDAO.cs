@@ -277,6 +277,32 @@ namespace DAO
                 return false;
             }
         }
+
+        /// <summary>
+        /// Lấy người dùng khi biết tên đăng nhập
+        /// </summary>
+        /// <param name="tenDN"></param>
+        /// <returns></returns>
+        public static NguoiDung GetNguoiDung(string tenDN)
+        {
+            try
+            {
+                OracleCommand oracleCommand = new OracleCommand();
+                oracleCommand.CommandText = "SELECT * FROM NGUOIDUNG WHERE TENDANGNHAP = :tenDangNhap AND TRANGTHAI = '1'";
+                oracleCommand.Parameters.Add("tenDangNhap", tenDN);
+
+                OracleDataReader oracleDataReader = DataProvider.GetOracleDataReader(oracleCommand);
+                oracleDataReader.Read();
+                NguoiDung nguoiDung = new NguoiDung();
+                nguoiDung.matKhauND = oracleDataReader.GetString(2);
+
+                return nguoiDung;
+            }catch(Exception e)
+            {
+                MessageBox.Show("Lỗi: " + e.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+        }
     }
 }
 
