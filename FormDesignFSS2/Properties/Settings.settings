@@ -19,9 +19,21 @@
     </Setting>
     <Setting Name="FormDesignFSS2_GiaiNganWS_GiaiNganBUS" Type="(Web Service URL)" Scope="Application">
       <Value Profile="(Default)">http://localhost:49220/GiaiNganBUS.asmx</Value>
+<<<<<<< HEAD
 </Setting>
     <Setting Name="FormDesignFSS2_XuLyCuoiNgayWS_XuLyCuoiNgayBUS" Type="(Web Service URL)" Scope="Application">
       <Value Profile="(Default)">http://localhost:49220/XuLyCuoiNgayBUS.asmx</Value>
+=======
+    </Setting>
+    <Setting Name="FormDesignFSS2_XuLyCuoiNgayWS_XuLyCuoiNgayBUS" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:49220/XuLyCuoiNgayBUS.asmx</Value>
+    </Setting>
+    <Setting Name="FormDesignFSS2_LichSuWS_LichSuBUS" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:49220/LichSuBUS.asmx</Value>
+    </Setting>
+    <Setting Name="FormDesignFSS2_TraNoWS_TraNoBUS" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:49220/TraNoBUS.asmx</Value>
+>>>>>>> f58958ded318da7368db100d4de77587da95b3df
     </Setting>
   </Settings>
 </SettingsFile>

@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using FormDesignFSS2.LichSuWS;
 using System.Windows.Forms;
 using DTO;
 using FormDesignFSS2.NguonWS;
@@ -20,6 +21,8 @@ namespace FormDesignFSS2.GUI
     /// </summary>
     public partial class ThemMoiSPTD : Form
     {
+        public NguoiDung nguoiDungHeThong;
+
         public ThemMoiSPTD()
         {
             InitializeComponent();
@@ -193,10 +196,23 @@ namespace FormDesignFSS2.GUI
                     SanPhamTinDungBUS sanPhamTinDungBUS = new SanPhamTinDungBUS();
                     if (sanPhamTinDungBUS.ThemMoiSPTD(jsonData))
                     {
+                        // Ghi log
+                        LichSu lichSu = new LichSu();
+                        lichSu.MaDT = sanPhamTinDung.MaSPTD;
+                        lichSu.NoiDung = "Thêm sản phẩm tín dụng mới";
+                        lichSu.ThoiGian = DateTime.Now;
+                        lichSu.GiaTriTruoc = "null";
+                        lichSu.GiaTriSau = "null";
+                        lichSu.TenDN = nguoiDungHeThong.tenDangNhapND;
+                        lichSu.SoTKLK = "null";
+                        LichSuBUS lichSuBUS = new LichSuBUS();
+                        lichSuBUS.ThemLichSu(JsonConvert.SerializeObject(lichSu));
+
                         MessageBox.Show("Thêm mới SPTD thành công", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        Close();
+                        Hide();
                         ThemMoiSPTD themMoiSPTD = new ThemMoiSPTD();
                         themMoiSPTD.ShowDialog();
+                        Close();
                     }
                     else
                     {

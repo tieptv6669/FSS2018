@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Newtonsoft.Json;
+using FormDesignFSS2.LichSuWS;
 using DTO;
 using FormDesignFSS2.NguoiDungWS; 
 
@@ -18,6 +20,7 @@ namespace FormDesignFSS2.GUI
     /// </summary>
     public partial class SuaUser : Form
     {
+        public NguoiDung nguoiDungHeThong;
         public NguoiDung nguoiDung;
         public DataGridView dataGridView;
 
@@ -143,6 +146,28 @@ namespace FormDesignFSS2.GUI
                                 }
                             }
                             MessageBox.Show("Sửa thông tin người dùng thành công", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            // Ghi log
+                            LichSu lichSu = new LichSu();
+                            lichSu.MaDT = nguoiDung.tenDangNhapND;
+                            lichSu.NoiDung = "Sửa thông tin người dùng";
+                            lichSu.ThoiGian = DateTime.Now;
+                            // Lấy giá trị cũ
+                            NguoiDung tempND = new NguoiDung();
+                            tempND.hoTenND = nguoiDung.hoTenND;
+                            tempND.chucVuND = nguoiDung.chucVuND;
+                            tempND.phongBanND = nguoiDung.phongBanND;
+                            tempND.quyenND = nguoiDung.quyenND;
+                            lichSu.GiaTriTruoc = JsonConvert.SerializeObject(tempND);
+                            // Lấy giá trị mới
+                            tempND.hoTenND = txtHoTen.Text;
+                            tempND.chucVuND = txtChucVu.Text;
+                            tempND.phongBanND = txtPhongBan.Text;
+                            tempND.quyenND = cboQuyen.SelectedItem.ToString();
+                            lichSu.GiaTriSau = JsonConvert.SerializeObject(tempND);
+                            lichSu.TenDN = nguoiDungHeThong.tenDangNhapND;
+                            lichSu.SoTKLK = "null";
+                            LichSuBUS lichSuBUS = new LichSuBUS();
+                            lichSuBUS.ThemLichSu(JsonConvert.SerializeObject(lichSu));
                             Close();
                         }
                         else

@@ -301,5 +301,16 @@ namespace BUS
         {
             return NguoiDungDAO.ResetMatKhau(tenDN);
         }
+
+        /// <summary>
+        /// Lấy người dùng khi biết tên đăng nhập
+        /// </summary>
+        /// <param name="tenDN"></param>
+        /// <returns></returns>
+        [WebMethod]
+        public string LayNguoiDung(string tenDN)
+        {
+            return JsonConvert.SerializeObject(NguoiDungDAO.GetNguoiDung(tenDN));
+        }
     }
 }

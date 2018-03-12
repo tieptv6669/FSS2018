@@ -8,13 +8,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DTO;
+using FormDesignFSS2.LichSuWS;
 using FormDesignFSS2.NguoiDungWS;
+using FormDesignFSS2.TraNoWS;
 using FormDesignFSS2.KhachHangWS;
 using FormDesignFSS2.NguonWS;
 using FormDesignFSS2.SanPhamTinDungWS;
 using FormDesignFSS2.Report;
 using FormDesignFSS2.KhachHang_SPTD_WS;
 using FormDesignFSS2.GiaiNganWS;
+using FormDesignFSS2.XuLyCuoiNgayWS;
 using Newtonsoft.Json;
 using Microsoft.Reporting.WinForms;
 
@@ -40,18 +43,30 @@ namespace FormDesignFSS2.GUI
         /// <param name="e"></param>
         private void MainForm_Load(object sender, EventArgs e)
         {
-            //DateTime date = DateTime.Now;
-            //Console.WriteLine(date.DayOfWeek.ToString());
-            string quyen = nguoiDungHienTai.quyenND;
+            lblTime.ForeColor = Color.Purple;
+            lblTDN.ForeColor = Color.Blue;
+            lblQuyen.ForeColor = Color.Blue;
 
+            lblTDN.Text = nguoiDungHienTai.tenDangNhapND;
+            lblQuyen.Text = nguoiDungHienTai.quyenND;
+
+            AcceptButton = btnTimKiemTabUser;
+
+            // Lấy ngày hệ thống
+            XuLyCuoiNgayBUS xuLyCuoiNgayBUS = new XuLyCuoiNgayBUS();
+            lblTime.Text = xuLyCuoiNgayBUS.LayNgayLamViecHienTai();
+
+            string quyen = nguoiDungHienTai.quyenND;
             // Phân quyền người dùng
             if (quyen == "Quản lý")
             {
                 tabControl.TabPages.RemoveAt(0);
                 btnChayQuaNgay.Enabled = false;
+                AcceptButton = btnTimKiemTabKH;
             }
             if (quyen == "Nhân viên")
             {
+                AcceptButton = btnTimKiemTabKH;
                 tabControl.TabPages.RemoveAt(0);
                 btnChayQuaNgay.Enabled = false;
                 btnSuaTabUser.Enabled = false;
@@ -77,6 +92,7 @@ namespace FormDesignFSS2.GUI
         private void btnChayQuaNgay_Click(object sender, EventArgs e)
         {
             ChayQuaNgay cqnForm = new ChayQuaNgay();
+            cqnForm.nguoiDungHeThong = nguoiDungHienTai;
             cqnForm.ShowDialog();
         }
 
@@ -125,6 +141,7 @@ namespace FormDesignFSS2.GUI
         private void btnThemTabUser_Click(object sender, EventArgs e)
         {
             ThemUser themUser = new ThemUser();
+            themUser.nguoiDung = nguoiDungHienTai;
             themUser.ShowDialog();
         }
 
@@ -177,6 +194,7 @@ namespace FormDesignFSS2.GUI
                     suaUser.nguoiDung.phongBanND = gridTabUser.SelectedRows[0].Cells[3].Value.ToString();
                     suaUser.nguoiDung.quyenND = gridTabUser.SelectedRows[0].Cells[4].Value.ToString();
                     suaUser.dataGridView = gridTabUser;
+                    suaUser.nguoiDungHeThong = nguoiDungHienTai;
 
                     suaUser.ShowDialog();
                 }
@@ -209,9 +227,21 @@ namespace FormDesignFSS2.GUI
                         NguoiDungBUS nguoiDungBUS = new NguoiDungBUS();
                         if (nguoiDungBUS.XoaNguoiDung(gridTabUser.SelectedRows[0].Cells[0].Value.ToString()))
                         {
+                            // Ghi log
+                            LichSu lichSu = new LichSu();
+                            lichSu.MaDT = gridTabUser.SelectedRows[0].Cells[0].Value.ToString();
+                            lichSu.NoiDung = "Xóa người dùng";
+                            lichSu.ThoiGian = DateTime.Now;
+                            lichSu.GiaTriTruoc = "null";
+                            lichSu.GiaTriSau = "null";
+                            lichSu.TenDN = nguoiDungHienTai.tenDangNhapND;
+                            lichSu.SoTKLK = "null";
+                            LichSuBUS lichSuBUS = new LichSuBUS();
+                            lichSuBUS.ThemLichSu(JsonConvert.SerializeObject(lichSu));
                             // Cập nhật grid view
                             gridTabUser.Rows.Remove(gridTabUser.SelectedRows[0]);
                             MessageBox.Show("Xóa người dùng thành công", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            
                         }
                         else
                         {
@@ -289,8 +319,21 @@ namespace FormDesignFSS2.GUI
                     {
                         // reset mật khẩu cho người dùng 
                         NguoiDungBUS nguoiDungBUS = new NguoiDungBUS();
+                        NguoiDung nguoiDung = JsonConvert.DeserializeObject<NguoiDung>(nguoiDungBUS.LayNguoiDung(tenDN));
                         if (nguoiDungBUS.ResetMatKhau(tenDN))
                         {
+                            // Ghi log
+                            LichSu lichSu = new LichSu();
+                            lichSu.MaDT = tenDN;
+                            lichSu.NoiDung = "Reset mật khẩu";
+                            lichSu.ThoiGian = DateTime.Now;
+                            lichSu.GiaTriTruoc = nguoiDung.matKhauND;
+                            lichSu.GiaTriSau = tenDN;
+                            lichSu.TenDN = nguoiDungHienTai.tenDangNhapND;
+                            lichSu.SoTKLK = "null";
+                            LichSuBUS lichSuBUS = new LichSuBUS();
+                            lichSuBUS.ThemLichSu(JsonConvert.SerializeObject(lichSu));
+
                             MessageBox.Show("Reset mật khẩu thành công", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         else
@@ -330,6 +373,10 @@ namespace FormDesignFSS2.GUI
                     xemChiTietKH.khachHang = khachHang;
                     xemChiTietKH.ShowDialog();
                 }
+                else
+                {
+                    MessageBox.Show("Thao tác lỗi. Bạn chưa chọn khách hàng nào", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             catch (Exception ex)
             {
@@ -357,6 +404,7 @@ namespace FormDesignFSS2.GUI
                     khachHang = JsonConvert.DeserializeObject<KhachHang>(jsonData);
 
                     suaKH.khachHang = khachHang;
+                    suaKH.nguoiDungHeThong = nguoiDungHienTai;
 
                     suaKH.ShowDialog();
                 }
@@ -413,6 +461,7 @@ namespace FormDesignFSS2.GUI
         private void btnThemTabNguon_Click(object sender, EventArgs e)
         {
             ThemNguon themNguon = new ThemNguon();
+            themNguon.nguoiDungHeThong = nguoiDungHienTai;
             themNguon.ShowDialog();
         }
 
@@ -434,6 +483,7 @@ namespace FormDesignFSS2.GUI
                     suaNguon.nguon.hanMucNg = Int64.Parse(gridDSNguon.SelectedRows[0].Cells[2].Value.ToString().Replace(",", ""));
                     suaNguon.nguon.tienDaChoVay = Int64.Parse(gridDSNguon.SelectedRows[0].Cells[3].Value.ToString().Replace(",", ""));
                     suaNguon.nguon.tienCoTheChoVay = Int64.Parse(gridDSNguon.SelectedRows[0].Cells[4].Value.ToString().Replace(",", ""));
+                    suaNguon.nguoiDungHeThong = nguoiDungHienTai;
 
                     suaNguon.ShowDialog();
                 }
@@ -468,6 +518,18 @@ namespace FormDesignFSS2.GUI
                         NguonBUS nguonBUS = new NguonBUS();
                         if (nguonBUS.XoaNguon(maNguon))
                         {
+                            // Ghi log
+                            LichSu lichSu = new LichSu();
+                            lichSu.MaDT = gridDSNguon.SelectedRows[0].Cells[0].Value.ToString();
+                            lichSu.NoiDung = "Xóa nguồn";
+                            lichSu.ThoiGian = DateTime.Now;
+                            lichSu.GiaTriTruoc = "null";
+                            lichSu.GiaTriSau = "null";
+                            lichSu.TenDN = nguoiDungHienTai.tenDangNhapND;
+                            lichSu.SoTKLK = "null";
+                            LichSuBUS lichSuBUS = new LichSuBUS();
+                            lichSuBUS.ThemLichSu(JsonConvert.SerializeObject(lichSu));
+
                             gridDSNguon.Rows.Remove(gridDSNguon.SelectedRows[0]);
                             MessageBox.Show("Xóa nguồn thành công", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
@@ -536,6 +598,7 @@ namespace FormDesignFSS2.GUI
         private void btnThemTabKH_Click(object sender, EventArgs e)
         {
             ThemKH themKH = new ThemKH();
+            themKH.nguoiDungHeThong = nguoiDungHienTai;
             themKH.ShowDialog();
         }
 
@@ -607,6 +670,7 @@ namespace FormDesignFSS2.GUI
         private void btnThemTabSPTD_Click(object sender, EventArgs e)
         {
             ThemMoiSPTD themMoiSPTD = new ThemMoiSPTD();
+            themMoiSPTD.nguoiDungHeThong = nguoiDungHienTai;
             themMoiSPTD.ShowDialog();
         }
 
@@ -634,6 +698,7 @@ namespace FormDesignFSS2.GUI
 
                     suaSPTD.sanPhamTinDung = sanPhamTinDung;
                     suaSPTD.dataGridView = gridDSSPTD;
+                    suaSPTD.nguoiDungHeThong = nguoiDungHienTai;
 
                     suaSPTD.ShowDialog();
                 }
@@ -742,7 +807,6 @@ namespace FormDesignFSS2.GUI
         }
 
         /// <summary>
-
         /// Tìm kiếm giải ngân
         /// </summary>
         /// <param name="sender"></param>
@@ -830,6 +894,7 @@ namespace FormDesignFSS2.GUI
             }
 
         }
+
         /// Xử lý sự kiện click button lịch sử trả nợ
         /// </summary>
         /// <param name="sender"></param>
@@ -840,6 +905,7 @@ namespace FormDesignFSS2.GUI
             lichSuTraNo.ShowDialog();
         }
 
+<<<<<<< HEAD
         private void btnSuaTabGN_Click(object sender, EventArgs e)
         {
             try
@@ -871,6 +937,127 @@ namespace FormDesignFSS2.GUI
             {
                 MessageBox.Show("Lỗi: " + ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+=======
+        /// <summary>
+        /// Xử lý sự kiện khi chọn một tab khác
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void tabControl_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(tabControl.SelectedTab.Text == "User")
+            {
+                AcceptButton = btnTimKiemTabUser;
+            }
+            if(tabControl.SelectedTab.Text == "Khách hàng")
+            {
+                AcceptButton = btnTimKiemTabKH;
+            }
+            if(tabControl.SelectedTab.Text == "Sản phẩm tín dụng")
+            {
+                AcceptButton = btnTimKiemTabSPTD;
+            }
+            if(tabControl.SelectedTab.Text == "Đăng ký sản phẩm tín dụng")
+            {
+                AcceptButton = btnTimKiem;
+            }
+            if(tabControl.SelectedTab.Text == "Nguồn")
+            {
+                AcceptButton = btnTimKiemTabNguon;
+            }
+            if(tabControl.SelectedTab.Text == "Giải ngân")
+            {
+                AcceptButton = btnTimKiemTabGN;
+            }
+            if(tabControl.SelectedTab.Text == "Trả nợ")
+            {
+                AcceptButton = btnTimKiemTabTN;
+            }
+            if(tabControl.SelectedTab.Text == "Lịch sử")
+            {
+                AcceptButton = btnTimKiemTabLS;
+            }
+        }
+
+        /// <summary>
+        /// Xử lý sự kiện click button trả nợ
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnTraNo_Click(object sender, EventArgs e)
+        {
+            TraNo traNo = new TraNo();
+            traNo.ShowDialog();
+        }
+
+        /// <summary>
+        /// Xử lý sự kiện click button tìm kiếm lịch sử
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnTimKiemTabLS_Click(object sender, EventArgs e)
+        {
+            // Lấy danh sách kết quả
+            string from = dateTimePickerST.Value.ToShortDateString();
+            string to = dateTimePickerFT.Value.ToShortDateString();
+            LichSuBUS lichSuBUS = new LichSuBUS();
+            List<LichSu> list = new List<LichSu>();
+            list = JsonConvert.DeserializeObject<List<LichSu>>(lichSuBUS.TimKiemLichSu(txtTDNTabLS.Text, txtSoTKLKTabLS.Text, txtMaDTTabLS.Text, from, to));
+            // Hiển thị kết quả
+            gridLog.Rows.Clear();
+            foreach(LichSu temp in list)
+            {
+                gridLog.Rows.Add(temp.TenDN, temp.SoTKLK, temp.MaDT, temp.GiaTriTruoc, temp.GiaTriSau, temp.NoiDung, temp.ThoiGian);
+            }
+            gridLog.Refresh();
+        }
+
+        /// <summary>
+        /// Xử lý sự kiện click button tìm kiếm tab trả nợ
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnTimKiemTabTN_Click(object sender, EventArgs e)
+        {
+            gridDSMonNo.Rows.Clear();
+            txtTenKHTabTN.Text = "";
+            if (txtSoTKLKTabTN.Text == "")
+            {
+                // Lấy danh sách tất cả các món giải ngân còn nợ của tất cả các KH
+                TraNoBUS traNoBUS = new TraNoBUS();
+                List<GiaiNgan> list = JsonConvert.DeserializeObject<List<GiaiNgan>>(traNoBUS.GetListGN());
+                // Hiển thị kết quả
+                foreach(GiaiNgan temp in list)
+                {
+                    gridDSMonNo.Rows.Add(temp.MaGN, temp.DuNoGoc.ToString("#,##0"), temp.DuNoLaiTrongHan.ToString("#,##0"), temp.DuNoLaiNgoaiHan.ToString("#,##0"), temp.NgayDaoHan);
+                }
+                gridDSMonNo.Refresh();
+            }
+            else
+            {
+                // Lấy KH theo số TKLK
+                KhachHangBUS khachHangBUS = new KhachHangBUS();
+                string jsonData = khachHangBUS.layMotKhachHang(txtSoTKLKTabTN.Text);
+                if(jsonData != "null")
+                {
+                    KhachHang khachHang = JsonConvert.DeserializeObject<KhachHang>(jsonData);
+                    // Lấy danh sách các món giải ngân còn nợ của KH
+                    TraNoBUS traNoBUS = new TraNoBUS();
+                    List<GiaiNgan> list = JsonConvert.DeserializeObject<List<GiaiNgan>>(traNoBUS.GetListGNWithIdKH(khachHang.idKH));
+                    // Hiển thị kết quả
+                    txtTenKHTabTN.Text = khachHang.hoTenKH;
+                    foreach (GiaiNgan temp in list)
+                    {
+                        gridDSMonNo.Rows.Add(temp.MaGN, temp.DuNoGoc.ToString("#,##0"), temp.DuNoLaiTrongHan.ToString("#,##0"), temp.DuNoLaiNgoaiHan.ToString("#,##0"), temp.NgayDaoHan);
+                    }
+                    gridDSMonNo.Refresh();
+                }
+                else
+                {
+                    MessageBox.Show("Số TKLK không tồn tại", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+>>>>>>> f58958ded318da7368db100d4de77587da95b3df
         }
     }
 }

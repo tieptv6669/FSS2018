@@ -43,10 +43,12 @@
     <Compile Include="GiaiNganDAO.cs" />
     <Compile Include="KhachHangDAO.cs" />
     <Compile Include="KhachHang_SPTD_DAO.cs" />
+    <Compile Include="LichSuDAO.cs" />
     <Compile Include="NguoiDungDAO.cs" />
     <Compile Include="NguonDAO.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="SanPhamTinDungDAO.cs" />
+    <Compile Include="TraNoDAO.cs" />
     <Compile Include="XuLyCuoiNgayDAO.cs" />
   </ItemGroup>
   <ItemGroup>

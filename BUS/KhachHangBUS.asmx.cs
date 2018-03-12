@@ -152,6 +152,10 @@ namespace BUS
             {
                 return 10;
             }
+            if (!helper.ChiChuaChuSo(sdt))
+            {
+                return 11;
+            }
 
             return 0;
         }
@@ -262,6 +266,17 @@ namespace BUS
             List<KhachHangReport> list = KhachHangDAO.GetListKhachHangReport();
             string jsonData = JsonConvert.SerializeObject(list);
             return jsonData;
+        }
+
+        /// <summary>
+        /// Lấy KH khi biết ID khách hàng
+        /// </summary>
+        /// <param name="idKH"></param>
+        /// <returns></returns>
+        [WebMethod]
+        public string GetKHWithID(int idKH)
+        {
+            return JsonConvert.SerializeObject(KhachHangDAO.GetKhachHang(idKH));
         }
     }
 }

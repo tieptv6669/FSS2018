@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace DTO
 {
+    /// <summary>
+    /// Viết Tiệp
+    /// 11/3/2018
+    /// </summary>
     public class GN_KH
     {
         private string soTKLK;

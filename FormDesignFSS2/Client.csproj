@@ -188,6 +188,7 @@
       <DependentUpon>XemChiTietKH.cs</DependentUpon>
     </Compile>
     <Compile Include="Report\DataTableConvert.cs" />
+    <Compile Include="Settings.cs" />
     <Compile Include="Web References\GiaiNganWS\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -203,6 +204,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
     </Compile>
+    <Compile Include="Web References\LichSuWS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
     <Compile Include="Web References\NguoiDungWS\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -214,6 +220,11 @@
       <DependentUpon>Reference.map</DependentUpon>
     </Compile>
     <Compile Include="Web References\SanPhamTinDungWS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\TraNoWS\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
@@ -341,6 +352,11 @@
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <None Include="Web References\LichSuWS\LichSuBUS.wsdl" />
+    <None Include="Web References\LichSuWS\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <None Include="Web References\NguoiDungWS\NguoiDungBUS.wsdl" />
     <None Include="Web References\NguoiDungWS\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
@@ -356,6 +372,11 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <None Include="Web References\SanPhamTinDungWS\SanPhamTinDungBUS.wsdl" />
+    <None Include="Web References\TraNoWS\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\TraNoWS\TraNoBUS.wsdl" />
     <None Include="Web References\XuLyCuoiNgayWS\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -1025,6 +1046,17 @@
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>FormDesignFSS2_KhachHang_SPTD_WS_KhachHang_SPTD_BUS</CachedSettingsPropName>
     </WebReferenceUrl>
+    <WebReferenceUrl Include="http://localhost:49220/LichSuBUS.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\LichSuWS\</RelPath>
+      <UpdateFromURL>http://localhost:49220/LichSuBUS.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>FormDesignFSS2_LichSuWS_LichSuBUS</CachedSettingsPropName>
+    </WebReferenceUrl>
     <WebReferenceUrl Include="http://localhost:49220/NguoiDungBUS.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\NguoiDungWS\</RelPath>
@@ -1057,6 +1089,17 @@
       </CachedDynamicPropName>
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>FormDesignFSS2_SanPhamTinDungWS_SanPhamTinDungBUS</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://localhost:49220/TraNoBUS.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\TraNoWS\</RelPath>
+      <UpdateFromURL>http://localhost:49220/TraNoBUS.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>FormDesignFSS2_TraNoWS_TraNoBUS</CachedSettingsPropName>
     </WebReferenceUrl>
     <WebReferenceUrl Include="http://localhost:49220/XuLyCuoiNgayBUS.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
@@ -1095,7 +1138,14 @@
     <None Include="Web References\XuLyCuoiNgayWS\XuLyCuoiNgayBUS.disco" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <None Include="Web References\GiaiNganWS\GiaiNganBUS.disco" />
+=======
+    <None Include="Web References\LichSuWS\LichSuBUS.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\TraNoWS\TraNoBUS.disco" />
+>>>>>>> f58958ded318da7368db100d4de77587da95b3df
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

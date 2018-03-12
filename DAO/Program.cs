@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Configuration;
 using System.Data;
 using DTO;
+using System.Windows.Forms;
 
 namespace DAO
 {
@@ -13,20 +14,7 @@ namespace DAO
     {
         static void Main()
         {
-            //NguoiDung nguoiDung = new NguoiDung();
-            //NguoiDungDAO nguoiDungDAO = new NguoiDungDAO();
-
-            //nguoiDung = nguoiDungDAO.TaiKhoanChinhXac("NV00001", "tieptv1112");
-
-            //if(nguoiDung != null)
-            //{
-            //    Console.WriteLine("Chính xác");
-
-            //}
-            //else
-            //{
-            //    Console.WriteLine("không chính xác");
-            //}
+            
         }
     }
 }

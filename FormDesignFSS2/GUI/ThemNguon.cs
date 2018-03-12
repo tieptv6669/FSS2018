@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using FormDesignFSS2.NguonWS;
+using FormDesignFSS2.LichSuWS;
 using DTO;
 using Newtonsoft.Json;
 
@@ -19,6 +20,7 @@ namespace FormDesignFSS2.GUI
 {
     public partial class ThemNguon : Form
     {
+        public NguoiDung nguoiDungHeThong;
         public ThemNguon()
         {
             InitializeComponent();
@@ -102,6 +104,18 @@ namespace FormDesignFSS2.GUI
 
                     if (nguonBUS.ThemNguonMoi(jsonData))
                     {
+                        // Ghi log
+                        LichSu lichSu = new LichSu();
+                        lichSu.MaDT = nguon.maNg;
+                        lichSu.NoiDung = "Thêm nguồn mới";
+                        lichSu.ThoiGian = DateTime.Now;
+                        lichSu.GiaTriTruoc = "null";
+                        lichSu.GiaTriSau = "null";
+                        lichSu.TenDN = nguoiDungHeThong.tenDangNhapND;
+                        lichSu.SoTKLK = "null";
+                        LichSuBUS lichSuBUS = new LichSuBUS();
+                        lichSuBUS.ThemLichSu(JsonConvert.SerializeObject(lichSu));
+
                         MessageBox.Show("Thêm nguồn mới thành công", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         Hide();
                         ThemNguon themNguon = new ThemNguon();
