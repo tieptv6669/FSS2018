@@ -267,5 +267,16 @@ namespace BUS
             string jsonData = JsonConvert.SerializeObject(list);
             return jsonData;
         }
+
+        /// <summary>
+        /// Lấy KH khi biết ID khách hàng
+        /// </summary>
+        /// <param name="idKH"></param>
+        /// <returns></returns>
+        [WebMethod]
+        public string GetKHWithID(int idKH)
+        {
+            return JsonConvert.SerializeObject(KhachHangDAO.GetKhachHang(idKH));
+        }
     }
 }

@@ -154,6 +154,13 @@
             this.tabLichSu = new System.Windows.Forms.TabPage();
             this.btnTimKiemTabLS = new System.Windows.Forms.Button();
             this.gridLog = new System.Windows.Forms.DataGridView();
+            this.Column24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column42 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column33 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column34 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column43 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateTimePickerFT = new System.Windows.Forms.DateTimePicker();
             this.lblFinishTime = new System.Windows.Forms.Label();
             this.dateTimePickerST = new System.Windows.Forms.DateTimePicker();
@@ -177,13 +184,6 @@
             this.btnThoat = new System.Windows.Forms.Button();
             this.btnDoiMatKhau = new System.Windows.Forms.Button();
             this.btnDangXuat = new System.Windows.Forms.Button();
-            this.Column24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column42 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column33 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column34 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column43 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblTDN = new System.Windows.Forms.Label();
             this.lblQuyen = new System.Windows.Forms.Label();
             this.lblTime = new System.Windows.Forms.Label();
@@ -1377,6 +1377,7 @@
             this.btnTraNo.Text = "Trả nợ";
             this.btnTraNo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnTraNo.UseVisualStyleBackColor = false;
+            this.btnTraNo.Click += new System.EventHandler(this.btnTraNo_Click);
             // 
             // gridDSMonNo
             // 
@@ -1444,8 +1445,10 @@
             this.txtTenKHTabTN.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.txtTenKHTabTN.Location = new System.Drawing.Point(70, 36);
             this.txtTenKHTabTN.Name = "txtTenKHTabTN";
+            this.txtTenKHTabTN.ReadOnly = true;
             this.txtTenKHTabTN.Size = new System.Drawing.Size(302, 21);
             this.txtTenKHTabTN.TabIndex = 3;
+            this.txtTenKHTabTN.TabStop = false;
             // 
             // lblTenKHTabTN
             // 
@@ -1485,6 +1488,7 @@
             this.btnTimKiemTabTN.Text = "Tìm kiếm";
             this.btnTimKiemTabTN.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnTimKiemTabTN.UseVisualStyleBackColor = false;
+            this.btnTimKiemTabTN.Click += new System.EventHandler(this.btnTimKiemTabTN_Click);
             // 
             // tabLichSu
             // 
@@ -1520,6 +1524,7 @@
             this.btnTimKiemTabLS.Text = "Tìm kiếm";
             this.btnTimKiemTabLS.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnTimKiemTabLS.UseVisualStyleBackColor = false;
+            this.btnTimKiemTabLS.Click += new System.EventHandler(this.btnTimKiemTabLS_Click);
             // 
             // gridLog
             // 
@@ -1540,6 +1545,54 @@
             this.gridLog.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridLog.Size = new System.Drawing.Size(760, 267);
             this.gridLog.TabIndex = 14;
+            // 
+            // Column24
+            // 
+            this.Column24.HeaderText = "Tên đăng nhập";
+            this.Column24.Name = "Column24";
+            this.Column24.ReadOnly = true;
+            this.Column24.Width = 80;
+            // 
+            // Column42
+            // 
+            this.Column42.HeaderText = "Số TKLK";
+            this.Column42.Name = "Column42";
+            this.Column42.ReadOnly = true;
+            this.Column42.Width = 80;
+            // 
+            // Column22
+            // 
+            this.Column22.HeaderText = "Mã đối tượng";
+            this.Column22.Name = "Column22";
+            this.Column22.ReadOnly = true;
+            this.Column22.Width = 80;
+            // 
+            // Column33
+            // 
+            this.Column33.HeaderText = "Giá trị cũ";
+            this.Column33.Name = "Column33";
+            this.Column33.ReadOnly = true;
+            this.Column33.Width = 150;
+            // 
+            // Column34
+            // 
+            this.Column34.HeaderText = "Giá trị mới";
+            this.Column34.Name = "Column34";
+            this.Column34.ReadOnly = true;
+            this.Column34.Width = 150;
+            // 
+            // Column43
+            // 
+            this.Column43.HeaderText = "Nội dung";
+            this.Column43.Name = "Column43";
+            this.Column43.ReadOnly = true;
+            // 
+            // Column23
+            // 
+            this.Column23.HeaderText = "Thời gian";
+            this.Column23.Name = "Column23";
+            this.Column23.ReadOnly = true;
+            this.Column23.Width = 80;
             // 
             // dateTimePickerFT
             // 
@@ -1724,7 +1777,7 @@
             this.btnChayQuaNgay.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnChayQuaNgay.Image = global::FormDesignFSS2.Properties.Resources._19;
             this.btnChayQuaNgay.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnChayQuaNgay.Location = new System.Drawing.Point(232, 389);
+            this.btnChayQuaNgay.Location = new System.Drawing.Point(236, 389);
             this.btnChayQuaNgay.Name = "btnChayQuaNgay";
             this.btnChayQuaNgay.Size = new System.Drawing.Size(119, 50);
             this.btnChayQuaNgay.TabIndex = 6;
@@ -1753,7 +1806,7 @@
             this.btnDoiMatKhau.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDoiMatKhau.Image = global::FormDesignFSS2.Properties.Resources._112;
             this.btnDoiMatKhau.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDoiMatKhau.Location = new System.Drawing.Point(373, 389);
+            this.btnDoiMatKhau.Location = new System.Drawing.Point(377, 389);
             this.btnDoiMatKhau.Name = "btnDoiMatKhau";
             this.btnDoiMatKhau.Size = new System.Drawing.Size(115, 50);
             this.btnDoiMatKhau.TabIndex = 4;
@@ -1768,7 +1821,7 @@
             this.btnDangXuat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDangXuat.Image = global::FormDesignFSS2.Properties.Resources._42;
             this.btnDangXuat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDangXuat.Location = new System.Drawing.Point(514, 389);
+            this.btnDangXuat.Location = new System.Drawing.Point(516, 389);
             this.btnDangXuat.Name = "btnDangXuat";
             this.btnDangXuat.Size = new System.Drawing.Size(114, 50);
             this.btnDangXuat.TabIndex = 2;
@@ -1776,54 +1829,6 @@
             this.btnDangXuat.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnDangXuat.UseVisualStyleBackColor = false;
             this.btnDangXuat.Click += new System.EventHandler(this.btnDangXuat_Click);
-            // 
-            // Column24
-            // 
-            this.Column24.HeaderText = "Tên đăng nhập";
-            this.Column24.Name = "Column24";
-            this.Column24.ReadOnly = true;
-            this.Column24.Width = 80;
-            // 
-            // Column42
-            // 
-            this.Column42.HeaderText = "Số TKLK";
-            this.Column42.Name = "Column42";
-            this.Column42.ReadOnly = true;
-            this.Column42.Width = 80;
-            // 
-            // Column22
-            // 
-            this.Column22.HeaderText = "Mã đối tượng";
-            this.Column22.Name = "Column22";
-            this.Column22.ReadOnly = true;
-            this.Column22.Width = 80;
-            // 
-            // Column33
-            // 
-            this.Column33.HeaderText = "Giá trị cũ";
-            this.Column33.Name = "Column33";
-            this.Column33.ReadOnly = true;
-            this.Column33.Width = 150;
-            // 
-            // Column34
-            // 
-            this.Column34.HeaderText = "Giá trị mới";
-            this.Column34.Name = "Column34";
-            this.Column34.ReadOnly = true;
-            this.Column34.Width = 150;
-            // 
-            // Column43
-            // 
-            this.Column43.HeaderText = "Nội dung";
-            this.Column43.Name = "Column43";
-            this.Column43.ReadOnly = true;
-            // 
-            // Column23
-            // 
-            this.Column23.HeaderText = "Thời gian";
-            this.Column23.Name = "Column23";
-            this.Column23.ReadOnly = true;
-            this.Column23.Width = 80;
             // 
             // lblTDN
             // 

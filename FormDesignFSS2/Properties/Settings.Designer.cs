@@ -102,5 +102,15 @@ namespace FormDesignFSS2.Properties {
                 return ((string)(this["FormDesignFSS2_LichSuWS_LichSuBUS"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:49220/TraNoBUS.asmx")]
+        public string FormDesignFSS2_TraNoWS_TraNoBUS {
+            get {
+                return ((string)(this["FormDesignFSS2_TraNoWS_TraNoBUS"]));
+            }
+        }
     }
 }

@@ -62,13 +62,13 @@ namespace DAO
                 OracleCommand oracleCommand = new OracleCommand();
                 oracleCommand.CommandText = "SELECT * FROM LICHSU WHERE TENDANGNHAP LIKE '%' || :tenDANGNHAP || '%' " +
                     "AND SOTKLK LIKE '%' || :sOTKLK || '%' AND MADOITUONG LIKE '%' || :mADOITUONG || '%' " +
-                    "AND THOIGIAN BETWEEN :from AND :to";
+                    "AND THOIGIAN BETWEEN :fromDate AND :toDate";
 
                 oracleCommand.Parameters.Add("tenDANGNHAP", tenDangNhap);
                 oracleCommand.Parameters.Add("sOTKLK", soTKLK);
                 oracleCommand.Parameters.Add("mADOITUONG", maDT);
-                oracleCommand.Parameters.Add("from", startDate);
-                oracleCommand.Parameters.Add("to", finishDate);
+                oracleCommand.Parameters.Add("fromDate", startDate);
+                oracleCommand.Parameters.Add("toDate", finishDate);
 
                 OracleDataReader oracleDataReader = DataProvider.GetOracleDataReader(oracleCommand);
                 if(oracleDataReader != null && oracleDataReader.HasRows)

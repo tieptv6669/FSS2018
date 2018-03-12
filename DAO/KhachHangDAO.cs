@@ -299,6 +299,55 @@ namespace DAO
         }
 
         /// <summary>
+        /// Lấy KH khi biết id KH
+        /// </summary>
+        /// <param name="idKH"></param>
+        /// <returns></returns>
+        public static KhachHang GetKhachHang(int idKH)
+        {
+            try
+            {
+                OracleCommand oracleCommand = new OracleCommand();
+                oracleCommand.CommandText = "SELECT * FROM KHACHHANG WHERE IDKHACHHANG = :idKH";
+
+                oracleCommand.Parameters.Add(new OracleParameter("idKH", idKH));
+
+                OracleDataReader oracleDataReader = DataProvider.GetOracleDataReader(oracleCommand);
+
+                if (oracleDataReader != null && oracleDataReader.HasRows)
+                {
+                    oracleDataReader.Read();
+                    KhachHang khachHang = new KhachHang();
+
+                    khachHang.idKH = oracleDataReader.GetInt32(0);
+                    khachHang.STKLK = oracleDataReader.GetString(1);
+                    khachHang.hoTenKH = oracleDataReader.GetString(2);
+                    khachHang.ngaySinhKH = oracleDataReader.GetDateTime(3);
+                    khachHang.ngayMoTKKH = oracleDataReader.GetDateTime(4);
+                    khachHang.ngheNghiepKH = oracleDataReader.GetString(5);
+                    khachHang.soCMNNKH = oracleDataReader.GetString(6);
+                    khachHang.emailKH = oracleDataReader.GetString(7);
+                    khachHang.gioiTinhKH = oracleDataReader.GetString(8);
+                    khachHang.loai = oracleDataReader.GetString(9);
+                    khachHang.diaChiKH = oracleDataReader.GetString(10);
+                    khachHang.SDTKH = oracleDataReader.GetString(11);
+                    khachHang.ghiChuKH = oracleDataReader.GetString(12);
+
+                    return khachHang;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show("Lỗi: " + e.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+        }
+
+        /// <summary>
         /// Lấy danh sách khách hàng để tạo báo cáo
         /// </summary>
         /// <returns></returns>

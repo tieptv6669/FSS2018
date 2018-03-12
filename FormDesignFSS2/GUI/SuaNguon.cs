@@ -6,7 +6,9 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 using System.Windows.Forms;
+using FormDesignFSS2.LichSuWS;
 using DTO;
 using FormDesignFSS2.NguonWS;
 
@@ -20,6 +22,7 @@ namespace FormDesignFSS2.GUI
     {
         public Nguon nguon;
         public DataGridView dataGridView;
+        public NguoiDung nguoiDungHeThong;
 
         /// <summary>
         /// Khởi tạo form
@@ -80,8 +83,9 @@ namespace FormDesignFSS2.GUI
                                 txtMaNguon.Enabled = false;
                                 txtTenNguon.Enabled = false;
                                 txtHanMuc.Enabled = false;
+                                txtHanMuc.Text = Int64.Parse(txtHanMuc.Text).ToString("#,##0");
                                 txtTienDaChoVay.Enabled = false;
-                                txtTienCoTheChoVay.Text = (Int64.Parse(txtHanMuc.Text) - Int64.Parse(txtTienDaChoVay.Text.Replace(",", ""))).ToString("#,##0");
+                                txtTienCoTheChoVay.Text = (Int64.Parse(txtHanMuc.Text.Replace(",","")) - Int64.Parse(txtTienDaChoVay.Text.Replace(",", ""))).ToString("#,##0");
                                 txtTienCoTheChoVay.Enabled = false;
                                 btnXacNhan.Text = "Lưu";
                                 btnHuy.Text = "Quay lại";
@@ -94,7 +98,7 @@ namespace FormDesignFSS2.GUI
                 {
                     // Sửa nguồn
                     NguonBUS nguonBUS = new NguonBUS();
-                    if (nguonBUS.SuaNguon(txtMaNguon.Text, txtHanMuc.Text, txtTienCoTheChoVay.Text.Replace(",", "")))
+                    if (nguonBUS.SuaNguon(txtMaNguon.Text, txtHanMuc.Text.Replace(",",""), txtTienCoTheChoVay.Text.Replace(",", "")))
                     {
                         // Cập nhật lại danh sách 
                         foreach (DataGridViewRow temp in dataGridView.Rows)
@@ -102,11 +106,30 @@ namespace FormDesignFSS2.GUI
                             if (temp.Cells[0].Value.ToString() == txtMaNguon.Text)
                             {
                                 temp.Cells[1].Value = txtTenNguon.Text;
-                                temp.Cells[2].Value = Int64.Parse(txtHanMuc.Text).ToString("#,##0");
+                                temp.Cells[2].Value = txtHanMuc.Text;
                                 temp.Cells[3].Value = txtTienDaChoVay.Text;
                                 temp.Cells[4].Value = txtTienCoTheChoVay.Text;
                             }
                         }
+                        // Ghi log
+                        LichSu lichSu = new LichSu();
+                        lichSu.MaDT = txtMaNguon.Text;
+                        lichSu.NoiDung = "Sửa thông tin nguồn";
+                        lichSu.ThoiGian = DateTime.Now;
+                        lichSu.GiaTriTruoc = JsonConvert.SerializeObject(nguon);
+                        Nguon nguonSau = new Nguon();
+                        nguonSau.idNg = nguon.idNg;
+                        nguonSau.maNg = txtMaNguon.Text;
+                        nguonSau.tenNg = txtTenNguon.Text;
+                        nguonSau.hanMucNg = Int64.Parse(txtHanMuc.Text.Replace(",", ""));
+                        nguonSau.tienDaChoVay = Int64.Parse(txtTienDaChoVay.Text.Replace(",", ""));
+                        nguonSau.tienCoTheChoVay = Int64.Parse(txtTienCoTheChoVay.Text.Replace(",", ""));
+                        lichSu.GiaTriSau = JsonConvert.SerializeObject(nguonSau);
+                        lichSu.TenDN = nguoiDungHeThong.tenDangNhapND;
+                        lichSu.SoTKLK = "null";
+                        LichSuBUS lichSuBUS = new LichSuBUS();
+                        lichSuBUS.ThemLichSu(JsonConvert.SerializeObject(lichSu));
+
                         MessageBox.Show("Sửa thông tin nguồn thành công", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         Close();
                     }

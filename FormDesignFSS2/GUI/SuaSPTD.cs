@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using FormDesignFSS2.NguonWS;
+using FormDesignFSS2.LichSuWS;
 using Newtonsoft.Json;
 using DTO;
 
@@ -22,6 +23,7 @@ namespace FormDesignFSS2.GUI
     {
         public SanPhamTinDung sanPhamTinDung;
         public DataGridView dataGridView;
+        public NguoiDung nguoiDungHeThong;
 
         /// <summary>
         /// Khởi tạo form
@@ -151,6 +153,28 @@ namespace FormDesignFSS2.GUI
                         SanPhamTinDungBUS sanPhamTinDungBUS = new SanPhamTinDungBUS();
                         if(sanPhamTinDungBUS.SuaSPTD(txtMaSPTD.Text, txtTenSPTD.Text, Int32.Parse(txtThoiHanVay.Text), Int32.Parse(txtLaiSuat.Text), Int32.Parse(txtLaiSuatQuaHan.Text), cboTrangThai.SelectedItem.ToString()))
                         {
+                            // Ghi log
+                            LichSu lichSu = new LichSu();
+                            lichSu.MaDT = sanPhamTinDung.MaSPTD;
+                            lichSu.NoiDung = "Sửa thông tin sản phẩm tín dụng";
+                            lichSu.ThoiGian = DateTime.Now;
+                            lichSu.GiaTriTruoc = JsonConvert.SerializeObject(sanPhamTinDung);
+                            SanPhamTinDung sanPhamTinDungSau = new SanPhamTinDung();
+                            sanPhamTinDungSau.IdSPTD = sanPhamTinDung.IdSPTD;
+                            sanPhamTinDungSau.MaSPTD = sanPhamTinDung.MaSPTD;
+                            sanPhamTinDungSau.TenSPTD = txtTenSPTD.Text;
+                            sanPhamTinDungSau.ThoiHanVay = Int32.Parse(txtThoiHanVay.Text);
+                            sanPhamTinDungSau.LaiSuat = Int32.Parse(txtLaiSuat.Text);
+                            sanPhamTinDungSau.LaiSuatQuaHan = Int32.Parse(txtLaiSuatQuaHan.Text);
+                            sanPhamTinDungSau.TrangThai = cboTrangThai.SelectedItem.ToString();
+                            sanPhamTinDungSau.IdNguon = sanPhamTinDung.IdNguon;
+                            sanPhamTinDungSau.TenNguon = sanPhamTinDung.TenNguon;
+                            lichSu.GiaTriSau = JsonConvert.SerializeObject(sanPhamTinDungSau);
+                            lichSu.TenDN = nguoiDungHeThong.tenDangNhapND;
+                            lichSu.SoTKLK = "null";
+                            LichSuBUS lichSuBUS = new LichSuBUS();
+                            lichSuBUS.ThemLichSu(JsonConvert.SerializeObject(lichSu));
+
                             MessageBox.Show("Sửa thông tin sản phẩm tín dụng thành công", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             // Cập nhật thông tin vào grid view
                             foreach(DataGridViewRow temp in dataGridView.Rows)
