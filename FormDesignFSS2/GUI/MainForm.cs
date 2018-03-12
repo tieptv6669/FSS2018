@@ -752,23 +752,45 @@ namespace FormDesignFSS2.GUI
             try
             {
                 GiaiNganBUS giaiNganBUS = new GiaiNganBUS();
+                //lấy GN có số TKLK 
                 string jsonData = giaiNganBUS.TimKiemGN(txtSoTKLKTabGN.Text);
                 List<GN_KH> list = JsonConvert.DeserializeObject<List<GN_KH>>(jsonData);
+                //lấy tất cả các GN
+                string json = giaiNganBUS.layDSGN();
+                List<GN_KH> listAll = JsonConvert.DeserializeObject<List<GN_KH>>(json);
+
                 gridDSMonGN.Rows.Clear();
-                foreach (GN_KH temp in list)
+                
+                if(txtSoTKLKTabGN.Text == "")
                 {
-                    gridDSMonGN.Rows.Add(temp.SoTKLK, temp.MaGN, temp.SoTienGN, temp.TrangThai, temp.DuNoGoc, temp.DuNoLaiTrongHan, temp.DuNoLaiQuaHan);
+                    foreach (GN_KH temp in listAll)
+                    {
+                        gridDSMonGN.Rows.Add(temp.SoTKLK, temp.MaGN, temp.SoTienGN, temp.TrangThai, temp.DuNoGoc, temp.DuNoLaiTrongHan, temp.DuNoLaiQuaHan);
+                    }
+                    txtTenKHTabGN.Text = "";
                 }
-                if (gridDSMonGN.RowCount == 1)
+                else if(txtSoTKLKTabGN.Text.Length == 10)
                 {
                     foreach (GN_KH temp in list)
                     {
-                        txtTenKHTabGN.Text = temp.TenKH;
+                        if (txtSoTKLKTabGN.Text == temp.SoTKLK)
+                        {
+                            txtTenKHTabGN.Text = temp.TenKH;
+                            gridDSMonGN.Rows.Add(temp.SoTKLK, temp.MaGN, temp.SoTienGN, temp.TrangThai, temp.DuNoGoc, temp.DuNoLaiTrongHan, temp.DuNoLaiQuaHan);
+                        }
+                        else
+                        {
+                            txtTenKHTabGN.Text = "";
+                        }
+                       
+                        
                     }
+                    
                 }
                 else
                 {
                     txtTenKHTabGN.Text = "";
+                    MessageBox.Show("Số TKLK không tồn tại");
                 }
             }
             catch (Exception ex)
@@ -816,6 +838,39 @@ namespace FormDesignFSS2.GUI
         {
             LichSuTraNo lichSuTraNo = new LichSuTraNo();
             lichSuTraNo.ShowDialog();
+        }
+
+        private void btnSuaTabGN_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (gridDSMonGN.RowCount > 0 && gridDSMonGN.SelectedRows.Count > 0)
+                {
+                    SuaGN suaGN = new SuaGN();
+                    suaGN.dataGridView = gridDSMonGN;
+                    GN_SPTD_NGUON gN_SPTD_ = new GN_SPTD_NGUON();
+                    GiaiNganBUS giaiNganBUS = new GiaiNganBUS();
+                    string jsonData = giaiNganBUS.xemChiTietGN(gridDSMonGN.SelectedRows[0].Cells[1].Value.ToString());
+                    gN_SPTD_ = JsonConvert.DeserializeObject<GN_SPTD_NGUON>(jsonData);
+                    suaGN.giaiNgan = gN_SPTD_;
+                    if(gN_SPTD_.DuNoLaiTH > 0)
+                    {
+                        MessageBox.Show("Không thể sửa giải ngân này");
+                    }
+                    else
+                    {
+                        suaGN.ShowDialog();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Thao tác lỗi. Bạn chưa chọn giải ngân nào", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

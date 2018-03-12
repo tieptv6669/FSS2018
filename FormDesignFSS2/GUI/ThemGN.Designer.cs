@@ -152,6 +152,8 @@
             this.txtSoTKLK.Name = "txtSoTKLK";
             this.txtSoTKLK.Size = new System.Drawing.Size(196, 20);
             this.txtSoTKLK.TabIndex = 10;
+            this.txtSoTKLK.TextChanged += new System.EventHandler(this.txtSoTKLK_TextChanged);
+            this.txtSoTKLK.Leave += new System.EventHandler(this.txtSoTKLK_Leave);
             // 
             // txtSoTienGN
             // 
@@ -202,12 +204,11 @@
             this.cmbSPTD.BackColor = System.Drawing.SystemColors.Control;
             this.cmbSPTD.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbSPTD.FormattingEnabled = true;
-            this.cmbSPTD.Items.AddRange(new object[] {
-            "Cho vay mua nhà"});
             this.cmbSPTD.Location = new System.Drawing.Point(141, 92);
             this.cmbSPTD.Name = "cmbSPTD";
             this.cmbSPTD.Size = new System.Drawing.Size(195, 21);
             this.cmbSPTD.TabIndex = 22;
+            this.cmbSPTD.SelectedIndexChanged += new System.EventHandler(this.cmbSPTD_SelectedIndexChanged);
             // 
             // btnHuy
             // 
@@ -221,6 +222,7 @@
             this.btnHuy.Text = "Hủy";
             this.btnHuy.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnHuy.UseVisualStyleBackColor = false;
+            this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
             // 
             // btbXacNhan
             // 
@@ -234,6 +236,7 @@
             this.btbXacNhan.Text = "Xác nhận";
             this.btbXacNhan.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btbXacNhan.UseVisualStyleBackColor = false;
+            this.btbXacNhan.Click += new System.EventHandler(this.btbXacNhan_Click);
             // 
             // lblMaGN
             // 
@@ -330,7 +333,6 @@
             this.Name = "ThemGN";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Thêm giải ngân";
-            this.Load += new System.EventHandler(this.ThemGN_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

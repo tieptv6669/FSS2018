@@ -84,6 +84,18 @@ namespace BUS
         }
 
         /// <summary>
+        /// Lấy danh sách sản phẩm tín dụng  với trạng thái là Hoạt động
+        /// </summary>
+        /// <returns></returns>
+        [WebMethod]
+        public string LayDanhSachSPTDHD(string tenSPTD)
+        {
+            List<SanPhamTinDung> list = SanPhamTinDungDAO.GetListSPTDHD(tenSPTD);
+            string jsonData = JsonConvert.SerializeObject(list);
+            return jsonData;
+        }
+
+        /// <summary>
         /// Tìm kiếm sản phẩm tín dụng theo tên, mã và nguồn
         /// </summary>
         /// <param name="tenSPTD"></param>

@@ -1094,5 +1094,8 @@
   <ItemGroup>
     <None Include="Web References\XuLyCuoiNgayWS\XuLyCuoiNgayBUS.disco" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\GiaiNganWS\GiaiNganBUS.disco" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

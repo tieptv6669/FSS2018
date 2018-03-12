@@ -16,6 +16,16 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="layDSGN">
+        <s:complexType />
+      </s:element>
+      <s:element name="layDSGNResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="layDSGNResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="xemChiTietGN">
         <s:complexType>
           <s:sequence>
@@ -30,6 +40,84 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="KTThongTinNhap">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="soTKLK" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="soTienGN" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="soTienCoTheChoVay" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KTThongTinNhapResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="KTThongTinNhapResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="themGiaiNgan">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="jsonDataGiaiNgan" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="themGiaiNganResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="themGiaiNganResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="taoMaGN">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="soTKLK" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="taoMaGNResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="taoMaGNResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KTTTSuaGN">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="soTKLK" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ngayGN" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="soTienGN" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="soTienCoTheChoVay" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KTTTSuaGNResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="KTTTSuaGNResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SuaGN">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="maGN" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="soTienGN" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="idSPTD" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ghiChu" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SuaGNResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SuaGNResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="TimKiemGNSoapIn">
@@ -38,20 +126,80 @@
   <wsdl:message name="TimKiemGNSoapOut">
     <wsdl:part name="parameters" element="tns:TimKiemGNResponse" />
   </wsdl:message>
+  <wsdl:message name="layDSGNSoapIn">
+    <wsdl:part name="parameters" element="tns:layDSGN" />
+  </wsdl:message>
+  <wsdl:message name="layDSGNSoapOut">
+    <wsdl:part name="parameters" element="tns:layDSGNResponse" />
+  </wsdl:message>
   <wsdl:message name="xemChiTietGNSoapIn">
     <wsdl:part name="parameters" element="tns:xemChiTietGN" />
   </wsdl:message>
   <wsdl:message name="xemChiTietGNSoapOut">
     <wsdl:part name="parameters" element="tns:xemChiTietGNResponse" />
   </wsdl:message>
+  <wsdl:message name="KTThongTinNhapSoapIn">
+    <wsdl:part name="parameters" element="tns:KTThongTinNhap" />
+  </wsdl:message>
+  <wsdl:message name="KTThongTinNhapSoapOut">
+    <wsdl:part name="parameters" element="tns:KTThongTinNhapResponse" />
+  </wsdl:message>
+  <wsdl:message name="themGiaiNganSoapIn">
+    <wsdl:part name="parameters" element="tns:themGiaiNgan" />
+  </wsdl:message>
+  <wsdl:message name="themGiaiNganSoapOut">
+    <wsdl:part name="parameters" element="tns:themGiaiNganResponse" />
+  </wsdl:message>
+  <wsdl:message name="taoMaGNSoapIn">
+    <wsdl:part name="parameters" element="tns:taoMaGN" />
+  </wsdl:message>
+  <wsdl:message name="taoMaGNSoapOut">
+    <wsdl:part name="parameters" element="tns:taoMaGNResponse" />
+  </wsdl:message>
+  <wsdl:message name="KTTTSuaGNSoapIn">
+    <wsdl:part name="parameters" element="tns:KTTTSuaGN" />
+  </wsdl:message>
+  <wsdl:message name="KTTTSuaGNSoapOut">
+    <wsdl:part name="parameters" element="tns:KTTTSuaGNResponse" />
+  </wsdl:message>
+  <wsdl:message name="SuaGNSoapIn">
+    <wsdl:part name="parameters" element="tns:SuaGN" />
+  </wsdl:message>
+  <wsdl:message name="SuaGNSoapOut">
+    <wsdl:part name="parameters" element="tns:SuaGNResponse" />
+  </wsdl:message>
   <wsdl:portType name="GiaiNganBUSSoap">
     <wsdl:operation name="TimKiemGN">
       <wsdl:input message="tns:TimKiemGNSoapIn" />
       <wsdl:output message="tns:TimKiemGNSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="layDSGN">
+      <wsdl:input message="tns:layDSGNSoapIn" />
+      <wsdl:output message="tns:layDSGNSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="xemChiTietGN">
       <wsdl:input message="tns:xemChiTietGNSoapIn" />
       <wsdl:output message="tns:xemChiTietGNSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="KTThongTinNhap">
+      <wsdl:input message="tns:KTThongTinNhapSoapIn" />
+      <wsdl:output message="tns:KTThongTinNhapSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="themGiaiNgan">
+      <wsdl:input message="tns:themGiaiNganSoapIn" />
+      <wsdl:output message="tns:themGiaiNganSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="taoMaGN">
+      <wsdl:input message="tns:taoMaGNSoapIn" />
+      <wsdl:output message="tns:taoMaGNSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="KTTTSuaGN">
+      <wsdl:input message="tns:KTTTSuaGNSoapIn" />
+      <wsdl:output message="tns:KTTTSuaGNSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SuaGN">
+      <wsdl:input message="tns:SuaGNSoapIn" />
+      <wsdl:output message="tns:SuaGNSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="GiaiNganBUSSoap" type="tns:GiaiNganBUSSoap">
@@ -65,8 +213,62 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="layDSGN">
+      <soap:operation soapAction="http://tempuri.org/layDSGN" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="xemChiTietGN">
       <soap:operation soapAction="http://tempuri.org/xemChiTietGN" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KTThongTinNhap">
+      <soap:operation soapAction="http://tempuri.org/KTThongTinNhap" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="themGiaiNgan">
+      <soap:operation soapAction="http://tempuri.org/themGiaiNgan" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="taoMaGN">
+      <soap:operation soapAction="http://tempuri.org/taoMaGN" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KTTTSuaGN">
+      <soap:operation soapAction="http://tempuri.org/KTTTSuaGN" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SuaGN">
+      <soap:operation soapAction="http://tempuri.org/SuaGN" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -86,8 +288,62 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="layDSGN">
+      <soap12:operation soapAction="http://tempuri.org/layDSGN" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="xemChiTietGN">
       <soap12:operation soapAction="http://tempuri.org/xemChiTietGN" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KTThongTinNhap">
+      <soap12:operation soapAction="http://tempuri.org/KTThongTinNhap" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="themGiaiNgan">
+      <soap12:operation soapAction="http://tempuri.org/themGiaiNgan" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="taoMaGN">
+      <soap12:operation soapAction="http://tempuri.org/taoMaGN" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KTTTSuaGN">
+      <soap12:operation soapAction="http://tempuri.org/KTTTSuaGN" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SuaGN">
+      <soap12:operation soapAction="http://tempuri.org/SuaGN" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

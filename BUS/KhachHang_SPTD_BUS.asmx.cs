@@ -36,6 +36,21 @@ namespace BUS
         }
 
         /// <summary>
+        /// Lấy ds SPTD của KH có thể dùng
+        /// </summary>
+        /// <param name="soTKLK"></param>
+        /// <param name="tenKH"></param>
+        /// <param name="maSPTD"></param>
+        /// <returns></returns>
+        [WebMethod]
+        public string LayDSKH_SPTD_SD(string soTKLK)
+        {
+            List<KhachHang_SPTD> list = KhachHang_SPTD_DAO.GetListKH_SPTD_SD(soTKLK);
+            string jsonData = JsonConvert.SerializeObject(list);
+            return jsonData;
+        }
+
+        /// <summary>
         /// Kiểm tra thông tin đăng ký sản phẩm tín dụng
         /// </summary>
         /// <param name="soTKLK"></param>

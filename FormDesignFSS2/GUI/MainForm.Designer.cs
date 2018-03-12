@@ -1262,6 +1262,7 @@
             this.btnSuaTabGN.Text = "Sửa";
             this.btnSuaTabGN.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSuaTabGN.UseVisualStyleBackColor = false;
+            this.btnSuaTabGN.Click += new System.EventHandler(this.btnSuaTabGN_Click);
             // 
             // btnThemTabGN
             // 

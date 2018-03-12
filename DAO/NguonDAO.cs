@@ -212,5 +212,65 @@ namespace DAO
                 return null;
             }
         }
+
+        /// <summary>
+        /// Update số tiền trong nguồn
+        /// </summary>
+        /// <param name="chovay"></param>
+        /// <param name="idNguon"></param>
+        /// <returns></returns>
+        public static bool updateSTien(long chovay, int idNguon, long coTheChoVay, long daChoVay)
+        {
+            try
+            {
+                OracleCommand oracleCommand = new OracleCommand();
+                long stCothechovay = coTheChoVay - chovay;
+                long stdachovay = daChoVay + chovay;
+                oracleCommand.CommandText = "UPDATE NGUON SET SOTIENCOTHECHOVAY = :stCothechovay, SOTIENDACHOVAY = :stdachovay Where IDNGUON = :idNguon";
+                
+                oracleCommand.Parameters.Add("stCothechovay", stCothechovay);
+                oracleCommand.Parameters.Add("stdachovay", stdachovay);
+                oracleCommand.Parameters.Add("idNguon", idNguon);
+
+                OracleDataReader oracleDataReader = DataProvider.GetOracleDataReader(oracleCommand);
+                return true;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Lỗi: " + e.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Update số tiền khi sửa
+        /// </summary>
+        /// <param name="chovay"></param>
+        /// <param name="idNguon"></param>
+        /// <param name="coTheChoVay"></param>
+        /// <param name="daChoVay"></param>
+        /// <returns></returns>
+        public static bool updateSTienSua(long chovay, int idNguon, long coTheChoVay, long daChoVay)
+        {
+            try
+            {
+                OracleCommand oracleCommand = new OracleCommand();
+                long stCothechovay = coTheChoVay + chovay;
+                long stdachovay = daChoVay - chovay;
+                oracleCommand.CommandText = "UPDATE NGUON SET SOTIENCOTHECHOVAY = :stCothechovay, SOTIENDACHOVAY = :stdachovay Where IDNGUON = :idNguon";
+
+                oracleCommand.Parameters.Add("stCothechovay", stCothechovay);
+                oracleCommand.Parameters.Add("stdachovay", stdachovay);
+                oracleCommand.Parameters.Add("idNguon", idNguon);
+
+                OracleDataReader oracleDataReader = DataProvider.GetOracleDataReader(oracleCommand);
+                return true;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Lỗi: " + e.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
     }
 }

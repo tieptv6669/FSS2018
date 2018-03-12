@@ -18,7 +18,7 @@ namespace DTO
         private int duNoLaiTH;
         private int duNoLaiNH;
         private string tenKH;
-        private int soTienGN;
+        private long soTienGN;
         private string trangThai;
         private string tenNguon;
         private DateTime ngayGN;
@@ -35,7 +35,7 @@ namespace DTO
         public int DuNoLaiTH { get; set; }
         public int DuNoLaiNH { get; set; }
         public string TenKH { get; set; }
-        public int SoTienGN { get; set; }
+        public long SoTienGN { get; set; }
         public string TrangThai { get; set; }
         public string TenNguon { get; set; }
         public DateTime NgayGN { get; set; }

@@ -125,6 +125,40 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="updateSoTien">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="choVay" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="idNguon" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="coTheVay" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="daChoVay" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updateSoTienResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="updateSoTienResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updateSoTienSua">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="choVay" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="idNguon" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="coTheVay" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="daChoVay" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updateSoTienSuaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="updateSoTienSuaResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="LayDSNguonSoapIn">
@@ -181,6 +215,18 @@
   <wsdl:message name="GetNguonSoapOut">
     <wsdl:part name="parameters" element="tns:GetNguonResponse" />
   </wsdl:message>
+  <wsdl:message name="updateSoTienSoapIn">
+    <wsdl:part name="parameters" element="tns:updateSoTien" />
+  </wsdl:message>
+  <wsdl:message name="updateSoTienSoapOut">
+    <wsdl:part name="parameters" element="tns:updateSoTienResponse" />
+  </wsdl:message>
+  <wsdl:message name="updateSoTienSuaSoapIn">
+    <wsdl:part name="parameters" element="tns:updateSoTienSua" />
+  </wsdl:message>
+  <wsdl:message name="updateSoTienSuaSoapOut">
+    <wsdl:part name="parameters" element="tns:updateSoTienSuaResponse" />
+  </wsdl:message>
   <wsdl:portType name="NguonBUSSoap">
     <wsdl:operation name="LayDSNguon">
       <wsdl:input message="tns:LayDSNguonSoapIn" />
@@ -217,6 +263,14 @@
     <wsdl:operation name="GetNguon">
       <wsdl:input message="tns:GetNguonSoapIn" />
       <wsdl:output message="tns:GetNguonSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="updateSoTien">
+      <wsdl:input message="tns:updateSoTienSoapIn" />
+      <wsdl:output message="tns:updateSoTienSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="updateSoTienSua">
+      <wsdl:input message="tns:updateSoTienSuaSoapIn" />
+      <wsdl:output message="tns:updateSoTienSuaSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="NguonBUSSoap" type="tns:NguonBUSSoap">
@@ -302,6 +356,24 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="updateSoTien">
+      <soap:operation soapAction="http://tempuri.org/updateSoTien" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateSoTienSua">
+      <soap:operation soapAction="http://tempuri.org/updateSoTienSua" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="NguonBUSSoap12" type="tns:NguonBUSSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -379,6 +451,24 @@
     </wsdl:operation>
     <wsdl:operation name="GetNguon">
       <soap12:operation soapAction="http://tempuri.org/GetNguon" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateSoTien">
+      <soap12:operation soapAction="http://tempuri.org/updateSoTien" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateSoTienSua">
+      <soap12:operation soapAction="http://tempuri.org/updateSoTienSua" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

@@ -85,6 +85,7 @@
             this.btnHuy.Text = "Hủy";
             this.btnHuy.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnHuy.UseVisualStyleBackColor = false;
+            this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
             // 
             // btnXacNhan
             // 
@@ -98,6 +99,7 @@
             this.btnXacNhan.Text = "Xác nhận";
             this.btnXacNhan.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnXacNhan.UseVisualStyleBackColor = false;
+            this.btnXacNhan.Click += new System.EventHandler(this.btnXacNhan_Click);
             // 
             // cmbSPTD
             // 
@@ -110,6 +112,7 @@
             this.cmbSPTD.Name = "cmbSPTD";
             this.cmbSPTD.Size = new System.Drawing.Size(302, 21);
             this.cmbSPTD.TabIndex = 64;
+            this.cmbSPTD.SelectedIndexChanged += new System.EventHandler(this.cmbSPTD_SelectedIndexChanged);
             // 
             // txtGhiChu
             // 
@@ -123,6 +126,7 @@
             // txtKyHan
             // 
             this.txtKyHan.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.txtKyHan.Enabled = false;
             this.txtKyHan.Location = new System.Drawing.Point(94, 172);
             this.txtKyHan.Name = "txtKyHan";
             this.txtKyHan.Size = new System.Drawing.Size(303, 20);
@@ -131,6 +135,7 @@
             // txtLaiSuat
             // 
             this.txtLaiSuat.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.txtLaiSuat.Enabled = false;
             this.txtLaiSuat.Location = new System.Drawing.Point(94, 114);
             this.txtLaiSuat.Name = "txtLaiSuat";
             this.txtLaiSuat.Size = new System.Drawing.Size(303, 20);
@@ -139,6 +144,7 @@
             // txtNguon
             // 
             this.txtNguon.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.txtNguon.Enabled = false;
             this.txtNguon.Location = new System.Drawing.Point(94, 88);
             this.txtNguon.Name = "txtNguon";
             this.txtNguon.Size = new System.Drawing.Size(303, 20);
@@ -155,6 +161,7 @@
             // txtSoTKLK
             // 
             this.txtSoTKLK.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.txtSoTKLK.Enabled = false;
             this.txtSoTKLK.Location = new System.Drawing.Point(94, 8);
             this.txtSoTKLK.Name = "txtSoTKLK";
             this.txtSoTKLK.Size = new System.Drawing.Size(303, 20);
@@ -263,6 +270,7 @@
             // txtLaiSuatQH
             // 
             this.txtLaiSuatQH.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.txtLaiSuatQH.Enabled = false;
             this.txtLaiSuatQH.Location = new System.Drawing.Point(94, 142);
             this.txtLaiSuatQH.Name = "txtLaiSuatQH";
             this.txtLaiSuatQH.Size = new System.Drawing.Size(303, 20);
@@ -270,6 +278,7 @@
             // 
             // dateNgayGN
             // 
+            this.dateNgayGN.Enabled = false;
             this.dateNgayGN.Location = new System.Drawing.Point(95, 199);
             this.dateNgayGN.Name = "dateNgayGN";
             this.dateNgayGN.Size = new System.Drawing.Size(303, 20);
@@ -277,6 +286,7 @@
             // 
             // dateNgayDH
             // 
+            this.dateNgayDH.Enabled = false;
             this.dateNgayDH.Location = new System.Drawing.Point(96, 225);
             this.dateNgayDH.Name = "dateNgayDH";
             this.dateNgayDH.Size = new System.Drawing.Size(303, 20);
@@ -322,6 +332,7 @@
             this.Controls.Add(this.label1);
             this.Name = "SuaGN";
             this.Text = "Sửa giải ngân";
+            this.Load += new System.EventHandler(this.SuaGN_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

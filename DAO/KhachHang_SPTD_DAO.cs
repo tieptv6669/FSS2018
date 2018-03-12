@@ -176,5 +176,44 @@ namespace DAO
                 return false;
             }
         }
+
+        /// <summary>
+        /// Lấy danh sách SPTD của KH có thể dùng
+        /// </summary>
+        /// <param name="soTKLK"></param>
+        /// <returns></returns>
+        public static List<KhachHang_SPTD> GetListKH_SPTD_SD(string soTKLK)
+        {
+            try
+            {
+                List<KhachHang_SPTD> list = new List<KhachHang_SPTD>();
+
+                OracleCommand oracleCommand = new OracleCommand();
+                oracleCommand.CommandText = "SELECT SPTD.TENSPTD FROM SPTD, KH_SPTD, KHACHHANG " +
+                    "WHERE SPTD.IDSPTD = KH_SPTD.IDSPTD AND KH_SPTD.IDKH = KHACHHANG.IDKHACHHANG " +
+                    "AND KHACHHANG.SOTKLK LIKE '%' || :soTKLK || '%' AND KH_SPTD.TRANGTHAI = 'Sử dụng'" +
+                    "AND SPTD.TRANGTHAI = 'Hoạt động'";
+                oracleCommand.Parameters.Add("soTKLK", soTKLK);
+
+                OracleDataReader oracleDataReader = DataProvider.GetOracleDataReader(oracleCommand);
+                if (oracleDataReader != null && oracleDataReader.HasRows)
+                {
+                    while (oracleDataReader.Read())
+                    {
+                        KhachHang_SPTD khachHang_SPTD = new KhachHang_SPTD();
+                        khachHang_SPTD.TenSPTD = oracleDataReader.GetString(0);
+
+                        list.Add(khachHang_SPTD);
+                    }
+                }
+
+                return list;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Lỗi: " + e.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+        }
     }
 }

@@ -18,6 +18,20 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="LayDSKH_SPTD_SD">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="soTKLK" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LayDSKH_SPTD_SDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LayDSKH_SPTD_SDResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="KTThongTinDangKySPTD">
         <s:complexType>
           <s:sequence>
@@ -103,6 +117,12 @@
   <wsdl:message name="LayDSKH_SPTDSoapOut">
     <wsdl:part name="parameters" element="tns:LayDSKH_SPTDResponse" />
   </wsdl:message>
+  <wsdl:message name="LayDSKH_SPTD_SDSoapIn">
+    <wsdl:part name="parameters" element="tns:LayDSKH_SPTD_SD" />
+  </wsdl:message>
+  <wsdl:message name="LayDSKH_SPTD_SDSoapOut">
+    <wsdl:part name="parameters" element="tns:LayDSKH_SPTD_SDResponse" />
+  </wsdl:message>
   <wsdl:message name="KTThongTinDangKySPTDSoapIn">
     <wsdl:part name="parameters" element="tns:KTThongTinDangKySPTD" />
   </wsdl:message>
@@ -138,6 +158,10 @@
       <wsdl:input message="tns:LayDSKH_SPTDSoapIn" />
       <wsdl:output message="tns:LayDSKH_SPTDSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="LayDSKH_SPTD_SD">
+      <wsdl:input message="tns:LayDSKH_SPTD_SDSoapIn" />
+      <wsdl:output message="tns:LayDSKH_SPTD_SDSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="KTThongTinDangKySPTD">
       <wsdl:input message="tns:KTThongTinDangKySPTDSoapIn" />
       <wsdl:output message="tns:KTThongTinDangKySPTDSoapOut" />
@@ -163,6 +187,15 @@
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="LayDSKH_SPTD">
       <soap:operation soapAction="http://tempuri.org/LayDSKH_SPTD" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LayDSKH_SPTD_SD">
+      <soap:operation soapAction="http://tempuri.org/LayDSKH_SPTD_SD" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -220,6 +253,15 @@
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="LayDSKH_SPTD">
       <soap12:operation soapAction="http://tempuri.org/LayDSKH_SPTD" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LayDSKH_SPTD_SD">
+      <soap12:operation soapAction="http://tempuri.org/LayDSKH_SPTD_SD" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

@@ -210,5 +210,31 @@ namespace BUS
             string jsonData = JsonConvert.SerializeObject(nguon);
             return jsonData;
         }
+
+        /// <summary>
+        /// Update số tiền cho vay trong nguồn
+        /// </summary>
+        /// <param name="choVay"></param>
+        /// <param name="idNguon"></param>
+        /// <returns></returns>
+        [WebMethod]
+        public bool updateSoTien(long choVay, int idNguon,long coTheVay, long daChoVay)
+        {
+            return NguonDAO.updateSTien(choVay, idNguon, coTheVay, daChoVay);
+        }
+
+        /// <summary>
+        /// Update lại số tiền khi sửa
+        /// </summary>
+        /// <param name="choVay"></param>
+        /// <param name="idNguon"></param>
+        /// <param name="coTheVay"></param>
+        /// <param name="daChoVay"></param>
+        /// <returns></returns>
+        [WebMethod]
+        public bool updateSoTienSua(long choVay, int idNguon, long coTheVay, long daChoVay)
+        {
+            return NguonDAO.updateSTienSua(choVay, idNguon, coTheVay, daChoVay);
+        }
     }
 }

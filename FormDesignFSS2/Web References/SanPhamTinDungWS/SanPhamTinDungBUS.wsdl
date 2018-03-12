@@ -29,6 +29,20 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="LayDanhSachSPTDHD">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="tenSPTD" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LayDanhSachSPTDHDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LayDanhSachSPTDHDResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="TimKiemSPTD">
         <s:complexType>
           <s:sequence>
@@ -163,6 +177,12 @@
   <wsdl:message name="LayDanhSachSPTDSoapOut">
     <wsdl:part name="parameters" element="tns:LayDanhSachSPTDResponse" />
   </wsdl:message>
+  <wsdl:message name="LayDanhSachSPTDHDSoapIn">
+    <wsdl:part name="parameters" element="tns:LayDanhSachSPTDHD" />
+  </wsdl:message>
+  <wsdl:message name="LayDanhSachSPTDHDSoapOut">
+    <wsdl:part name="parameters" element="tns:LayDanhSachSPTDHDResponse" />
+  </wsdl:message>
   <wsdl:message name="TimKiemSPTDSoapIn">
     <wsdl:part name="parameters" element="tns:TimKiemSPTD" />
   </wsdl:message>
@@ -220,6 +240,10 @@
       <wsdl:input message="tns:LayDanhSachSPTDSoapIn" />
       <wsdl:output message="tns:LayDanhSachSPTDSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="LayDanhSachSPTDHD">
+      <wsdl:input message="tns:LayDanhSachSPTDHDSoapIn" />
+      <wsdl:output message="tns:LayDanhSachSPTDHDSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="TimKiemSPTD">
       <wsdl:input message="tns:TimKiemSPTDSoapIn" />
       <wsdl:output message="tns:TimKiemSPTDSoapOut" />
@@ -266,6 +290,15 @@
     </wsdl:operation>
     <wsdl:operation name="LayDanhSachSPTD">
       <soap:operation soapAction="http://tempuri.org/LayDanhSachSPTD" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LayDanhSachSPTDHD">
+      <soap:operation soapAction="http://tempuri.org/LayDanhSachSPTDHD" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -359,6 +392,15 @@
     </wsdl:operation>
     <wsdl:operation name="LayDanhSachSPTD">
       <soap12:operation soapAction="http://tempuri.org/LayDanhSachSPTD" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LayDanhSachSPTDHD">
+      <soap12:operation soapAction="http://tempuri.org/LayDanhSachSPTDHD" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

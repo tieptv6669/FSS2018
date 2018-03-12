@@ -10,7 +10,7 @@ namespace DTO
     {
         private int idGN;
         private string maGN;
-        private int soTienGN;
+        private long soTienGN;
         private int duNoGoc;
         private int duNoLaiTrongHan;
         private int duNoLaiNgoaiHan;
@@ -23,7 +23,7 @@ namespace DTO
 
         public int IDGN { get; set; }
         public string MaGN { get; set; }
-        public int SoTienGN { get; set; }
+        public long SoTienGN { get; set; }
         public int DuNoGoc { get; set; }
         public int DuNoLaiTrongHan { get; set; }
         public int DuNoLaiNgoaiHan { get; set; }

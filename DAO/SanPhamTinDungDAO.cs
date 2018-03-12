@@ -29,7 +29,7 @@ namespace DAO
                 oracleCommand.CommandText = "SELECT * FROM SPTD";
 
                 OracleDataReader oracleDataReader = DataProvider.GetOracleDataReader(oracleCommand);
-                if(oracleDataReader != null && oracleDataReader.HasRows)
+                if (oracleDataReader != null && oracleDataReader.HasRows)
                 {
                     while (oracleDataReader.Read())
                     {
@@ -47,9 +47,10 @@ namespace DAO
                         list.Add(sanPhamTinDung);
                     }
                 }
-                
+
                 return list;
-            }catch(Exception e)
+            }
+            catch (Exception e)
             {
                 MessageBox.Show("Lỗi: " + e.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return null;
@@ -79,7 +80,7 @@ namespace DAO
 
                 OracleDataReader oracleDataReader = DataProvider.GetOracleDataReader(oracleCommand);
 
-                if(oracleDataReader != null && oracleDataReader.HasRows)
+                if (oracleDataReader != null && oracleDataReader.HasRows)
                 {
                     while (oracleDataReader.Read())
                     {
@@ -99,7 +100,8 @@ namespace DAO
                 }
 
                 return list;
-            }catch(Exception e)
+            }
+            catch (Exception e)
             {
                 MessageBox.Show("Lỗi: " + e.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return null;
@@ -121,7 +123,7 @@ namespace DAO
 
                 OracleDataReader oracleDataReader = DataProvider.GetOracleDataReader(oracleCommand);
 
-                if(oracleDataReader != null && oracleDataReader.HasRows)
+                if (oracleDataReader != null && oracleDataReader.HasRows)
                 {
                     SanPhamTinDung sanPhamTinDung = new SanPhamTinDung();
                     return sanPhamTinDung;
@@ -130,7 +132,8 @@ namespace DAO
                 {
                     return null;
                 }
-            }catch(Exception e)
+            }
+            catch (Exception e)
             {
                 MessageBox.Show("Lỗi: " + e.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return null;
@@ -151,7 +154,7 @@ namespace DAO
                     "VALUES (:maSPTD, :tenSPTD, :thoiHanVay, :laiSuat, :laiSuatQuaHan, :trangThai, :idNguon, :tenNguon)";
                 oracleCommand.Parameters.Add("maSPTD", sanPhamTinDung.MaSPTD);
                 oracleCommand.Parameters.Add("tenSPTD", sanPhamTinDung.TenSPTD);
-                oracleCommand.Parameters.Add("thoiHanVay",sanPhamTinDung.ThoiHanVay);
+                oracleCommand.Parameters.Add("thoiHanVay", sanPhamTinDung.ThoiHanVay);
                 oracleCommand.Parameters.Add("laiSuat", sanPhamTinDung.LaiSuat);
                 oracleCommand.Parameters.Add("laiSuatQuaHan", sanPhamTinDung.LaiSuatQuaHan);
                 oracleCommand.Parameters.Add("trangThai", sanPhamTinDung.TrangThai);
@@ -203,7 +206,7 @@ namespace DAO
 
                 return list;
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 MessageBox.Show("Lỗi: " + e.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return null;
@@ -279,7 +282,8 @@ namespace DAO
                 }
 
                 return list;
-            }catch(Exception e)
+            }
+            catch (Exception e)
             {
                 MessageBox.Show("Lỗi: " + e.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return null;
@@ -301,7 +305,7 @@ namespace DAO
 
                 OracleDataReader oracleDataReader = DataProvider.GetOracleDataReader(oracleCommand);
 
-                if(oracleDataReader != null && oracleDataReader.HasRows)
+                if (oracleDataReader != null && oracleDataReader.HasRows)
                 {
                     oracleDataReader.Read();
                     SanPhamTinDung sanPhamTinDung = new SanPhamTinDung();
@@ -321,7 +325,50 @@ namespace DAO
                     return null;
                 }
             }
-            catch(Exception e)
+            catch (Exception e)
+            {
+                MessageBox.Show("Lỗi: " + e.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// Lấy ds sản phẩm tín dụng có trạng thái Hoạt động
+        /// </summary>
+        /// <returns></returns>
+        public static List<SanPhamTinDung> GetListSPTDHD(string tenSPTD)
+        {
+            try
+            {
+                List<SanPhamTinDung> list = new List<SanPhamTinDung>();
+
+                OracleCommand oracleCommand = new OracleCommand();
+                oracleCommand.CommandText = "SELECT * FROM SPTD WHERE TRANGTHAI = 'Hoạt động' AND TENSPTD = :tenSPTD";
+                oracleCommand.Parameters.Add("tenSPTD", tenSPTD);
+
+                OracleDataReader oracleDataReader = DataProvider.GetOracleDataReader(oracleCommand);
+                if (oracleDataReader != null && oracleDataReader.HasRows)
+                {
+                    while (oracleDataReader.Read())
+                    {
+                        SanPhamTinDung sanPhamTinDung = new SanPhamTinDung();
+                        sanPhamTinDung.IdSPTD = oracleDataReader.GetInt32(0);
+                        sanPhamTinDung.MaSPTD = oracleDataReader.GetString(1);
+                        sanPhamTinDung.TenSPTD = oracleDataReader.GetString(2);
+                        sanPhamTinDung.ThoiHanVay = oracleDataReader.GetInt32(3);
+                        sanPhamTinDung.LaiSuat = oracleDataReader.GetInt32(4);
+                        sanPhamTinDung.LaiSuatQuaHan = oracleDataReader.GetInt32(5);
+                        sanPhamTinDung.TrangThai = oracleDataReader.GetString(6);
+                        sanPhamTinDung.IdNguon = oracleDataReader.GetInt32(7);
+                        sanPhamTinDung.TenNguon = oracleDataReader.GetString(8);
+
+                        list.Add(sanPhamTinDung);
+                    }
+                }
+
+                return list;
+            }
+            catch (Exception e)
             {
                 MessageBox.Show("Lỗi: " + e.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return null;
