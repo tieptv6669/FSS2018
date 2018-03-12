@@ -1138,14 +1138,11 @@
     <None Include="Web References\XuLyCuoiNgayWS\XuLyCuoiNgayBUS.disco" />
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD
     <None Include="Web References\GiaiNganWS\GiaiNganBUS.disco" />
-=======
     <None Include="Web References\LichSuWS\LichSuBUS.disco" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Web References\TraNoWS\TraNoBUS.disco" />
->>>>>>> f58958ded318da7368db100d4de77587da95b3df
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

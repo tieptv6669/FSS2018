@@ -103,6 +103,7 @@ namespace BUS
             GiaiNgan giaiNgan = JsonConvert.DeserializeObject<GiaiNgan>(jsonDataGiaiNgan);
             return GiaiNganDAO.themGN(giaiNgan);
         }
+
         /// <summary>
         /// tạo mã giải ngân
         /// </summary>

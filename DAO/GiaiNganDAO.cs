@@ -27,7 +27,7 @@ namespace DAO
                     "GIAINGAN.TRANGTHAI,GIAINGAN.DUNOGOC,GIAINGAN.DUNOLAITRONGHAN," +
                     "GIAINGAN.DUNOLAINGOAIHAN,KHACHHANG.HOTENKH " +
                     "FROM GIAINGAN,KHACHHANG " +
-                    "WHERE GIAINGAN.IDKH = KHACHHANG.IDKHACHHANG AND SOTKLK = :soTKLK  ";
+                    "WHERE GIAINGAN.IDKH = KHACHHANG.IDKHACHHANG AND KHACHHANG.SOTKLK = :soTKLK  ";
                 oracleCommand.Parameters.Add(new OracleParameter("soTKLK", soTKLK));
 
                 OracleDataReader oracleDataReader = DataProvider.GetOracleDataReader(oracleCommand);
@@ -148,11 +148,11 @@ namespace DAO
                     gn_sptd_nguon.GhiChu = oracleDataReader.GetString(15);
 
                     return gn_sptd_nguon;
-                }
-                else {
+                 }
+                else
+                {
                     return null;
                 }
-
             }
             catch (Exception e)
             {

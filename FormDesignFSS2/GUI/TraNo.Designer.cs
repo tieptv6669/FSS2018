@@ -142,6 +142,7 @@
             this.txtMaGN.Name = "txtMaGN";
             this.txtMaGN.Size = new System.Drawing.Size(210, 20);
             this.txtMaGN.TabIndex = 1;
+            this.txtMaGN.Leave += new System.EventHandler(this.txtMaGN_Leave);
             // 
             // txtTenKH
             // 

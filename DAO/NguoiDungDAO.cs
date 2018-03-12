@@ -34,9 +34,9 @@ namespace DAO
 
                 oracleDataReader = DataProvider.GetOracleDataReader(oracleCommand);
 
+
                 if (oracleDataReader != null && oracleDataReader.HasRows) 
                 {
-                    
                     oracleDataReader.Read();
 
                     nguoiDung.idND = oracleDataReader.GetInt32(0);

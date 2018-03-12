@@ -846,10 +846,7 @@ namespace FormDesignFSS2.GUI
                         {
                             txtTenKHTabGN.Text = "";
                         }
-                       
-                        
                     }
-                    
                 }
                 else
                 {
@@ -861,7 +858,6 @@ namespace FormDesignFSS2.GUI
             {
                 MessageBox.Show("Lỗi: " + ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
         }
 
         /// <summary>
@@ -880,6 +876,7 @@ namespace FormDesignFSS2.GUI
                     GN_SPTD_NGUON gN_SPTD_ = new GN_SPTD_NGUON();
                     string jsonData = giaiNganBUS.xemChiTietGN(gridDSMonGN.SelectedRows[0].Cells[1].Value.ToString());
                     gN_SPTD_ = JsonConvert.DeserializeObject<GN_SPTD_NGUON>(jsonData);
+
                     xemChiTietGN.GN_SPTD_ = gN_SPTD_;
                     xemChiTietGN.ShowDialog();
                 }
@@ -905,7 +902,7 @@ namespace FormDesignFSS2.GUI
             lichSuTraNo.ShowDialog();
         }
 
-<<<<<<< HEAD
+
         private void btnSuaTabGN_Click(object sender, EventArgs e)
         {
             try
@@ -919,7 +916,7 @@ namespace FormDesignFSS2.GUI
                     string jsonData = giaiNganBUS.xemChiTietGN(gridDSMonGN.SelectedRows[0].Cells[1].Value.ToString());
                     gN_SPTD_ = JsonConvert.DeserializeObject<GN_SPTD_NGUON>(jsonData);
                     suaGN.giaiNgan = gN_SPTD_;
-                    if(gN_SPTD_.DuNoLaiTH > 0)
+                    if (gN_SPTD_.DuNoLaiTH > 0)
                     {
                         MessageBox.Show("Không thể sửa giải ngân này");
                     }
@@ -937,7 +934,8 @@ namespace FormDesignFSS2.GUI
             {
                 MessageBox.Show("Lỗi: " + ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-=======
+        }
+
         /// <summary>
         /// Xử lý sự kiện khi chọn một tab khác
         /// </summary>
@@ -945,35 +943,35 @@ namespace FormDesignFSS2.GUI
         /// <param name="e"></param>
         private void tabControl_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(tabControl.SelectedTab.Text == "User")
+            if (tabControl.SelectedTab.Text == "User")
             {
                 AcceptButton = btnTimKiemTabUser;
             }
-            if(tabControl.SelectedTab.Text == "Khách hàng")
+            if (tabControl.SelectedTab.Text == "Khách hàng")
             {
                 AcceptButton = btnTimKiemTabKH;
             }
-            if(tabControl.SelectedTab.Text == "Sản phẩm tín dụng")
+            if (tabControl.SelectedTab.Text == "Sản phẩm tín dụng")
             {
                 AcceptButton = btnTimKiemTabSPTD;
             }
-            if(tabControl.SelectedTab.Text == "Đăng ký sản phẩm tín dụng")
+            if (tabControl.SelectedTab.Text == "Đăng ký sản phẩm tín dụng")
             {
                 AcceptButton = btnTimKiem;
             }
-            if(tabControl.SelectedTab.Text == "Nguồn")
+            if (tabControl.SelectedTab.Text == "Nguồn")
             {
                 AcceptButton = btnTimKiemTabNguon;
             }
-            if(tabControl.SelectedTab.Text == "Giải ngân")
+            if (tabControl.SelectedTab.Text == "Giải ngân")
             {
                 AcceptButton = btnTimKiemTabGN;
             }
-            if(tabControl.SelectedTab.Text == "Trả nợ")
+            if (tabControl.SelectedTab.Text == "Trả nợ")
             {
                 AcceptButton = btnTimKiemTabTN;
             }
-            if(tabControl.SelectedTab.Text == "Lịch sử")
+            if (tabControl.SelectedTab.Text == "Lịch sử")
             {
                 AcceptButton = btnTimKiemTabLS;
             }
@@ -1005,7 +1003,7 @@ namespace FormDesignFSS2.GUI
             list = JsonConvert.DeserializeObject<List<LichSu>>(lichSuBUS.TimKiemLichSu(txtTDNTabLS.Text, txtSoTKLKTabLS.Text, txtMaDTTabLS.Text, from, to));
             // Hiển thị kết quả
             gridLog.Rows.Clear();
-            foreach(LichSu temp in list)
+            foreach (LichSu temp in list)
             {
                 gridLog.Rows.Add(temp.TenDN, temp.SoTKLK, temp.MaDT, temp.GiaTriTruoc, temp.GiaTriSau, temp.NoiDung, temp.ThoiGian);
             }
@@ -1027,7 +1025,7 @@ namespace FormDesignFSS2.GUI
                 TraNoBUS traNoBUS = new TraNoBUS();
                 List<GiaiNgan> list = JsonConvert.DeserializeObject<List<GiaiNgan>>(traNoBUS.GetListGN());
                 // Hiển thị kết quả
-                foreach(GiaiNgan temp in list)
+                foreach (GiaiNgan temp in list)
                 {
                     gridDSMonNo.Rows.Add(temp.MaGN, temp.DuNoGoc.ToString("#,##0"), temp.DuNoLaiTrongHan.ToString("#,##0"), temp.DuNoLaiNgoaiHan.ToString("#,##0"), temp.NgayDaoHan);
                 }
@@ -1038,7 +1036,7 @@ namespace FormDesignFSS2.GUI
                 // Lấy KH theo số TKLK
                 KhachHangBUS khachHangBUS = new KhachHangBUS();
                 string jsonData = khachHangBUS.layMotKhachHang(txtSoTKLKTabTN.Text);
-                if(jsonData != "null")
+                if (jsonData != "null")
                 {
                     KhachHang khachHang = JsonConvert.DeserializeObject<KhachHang>(jsonData);
                     // Lấy danh sách các món giải ngân còn nợ của KH
@@ -1057,7 +1055,6 @@ namespace FormDesignFSS2.GUI
                     MessageBox.Show("Số TKLK không tồn tại", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
->>>>>>> f58958ded318da7368db100d4de77587da95b3df
         }
     }
 }

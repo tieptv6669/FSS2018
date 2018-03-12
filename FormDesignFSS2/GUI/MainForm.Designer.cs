@@ -1308,7 +1308,6 @@
             this.txtSoTKLKTabGN.Name = "txtSoTKLKTabGN";
             this.txtSoTKLKTabGN.Size = new System.Drawing.Size(302, 21);
             this.txtSoTKLKTabGN.TabIndex = 6;
-            this.txtSoTKLKTabGN.Text = "021C000001";
             // 
             // lblSoTKLKTabGN
             // 
@@ -1730,7 +1729,7 @@
             this.reportViewerBC.Location = new System.Drawing.Point(0, 75);
             this.reportViewerBC.Name = "reportViewerBC";
             this.reportViewerBC.ServerReport.BearerToken = null;
-            this.reportViewerBC.Size = new System.Drawing.Size(760, 277);
+            this.reportViewerBC.Size = new System.Drawing.Size(760, 283);
             this.reportViewerBC.TabIndex = 3;
             // 
             // cboLoaiBC

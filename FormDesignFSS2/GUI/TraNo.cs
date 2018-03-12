@@ -86,13 +86,6 @@ namespace FormDesignFSS2.GUI
                     case 0:
                         {
                             lblError.Text = "";
-                            // Lấy thông tin món giải ngân
-                            GiaiNgan giaiNgan = JsonConvert.DeserializeObject<GiaiNgan>(traNoBUS.GetGN(txtMaGN.Text));
-                            // Lấy thông tin KH
-                            KhachHangBUS khachHangBUS = new KhachHangBUS();
-                            // Hiển thị thông tin
-
-
                             break;
                         }
                 }
@@ -117,6 +110,41 @@ namespace FormDesignFSS2.GUI
             txtNgayDaoHan.Text = "";
             txtNgayTraNo.Text = "";
             txtSoNgayQuaHan.Text = "";
+        }
+
+        /// <summary>
+        /// Xử lý sự kiện nhấn tab
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void txtMaGN_Leave(object sender, EventArgs e)
+        {
+            TraNoBUS traNoBUS = new TraNoBUS();
+            ResetElement();
+            // Lấy thông tin món giải ngân
+            GiaiNgan giaiNgan = JsonConvert.DeserializeObject<GiaiNgan>(traNoBUS.GetGN(txtMaGN.Text));
+            if(giaiNgan != null)
+            {
+                // Lấy thông tin KH
+                KhachHangBUS khachHangBUS = new KhachHangBUS();
+                KhachHang khachHang = JsonConvert.DeserializeObject<KhachHang>(khachHangBUS.GetKHWithID(giaiNgan.IDKH));
+                // Hiển thị thông tin
+                txtTenKH.Text = khachHang.hoTenKH;
+                txtGocBanDau.Text = giaiNgan.SoTienGN.ToString("#,##0");
+                txtDuNoGoc.Text = giaiNgan.DuNoGoc.ToString("#,##0");
+                txtDuNoLaiTrongHan.Text = giaiNgan.DuNoLaiTrongHan.ToString("#,##0");
+                txtDuNoLaiQuaHan.Text = giaiNgan.DuNoLaiNgoaiHan.ToString("#,##0");
+                txtNgayDaoHan.Text = giaiNgan.NgayDaoHan.ToShortDateString();
+                txtNgayTraNo.Text = DateTime.Now.ToShortDateString();
+                if (DateTime.Parse(txtNgayTraNo.Text) <= DateTime.Parse(txtNgayDaoHan.Text))
+                {
+                    txtSoNgayQuaHan.Text = "0";
+                }
+                else
+                {
+                    txtSoNgayQuaHan.Text = (DateTime.Parse(txtNgayTraNo.Text) - DateTime.Parse(txtNgayDaoHan.Text)).Days.ToString();
+                }
+            }
         }
     }
 }

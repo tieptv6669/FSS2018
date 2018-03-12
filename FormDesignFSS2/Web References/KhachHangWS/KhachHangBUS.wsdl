@@ -147,6 +147,20 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="GetKHWithID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idKH" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetKHWithIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetKHWithIDResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="KTThongTinThemKHSoapIn">
@@ -203,6 +217,12 @@
   <wsdl:message name="KhachHangReportSoapOut">
     <wsdl:part name="parameters" element="tns:KhachHangReportResponse" />
   </wsdl:message>
+  <wsdl:message name="GetKHWithIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetKHWithID" />
+  </wsdl:message>
+  <wsdl:message name="GetKHWithIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetKHWithIDResponse" />
+  </wsdl:message>
   <wsdl:portType name="KhachHangBUSSoap">
     <wsdl:operation name="KTThongTinThemKH">
       <wsdl:input message="tns:KTThongTinThemKHSoapIn" />
@@ -239,6 +259,10 @@
     <wsdl:operation name="KhachHangReport">
       <wsdl:input message="tns:KhachHangReportSoapIn" />
       <wsdl:output message="tns:KhachHangReportSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetKHWithID">
+      <wsdl:input message="tns:GetKHWithIDSoapIn" />
+      <wsdl:output message="tns:GetKHWithIDSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="KhachHangBUSSoap" type="tns:KhachHangBUSSoap">
@@ -324,6 +348,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetKHWithID">
+      <soap:operation soapAction="http://tempuri.org/GetKHWithID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="KhachHangBUSSoap12" type="tns:KhachHangBUSSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -401,6 +434,15 @@
     </wsdl:operation>
     <wsdl:operation name="KhachHangReport">
       <soap12:operation soapAction="http://tempuri.org/KhachHangReport" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetKHWithID">
+      <soap12:operation soapAction="http://tempuri.org/GetKHWithID" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
