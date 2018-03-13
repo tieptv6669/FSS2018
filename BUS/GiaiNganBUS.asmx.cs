@@ -66,7 +66,7 @@ namespace BUS
         /// <param name="ngayDH"></param>
         /// <returns></returns>
         [WebMethod]
-        public int KTThongTinNhap(string soTKLK,  string soTienGN, long soTienCoTheChoVay)
+        public int KTThongTinNhap(string soTKLK,  string soTienGN, long soTienCoTheChoVay, string loaiKH)
         {
             Helper helper = new Helper();
             if(soTKLK == "" || soTKLK.Length != 10)
@@ -88,6 +88,26 @@ namespace BUS
             if(soTKLK == "")
             {
                 return 5;
+            }
+            if(loaiKH == "Classic" && long.Parse(soTienGN) > 100000000)
+            {
+                return 6;
+            }
+            if (loaiKH == "Silver" && long.Parse(soTienGN) > 200000000)
+            {
+                return 6;
+            }
+            if (loaiKH == "Gold" && long.Parse(soTienGN) > 500000000)
+            {
+                return 6;
+            }
+            if (loaiKH == "Diamond" && long.Parse(soTienGN) > 1000000000)
+            {
+                return 6;
+            }
+            if (soTienGN.Length > 13)
+            {
+                return 7;
             }
             return 0;
         }
@@ -156,7 +176,7 @@ namespace BUS
         /// <param name="soTienCoTheChoVay"></param>
         /// <returns></returns>
         [WebMethod]
-        public int KTTTSuaGN(string soTKLK, DateTime ngayGN, string soTienGN, long soTienCoTheChoVay)
+        public int KTTTSuaGN(string soTKLK, DateTime ngayGN, string soTienGN, long soTienCoTheChoVay, string loaiKH)
         {
             Helper helper = new Helper();
             DateTime date = DateTime.Now;
@@ -171,6 +191,26 @@ namespace BUS
             if (soTienCoTheChoVay < long.Parse(soTienGN))
             {
                 return 3;
+            }
+            if (loaiKH == "Classic" && long.Parse(soTienGN) > 100000000)
+            {
+                return 4;
+            }
+            if (loaiKH == "Silver" && long.Parse(soTienGN) > 200000000)
+            {
+                return 4;
+            }
+            if (loaiKH == "Gold" && long.Parse(soTienGN) > 500000000)
+            {
+                return 4;
+            }
+            if (loaiKH == "Diamond" && long.Parse(soTienGN) > 1000000000)
+            {
+                return 4;
+            }
+            if (soTienGN.Length > 13)
+            {
+                return 5;
             }
             return 0;
         }

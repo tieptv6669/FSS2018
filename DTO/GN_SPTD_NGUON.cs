@@ -14,9 +14,9 @@ namespace DTO
         private int laiSuat;
         private int laiSuatQuaHan;
         private int kyHan;
-        private int duNoGoc;
-        private int duNoLaiTH;
-        private int duNoLaiNH;
+        private long duNoGoc;
+        private long duNoLaiTH;
+        private long duNoLaiNH;
         private string tenKH;
         private long soTienGN;
         private string trangThai;
@@ -31,9 +31,9 @@ namespace DTO
         public int LaiSuat { get; set; }
         public int LaiSuatQuaHan { get; set; }
         public int KyHan { get; set; }
-        public int DuNoGoc { get; set; }
-        public int DuNoLaiTH { get; set; }
-        public int DuNoLaiNH { get; set; }
+        public long DuNoGoc { get; set; }
+        public long DuNoLaiTH { get; set; }
+        public long DuNoLaiNH { get; set; }
         public string TenKH { get; set; }
         public long SoTienGN { get; set; }
         public string TrangThai { get; set; }

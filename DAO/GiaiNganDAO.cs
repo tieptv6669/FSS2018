@@ -41,9 +41,9 @@ namespace DAO
                         gN_KH.MaGN = oracleDataReader.GetString(1);
                         gN_KH.SoTienGN = oracleDataReader.GetInt64(2);
                         gN_KH.TrangThai = oracleDataReader.GetString(3);
-                        gN_KH.DuNoGoc = oracleDataReader.GetInt32(4);
-                        gN_KH.DuNoLaiTrongHan = oracleDataReader.GetInt32(5);
-                        gN_KH.DuNoLaiQuaHan = oracleDataReader.GetInt32(6);
+                        gN_KH.DuNoGoc = oracleDataReader.GetInt64(4);
+                        gN_KH.DuNoLaiTrongHan = oracleDataReader.GetInt64(5);
+                        gN_KH.DuNoLaiQuaHan = oracleDataReader.GetInt64(6);
                         gN_KH.TenKH = oracleDataReader.GetString(7);
                         list.Add(gN_KH);
                     }
@@ -87,9 +87,9 @@ namespace DAO
                         gN_KH.MaGN = oracleDataReader.GetString(1);
                         gN_KH.SoTienGN = oracleDataReader.GetInt64(2);
                         gN_KH.TrangThai = oracleDataReader.GetString(3);
-                        gN_KH.DuNoGoc = oracleDataReader.GetInt32(4);
-                        gN_KH.DuNoLaiTrongHan = oracleDataReader.GetInt32(5);
-                        gN_KH.DuNoLaiQuaHan = oracleDataReader.GetInt32(6);
+                        gN_KH.DuNoGoc = oracleDataReader.GetInt64(4);
+                        gN_KH.DuNoLaiTrongHan = oracleDataReader.GetInt64(5);
+                        gN_KH.DuNoLaiQuaHan = oracleDataReader.GetInt64(6);
                         gN_KH.TenKH = oracleDataReader.GetString(7);
                         list.Add(gN_KH);
                     }
@@ -138,9 +138,9 @@ namespace DAO
                     gn_sptd_nguon.LaiSuat = oracleDataReader.GetInt32(3);
                     gn_sptd_nguon.LaiSuatQuaHan = oracleDataReader.GetInt32(4);
                     gn_sptd_nguon.KyHan = oracleDataReader.GetInt32(5);
-                    gn_sptd_nguon.DuNoGoc = oracleDataReader.GetInt32(6);
-                    gn_sptd_nguon.DuNoLaiTH = oracleDataReader.GetInt32(7);
-                    gn_sptd_nguon.DuNoLaiNH = oracleDataReader.GetInt32(8);
+                    gn_sptd_nguon.DuNoGoc = oracleDataReader.GetInt64(6);
+                    gn_sptd_nguon.DuNoLaiTH = oracleDataReader.GetInt64(7);
+                    gn_sptd_nguon.DuNoLaiNH = oracleDataReader.GetInt64(8);
                     gn_sptd_nguon.TenKH = oracleDataReader.GetString(9);
                     gn_sptd_nguon.SoTienGN = oracleDataReader.GetInt64(10);
                     gn_sptd_nguon.TrangThai = oracleDataReader.GetString(11);
@@ -218,9 +218,9 @@ namespace DAO
                         GiaiNgan giaiNgan = new GiaiNgan();
                         giaiNgan.MaGN = oracleDataReader.GetString(1);
                         giaiNgan.SoTienGN = oracleDataReader.GetInt64(2);
-                        giaiNgan.DuNoGoc = oracleDataReader.GetInt32(3);
-                        giaiNgan.DuNoLaiTrongHan = oracleDataReader.GetInt32(4);
-                        giaiNgan.DuNoLaiNgoaiHan = oracleDataReader.GetInt32(5);
+                        giaiNgan.DuNoGoc = oracleDataReader.GetInt64(3);
+                        giaiNgan.DuNoLaiTrongHan = oracleDataReader.GetInt64(4);
+                        giaiNgan.DuNoLaiNgoaiHan = oracleDataReader.GetInt64(5);
                         giaiNgan.NgayGN = oracleDataReader.GetDateTime(6);
                         giaiNgan.NgayDaoHan = oracleDataReader.GetDateTime(7);
                         giaiNgan.IDKH = oracleDataReader.GetInt32(8);

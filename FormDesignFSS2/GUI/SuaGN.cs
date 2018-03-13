@@ -14,6 +14,7 @@ using FormDesignFSS2;
 using Newtonsoft.Json;
 using FormDesignFSS2.SanPhamTinDungWS;
 using FormDesignFSS2.NguonWS;
+using FormDesignFSS2.KhachHangWS;
 
 namespace FormDesignFSS2.GUI
 {
@@ -94,6 +95,10 @@ namespace FormDesignFSS2.GUI
             {
                 if (btnXacNhan.Text == "Xác nhận")
                 {
+                    KhachHangBUS khachHangBUS = new KhachHangBUS();
+                    string jsonKH = khachHangBUS.layMotKhachHang(txtSoTKLK.Text);
+                    KhachHang listKH = JsonConvert.DeserializeObject<KhachHang>(jsonKH);
+
                     //Lấy ra số tiền có thể cho vay trong danh sách nguồn
                     NguonBUS nguonBUS = new NguonBUS();
                     string json = nguonBUS.GetNguon(txtNguon.Text);
@@ -101,7 +106,7 @@ namespace FormDesignFSS2.GUI
                     long coTheVay = list.tienCoTheChoVay;
                     //Check lỗi
                     GiaiNganBUS giaiNganBUS = new GiaiNganBUS();
-                    switch (giaiNganBUS.KTTTSuaGN(txtSoTKLK.Text, dateNgayGN.Value,txtSoTienGN.Text,coTheVay))
+                    switch (giaiNganBUS.KTTTSuaGN(txtSoTKLK.Text, dateNgayGN.Value,txtSoTienGN.Text,coTheVay, listKH.loai))
                     {
                         case 1:
                             {
@@ -116,6 +121,16 @@ namespace FormDesignFSS2.GUI
                         case 3:
                             {
                                 lblError.Text = "Số tiền nhiều hơn nguồn có";
+                                break;
+                            }
+                        case 4:
+                            {
+                                lblError.Text = "Số tiền vượt quá hạn mức loại KH";
+                                break;
+                            }
+                        case 5:
+                            {
+                                lblError.Text = "Số tiền quá lớn";
                                 break;
                             }
                         case 0:

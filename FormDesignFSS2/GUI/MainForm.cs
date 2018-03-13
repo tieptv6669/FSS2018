@@ -92,6 +92,7 @@ namespace FormDesignFSS2.GUI
         private void btnChayQuaNgay_Click(object sender, EventArgs e)
         {
             ChayQuaNgay cqnForm = new ChayQuaNgay();
+            cqnForm.labelNgayHeThong = lblTime;
             cqnForm.nguoiDungHeThong = nguoiDungHienTai;
             cqnForm.ShowDialog();
         }
@@ -916,7 +917,7 @@ namespace FormDesignFSS2.GUI
                     string jsonData = giaiNganBUS.xemChiTietGN(gridDSMonGN.SelectedRows[0].Cells[1].Value.ToString());
                     gN_SPTD_ = JsonConvert.DeserializeObject<GN_SPTD_NGUON>(jsonData);
                     suaGN.giaiNgan = gN_SPTD_;
-                    if (gN_SPTD_.DuNoLaiTH > 0)
+                    if (gN_SPTD_.DuNoLaiTH > 0 || gN_SPTD_.TrangThai == "Hoàn thành")
                     {
                         MessageBox.Show("Không thể sửa giải ngân này");
                     }

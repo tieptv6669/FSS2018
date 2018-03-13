@@ -27,15 +27,10 @@ namespace FormDesignFSS2.GUI
         {
             InitializeComponent();
         }
-
-        private void txtSoTKLK_TextChanged(object sender, EventArgs e)
-        {
-            
-            
-        }
         
         private void cmbSPTD_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //Lấy ds sptd của KH
             KhachHang_SPTD sptd = (KhachHang_SPTD)cmbSPTD.SelectedItem;
             SanPhamTinDungBUS sanPhamTinDungBUS = new SanPhamTinDungBUS();
             string jsonData = sanPhamTinDungBUS.TimKiemSPTD(sptd.TenSPTD, sptd.MaSPTD, sptd.TenNguon);
@@ -48,6 +43,7 @@ namespace FormDesignFSS2.GUI
                 txtLaiSuat.Text = temp.LaiSuat.ToString();
                 txtLaiSuatQH.Text = temp.LaiSuatQuaHan.ToString();
                 txtTenNguon.Text = temp.TenNguon.ToString();
+                //Kiểm tra ngày đáo hạn
                 dateNgayDH.Value = dateNgayGN.Value.AddMonths(int.Parse(txtKyHan.Text));
                 if(dateNgayDH.Value.DayOfWeek.ToString() == "Saturday")
                 {
@@ -64,6 +60,10 @@ namespace FormDesignFSS2.GUI
         {
             try
             {
+                KhachHangBUS khachHangBUS = new KhachHangBUS();
+                string jsonKH = khachHangBUS.layMotKhachHang(txtSoTKLK.Text);
+                KhachHang listKH = JsonConvert.DeserializeObject<KhachHang>(jsonKH);
+
                 lblError.ForeColor = Color.Red;
                 if (btbXacNhan.Text == "Xác nhận")
                 {
@@ -72,7 +72,7 @@ namespace FormDesignFSS2.GUI
                     Nguon list = JsonConvert.DeserializeObject<Nguon>(json);
                     long coTheVay = list.tienCoTheChoVay;
                     GiaiNganBUS giaiNganBUS = new GiaiNganBUS();
-                    switch (giaiNganBUS.KTThongTinNhap(txtSoTKLK.Text, txtSoTienGN.Text, coTheVay))
+                    switch (giaiNganBUS.KTThongTinNhap(txtSoTKLK.Text, txtSoTienGN.Text, coTheVay, listKH.loai))
                     {
                         case 1:
                             {
@@ -89,14 +89,24 @@ namespace FormDesignFSS2.GUI
                                 lblError.Text = "Số tiền không hợp lệ";
                                 break;
                             }
+                        case 7:
+                            {
+                                lblError.Text = "Số tiền quá lớn";
+                                break;
+                            }
                         case 4:
                             {
-                                lblError.Text = "Số tiền còn lại trong nguồn ít hơn số tiền GN";
+                                lblError.Text = "Số tiền nhiều hơn nguồn có";
                                 break;
                             }
                         case 5:
                             {
                                 lblError.Text = "Bạn chưa nhập số TKLK";
+                                break;
+                            }
+                        case 6:
+                            {
+                                lblError.Text = "Số tiền vượt quá hạn mức loại KH";
                                 break;
                             }
                         case 0:
@@ -124,11 +134,7 @@ namespace FormDesignFSS2.GUI
                     {
                         idSPTD = temp.IdSPTD;
                     }
-                    KhachHangBUS khachHangBUS = new KhachHangBUS();
-                    //KhachHang khachHang = new KhachHang();
-                    string jsonKH = khachHangBUS.layMotKhachHang(txtSoTKLK.Text);
-                    KhachHang listKH = JsonConvert.DeserializeObject<KhachHang>(jsonKH);
-                    //khachHang = JsonConvert.DeserializeObject<KhachHang>(jsonKH);
+                    
                     int idKH = listKH.idKH;
                     
                     GiaiNgan giaiNgan = new GiaiNgan();
@@ -162,25 +168,25 @@ namespace FormDesignFSS2.GUI
                         long daChoVay = list.tienDaChoVay;
                         int idNguon = list.idNg;
                         nguonBUS.updateSoTien(long.Parse(txtSoTienGN.Text),idNguon,coTheVay,daChoVay);
-                        MessageBox.Show("Thêm khách hàng mới thành công", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Thêm giải ngân mới thành công", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         Close();
                     }
                     else
                     {
-                        MessageBox.Show("Đã có lỗi sảy ra, thêm khách hàng mới thất bại", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Đã có lỗi sảy ra, thêm giải ngân mới thất bại", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }catch(Exception ex)
             {
                 MessageBox.Show("Lỗi: " + ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
         }
 
         private void btnHuy_Click(object sender, EventArgs e)
         {
             if (btnHuy.Text == "Hủy")
             {
+                lblError.Text = "";
                 Close();
             }
             else

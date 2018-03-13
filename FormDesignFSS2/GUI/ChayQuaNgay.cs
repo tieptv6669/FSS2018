@@ -22,6 +22,7 @@ namespace FormDesignFSS2.GUI
     {
         private int progressBarStatus;
         public NguoiDung nguoiDungHeThong;
+        public Label labelNgayHeThong;
 
         /// <summary>
         /// Khởi tạo form
@@ -126,6 +127,8 @@ namespace FormDesignFSS2.GUI
                                 string ngayTiepTheo = dateTPNgayLamViecTiepTheo.Value.ToShortDateString();
 
                                 xuLyCuoiNgayBUS.XuLyCuoiNgay(ngayHienTai, ngayTiepTheo);
+                                // Hiển thị lại ngày hệ thống
+                                labelNgayHeThong.Text = ngayTiepTheo;
                                 // Ghi log
                                 LichSu lichSu = new LichSu();
                                 lichSu.MaDT = "null";

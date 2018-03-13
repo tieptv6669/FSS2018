@@ -46,6 +46,7 @@
             <s:element minOccurs="0" maxOccurs="1" name="soTKLK" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="soTienGN" type="s:string" />
             <s:element minOccurs="1" maxOccurs="1" name="soTienCoTheChoVay" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="loaiKH" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -91,6 +92,7 @@
             <s:element minOccurs="1" maxOccurs="1" name="ngayGN" type="s:dateTime" />
             <s:element minOccurs="0" maxOccurs="1" name="soTienGN" type="s:string" />
             <s:element minOccurs="1" maxOccurs="1" name="soTienCoTheChoVay" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="loaiKH" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>

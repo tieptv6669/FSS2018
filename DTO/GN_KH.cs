@@ -17,17 +17,17 @@ namespace DTO
         private string maGN;
         private long soTienGN;
         private string trangThai;
-        private int duNoGoc;
-        private int duNoLaiTrongHan;
-        private int duNoLaiQuaHan;
+        private long duNoGoc;
+        private long duNoLaiTrongHan;
+        private long duNoLaiQuaHan;
 
         public string SoTKLK { get; set; }
         public string TenKH { get; set; }
         public string MaGN { get; set; }
         public long SoTienGN { get; set; }
         public string TrangThai { get; set; }
-        public int DuNoGoc { get; set; }
-        public int DuNoLaiTrongHan { get; set; }
-        public int DuNoLaiQuaHan { get; set; }
+        public long DuNoGoc { get; set; }
+        public long DuNoLaiTrongHan { get; set; }
+        public long DuNoLaiQuaHan { get; set; }
     }
 }

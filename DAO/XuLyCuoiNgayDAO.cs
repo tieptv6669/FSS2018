@@ -48,7 +48,7 @@ namespace DAO
                 List<GiaiNgan> list = new List<GiaiNgan>();
 
                 OracleCommand oracleCommand = new OracleCommand();
-                oracleCommand.CommandText = "SELECT * FROM GIAINGAN WHERE TRANGTHAI = '1'";
+                oracleCommand.CommandText = "SELECT * FROM GIAINGAN WHERE TRANGTHAI = 'Còn nợ'";
                 OracleDataReader oracleDataReader = DataProvider.GetOracleDataReader(oracleCommand);
 
                 if(oracleDataReader != null && oracleDataReader.HasRows)

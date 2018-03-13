@@ -152,7 +152,6 @@
             this.txtSoTKLK.Name = "txtSoTKLK";
             this.txtSoTKLK.Size = new System.Drawing.Size(196, 20);
             this.txtSoTKLK.TabIndex = 10;
-            this.txtSoTKLK.TextChanged += new System.EventHandler(this.txtSoTKLK_TextChanged);
             this.txtSoTKLK.Leave += new System.EventHandler(this.txtSoTKLK_Leave);
             // 
             // txtSoTienGN
