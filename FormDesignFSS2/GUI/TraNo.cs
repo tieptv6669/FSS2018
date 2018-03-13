@@ -71,7 +71,7 @@ namespace FormDesignFSS2.GUI
             if(btnXacNhan.Text == "Xác nhận")
             {
                 TraNoBUS traNoBUS = new TraNoBUS();
-                switch(traNoBUS.KTThongTinTraNo(txtMaGN.Text, txtSoTienTra.Text))
+                switch(traNoBUS.KTThongTinTraNo(txtMaGN.Text, txtSoTienTra.Text, txtDuNoGoc.Text.Replace(",", ""), txtDuNoLaiTrongHan.Text.Replace(",", ""), txtDuNoLaiQuaHan.Text.Replace(",", "")))
                 {
                     case 1:
                         {
@@ -83,16 +83,32 @@ namespace FormDesignFSS2.GUI
                             lblError.Text = "Mã giải ngân không tồn tại hoặc đã trả hết nợ";
                             break;
                         }
+                    case 3:
+                        {
+                            lblError.Text = "Số tiền trả không hợp lệ";
+                            break;
+                        }
+                    case 4:
+                        {
+                            lblError.Text = "Số tiền trả quá lớn";
+                            break;
+                        }
                     case 0:
                         {
                             lblError.Text = "";
+                            txtSoTienTra.Text = Int64.Parse(txtSoTienTra.Text).ToString("#,##0");
+                            btnXacNhan.Text = "Lưu";
+                            btnHuy.Text = "Quay lại";
+                            btnHuy.Image = Properties.Resources._101;
+                            DisableElement();
                             break;
                         }
                 }
             }
             else
             {
-
+                // Thực hiện trả nợ
+                ThucHienTraNo();
             }
         }
 
@@ -101,6 +117,8 @@ namespace FormDesignFSS2.GUI
         /// </summary>
         private void ResetElement()
         {
+            lblError.Text = "";
+            txtSoTienTra.Text = "";
             txtMaTN.Text = "";
             txtTenKH.Text = "";
             txtGocBanDau.Text = "";
@@ -110,6 +128,24 @@ namespace FormDesignFSS2.GUI
             txtNgayDaoHan.Text = "";
             txtNgayTraNo.Text = "";
             txtSoNgayQuaHan.Text = "";
+        }
+
+        /// <summary>
+        /// Disable các text box
+        /// </summary>
+        private void DisableElement()
+        {
+            txtMaGN.Enabled = false;
+            txtMaTN.Enabled = false;
+            txtTenKH.Enabled = false;
+            txtGocBanDau.Enabled = false;
+            txtDuNoGoc.Enabled = false;
+            txtDuNoLaiTrongHan.Enabled = false;
+            txtDuNoLaiQuaHan.Enabled = false;
+            txtNgayDaoHan.Enabled = false;
+            txtNgayTraNo.Enabled = false;
+            txtSoNgayQuaHan.Enabled = false;
+            txtSoTienTra.Enabled = false;
         }
 
         /// <summary>
@@ -128,7 +164,10 @@ namespace FormDesignFSS2.GUI
                 // Lấy thông tin KH
                 KhachHangBUS khachHangBUS = new KhachHangBUS();
                 KhachHang khachHang = JsonConvert.DeserializeObject<KhachHang>(khachHangBUS.GetKHWithID(giaiNgan.IDKH));
+                // Tạo mã trả nợ
+                string maTN = traNoBUS.TaoMaTraNo(giaiNgan.MaGN);
                 // Hiển thị thông tin
+                txtMaTN.Text = maTN;
                 txtTenKH.Text = khachHang.hoTenKH;
                 txtGocBanDau.Text = giaiNgan.SoTienGN.ToString("#,##0");
                 txtDuNoGoc.Text = giaiNgan.DuNoGoc.ToString("#,##0");
@@ -145,6 +184,44 @@ namespace FormDesignFSS2.GUI
                     txtSoNgayQuaHan.Text = (DateTime.Parse(txtNgayTraNo.Text) - DateTime.Parse(txtNgayDaoHan.Text)).Days.ToString();
                 }
             }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        private void ThucHienTraNo()
+        {
+            long soTienTra = Int64.Parse(txtSoTienTra.Text.Replace(",", ""));
+            long duNoGoc = Int64.Parse(txtDuNoGoc.Text.Replace(",", ""));
+            long duNoLaiTrongHan = Int64.Parse(txtDuNoLaiTrongHan.Text.Replace(",", ""));
+            long duNoLaiQuaHan = Int64.Parse(txtDuNoLaiQuaHan.Text.Replace(",", ""));
+
+            MessageBox.Show(soTienTra.ToString());
+            MessageBox.Show(duNoGoc.ToString());
+            MessageBox.Show(duNoLaiTrongHan.ToString());
+            MessageBox.Show(duNoLaiQuaHan.ToString());
+
+            //if(soTienTra <= duNoLaiQuaHan)
+            //{
+            //    duNoLaiQuaHan -= soTienTra;
+            //}
+            //if(soTienTra > duNoLaiQuaHan && soTienTra <= (duNoLaiQuaHan + duNoLaiTrongHan))
+            //{
+            //    duNoLaiQuaHan = 0;
+            //    soTienTra -= duNoLaiQuaHan;
+            //    duNoLaiTrongHan -= soTienTra;
+            //}
+            //if(soTienTra > (duNoLaiQuaHan + duNoLaiTrongHan) && soTienTra <= (duNoGoc + duNoLaiQuaHan + duNoLaiTrongHan))
+            //{
+            //    duNoLaiQuaHan = 0;
+            //    duNoLaiTrongHan = 0;
+            //    soTienTra -= duNoLaiQuaHan;
+            //    soTienTra -= duNoLaiTrongHan;
+            //    duNoGoc -= soTienTra;
+            //}
+
+            //MessageBox.Show(duNoGoc.ToString() + '\n' + duNoLaiQuaHan.ToString() + '\n' + duNoLaiTrongHan.ToString());
         }
     }
 }

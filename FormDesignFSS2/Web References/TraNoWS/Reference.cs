@@ -37,6 +37,8 @@ namespace FormDesignFSS2.TraNoWS {
         
         private System.Threading.SendOrPostCallback KTThongTinTraNoOperationCompleted;
         
+        private System.Threading.SendOrPostCallback TaoMaTraNoOperationCompleted;
+        
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
@@ -86,6 +88,9 @@ namespace FormDesignFSS2.TraNoWS {
         
         /// <remarks/>
         public event KTThongTinTraNoCompletedEventHandler KTThongTinTraNoCompleted;
+        
+        /// <remarks/>
+        public event TaoMaTraNoCompletedEventHandler TaoMaTraNoCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetListGN", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -174,32 +179,67 @@ namespace FormDesignFSS2.TraNoWS {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/KTThongTinTraNo", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public int KTThongTinTraNo(string maGN, string soTienTra) {
+        public int KTThongTinTraNo(string maGN, string soTienTra, string duNoGoc, string duNoLaiTrongHan, string duNoLaiQuaHan) {
             object[] results = this.Invoke("KTThongTinTraNo", new object[] {
                         maGN,
-                        soTienTra});
+                        soTienTra,
+                        duNoGoc,
+                        duNoLaiTrongHan,
+                        duNoLaiQuaHan});
             return ((int)(results[0]));
         }
         
         /// <remarks/>
-        public void KTThongTinTraNoAsync(string maGN, string soTienTra) {
-            this.KTThongTinTraNoAsync(maGN, soTienTra, null);
+        public void KTThongTinTraNoAsync(string maGN, string soTienTra, string duNoGoc, string duNoLaiTrongHan, string duNoLaiQuaHan) {
+            this.KTThongTinTraNoAsync(maGN, soTienTra, duNoGoc, duNoLaiTrongHan, duNoLaiQuaHan, null);
         }
         
         /// <remarks/>
-        public void KTThongTinTraNoAsync(string maGN, string soTienTra, object userState) {
+        public void KTThongTinTraNoAsync(string maGN, string soTienTra, string duNoGoc, string duNoLaiTrongHan, string duNoLaiQuaHan, object userState) {
             if ((this.KTThongTinTraNoOperationCompleted == null)) {
                 this.KTThongTinTraNoOperationCompleted = new System.Threading.SendOrPostCallback(this.OnKTThongTinTraNoOperationCompleted);
             }
             this.InvokeAsync("KTThongTinTraNo", new object[] {
                         maGN,
-                        soTienTra}, this.KTThongTinTraNoOperationCompleted, userState);
+                        soTienTra,
+                        duNoGoc,
+                        duNoLaiTrongHan,
+                        duNoLaiQuaHan}, this.KTThongTinTraNoOperationCompleted, userState);
         }
         
         private void OnKTThongTinTraNoOperationCompleted(object arg) {
             if ((this.KTThongTinTraNoCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.KTThongTinTraNoCompleted(this, new KTThongTinTraNoCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/TaoMaTraNo", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string TaoMaTraNo(string maGN) {
+            object[] results = this.Invoke("TaoMaTraNo", new object[] {
+                        maGN});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void TaoMaTraNoAsync(string maGN) {
+            this.TaoMaTraNoAsync(maGN, null);
+        }
+        
+        /// <remarks/>
+        public void TaoMaTraNoAsync(string maGN, object userState) {
+            if ((this.TaoMaTraNoOperationCompleted == null)) {
+                this.TaoMaTraNoOperationCompleted = new System.Threading.SendOrPostCallback(this.OnTaoMaTraNoOperationCompleted);
+            }
+            this.InvokeAsync("TaoMaTraNo", new object[] {
+                        maGN}, this.TaoMaTraNoOperationCompleted, userState);
+        }
+        
+        private void OnTaoMaTraNoOperationCompleted(object arg) {
+            if ((this.TaoMaTraNoCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.TaoMaTraNoCompleted(this, new TaoMaTraNoCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -322,6 +362,32 @@ namespace FormDesignFSS2.TraNoWS {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((int)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
+    public delegate void TaoMaTraNoCompletedEventHandler(object sender, TaoMaTraNoCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class TaoMaTraNoCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal TaoMaTraNoCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
             }
         }
     }

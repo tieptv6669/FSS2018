@@ -49,6 +49,7 @@ namespace DAO
                     }
                 }
 
+                oracleCommand.Connection.Dispose();
                 return list;
             }
             catch (Exception e)
@@ -94,6 +95,7 @@ namespace DAO
                     }
                 }
 
+                oracleCommand.Connection.Dispose();
                 return list;
             }
             catch (Exception e)
@@ -147,6 +149,7 @@ namespace DAO
                     gn_sptd_nguon.NgayDH = oracleDataReader.GetDateTime(14);
                     gn_sptd_nguon.GhiChu = oracleDataReader.GetString(15);
 
+                    oracleCommand.Connection.Dispose();
                     return gn_sptd_nguon;
                  }
                 else
@@ -229,6 +232,7 @@ namespace DAO
                     }
                 }
 
+                oracleCommand.Connection.Dispose();
                 return list;
             }
             catch (Exception e)

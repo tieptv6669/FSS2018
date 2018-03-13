@@ -117,11 +117,14 @@
             // txtGhiChu
             // 
             this.txtGhiChu.BackColor = System.Drawing.SystemColors.Window;
+            this.txtGhiChu.Enabled = false;
             this.txtGhiChu.Location = new System.Drawing.Point(96, 254);
             this.txtGhiChu.Multiline = true;
             this.txtGhiChu.Name = "txtGhiChu";
+            this.txtGhiChu.ReadOnly = true;
             this.txtGhiChu.Size = new System.Drawing.Size(302, 81);
             this.txtGhiChu.TabIndex = 63;
+            this.txtGhiChu.TabStop = false;
             // 
             // txtKyHan
             // 
@@ -129,8 +132,10 @@
             this.txtKyHan.Enabled = false;
             this.txtKyHan.Location = new System.Drawing.Point(94, 172);
             this.txtKyHan.Name = "txtKyHan";
+            this.txtKyHan.ReadOnly = true;
             this.txtKyHan.Size = new System.Drawing.Size(303, 20);
             this.txtKyHan.TabIndex = 60;
+            this.txtKyHan.TabStop = false;
             // 
             // txtLaiSuat
             // 
@@ -138,8 +143,10 @@
             this.txtLaiSuat.Enabled = false;
             this.txtLaiSuat.Location = new System.Drawing.Point(94, 114);
             this.txtLaiSuat.Name = "txtLaiSuat";
+            this.txtLaiSuat.ReadOnly = true;
             this.txtLaiSuat.Size = new System.Drawing.Size(303, 20);
             this.txtLaiSuat.TabIndex = 59;
+            this.txtLaiSuat.TabStop = false;
             // 
             // txtNguon
             // 
@@ -147,8 +154,10 @@
             this.txtNguon.Enabled = false;
             this.txtNguon.Location = new System.Drawing.Point(94, 88);
             this.txtNguon.Name = "txtNguon";
+            this.txtNguon.ReadOnly = true;
             this.txtNguon.Size = new System.Drawing.Size(303, 20);
             this.txtNguon.TabIndex = 58;
+            this.txtNguon.TabStop = false;
             // 
             // txtSoTienGN
             // 
@@ -164,8 +173,10 @@
             this.txtSoTKLK.Enabled = false;
             this.txtSoTKLK.Location = new System.Drawing.Point(94, 8);
             this.txtSoTKLK.Name = "txtSoTKLK";
+            this.txtSoTKLK.ReadOnly = true;
             this.txtSoTKLK.Size = new System.Drawing.Size(303, 20);
             this.txtSoTKLK.TabIndex = 55;
+            this.txtSoTKLK.TabStop = false;
             // 
             // label10
             // 
@@ -273,13 +284,15 @@
             this.txtLaiSuatQH.Enabled = false;
             this.txtLaiSuatQH.Location = new System.Drawing.Point(94, 142);
             this.txtLaiSuatQH.Name = "txtLaiSuatQH";
+            this.txtLaiSuatQH.ReadOnly = true;
             this.txtLaiSuatQH.Size = new System.Drawing.Size(303, 20);
             this.txtLaiSuatQH.TabIndex = 66;
+            this.txtLaiSuatQH.TabStop = false;
             // 
             // dateNgayGN
             // 
             this.dateNgayGN.Enabled = false;
-            this.dateNgayGN.Location = new System.Drawing.Point(95, 199);
+            this.dateNgayGN.Location = new System.Drawing.Point(94, 199);
             this.dateNgayGN.Name = "dateNgayGN";
             this.dateNgayGN.Size = new System.Drawing.Size(303, 20);
             this.dateNgayGN.TabIndex = 67;
@@ -287,7 +300,7 @@
             // dateNgayDH
             // 
             this.dateNgayDH.Enabled = false;
-            this.dateNgayDH.Location = new System.Drawing.Point(96, 225);
+            this.dateNgayDH.Location = new System.Drawing.Point(95, 225);
             this.dateNgayDH.Name = "dateNgayDH";
             this.dateNgayDH.Size = new System.Drawing.Size(303, 20);
             this.dateNgayDH.TabIndex = 68;
@@ -304,7 +317,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(409, 413);
+            this.ClientSize = new System.Drawing.Size(403, 413);
             this.Controls.Add(this.lblError);
             this.Controls.Add(this.dateNgayDH);
             this.Controls.Add(this.dateNgayGN);
@@ -330,7 +343,10 @@
             this.Controls.Add(this.btnXacNhan);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "SuaGN";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Sửa giải ngân";
             this.Load += new System.EventHandler(this.SuaGN_Load);
             this.ResumeLayout(false);

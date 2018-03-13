@@ -89,6 +89,7 @@ namespace DAO
                     }
                 }
 
+                oracleCommand.Connection.Dispose();
                 return list;
             }catch(Exception e)
             {

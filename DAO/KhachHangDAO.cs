@@ -50,6 +50,8 @@ namespace DAO
                         list.Add(khachHang);
                     }
                 }
+
+                oracleCommand.Connection.Dispose();
                 return list;
             }
             catch(Exception e)
@@ -94,6 +96,7 @@ namespace DAO
                     khachHang.SDTKH = oracleDataReader.GetString(11);
                     khachHang.ghiChuKH = oracleDataReader.GetString(12);
 
+                    oracleCommand.Connection.Dispose();
                     return khachHang;
                 }
                 else
@@ -143,6 +146,7 @@ namespace DAO
                     khachHang.SDTKH = oracleDataReader.GetString(11);
                     khachHang.ghiChuKH = oracleDataReader.GetString(12);
 
+                    oracleCommand.Connection.Dispose();
                     return khachHang;
                 }
                 else
@@ -210,6 +214,7 @@ namespace DAO
                     }
                 }
 
+                oracleCommand.Connection.Dispose();
                 return list;
             }
             catch (Exception e)
@@ -256,6 +261,7 @@ namespace DAO
                 oracleCommand.Parameters.Add(new OracleParameter("SDTKH", SDTKH));
                 oracleCommand.Parameters.Add(new OracleParameter("ghiChuKH", ghiChuKH));
                 oracleCommand.Parameters.Add(new OracleParameter("soTKLK", soTKLK));
+
                 return DataProvider.ExcuteNonQuery(oracleCommand);
             }
             catch(Exception e)
@@ -333,6 +339,7 @@ namespace DAO
                     khachHang.SDTKH = oracleDataReader.GetString(11);
                     khachHang.ghiChuKH = oracleDataReader.GetString(12);
 
+                    oracleCommand.Connection.Dispose();
                     return khachHang;
                 }
                 else
@@ -372,6 +379,7 @@ namespace DAO
                     }
                 }
 
+                oracleCommand.Connection.Dispose();
                 return list;
             }
             catch (Exception e)

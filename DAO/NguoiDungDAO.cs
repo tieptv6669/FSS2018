@@ -48,10 +48,13 @@ namespace DAO
                     nguoiDung.quyenND = oracleDataReader.GetString(6);
                     nguoiDung.trangthaiND = oracleDataReader.GetInt32(7);
 
+                    oracleCommand.Connection.Dispose();
+
                     return nguoiDung;
                 }
                 else
                 {
+                    oracleCommand.Connection.Dispose();
                     return null;
                 }
             }
@@ -96,6 +99,7 @@ namespace DAO
                     }
                 }
 
+                oracleCommand.Connection.Dispose();
                 return list;
             }
             catch (Exception e)
@@ -171,6 +175,7 @@ namespace DAO
                     }
                 }
 
+                oracleCommand.Connection.Dispose();
                 return list;
             }catch(Exception e)
             {
@@ -296,6 +301,7 @@ namespace DAO
                 NguoiDung nguoiDung = new NguoiDung();
                 nguoiDung.matKhauND = oracleDataReader.GetString(2);
 
+                oracleCommand.Connection.Dispose();
                 return nguoiDung;
             }catch(Exception e)
             {

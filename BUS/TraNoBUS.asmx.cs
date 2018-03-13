@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Services;
 using Newtonsoft.Json;
 using DAO;
+using DTO;
 
 namespace BUS
 {
@@ -58,8 +59,9 @@ namespace BUS
         /// <param name="soTienTra"></param>
         /// <returns></returns>
         [WebMethod]
-        public int KTThongTinTraNo(string maGN, string soTienTra)
+        public int KTThongTinTraNo(string maGN, string soTienTra, string duNoGoc, string duNoLaiTrongHan, string duNoLaiQuaHan)
         {
+            Helper helper = new Helper();
             if(maGN == "")
             {
                 return 1;
@@ -68,8 +70,58 @@ namespace BUS
             {
                 return 2;
             }
-            return 0;
+            if (soTienTra.Length > 13 || soTienTra == "" || !helper.LaMotSoNguyenDuong(soTienTra))
+            {
+                return 3;
+            }
+            if (Int64.Parse(soTienTra) > Int64.Parse(duNoGoc) + Int64.Parse(duNoLaiTrongHan) + Int64.Parse(duNoLaiQuaHan))
+            {
+                return 4;
+            }
 
+            return 0;
+        }
+
+        /// <summary>
+        /// Tạo mã trả nợ khi biết mã giải ngân
+        /// </summary>
+        /// <param name="maGN"></param>
+        /// <returns></returns>
+        [WebMethod]
+        public string TaoMaTraNo(string maGN)
+        {
+            string result = "TN";
+            string sufix = maGN.Substring(2, 8);
+            result += sufix;
+            // Lấy id giải ngân khi biết mã giải ngân
+            int idGN = TraNoDAO.GetIDGN(maGN);
+            // Lấy danh sách các lần trả nợ cho món giải ngân
+            List<TraNo> list = TraNoDAO.GetListTN(idGN);
+            // Lấy danh sách mã trả nợ
+            List<string> listMaTN = new List<string>();
+            foreach (TraNo temp in list)
+            {
+                listMaTN.Add(temp.MaTN);
+            }
+            // Tạo mã trả nợ
+            for (int index = 1; index <= 99; index++)
+            {
+                if (index.ToString().Length == 1)
+                {
+                    result += "0";
+                }
+                result += index.ToString();
+                if (!listMaTN.Contains(result))
+                {
+                    return result;
+                }
+                else
+                {
+                    result = "TN" + sufix;
+                }
+            }
+
+            return result;
         }
     }
 }

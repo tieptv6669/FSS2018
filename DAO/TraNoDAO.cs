@@ -51,6 +51,7 @@ namespace DAO
                     }
                 }
 
+                oracleCommand.Connection.Dispose();
                 return list;
             }catch(Exception e)
             {
@@ -97,6 +98,7 @@ namespace DAO
                     }
                 }
 
+                oracleCommand.Connection.Dispose();
                 return list;
             }
             catch (Exception e)
@@ -138,12 +140,89 @@ namespace DAO
                     giaiNgan.IDSPTD = oracleDataReader.GetInt32(9);
                     giaiNgan.TrangThai = oracleDataReader.GetString(10);
 
+                    oracleCommand.Connection.Dispose();
                     return giaiNgan;
                 }
                 else
                 {
                     return null;
                 }
+            }catch(Exception e)
+            {
+                MessageBox.Show("Lỗi: " + e.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// Lấy ID giải ngân khi biết mã GN
+        /// </summary>
+        /// <param name="maGN"></param>
+        /// <returns></returns>
+        public static int GetIDGN(string maGN)
+        {
+            try
+            {
+                OracleCommand oracleCommand = new OracleCommand();
+                oracleCommand.CommandText = "SELECT IDGN FROM GIAINGAN WHERE MAGN = :maGN";
+                oracleCommand.Parameters.Add("maGN", maGN);
+
+                OracleDataReader oracleDataReader = DataProvider.GetOracleDataReader(oracleCommand);
+
+                if (oracleDataReader != null && oracleDataReader.HasRows)
+                {
+                    oracleDataReader.Read();
+
+                    return oracleDataReader.GetInt32(0); 
+                }
+                else
+                {
+                    return 0;
+                }
+            }catch(Exception e)
+            {
+                MessageBox.Show("Lỗi: " + e.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return 0;
+            }
+        }
+
+        /// <summary>
+        /// Lấy danh sách các lần trả nợ cho món giải ngân có id = idGN
+        /// </summary>
+        /// <param name="idGN"></param>
+        /// <returns></returns>
+        public static List<TraNo> GetListTN(int idGN)
+        {
+            try
+            {
+                List<TraNo> list = new List<TraNo>();
+
+                OracleCommand oracleCommand = new OracleCommand();
+                oracleCommand.CommandText = "SELECT * FROM TRANO WHERE IDGN = :idGN";
+                oracleCommand.Parameters.Add("idGN", idGN);
+
+                OracleDataReader oracleDataReader = DataProvider.GetOracleDataReader(oracleCommand);
+
+                if(oracleDataReader != null && oracleDataReader.HasRows)
+                {
+                    while (oracleDataReader.Read())
+                    {
+                        TraNo traNo = new TraNo();
+                        traNo.IdTN = oracleDataReader.GetInt32(0);
+                        traNo.MaTN = oracleDataReader.GetString(1);
+                        traNo.TenKH = oracleDataReader.GetString(2);
+                        traNo.SoTienTra = oracleDataReader.GetInt64(3);
+                        traNo.SoTienTraGoc = oracleDataReader.GetInt64(4);
+                        traNo.SoTienTraLai = oracleDataReader.GetInt64(5);
+                        traNo.NgayTraNo = oracleDataReader.GetDateTime(6);
+                        traNo.IdGN = oracleDataReader.GetInt32(7);
+
+                        list.Add(traNo);
+                    }
+                }
+
+                oracleCommand.Connection.Dispose();
+                return list;
             }catch(Exception e)
             {
                 MessageBox.Show("Lỗi: " + e.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);

@@ -46,6 +46,7 @@ namespace DAO
                     }
                 }
 
+                oracleCommand.Connection.Dispose();
                 return list;
             }catch(Exception e)
             {
@@ -87,6 +88,7 @@ namespace DAO
                     }
                 }
 
+                oracleCommand.Connection.Dispose();
                 return list;
             }catch(Exception e)
             {
@@ -200,6 +202,7 @@ namespace DAO
                     nguon.tienDaChoVay = oracleDataReader.GetInt64(4);
                     nguon.tienCoTheChoVay = oracleDataReader.GetInt64(5);
 
+                    oracleCommand.Connection.Dispose();
                     return nguon;
                 }
                 else

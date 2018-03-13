@@ -182,7 +182,7 @@ namespace FormDesignFSS2.GUI
                         }
                         else
                         {
-                            MessageBox.Show("Đã có lỗi sảy ra, sửa người dùng mới thất bại", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("Đã có lỗi sảy ra, sửa thông tin giải ngân thất bại", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                 }

@@ -55,6 +55,7 @@ namespace DAO
                     }
                 }
 
+                oracleCommand.Connection.Dispose();
                 return list;
             }catch(Exception e)
             {
@@ -207,6 +208,7 @@ namespace DAO
                     }
                 }
 
+                oracleCommand.Connection.Dispose();
                 return list;
             }
             catch (Exception e)

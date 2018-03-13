@@ -48,6 +48,7 @@ namespace DAO
                     }
                 }
 
+                oracleCommand.Connection.Dispose();
                 return list;
             }
             catch (Exception e)
@@ -99,6 +100,7 @@ namespace DAO
                     }
                 }
 
+                oracleCommand.Connection.Dispose();
                 return list;
             }
             catch (Exception e)
@@ -126,6 +128,7 @@ namespace DAO
                 if (oracleDataReader != null && oracleDataReader.HasRows)
                 {
                     SanPhamTinDung sanPhamTinDung = new SanPhamTinDung();
+                    oracleCommand.Connection.Dispose();
                     return sanPhamTinDung;
                 }
                 else
@@ -204,6 +207,7 @@ namespace DAO
                     }
                 }
 
+                oracleCommand.Connection.Dispose();
                 return list;
             }
             catch (Exception e)
@@ -281,6 +285,7 @@ namespace DAO
                     }
                 }
 
+                oracleCommand.Connection.Dispose();
                 return list;
             }
             catch (Exception e)
@@ -318,6 +323,8 @@ namespace DAO
                     sanPhamTinDung.TrangThai = oracleDataReader.GetString(6);
                     sanPhamTinDung.IdNguon = oracleDataReader.GetInt32(7);
                     sanPhamTinDung.TenNguon = oracleDataReader.GetString(8);
+
+                    oracleCommand.Connection.Dispose();
                     return sanPhamTinDung;
                 }
                 else
@@ -366,6 +373,7 @@ namespace DAO
                     }
                 }
 
+                oracleCommand.Connection.Dispose();
                 return list;
             }
             catch (Exception e)
