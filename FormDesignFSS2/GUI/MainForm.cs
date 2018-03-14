@@ -903,7 +903,11 @@ namespace FormDesignFSS2.GUI
             lichSuTraNo.ShowDialog();
         }
 
-
+        /// <summary>
+        /// Xử lý sự kiện click button sửa giải ngân
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSuaTabGN_Click(object sender, EventArgs e)
         {
             try
@@ -919,7 +923,7 @@ namespace FormDesignFSS2.GUI
                     suaGN.giaiNgan = gN_SPTD_;
                     if (gN_SPTD_.DuNoLaiTH > 0 || gN_SPTD_.TrangThai == "Hoàn thành")
                     {
-                        MessageBox.Show("Không thể sửa giải ngân này");
+                        MessageBox.Show("Không thể sửa giải ngân này", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     else
                     {
@@ -985,8 +989,25 @@ namespace FormDesignFSS2.GUI
         /// <param name="e"></param>
         private void btnTraNo_Click(object sender, EventArgs e)
         {
-            TraNo traNo = new TraNo();
-            traNo.ShowDialog();
+            try
+            {
+                if(gridDSMonNo.Rows.Count > 0 && gridDSMonNo.SelectedRows.Count > 0)
+                {
+                    TraNo traNo = new TraNo();
+                    traNo.maGNTN = gridDSMonNo.SelectedRows[0].Cells[0].Value.ToString();
+                    traNo.nguoiDungHeThong = nguoiDungHienTai;
+                    traNo.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("Thao tác lỗi. Bạn chưa chọn món giải ngân nào", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
 
         /// <summary>

@@ -265,8 +265,7 @@ namespace DAO
                 oracleCommand.Parameters.Add("stdachovay", stdachovay);
                 oracleCommand.Parameters.Add("idNguon", idNguon);
 
-                OracleDataReader oracleDataReader = DataProvider.GetOracleDataReader(oracleCommand);
-                return true;
+                return DataProvider.ExcuteNonQuery(oracleCommand);
             }
             catch (Exception e)
             {

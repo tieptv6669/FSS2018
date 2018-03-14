@@ -137,12 +137,13 @@
             // 
             // txtMaGN
             // 
-            this.txtMaGN.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.txtMaGN.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.txtMaGN.Location = new System.Drawing.Point(121, 7);
             this.txtMaGN.Name = "txtMaGN";
+            this.txtMaGN.ReadOnly = true;
             this.txtMaGN.Size = new System.Drawing.Size(210, 20);
             this.txtMaGN.TabIndex = 1;
-            this.txtMaGN.Leave += new System.EventHandler(this.txtMaGN_Leave);
+            this.txtMaGN.TabStop = false;
             // 
             // txtTenKH
             // 

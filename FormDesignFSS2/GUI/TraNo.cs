@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using FormDesignFSS2.TraNoWS;
 using FormDesignFSS2.KhachHangWS;
+using FormDesignFSS2.SanPhamTinDungWS;
+using FormDesignFSS2.LichSuWS;
 using DTO;
 using Newtonsoft.Json;
 
@@ -16,6 +18,17 @@ namespace FormDesignFSS2.GUI
 {
     public partial class TraNo : Form
     {
+        // Mã giải ngân của món giải ngân được chọn để trả nợ
+        public string maGNTN;
+        // ID của món giải ngân được chọn để trả nợ
+        public int idGNTN;
+        // ID của nguồn của món giải ngân
+        public int idNguonGNTN;
+        // Số TKLK của KH
+        public string soTKLK;
+        // Người dùng hệ thống
+        public NguoiDung nguoiDungHeThong;
+
         public TraNo()
         {
             InitializeComponent();
@@ -29,6 +42,41 @@ namespace FormDesignFSS2.GUI
         private void TraNo_Load(object sender, EventArgs e)
         {
             lblError.ForeColor = Color.Red;
+            TraNoBUS traNoBUS = new TraNoBUS();
+            txtMaGN.Text = maGNTN;
+            // Lấy thông tin món giải ngân
+            GiaiNgan giaiNgan = JsonConvert.DeserializeObject<GiaiNgan>(traNoBUS.GetGN(txtMaGN.Text));
+            idGNTN = giaiNgan.IDGN;
+            // Lấy id nguồn
+            SanPhamTinDungBUS sanPhamTinDungBUS = new SanPhamTinDungBUS();
+            SanPhamTinDung sanPhamTinDung = JsonConvert.DeserializeObject<SanPhamTinDung>(sanPhamTinDungBUS.GetSPTDWithID(giaiNgan.IDSPTD));
+            idNguonGNTN = sanPhamTinDung.IdNguon;
+            if (giaiNgan != null)
+            {
+                // Lấy thông tin KH
+                KhachHangBUS khachHangBUS = new KhachHangBUS();
+                KhachHang khachHang = JsonConvert.DeserializeObject<KhachHang>(khachHangBUS.GetKHWithID(giaiNgan.IDKH));
+                soTKLK = khachHang.STKLK;
+                // Tạo mã trả nợ
+                string maTN = traNoBUS.TaoMaTraNo(giaiNgan.MaGN);
+                // Hiển thị thông tin
+                txtMaTN.Text = maTN;
+                txtTenKH.Text = khachHang.hoTenKH;
+                txtGocBanDau.Text = giaiNgan.SoTienGN.ToString("#,##0");
+                txtDuNoGoc.Text = giaiNgan.DuNoGoc.ToString("#,##0");
+                txtDuNoLaiTrongHan.Text = giaiNgan.DuNoLaiTrongHan.ToString("#,##0");
+                txtDuNoLaiQuaHan.Text = giaiNgan.DuNoLaiNgoaiHan.ToString("#,##0");
+                txtNgayDaoHan.Text = giaiNgan.NgayDaoHan.ToShortDateString();
+                txtNgayTraNo.Text = DateTime.Now.ToShortDateString();
+                if (DateTime.Parse(txtNgayTraNo.Text) <= DateTime.Parse(txtNgayDaoHan.Text))
+                {
+                    txtSoNgayQuaHan.Text = "0";
+                }
+                else
+                {
+                    txtSoNgayQuaHan.Text = (DateTime.Parse(txtNgayTraNo.Text) - DateTime.Parse(txtNgayDaoHan.Text)).Days.ToString();
+                }
+            }
         }
 
         /// <summary>
@@ -149,45 +197,7 @@ namespace FormDesignFSS2.GUI
         }
 
         /// <summary>
-        /// Xử lý sự kiện nhấn tab
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void txtMaGN_Leave(object sender, EventArgs e)
-        {
-            TraNoBUS traNoBUS = new TraNoBUS();
-            ResetElement();
-            // Lấy thông tin món giải ngân
-            GiaiNgan giaiNgan = JsonConvert.DeserializeObject<GiaiNgan>(traNoBUS.GetGN(txtMaGN.Text));
-            if(giaiNgan != null)
-            {
-                // Lấy thông tin KH
-                KhachHangBUS khachHangBUS = new KhachHangBUS();
-                KhachHang khachHang = JsonConvert.DeserializeObject<KhachHang>(khachHangBUS.GetKHWithID(giaiNgan.IDKH));
-                // Tạo mã trả nợ
-                string maTN = traNoBUS.TaoMaTraNo(giaiNgan.MaGN);
-                // Hiển thị thông tin
-                txtMaTN.Text = maTN;
-                txtTenKH.Text = khachHang.hoTenKH;
-                txtGocBanDau.Text = giaiNgan.SoTienGN.ToString("#,##0");
-                txtDuNoGoc.Text = giaiNgan.DuNoGoc.ToString("#,##0");
-                txtDuNoLaiTrongHan.Text = giaiNgan.DuNoLaiTrongHan.ToString("#,##0");
-                txtDuNoLaiQuaHan.Text = giaiNgan.DuNoLaiNgoaiHan.ToString("#,##0");
-                txtNgayDaoHan.Text = giaiNgan.NgayDaoHan.ToShortDateString();
-                txtNgayTraNo.Text = DateTime.Now.ToShortDateString();
-                if (DateTime.Parse(txtNgayTraNo.Text) <= DateTime.Parse(txtNgayDaoHan.Text))
-                {
-                    txtSoNgayQuaHan.Text = "0";
-                }
-                else
-                {
-                    txtSoNgayQuaHan.Text = (DateTime.Parse(txtNgayTraNo.Text) - DateTime.Parse(txtNgayDaoHan.Text)).Days.ToString();
-                }
-            }
-        }
-
-        /// <summary>
-        /// 
+        /// Thực hiện trả nợ
         /// </summary>
         /// <returns></returns>
         private void ThucHienTraNo()
@@ -196,32 +206,68 @@ namespace FormDesignFSS2.GUI
             long duNoGoc = Int64.Parse(txtDuNoGoc.Text.Replace(",", ""));
             long duNoLaiTrongHan = Int64.Parse(txtDuNoLaiTrongHan.Text.Replace(",", ""));
             long duNoLaiQuaHan = Int64.Parse(txtDuNoLaiQuaHan.Text.Replace(",", ""));
+            long soTienTraGoc = 0;
+            long soTienTraLai = 0;
 
-            MessageBox.Show(soTienTra.ToString());
-            MessageBox.Show(duNoGoc.ToString());
-            MessageBox.Show(duNoLaiTrongHan.ToString());
-            MessageBox.Show(duNoLaiQuaHan.ToString());
+            if (soTienTra <= duNoLaiQuaHan)
+            {
+                soTienTraLai = soTienTra;
+                duNoLaiQuaHan -= soTienTra;
+                soTienTra = 0;
+            }
+            if (soTienTra > duNoLaiQuaHan && soTienTra <= (duNoLaiQuaHan + duNoLaiTrongHan))
+            {
+                soTienTraLai = soTienTra;
+                soTienTra -= duNoLaiQuaHan;
+                duNoLaiQuaHan = 0;
+                duNoLaiTrongHan -= soTienTra;
+                soTienTra = 0;
+            }
+            if (soTienTra > (duNoLaiQuaHan + duNoLaiTrongHan) && soTienTra <= (duNoGoc + duNoLaiQuaHan + duNoLaiTrongHan))
+            {
+                soTienTraLai = duNoLaiQuaHan + duNoLaiTrongHan;
+                soTienTra -= duNoLaiQuaHan;
+                soTienTra -= duNoLaiTrongHan;
+                duNoLaiQuaHan = 0;
+                duNoLaiTrongHan = 0;
+                duNoGoc -= soTienTra;
+                soTienTraGoc = soTienTra;
+                soTienTra = 0;
+            }
+            // Cập nhật lịch sử trả nợ
+            DTO.TraNo traNo = new DTO.TraNo();
+            traNo.MaTN = txtMaTN.Text;
+            traNo.TenKH = txtTenKH.Text;
+            traNo.SoTienTra = long.Parse(txtSoTienTra.Text.Replace(",", ""));
+            traNo.SoTienTraLai = soTienTraLai;
+            traNo.SoTienTraGoc = soTienTraGoc;
+            traNo.NgayTraNo = DateTime.Now;
+            traNo.IdGN = idGNTN;
+            TraNoBUS traNoBUS = new TraNoBUS();
+            bool dk1 = traNoBUS.ThemTN(JsonConvert.SerializeObject(traNo));
+            // Cập nhật dư nợ cho món giải ngân
+            bool dk2 = traNoBUS.CapNhatDuNo(maGNTN, duNoGoc, duNoLaiTrongHan, duNoLaiQuaHan);
+            // Cập nhật lịch sử
+            LichSu lichSu = new LichSu();
+            lichSu.MaDT = txtMaTN.Text;
+            lichSu.NoiDung = "Trả nợ";
+            lichSu.ThoiGian = DateTime.Now;
+            lichSu.GiaTriTruoc = "null";
+            lichSu.GiaTriSau = "null";
+            lichSu.TenDN = nguoiDungHeThong.tenDangNhapND;
+            lichSu.SoTKLK = soTKLK;
+            LichSuBUS lichSuBUS = new LichSuBUS();
+            bool dk3 = lichSuBUS.ThemLichSu(JsonConvert.SerializeObject(lichSu));
+            if(dk1 && dk2 && dk3)
+            {
+                MessageBox.Show("Trả nợ thành công", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Đã có lỗi sảy ra, trả nợ thất bại", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            // Nếu số tiền trả gốc > 0 cập nhật thông tin cho nguồn
 
-            //if(soTienTra <= duNoLaiQuaHan)
-            //{
-            //    duNoLaiQuaHan -= soTienTra;
-            //}
-            //if(soTienTra > duNoLaiQuaHan && soTienTra <= (duNoLaiQuaHan + duNoLaiTrongHan))
-            //{
-            //    duNoLaiQuaHan = 0;
-            //    soTienTra -= duNoLaiQuaHan;
-            //    duNoLaiTrongHan -= soTienTra;
-            //}
-            //if(soTienTra > (duNoLaiQuaHan + duNoLaiTrongHan) && soTienTra <= (duNoGoc + duNoLaiQuaHan + duNoLaiTrongHan))
-            //{
-            //    duNoLaiQuaHan = 0;
-            //    duNoLaiTrongHan = 0;
-            //    soTienTra -= duNoLaiQuaHan;
-            //    soTienTra -= duNoLaiTrongHan;
-            //    duNoGoc -= soTienTra;
-            //}
-
-            //MessageBox.Show(duNoGoc.ToString() + '\n' + duNoLaiQuaHan.ToString() + '\n' + duNoLaiTrongHan.ToString());
         }
     }
 }

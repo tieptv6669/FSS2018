@@ -62,14 +62,14 @@ namespace BUS
         public int KTThongTinTraNo(string maGN, string soTienTra, string duNoGoc, string duNoLaiTrongHan, string duNoLaiQuaHan)
         {
             Helper helper = new Helper();
-            if(maGN == "")
-            {
-                return 1;
-            }
-            if(TraNoDAO.GetGiaiNgan(maGN) == null)
-            {
-                return 2;
-            }
+            //if(maGN == "")
+            //{
+            //    return 1;
+            //}
+            //if(TraNoDAO.GetGiaiNgan(maGN) == null)
+            //{
+            //    return 2;
+            //}
             if (soTienTra.Length > 13 || soTienTra == "" || !helper.LaMotSoNguyenDuong(soTienTra))
             {
                 return 3;
@@ -122,6 +122,31 @@ namespace BUS
             }
 
             return result;
+        }
+
+        /// <summary>
+        /// Thêm trả nợ mới
+        /// </summary>
+        /// <param name="jsonData"></param>
+        /// <returns></returns>
+        [WebMethod]
+        public bool ThemTN(string jsonData)
+        {
+            return TraNoDAO.ThemTN(JsonConvert.DeserializeObject<TraNo>(jsonData));
+        }
+
+        /// <summary>
+        /// Cập nhật dư nợ cho món giải ngân
+        /// </summary>
+        /// <param name="maGN"></param>
+        /// <param name="duNoGoc"></param>
+        /// <param name="duNoLaiTrongHan"></param>
+        /// <param name="duNoLaiQuaHan"></param>
+        /// <returns></returns>
+        [WebMethod]
+        public bool CapNhatDuNo(string maGN, long duNoGoc, long duNoLaiTrongHan, long duNoLaiQuaHan)
+        {
+            return TraNoDAO.CapNhatDuNo(maGN, duNoGoc, duNoLaiTrongHan, duNoLaiQuaHan);
         }
     }
 }

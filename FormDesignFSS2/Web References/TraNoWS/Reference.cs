@@ -39,6 +39,10 @@ namespace FormDesignFSS2.TraNoWS {
         
         private System.Threading.SendOrPostCallback TaoMaTraNoOperationCompleted;
         
+        private System.Threading.SendOrPostCallback ThemTNOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback CapNhatDuNoOperationCompleted;
+        
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
@@ -91,6 +95,12 @@ namespace FormDesignFSS2.TraNoWS {
         
         /// <remarks/>
         public event TaoMaTraNoCompletedEventHandler TaoMaTraNoCompleted;
+        
+        /// <remarks/>
+        public event ThemTNCompletedEventHandler ThemTNCompleted;
+        
+        /// <remarks/>
+        public event CapNhatDuNoCompletedEventHandler CapNhatDuNoCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetListGN", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -244,6 +254,70 @@ namespace FormDesignFSS2.TraNoWS {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/ThemTN", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public bool ThemTN(string jsonData) {
+            object[] results = this.Invoke("ThemTN", new object[] {
+                        jsonData});
+            return ((bool)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void ThemTNAsync(string jsonData) {
+            this.ThemTNAsync(jsonData, null);
+        }
+        
+        /// <remarks/>
+        public void ThemTNAsync(string jsonData, object userState) {
+            if ((this.ThemTNOperationCompleted == null)) {
+                this.ThemTNOperationCompleted = new System.Threading.SendOrPostCallback(this.OnThemTNOperationCompleted);
+            }
+            this.InvokeAsync("ThemTN", new object[] {
+                        jsonData}, this.ThemTNOperationCompleted, userState);
+        }
+        
+        private void OnThemTNOperationCompleted(object arg) {
+            if ((this.ThemTNCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.ThemTNCompleted(this, new ThemTNCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/CapNhatDuNo", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public bool CapNhatDuNo(string maGN, long duNoGoc, long duNoLaiTrongHan, long duNoLaiQuaHan) {
+            object[] results = this.Invoke("CapNhatDuNo", new object[] {
+                        maGN,
+                        duNoGoc,
+                        duNoLaiTrongHan,
+                        duNoLaiQuaHan});
+            return ((bool)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void CapNhatDuNoAsync(string maGN, long duNoGoc, long duNoLaiTrongHan, long duNoLaiQuaHan) {
+            this.CapNhatDuNoAsync(maGN, duNoGoc, duNoLaiTrongHan, duNoLaiQuaHan, null);
+        }
+        
+        /// <remarks/>
+        public void CapNhatDuNoAsync(string maGN, long duNoGoc, long duNoLaiTrongHan, long duNoLaiQuaHan, object userState) {
+            if ((this.CapNhatDuNoOperationCompleted == null)) {
+                this.CapNhatDuNoOperationCompleted = new System.Threading.SendOrPostCallback(this.OnCapNhatDuNoOperationCompleted);
+            }
+            this.InvokeAsync("CapNhatDuNo", new object[] {
+                        maGN,
+                        duNoGoc,
+                        duNoLaiTrongHan,
+                        duNoLaiQuaHan}, this.CapNhatDuNoOperationCompleted, userState);
+        }
+        
+        private void OnCapNhatDuNoOperationCompleted(object arg) {
+            if ((this.CapNhatDuNoCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.CapNhatDuNoCompleted(this, new CapNhatDuNoCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         public new void CancelAsync(object userState) {
             base.CancelAsync(userState);
         }
@@ -388,6 +462,58 @@ namespace FormDesignFSS2.TraNoWS {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
+    public delegate void ThemTNCompletedEventHandler(object sender, ThemTNCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class ThemTNCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal ThemTNCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public bool Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
+    public delegate void CapNhatDuNoCompletedEventHandler(object sender, CapNhatDuNoCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class CapNhatDuNoCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal CapNhatDuNoCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public bool Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[0]));
             }
         }
     }

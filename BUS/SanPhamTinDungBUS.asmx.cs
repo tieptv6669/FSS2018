@@ -84,7 +84,7 @@ namespace BUS
         }
 
         /// <summary>
-        /// Lấy danh sách sản phẩm tín dụng  với trạng thái là Hoạt động
+        /// Lấy danh sách sản phẩm tín dụng với trạng thái là Hoạt động
         /// </summary>
         /// <returns></returns>
         [WebMethod]
@@ -275,6 +275,17 @@ namespace BUS
             SanPhamTinDung sanPhamTinDung = SanPhamTinDungDAO.LaySanPhamTinDung(maSPTD);
             string jsonData = JsonConvert.SerializeObject(sanPhamTinDung);
             return jsonData;
+        }
+
+        /// <summary>
+        /// Lấy sản phẩm tín dụng khi biết id SPTD
+        /// </summary>
+        /// <param name="idSPTD"></param>
+        /// <returns></returns>
+        [WebMethod]
+        public string GetSPTDWithID(int idSPTD)
+        {
+            return JsonConvert.SerializeObject(SanPhamTinDungDAO.GetSanPhamTinDungWithID(idSPTD));
         }
     }
 }

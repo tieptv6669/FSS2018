@@ -145,7 +145,7 @@
             this.Column37 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column28 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column30 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label22 = new System.Windows.Forms.Label();
+            this.lblDSMonNo = new System.Windows.Forms.Label();
             this.txtTenKHTabTN = new System.Windows.Forms.TextBox();
             this.lblTenKHTabTN = new System.Windows.Forms.Label();
             this.txtSoTKLKTabTN = new System.Windows.Forms.TextBox();
@@ -1324,7 +1324,7 @@
             this.tabTraNo.Controls.Add(this.btnDuTinhLai);
             this.tabTraNo.Controls.Add(this.btnTraNo);
             this.tabTraNo.Controls.Add(this.gridDSMonNo);
-            this.tabTraNo.Controls.Add(this.label22);
+            this.tabTraNo.Controls.Add(this.lblDSMonNo);
             this.tabTraNo.Controls.Add(this.txtTenKHTabTN);
             this.tabTraNo.Controls.Add(this.lblTenKHTabTN);
             this.tabTraNo.Controls.Add(this.txtSoTKLKTabTN);
@@ -1431,14 +1431,14 @@
             this.Column30.Name = "Column30";
             this.Column30.ReadOnly = true;
             // 
-            // label22
+            // lblDSMonNo
             // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(6, 67);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(136, 15);
-            this.label22.TabIndex = 6;
-            this.label22.Text = "Danh sách các món nợ:";
+            this.lblDSMonNo.AutoSize = true;
+            this.lblDSMonNo.Location = new System.Drawing.Point(6, 67);
+            this.lblDSMonNo.Name = "lblDSMonNo";
+            this.lblDSMonNo.Size = new System.Drawing.Size(136, 15);
+            this.lblDSMonNo.TabIndex = 6;
+            this.lblDSMonNo.Text = "Danh sách các món nợ:";
             // 
             // txtTenKHTabTN
             // 
@@ -1973,7 +1973,7 @@
         private System.Windows.Forms.Button btnXemChiTietTabKH;
         private System.Windows.Forms.Button btnThoat;
         private System.Windows.Forms.Label lblSoTKLKTabTN;
-        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label lblDSMonNo;
         private System.Windows.Forms.TextBox txtTenKHTabTN;
         private System.Windows.Forms.Label lblTenKHTabTN;
         private System.Windows.Forms.TextBox txtSoTKLKTabTN;

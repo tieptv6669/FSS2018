@@ -229,5 +229,63 @@ namespace DAO
                 return null;
             }
         }
+
+        /// <summary>
+        /// Thêm trả nợ mới
+        /// </summary>
+        /// <param name="traNo"></param>
+        /// <returns></returns>
+        public static bool ThemTN(TraNo traNo)
+        {
+            try
+            {
+                OracleCommand oracleCommand = new OracleCommand();
+                oracleCommand.CommandText = "INSERT INTO TRANO (MATN, TENKH, SOTIENTRA, SOTIENTRAGOC, SOTIENTRALAI, NGAYTRA, IDGN) " +
+                    "VALUES (:maTN, :tenKH, :soTienTra, :soTienTraGoc, :soTienTraLai, :ngayTra, :idGN)";
+                oracleCommand.Parameters.Add("maTN", traNo.MaTN);
+                oracleCommand.Parameters.Add("tenKH", traNo.TenKH);
+                oracleCommand.Parameters.Add("soTienTra", traNo.SoTienTra);
+                oracleCommand.Parameters.Add("soTienTraGoc", traNo.SoTienTraGoc);
+                oracleCommand.Parameters.Add("soTienTraLai", traNo.SoTienTraLai);
+                oracleCommand.Parameters.Add("ngayTra", traNo.NgayTraNo);
+                oracleCommand.Parameters.Add("idGN", traNo.IdGN);
+
+                return DataProvider.ExcuteNonQuery(oracleCommand);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Lỗi: " + e.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Cập nhật dư nợ cho món giải ngân
+        /// </summary>
+        /// <param name="maGN"></param>
+        /// <param name="duNoGoc"></param>
+        /// <param name="duNoLaiTrongHan"></param>
+        /// <param name="duNoLaiQuaHan"></param>
+        /// <returns></returns>
+        public static bool CapNhatDuNo(string maGN, long duNoGoc, long duNoLaiTrongHan, long duNoLaiQuaHan)
+        {
+            try
+            {
+                OracleCommand oracleCommand = new OracleCommand();
+                oracleCommand.CommandText = "UPDATE GIAINGAN SET DUNOGOC = :duNoGoc, DUNOLAITRONGHAN = :duNoLaiTrongHan, DUNOLAINGOAIHAN = :duNOLAINGOAIHAN WHERE MAGN = :maGN";
+
+                oracleCommand.Parameters.Add("duNoGoc", duNoGoc);
+                oracleCommand.Parameters.Add("duNoLaiTrongHan", duNoLaiTrongHan);
+                oracleCommand.Parameters.Add("duNOLAINGOAIHAN",duNoLaiQuaHan);
+                oracleCommand.Parameters.Add("maGN", maGN);
+
+                return DataProvider.ExcuteNonQuery(oracleCommand);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Lỗi: " + e.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
     }
 }

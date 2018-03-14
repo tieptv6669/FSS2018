@@ -382,5 +382,48 @@ namespace DAO
                 return null;
             }
         }
+
+        /// <summary>
+        /// Lấy sản phẩm tín dụng khi biết id sptd
+        /// </summary>
+        /// <param name="idSPTD"></param>
+        /// <returns></returns>
+        public static SanPhamTinDung GetSanPhamTinDungWithID(int idSPTD)
+        {
+            try
+            {
+                OracleCommand oracleCommand = new OracleCommand();
+                oracleCommand.CommandText = "SELECT * FROM SPTD WHERE IDSPTD = :idSPTD";
+                oracleCommand.Parameters.Add("idSPTD", idSPTD);
+
+                OracleDataReader oracleDataReader = DataProvider.GetOracleDataReader(oracleCommand);
+
+                if(oracleDataReader != null && oracleDataReader.HasRows)
+                {
+                    oracleDataReader.Read();
+                    SanPhamTinDung sanPhamTinDung = new SanPhamTinDung();
+                    sanPhamTinDung.IdSPTD = oracleDataReader.GetInt32(0);
+                    sanPhamTinDung.MaSPTD = oracleDataReader.GetString(1);
+                    sanPhamTinDung.TenSPTD = oracleDataReader.GetString(2);
+                    sanPhamTinDung.ThoiHanVay = oracleDataReader.GetInt32(3);
+                    sanPhamTinDung.LaiSuat = oracleDataReader.GetInt32(4);
+                    sanPhamTinDung.LaiSuatQuaHan = oracleDataReader.GetInt32(5);
+                    sanPhamTinDung.TrangThai = oracleDataReader.GetString(6);
+                    sanPhamTinDung.IdNguon = oracleDataReader.GetInt32(7);
+                    sanPhamTinDung.TenNguon = oracleDataReader.GetString(8);
+
+                    oracleCommand.Connection.Dispose();
+                    return sanPhamTinDung;
+                }
+                else
+                {
+                    return null;
+                }
+            }catch(Exception e)
+            {
+                MessageBox.Show("Lỗi: " + e.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+        }
     }
 }

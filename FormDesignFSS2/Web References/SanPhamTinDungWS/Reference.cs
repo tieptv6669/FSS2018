@@ -23,7 +23,7 @@ namespace FormDesignFSS2.SanPhamTinDungWS {
     
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Web.Services.WebServiceBindingAttribute(Name="SanPhamTinDungBUSSoap", Namespace="http://tempuri.org/")]
@@ -50,6 +50,8 @@ namespace FormDesignFSS2.SanPhamTinDungWS {
         private System.Threading.SendOrPostCallback GetListSPTDOperationCompleted;
         
         private System.Threading.SendOrPostCallback GetSPTDOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GetSPTDWithIDOperationCompleted;
         
         private bool useDefaultCredentialsSetExplicitly;
         
@@ -121,6 +123,9 @@ namespace FormDesignFSS2.SanPhamTinDungWS {
         
         /// <remarks/>
         public event GetSPTDCompletedEventHandler GetSPTDCompleted;
+        
+        /// <remarks/>
+        public event GetSPTDWithIDCompletedEventHandler GetSPTDWithIDCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/KTThongTinThemMoiSPTD", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -468,6 +473,35 @@ namespace FormDesignFSS2.SanPhamTinDungWS {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetSPTDWithID", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string GetSPTDWithID(int idSPTD) {
+            object[] results = this.Invoke("GetSPTDWithID", new object[] {
+                        idSPTD});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetSPTDWithIDAsync(int idSPTD) {
+            this.GetSPTDWithIDAsync(idSPTD, null);
+        }
+        
+        /// <remarks/>
+        public void GetSPTDWithIDAsync(int idSPTD, object userState) {
+            if ((this.GetSPTDWithIDOperationCompleted == null)) {
+                this.GetSPTDWithIDOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetSPTDWithIDOperationCompleted);
+            }
+            this.InvokeAsync("GetSPTDWithID", new object[] {
+                        idSPTD}, this.GetSPTDWithIDOperationCompleted, userState);
+        }
+        
+        private void OnGetSPTDWithIDOperationCompleted(object arg) {
+            if ((this.GetSPTDWithIDCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetSPTDWithIDCompleted(this, new GetSPTDWithIDCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         public new void CancelAsync(object userState) {
             base.CancelAsync(userState);
         }
@@ -487,11 +521,11 @@ namespace FormDesignFSS2.SanPhamTinDungWS {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     public delegate void KTThongTinThemMoiSPTDCompletedEventHandler(object sender, KTThongTinThemMoiSPTDCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class KTThongTinThemMoiSPTDCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -513,11 +547,11 @@ namespace FormDesignFSS2.SanPhamTinDungWS {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     public delegate void LayDanhSachSPTDCompletedEventHandler(object sender, LayDanhSachSPTDCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class LayDanhSachSPTDCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -539,11 +573,11 @@ namespace FormDesignFSS2.SanPhamTinDungWS {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     public delegate void LayDanhSachSPTDHDCompletedEventHandler(object sender, LayDanhSachSPTDHDCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class LayDanhSachSPTDHDCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -565,11 +599,11 @@ namespace FormDesignFSS2.SanPhamTinDungWS {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     public delegate void TimKiemSPTDCompletedEventHandler(object sender, TimKiemSPTDCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class TimKiemSPTDCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -591,11 +625,11 @@ namespace FormDesignFSS2.SanPhamTinDungWS {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     public delegate void TaoMaSPTDCompletedEventHandler(object sender, TaoMaSPTDCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class TaoMaSPTDCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -617,11 +651,11 @@ namespace FormDesignFSS2.SanPhamTinDungWS {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     public delegate void ThemMoiSPTDCompletedEventHandler(object sender, ThemMoiSPTDCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class ThemMoiSPTDCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -643,11 +677,11 @@ namespace FormDesignFSS2.SanPhamTinDungWS {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     public delegate void KTThongTinSuaSPTDCompletedEventHandler(object sender, KTThongTinSuaSPTDCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class KTThongTinSuaSPTDCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -669,11 +703,11 @@ namespace FormDesignFSS2.SanPhamTinDungWS {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     public delegate void KTThayDoiTenSPTDCompletedEventHandler(object sender, KTThayDoiTenSPTDCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class KTThayDoiTenSPTDCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -695,11 +729,11 @@ namespace FormDesignFSS2.SanPhamTinDungWS {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     public delegate void SuaSPTDCompletedEventHandler(object sender, SuaSPTDCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class SuaSPTDCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -721,11 +755,11 @@ namespace FormDesignFSS2.SanPhamTinDungWS {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     public delegate void GetListSPTDCompletedEventHandler(object sender, GetListSPTDCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class GetListSPTDCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -747,11 +781,11 @@ namespace FormDesignFSS2.SanPhamTinDungWS {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     public delegate void GetSPTDCompletedEventHandler(object sender, GetSPTDCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class GetSPTDCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -759,6 +793,32 @@ namespace FormDesignFSS2.SanPhamTinDungWS {
         private object[] results;
         
         internal GetSPTDCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
+    public delegate void GetSPTDWithIDCompletedEventHandler(object sender, GetSPTDWithIDCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetSPTDWithIDCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetSPTDWithIDCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }

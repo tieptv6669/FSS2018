@@ -163,6 +163,20 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="GetSPTDWithID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idSPTD" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSPTDWithIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSPTDWithIDResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="KTThongTinThemMoiSPTDSoapIn">
@@ -231,6 +245,12 @@
   <wsdl:message name="GetSPTDSoapOut">
     <wsdl:part name="parameters" element="tns:GetSPTDResponse" />
   </wsdl:message>
+  <wsdl:message name="GetSPTDWithIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSPTDWithID" />
+  </wsdl:message>
+  <wsdl:message name="GetSPTDWithIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSPTDWithIDResponse" />
+  </wsdl:message>
   <wsdl:portType name="SanPhamTinDungBUSSoap">
     <wsdl:operation name="KTThongTinThemMoiSPTD">
       <wsdl:input message="tns:KTThongTinThemMoiSPTDSoapIn" />
@@ -275,6 +295,10 @@
     <wsdl:operation name="GetSPTD">
       <wsdl:input message="tns:GetSPTDSoapIn" />
       <wsdl:output message="tns:GetSPTDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSPTDWithID">
+      <wsdl:input message="tns:GetSPTDWithIDSoapIn" />
+      <wsdl:output message="tns:GetSPTDWithIDSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="SanPhamTinDungBUSSoap" type="tns:SanPhamTinDungBUSSoap">
@@ -378,6 +402,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetSPTDWithID">
+      <soap:operation soapAction="http://tempuri.org/GetSPTDWithID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="SanPhamTinDungBUSSoap12" type="tns:SanPhamTinDungBUSSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -473,6 +506,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetSPTD">
       <soap12:operation soapAction="http://tempuri.org/GetSPTD" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSPTDWithID">
+      <soap12:operation soapAction="http://tempuri.org/GetSPTDWithID" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
