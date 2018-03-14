@@ -11,6 +11,7 @@ using FormDesignFSS2.TraNoWS;
 using FormDesignFSS2.KhachHangWS;
 using FormDesignFSS2.SanPhamTinDungWS;
 using FormDesignFSS2.LichSuWS;
+using FormDesignFSS2.NguonWS;
 using DTO;
 using Newtonsoft.Json;
 
@@ -28,6 +29,8 @@ namespace FormDesignFSS2.GUI
         public string soTKLK;
         // Người dùng hệ thống
         public NguoiDung nguoiDungHeThong;
+        // Gridview
+        public DataGridView dataGridView;
 
         public TraNo()
         {
@@ -258,16 +261,32 @@ namespace FormDesignFSS2.GUI
             lichSu.SoTKLK = soTKLK;
             LichSuBUS lichSuBUS = new LichSuBUS();
             bool dk3 = lichSuBUS.ThemLichSu(JsonConvert.SerializeObject(lichSu));
-            if(dk1 && dk2 && dk3)
+            // Cập nhật số tiền cho nguồn
+            NguonBUS nguonBUS = new NguonBUS();
+            Nguon nguon = JsonConvert.DeserializeObject<Nguon>(nguonBUS.GetNguonWithID(idNguonGNTN));
+            nguon.tienDaChoVay -= soTienTraGoc;
+            nguon.tienCoTheChoVay += soTienTraGoc;
+            bool dk4 = traNoBUS.CapNhatNguon(idNguonGNTN, nguon.tienDaChoVay, nguon.tienCoTheChoVay);
+
+            if (dk1 && dk2 && dk3 && dk4)
             {
                 MessageBox.Show("Trả nợ thành công", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                // Cập nhật gridview
+                foreach(DataGridViewRow temp in dataGridView.Rows)
+                {
+                    if(temp.Cells[0].Value.ToString() == maGNTN)
+                    {
+                        temp.Cells[1].Value = duNoGoc.ToString("#,##0");
+                        temp.Cells[2].Value = duNoLaiTrongHan.ToString("#,##0");
+                        temp.Cells[3].Value = duNoLaiQuaHan.ToString("#,##0");
+                    }
+                }
             }
             else
             {
                 MessageBox.Show("Đã có lỗi sảy ra, trả nợ thất bại", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            // Nếu số tiền trả gốc > 0 cập nhật thông tin cho nguồn
-
+            Close();
         }
     }
 }

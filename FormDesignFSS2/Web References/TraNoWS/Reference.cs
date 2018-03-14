@@ -43,6 +43,8 @@ namespace FormDesignFSS2.TraNoWS {
         
         private System.Threading.SendOrPostCallback CapNhatDuNoOperationCompleted;
         
+        private System.Threading.SendOrPostCallback CapNhatNguonOperationCompleted;
+        
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
@@ -101,6 +103,9 @@ namespace FormDesignFSS2.TraNoWS {
         
         /// <remarks/>
         public event CapNhatDuNoCompletedEventHandler CapNhatDuNoCompleted;
+        
+        /// <remarks/>
+        public event CapNhatNguonCompletedEventHandler CapNhatNguonCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetListGN", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -318,6 +323,39 @@ namespace FormDesignFSS2.TraNoWS {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/CapNhatNguon", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public bool CapNhatNguon(int idNg, long tienDaChoVay, long tienCoTheChoVay) {
+            object[] results = this.Invoke("CapNhatNguon", new object[] {
+                        idNg,
+                        tienDaChoVay,
+                        tienCoTheChoVay});
+            return ((bool)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void CapNhatNguonAsync(int idNg, long tienDaChoVay, long tienCoTheChoVay) {
+            this.CapNhatNguonAsync(idNg, tienDaChoVay, tienCoTheChoVay, null);
+        }
+        
+        /// <remarks/>
+        public void CapNhatNguonAsync(int idNg, long tienDaChoVay, long tienCoTheChoVay, object userState) {
+            if ((this.CapNhatNguonOperationCompleted == null)) {
+                this.CapNhatNguonOperationCompleted = new System.Threading.SendOrPostCallback(this.OnCapNhatNguonOperationCompleted);
+            }
+            this.InvokeAsync("CapNhatNguon", new object[] {
+                        idNg,
+                        tienDaChoVay,
+                        tienCoTheChoVay}, this.CapNhatNguonOperationCompleted, userState);
+        }
+        
+        private void OnCapNhatNguonOperationCompleted(object arg) {
+            if ((this.CapNhatNguonCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.CapNhatNguonCompleted(this, new CapNhatNguonCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         public new void CancelAsync(object userState) {
             base.CancelAsync(userState);
         }
@@ -505,6 +543,32 @@ namespace FormDesignFSS2.TraNoWS {
         private object[] results;
         
         internal CapNhatDuNoCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public bool Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
+    public delegate void CapNhatNguonCompletedEventHandler(object sender, CapNhatNguonCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class CapNhatNguonCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal CapNhatNguonCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }

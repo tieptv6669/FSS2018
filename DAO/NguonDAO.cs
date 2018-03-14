@@ -273,5 +273,47 @@ namespace DAO
                 return false;
             }
         }
+
+        /// <summary>
+        /// Lấy nguồn khi biết id nguồn
+        /// </summary>
+        /// <param name="idNg"></param>
+        /// <returns></returns>
+        public static Nguon GetNguon(int idNg)
+        {
+            try
+            {
+                OracleCommand oracleCommand = new OracleCommand();
+                oracleCommand.CommandText = "SELECT * FROM NGUON WHERE IDNGUON = :idNguon";
+                oracleCommand.Parameters.Add("idNguon", idNg);
+
+                OracleDataReader oracleDataReader = DataProvider.GetOracleDataReader(oracleCommand);
+
+                if (oracleDataReader != null && oracleDataReader.HasRows)
+                {
+                    oracleDataReader.Read();
+
+                    Nguon nguon = new Nguon();
+                    nguon.idNg = oracleDataReader.GetInt32(0);
+                    nguon.maNg = oracleDataReader.GetString(1);
+                    nguon.tenNg = oracleDataReader.GetString(2);
+                    nguon.hanMucNg = oracleDataReader.GetInt64(3);
+                    nguon.tienDaChoVay = oracleDataReader.GetInt64(4);
+                    nguon.tienCoTheChoVay = oracleDataReader.GetInt64(5);
+
+                    oracleCommand.Connection.Dispose();
+                    return nguon;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show("Lỗi: " + e.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+        }
     }
 }

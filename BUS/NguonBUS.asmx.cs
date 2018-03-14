@@ -236,5 +236,16 @@ namespace BUS
         {
             return NguonDAO.updateSTienSua(choVay, idNguon, coTheVay, daChoVay);
         }
+
+        /// <summary>
+        /// Lấy nguồn khi biết id nguồn
+        /// </summary>
+        /// <param name="idNg"></param>
+        /// <returns></returns>
+        [WebMethod]
+        public string GetNguonWithID(int idNg)
+        {
+            return JsonConvert.SerializeObject(NguonDAO.GetNguon(idNg));
+        }
     }
 }

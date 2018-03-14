@@ -148,5 +148,18 @@ namespace BUS
         {
             return TraNoDAO.CapNhatDuNo(maGN, duNoGoc, duNoLaiTrongHan, duNoLaiQuaHan);
         }
+
+        /// <summary>
+        /// Cập nhật số tiền cho nguồn
+        /// </summary>
+        /// <param name="idNg"></param>
+        /// <param name="tienDaChoVay"></param>
+        /// <param name="tienCoTheChoVay"></param>
+        /// <returns></returns>
+        [WebMethod]
+        public bool CapNhatNguon(int idNg, long tienDaChoVay, long tienCoTheChoVay)
+        {
+            return TraNoDAO.CapNhatNguon(idNg, tienDaChoVay, tienCoTheChoVay);
+        }
     }
 }

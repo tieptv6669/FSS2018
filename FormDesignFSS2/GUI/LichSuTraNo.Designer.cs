@@ -30,17 +30,15 @@
         {
             this.lblMaGN = new System.Windows.Forms.Label();
             this.txtMaGN = new System.Windows.Forms.TextBox();
-            this.btnTimKiem = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnDong = new System.Windows.Forms.Button();
+            this.lblLichSu = new System.Windows.Forms.Label();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnDong = new System.Windows.Forms.Button();
-            this.lblLichSu = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,24 +54,13 @@
             // 
             // txtMaGN
             // 
+            this.txtMaGN.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.txtMaGN.Location = new System.Drawing.Point(92, 8);
             this.txtMaGN.Name = "txtMaGN";
-            this.txtMaGN.Size = new System.Drawing.Size(220, 20);
+            this.txtMaGN.ReadOnly = true;
+            this.txtMaGN.Size = new System.Drawing.Size(181, 20);
             this.txtMaGN.TabIndex = 1;
-            // 
-            // btnTimKiem
-            // 
-            this.btnTimKiem.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.btnTimKiem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTimKiem.Image = global::FormDesignFSS2.Properties.Resources._147;
-            this.btnTimKiem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTimKiem.Location = new System.Drawing.Point(318, 7);
-            this.btnTimKiem.Name = "btnTimKiem";
-            this.btnTimKiem.Size = new System.Drawing.Size(87, 38);
-            this.btnTimKiem.TabIndex = 2;
-            this.btnTimKiem.Text = "Tìm kiếm";
-            this.btnTimKiem.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnTimKiem.UseVisualStyleBackColor = false;
+            this.txtMaGN.TabStop = false;
             // 
             // dataGridView1
             // 
@@ -81,26 +68,44 @@
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
             this.Column2,
             this.Column3,
             this.Column4,
             this.Column5,
             this.Column6,
             this.Column7});
-            this.dataGridView1.Location = new System.Drawing.Point(7, 71);
+            this.dataGridView1.Location = new System.Drawing.Point(7, 58);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(725, 175);
+            this.dataGridView1.Size = new System.Drawing.Size(645, 188);
             this.dataGridView1.TabIndex = 3;
             this.dataGridView1.TabStop = false;
             // 
-            // Column1
+            // btnDong
             // 
-            this.Column1.HeaderText = "Mã giải ngân";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
+            this.btnDong.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnDong.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDong.Image = global::FormDesignFSS2.Properties.Resources._168;
+            this.btnDong.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDong.Location = new System.Drawing.Point(570, 252);
+            this.btnDong.Name = "btnDong";
+            this.btnDong.Size = new System.Drawing.Size(83, 46);
+            this.btnDong.TabIndex = 4;
+            this.btnDong.Text = "Đóng";
+            this.btnDong.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnDong.UseVisualStyleBackColor = false;
+            this.btnDong.Click += new System.EventHandler(this.btnDong_Click);
+            // 
+            // lblLichSu
+            // 
+            this.lblLichSu.AutoSize = true;
+            this.lblLichSu.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLichSu.Location = new System.Drawing.Point(4, 40);
+            this.lblLichSu.Name = "lblLichSu";
+            this.lblLichSu.Size = new System.Drawing.Size(83, 15);
+            this.lblLichSu.TabIndex = 5;
+            this.lblLichSu.Text = "Lịch sử trả nợ:";
             // 
             // Column2
             // 
@@ -138,40 +143,14 @@
             this.Column7.Name = "Column7";
             this.Column7.ReadOnly = true;
             // 
-            // btnDong
-            // 
-            this.btnDong.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnDong.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDong.Image = global::FormDesignFSS2.Properties.Resources._168;
-            this.btnDong.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDong.Location = new System.Drawing.Point(650, 252);
-            this.btnDong.Name = "btnDong";
-            this.btnDong.Size = new System.Drawing.Size(83, 46);
-            this.btnDong.TabIndex = 4;
-            this.btnDong.Text = "Đóng";
-            this.btnDong.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnDong.UseVisualStyleBackColor = false;
-            this.btnDong.Click += new System.EventHandler(this.btnDong_Click);
-            // 
-            // lblLichSu
-            // 
-            this.lblLichSu.AutoSize = true;
-            this.lblLichSu.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLichSu.Location = new System.Drawing.Point(4, 54);
-            this.lblLichSu.Name = "lblLichSu";
-            this.lblLichSu.Size = new System.Drawing.Size(83, 15);
-            this.lblLichSu.TabIndex = 5;
-            this.lblLichSu.Text = "Lịch sử trả nợ:";
-            // 
             // LichSuTraNo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(738, 302);
+            this.ClientSize = new System.Drawing.Size(657, 302);
             this.Controls.Add(this.lblLichSu);
             this.Controls.Add(this.btnDong);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.btnTimKiem);
             this.Controls.Add(this.txtMaGN);
             this.Controls.Add(this.lblMaGN);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -190,16 +169,14 @@
 
         private System.Windows.Forms.Label lblMaGN;
         private System.Windows.Forms.TextBox txtMaGN;
-        private System.Windows.Forms.Button btnTimKiem;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.Button btnDong;
+        private System.Windows.Forms.Label lblLichSu;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
-        private System.Windows.Forms.Button btnDong;
-        private System.Windows.Forms.Label lblLichSu;
     }
 }

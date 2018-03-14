@@ -23,7 +23,7 @@ namespace FormDesignFSS2.NguonWS {
     
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Web.Services.WebServiceBindingAttribute(Name="NguonBUSSoap", Namespace="http://tempuri.org/")]
@@ -50,6 +50,8 @@ namespace FormDesignFSS2.NguonWS {
         private System.Threading.SendOrPostCallback updateSoTienOperationCompleted;
         
         private System.Threading.SendOrPostCallback updateSoTienSuaOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GetNguonWithIDOperationCompleted;
         
         private bool useDefaultCredentialsSetExplicitly;
         
@@ -121,6 +123,9 @@ namespace FormDesignFSS2.NguonWS {
         
         /// <remarks/>
         public event updateSoTienSuaCompletedEventHandler updateSoTienSuaCompleted;
+        
+        /// <remarks/>
+        public event GetNguonWithIDCompletedEventHandler GetNguonWithIDCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/LayDSNguon", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -460,6 +465,35 @@ namespace FormDesignFSS2.NguonWS {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetNguonWithID", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string GetNguonWithID(int idNg) {
+            object[] results = this.Invoke("GetNguonWithID", new object[] {
+                        idNg});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetNguonWithIDAsync(int idNg) {
+            this.GetNguonWithIDAsync(idNg, null);
+        }
+        
+        /// <remarks/>
+        public void GetNguonWithIDAsync(int idNg, object userState) {
+            if ((this.GetNguonWithIDOperationCompleted == null)) {
+                this.GetNguonWithIDOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetNguonWithIDOperationCompleted);
+            }
+            this.InvokeAsync("GetNguonWithID", new object[] {
+                        idNg}, this.GetNguonWithIDOperationCompleted, userState);
+        }
+        
+        private void OnGetNguonWithIDOperationCompleted(object arg) {
+            if ((this.GetNguonWithIDCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetNguonWithIDCompleted(this, new GetNguonWithIDCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         public new void CancelAsync(object userState) {
             base.CancelAsync(userState);
         }
@@ -479,11 +513,11 @@ namespace FormDesignFSS2.NguonWS {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     public delegate void LayDSNguonCompletedEventHandler(object sender, LayDSNguonCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class LayDSNguonCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -505,11 +539,11 @@ namespace FormDesignFSS2.NguonWS {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     public delegate void TimKiemNguonCompletedEventHandler(object sender, TimKiemNguonCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class TimKiemNguonCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -531,11 +565,11 @@ namespace FormDesignFSS2.NguonWS {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     public delegate void TaoMaNguonCompletedEventHandler(object sender, TaoMaNguonCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class TaoMaNguonCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -557,11 +591,11 @@ namespace FormDesignFSS2.NguonWS {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     public delegate void KTThongTinThemNguonCompletedEventHandler(object sender, KTThongTinThemNguonCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class KTThongTinThemNguonCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -583,11 +617,11 @@ namespace FormDesignFSS2.NguonWS {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     public delegate void ThemNguonMoiCompletedEventHandler(object sender, ThemNguonMoiCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class ThemNguonMoiCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -609,11 +643,11 @@ namespace FormDesignFSS2.NguonWS {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     public delegate void KTThongTinSuaNguonCompletedEventHandler(object sender, KTThongTinSuaNguonCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class KTThongTinSuaNguonCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -635,11 +669,11 @@ namespace FormDesignFSS2.NguonWS {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     public delegate void SuaNguonCompletedEventHandler(object sender, SuaNguonCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class SuaNguonCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -661,11 +695,11 @@ namespace FormDesignFSS2.NguonWS {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     public delegate void XoaNguonCompletedEventHandler(object sender, XoaNguonCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class XoaNguonCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -687,11 +721,11 @@ namespace FormDesignFSS2.NguonWS {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     public delegate void GetNguonCompletedEventHandler(object sender, GetNguonCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class GetNguonCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -713,11 +747,11 @@ namespace FormDesignFSS2.NguonWS {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     public delegate void updateSoTienCompletedEventHandler(object sender, updateSoTienCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class updateSoTienCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -739,11 +773,11 @@ namespace FormDesignFSS2.NguonWS {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     public delegate void updateSoTienSuaCompletedEventHandler(object sender, updateSoTienSuaCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class updateSoTienSuaCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -760,6 +794,32 @@ namespace FormDesignFSS2.NguonWS {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((bool)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
+    public delegate void GetNguonWithIDCompletedEventHandler(object sender, GetNguonWithIDCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetNguonWithIDCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetNguonWithIDCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
             }
         }
     }

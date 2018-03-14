@@ -271,13 +271,51 @@ namespace DAO
         {
             try
             {
+                string trangThai;
+                if(duNoGoc > 0)
+                {
+                    trangThai = "Còn nợ";
+                }
+                else
+                {
+                    trangThai = "Hoàn thành";
+                }
                 OracleCommand oracleCommand = new OracleCommand();
-                oracleCommand.CommandText = "UPDATE GIAINGAN SET DUNOGOC = :duNoGoc, DUNOLAITRONGHAN = :duNoLaiTrongHan, DUNOLAINGOAIHAN = :duNOLAINGOAIHAN WHERE MAGN = :maGN";
+                oracleCommand.CommandText = "UPDATE GIAINGAN SET DUNOGOC = :duNoGoc, DUNOLAITRONGHAN = :duNoLaiTrongHan, DUNOLAINGOAIHAN = :duNOLAINGOAIHAN, TRANGTHAI = :trangThai WHERE MAGN = :maGN";
 
                 oracleCommand.Parameters.Add("duNoGoc", duNoGoc);
                 oracleCommand.Parameters.Add("duNoLaiTrongHan", duNoLaiTrongHan);
                 oracleCommand.Parameters.Add("duNOLAINGOAIHAN",duNoLaiQuaHan);
+                oracleCommand.Parameters.Add("trangThai", trangThai);
                 oracleCommand.Parameters.Add("maGN", maGN);
+
+                return DataProvider.ExcuteNonQuery(oracleCommand);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Lỗi: " + e.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Cập nhật số tiền cho nguồn
+        /// </summary>
+        /// <param name="idNg"></param>
+        /// <param name="tienDaChoVay"></param>
+        /// <param name="tienCoTheChoVay"></param>
+        /// <returns></returns>
+        public static bool CapNhatNguon(int idNg, long tienDaChoVay, long tienCoTheChoVay)
+        {
+            try
+            {
+                OracleCommand oracleCommand = new OracleCommand();
+                oracleCommand.CommandText = "UPDATE NGUON SET SOTIENDACHOVAY = :sOTIENDACHOVAY, " +
+                    "SOTIENCOTHECHOVAY = :sOTIENCOTHECHOVAY WHERE IDNGUON = :iDNGUON";
+
+                oracleCommand.Parameters.Add("sOTIENDACHOVAY", tienDaChoVay);
+                oracleCommand.Parameters.Add("sOTIENCOTHECHOVAY", tienCoTheChoVay);
+                oracleCommand.Parameters.Add("iDNGUON", idNg);
 
                 return DataProvider.ExcuteNonQuery(oracleCommand);
             }

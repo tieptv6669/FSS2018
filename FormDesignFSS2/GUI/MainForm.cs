@@ -899,8 +899,23 @@ namespace FormDesignFSS2.GUI
         /// <param name="e"></param>
         private void btnLichSuTN_Click(object sender, EventArgs e)
         {
-            LichSuTraNo lichSuTraNo = new LichSuTraNo();
-            lichSuTraNo.ShowDialog();
+            try
+            {
+                if(gridDSMonNo.Rows.Count > 0 && gridDSMonNo.SelectedRows.Count > 0)
+                {
+                    LichSuTraNo lichSuTraNo = new LichSuTraNo();
+                    lichSuTraNo.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("Thao tác lỗi. Bạn chưa chọn món giải ngân nào", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
 
         /// <summary>
@@ -996,6 +1011,7 @@ namespace FormDesignFSS2.GUI
                     TraNo traNo = new TraNo();
                     traNo.maGNTN = gridDSMonNo.SelectedRows[0].Cells[0].Value.ToString();
                     traNo.nguoiDungHeThong = nguoiDungHienTai;
+                    traNo.dataGridView = gridDSMonNo;
                     traNo.ShowDialog();
                 }
                 else
