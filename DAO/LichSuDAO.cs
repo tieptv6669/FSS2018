@@ -58,9 +58,12 @@ namespace DAO
         {
             try
             {
+                finishDate = finishDate.AddDays(1);
+
                 List<LichSu> list = new List<LichSu>();
 
                 OracleCommand oracleCommand = new OracleCommand();
+                
                 oracleCommand.CommandText = "SELECT * FROM LICHSU WHERE TENDANGNHAP LIKE '%' || :tenDANGNHAP || '%' " +
                     "AND SOTKLK LIKE '%' || :sOTKLK || '%' AND MADOITUONG LIKE '%' || :mADOITUONG || '%' " +
                     "AND THOIGIAN BETWEEN :fromDate AND :toDate";
