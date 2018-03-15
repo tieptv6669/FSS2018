@@ -255,9 +255,10 @@ namespace DAO
             try
             {
                 OracleCommand oracleCommand = new OracleCommand();
-                oracleCommand.CommandText = "UPDATE GIAINGAN SET SOTIENGN = :soTienGN, IDSPTD = :idSPTD," +
+                oracleCommand.CommandText = "UPDATE GIAINGAN SET SOTIENGN = :soTienGN, DUNOGOC = :duNoGoc, IDSPTD = :idSPTD," +
                     " GHICHU = :ghiChu WHERE MAGN = :maGN";
                 oracleCommand.Parameters.Add(new OracleParameter("soTienGN", soTienGN));
+                oracleCommand.Parameters.Add("duNoGoc", soTienGN);
                 oracleCommand.Parameters.Add(new OracleParameter("idSPTD", idSPTD));
                 oracleCommand.Parameters.Add(new OracleParameter("ghiChu", ghiChu));
                 oracleCommand.Parameters.Add(new OracleParameter("maGN", maGN));

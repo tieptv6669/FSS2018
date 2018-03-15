@@ -47,6 +47,10 @@ namespace BUS
             {
                 return 4;
             }
+            if (tenSPTD.Length > 100 || thoiHanVay.Length > 3 || laiSuat.Length > 2 || laiSuatQuaHan.Length > 2)
+            {
+                return 10;
+            }
             if (!helper.ChiChuaChuCai(tenSPTD))
             {
                 return 5;
@@ -67,6 +71,7 @@ namespace BUS
             {
                 return 9;
             }
+            
 
             return 0;
         }
@@ -191,6 +196,10 @@ namespace BUS
             if (laiSuatQuaHan == "")
             {
                 return 4;
+            }
+            if(tenMoiSPTD.Length > 100 || thoiHanVay.Length > 3 || laiSuat.Length > 2 || laiSuatQuaHan.Length > 2)
+            {
+                return 10;
             }
             if (!helper.ChiChuaChuCai(tenMoiSPTD))
             {

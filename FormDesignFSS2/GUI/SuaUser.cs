@@ -108,6 +108,11 @@ namespace FormDesignFSS2.GUI
                                 lblError.Text = "Tên phòng ban không hợp lệ";
                                 break;
                             }
+                        case 8:
+                            {
+                                lblError.Text = "Độ dài vượt quá trường thông tin";
+                                break;
+                            }
                         case 0:
                             {
                                 lblError.Text = "";

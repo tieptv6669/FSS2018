@@ -45,6 +45,10 @@ namespace FormDesignFSS2.TraNoWS {
         
         private System.Threading.SendOrPostCallback CapNhatNguonOperationCompleted;
         
+        private System.Threading.SendOrPostCallback GetIDGNOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GetListTNOperationCompleted;
+        
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
@@ -106,6 +110,12 @@ namespace FormDesignFSS2.TraNoWS {
         
         /// <remarks/>
         public event CapNhatNguonCompletedEventHandler CapNhatNguonCompleted;
+        
+        /// <remarks/>
+        public event GetIDGNCompletedEventHandler GetIDGNCompleted;
+        
+        /// <remarks/>
+        public event GetListTNCompletedEventHandler GetListTNCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetListGN", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -356,6 +366,64 @@ namespace FormDesignFSS2.TraNoWS {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetIDGN", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public int GetIDGN(string maGN) {
+            object[] results = this.Invoke("GetIDGN", new object[] {
+                        maGN});
+            return ((int)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetIDGNAsync(string maGN) {
+            this.GetIDGNAsync(maGN, null);
+        }
+        
+        /// <remarks/>
+        public void GetIDGNAsync(string maGN, object userState) {
+            if ((this.GetIDGNOperationCompleted == null)) {
+                this.GetIDGNOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetIDGNOperationCompleted);
+            }
+            this.InvokeAsync("GetIDGN", new object[] {
+                        maGN}, this.GetIDGNOperationCompleted, userState);
+        }
+        
+        private void OnGetIDGNOperationCompleted(object arg) {
+            if ((this.GetIDGNCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetIDGNCompleted(this, new GetIDGNCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetListTN", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string GetListTN(int idGN) {
+            object[] results = this.Invoke("GetListTN", new object[] {
+                        idGN});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetListTNAsync(int idGN) {
+            this.GetListTNAsync(idGN, null);
+        }
+        
+        /// <remarks/>
+        public void GetListTNAsync(int idGN, object userState) {
+            if ((this.GetListTNOperationCompleted == null)) {
+                this.GetListTNOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetListTNOperationCompleted);
+            }
+            this.InvokeAsync("GetListTN", new object[] {
+                        idGN}, this.GetListTNOperationCompleted, userState);
+        }
+        
+        private void OnGetListTNOperationCompleted(object arg) {
+            if ((this.GetListTNCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetListTNCompleted(this, new GetListTNCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         public new void CancelAsync(object userState) {
             base.CancelAsync(userState);
         }
@@ -578,6 +646,58 @@ namespace FormDesignFSS2.TraNoWS {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((bool)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
+    public delegate void GetIDGNCompletedEventHandler(object sender, GetIDGNCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetIDGNCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetIDGNCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public int Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((int)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
+    public delegate void GetListTNCompletedEventHandler(object sender, GetListTNCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetListTNCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetListTNCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
             }
         }
     }

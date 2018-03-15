@@ -123,6 +123,11 @@ namespace FormDesignFSS2.GUI
                                 lblError.Text = "Tên SPTD đã tồn tại";
                                 break;
                             }
+                        case 10:
+                            {
+                                lblError.Text = "Vượt quá độ dài trường thông tin";
+                                break;
+                            }
                         case 0:
                             {
                                 lblError.Text = "";

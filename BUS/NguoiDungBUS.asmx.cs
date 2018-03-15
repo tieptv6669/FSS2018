@@ -111,6 +111,10 @@ namespace BUS
             {
                 return 7;
             }
+            if(hoTen.Length > 50 || chucVu.Length > 50 || phongBan.Length > 50)
+            {
+                return 8;
+            } 
 
             return 0;
         }
@@ -312,5 +316,6 @@ namespace BUS
         {
             return JsonConvert.SerializeObject(NguoiDungDAO.GetNguoiDung(tenDN));
         }
+
     }
 }

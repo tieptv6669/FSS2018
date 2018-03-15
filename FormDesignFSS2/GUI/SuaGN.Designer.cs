@@ -117,11 +117,9 @@
             // txtGhiChu
             // 
             this.txtGhiChu.BackColor = System.Drawing.SystemColors.Window;
-            this.txtGhiChu.Enabled = false;
             this.txtGhiChu.Location = new System.Drawing.Point(96, 254);
             this.txtGhiChu.Multiline = true;
             this.txtGhiChu.Name = "txtGhiChu";
-            this.txtGhiChu.ReadOnly = true;
             this.txtGhiChu.Size = new System.Drawing.Size(302, 81);
             this.txtGhiChu.TabIndex = 63;
             this.txtGhiChu.TabStop = false;

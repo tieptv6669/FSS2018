@@ -52,5 +52,7 @@ namespace BUS
             LichSuDAO.ThemLichSu(lichSu);
             return true;
         }
+
+
     }
 }

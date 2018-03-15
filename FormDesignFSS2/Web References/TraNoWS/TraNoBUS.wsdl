@@ -119,6 +119,34 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="GetIDGN">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="maGN" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetIDGNResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetIDGNResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetListTN">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idGN" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetListTNResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetListTNResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="GetListGNSoapIn">
@@ -169,6 +197,18 @@
   <wsdl:message name="CapNhatNguonSoapOut">
     <wsdl:part name="parameters" element="tns:CapNhatNguonResponse" />
   </wsdl:message>
+  <wsdl:message name="GetIDGNSoapIn">
+    <wsdl:part name="parameters" element="tns:GetIDGN" />
+  </wsdl:message>
+  <wsdl:message name="GetIDGNSoapOut">
+    <wsdl:part name="parameters" element="tns:GetIDGNResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetListTNSoapIn">
+    <wsdl:part name="parameters" element="tns:GetListTN" />
+  </wsdl:message>
+  <wsdl:message name="GetListTNSoapOut">
+    <wsdl:part name="parameters" element="tns:GetListTNResponse" />
+  </wsdl:message>
   <wsdl:portType name="TraNoBUSSoap">
     <wsdl:operation name="GetListGN">
       <wsdl:input message="tns:GetListGNSoapIn" />
@@ -201,6 +241,14 @@
     <wsdl:operation name="CapNhatNguon">
       <wsdl:input message="tns:CapNhatNguonSoapIn" />
       <wsdl:output message="tns:CapNhatNguonSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetIDGN">
+      <wsdl:input message="tns:GetIDGNSoapIn" />
+      <wsdl:output message="tns:GetIDGNSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListTN">
+      <wsdl:input message="tns:GetListTNSoapIn" />
+      <wsdl:output message="tns:GetListTNSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="TraNoBUSSoap" type="tns:TraNoBUSSoap">
@@ -277,6 +325,24 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetIDGN">
+      <soap:operation soapAction="http://tempuri.org/GetIDGN" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListTN">
+      <soap:operation soapAction="http://tempuri.org/GetListTN" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="TraNoBUSSoap12" type="tns:TraNoBUSSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -345,6 +411,24 @@
     </wsdl:operation>
     <wsdl:operation name="CapNhatNguon">
       <soap12:operation soapAction="http://tempuri.org/CapNhatNguon" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetIDGN">
+      <soap12:operation soapAction="http://tempuri.org/GetIDGN" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListTN">
+      <soap12:operation soapAction="http://tempuri.org/GetListTN" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

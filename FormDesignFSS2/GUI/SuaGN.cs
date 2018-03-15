@@ -30,6 +30,7 @@ namespace FormDesignFSS2.GUI
 
         private void SuaGN_Load(object sender, EventArgs e)
         {
+            lblError.ForeColor = Color.Red;
             txtSoTKLK.Text = giaiNgan.SoTKLK;
             txtSoTienGN.Text = giaiNgan.SoTienGN.ToString();
             txtNguon.Text = giaiNgan.TenNguon;
