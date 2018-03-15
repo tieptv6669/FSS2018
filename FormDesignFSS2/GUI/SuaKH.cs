@@ -139,8 +139,24 @@ namespace FormDesignFSS2.GUI
                                 lblError.Text = "Nghề nghiệp nhập không hợp lệ";
                                 break;
                             }
+                        case 11:
+                            {
+                                lblError.Text = "Số điện thoại không hợp lệ";
+                                break;
+                            }
+                        case 12:
+                            {
+                                lblError.Text = "Số CMND không hợp lệ";
+                                break;
+                            }
+                        case 13:
+                            {
+                                lblError.Text = "Độ dài vượt quá trường thông tin";
+                                break;
+                            }
                         case 0:
                             {
+                                lblError.Text = "";
                                 btnXacNhan.Text = "Lưu";
                                 btnHuy.Text = "Quay lại";
                                 btnHuy.Image = Properties.Resources._101;

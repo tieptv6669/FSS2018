@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DTO;
 
 namespace FormDesignFSS2.GUI
 {
@@ -16,6 +17,8 @@ namespace FormDesignFSS2.GUI
     /// </summary>
     public partial class LichSuTraNo : Form
     {
+        // Mã giải ngân
+        public string maGN;
         public LichSuTraNo()
         {
             InitializeComponent();
@@ -29,6 +32,16 @@ namespace FormDesignFSS2.GUI
         private void btnDong_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        /// <summary>
+        /// Tải form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void LichSuTraNo_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

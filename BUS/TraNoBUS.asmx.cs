@@ -161,5 +161,27 @@ namespace BUS
         {
             return TraNoDAO.CapNhatNguon(idNg, tienDaChoVay, tienCoTheChoVay);
         }
+
+        /// <summary>
+        /// Lấy id giải ngân khi biết mã giải ngân
+        /// </summary>
+        /// <param name="maGN"></param>
+        /// <returns></returns>
+        [WebMethod]
+        public int GetIDGN(string maGN)
+        {
+            return TraNoDAO.GetIDGN(maGN);
+        }
+
+        /// <summary>
+        /// Lấy danh sách các lần trả nợ cho món giải ngân có id = idGN
+        /// </summary>
+        /// <param name="idGN"></param>
+        /// <returns></returns>
+        [WebMethod]
+        public string GetListTN(int idGN)
+        {
+            return JsonConvert.SerializeObject(TraNoDAO.GetListTN(idGN));
+        }
     }
 }

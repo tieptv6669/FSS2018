@@ -34,8 +34,9 @@ namespace BUS
         /// <param name="SDT"></param>
         /// <returns></returns>
         [WebMethod]
-        public int KTThongTinThemKH(string soTKLK, DateTime ngayMoTK, string hoTen, DateTime ngaySinh, string ngheNghiep, string soCMND, string diaChi, string email, string SDT)
+        public int KTThongTinThemKH(string soTKLK, DateTime ngayMoTK, string hoTen, DateTime ngaySinh, string ngheNghiep, string soCMND, string diaChi, string email, string SDT, string ghiChu)
         {
+            DateTime ngayDu18Tuoi = ngaySinh.AddYears(18);
             Helper helper = new Helper();
             if (soTKLK.Length == 4)
             {
@@ -65,7 +66,7 @@ namespace BUS
             {
                 return 7;
             }
-            if (ngayMoTK.Year - ngaySinh.Year < 18)
+            if (ngayMoTK < ngayDu18Tuoi)
             {
                 return 8;
             }
@@ -77,11 +78,11 @@ namespace BUS
             {
                 return 10;
             }
-            if (!helper.ChiChuaChuSo(soCMND) || soCMND.Length > 15)
+            if (!helper.ChiChuaChuSo(soCMND))
             {
                 return 11;
             }
-            if(!helper.ChiChuaChuSo(SDT) || SDT.Length > 15)
+            if(!helper.ChiChuaChuSo(SDT))
             {
                 return 12;
             }
@@ -96,6 +97,10 @@ namespace BUS
             if(KhachHangDAO.GetKhachHang(soCMND) != null)
             {
                 return 15;
+            }
+            if(hoTen.Length > 50 || ngheNghiep.Length > 50 || soCMND.Length > 12 || SDT.Length > 11 || email.Length > 50 || diaChi.Length > 50 || ghiChu.Length > 100)
+            {
+                return 16;
             }
             return 0;
         }
@@ -115,6 +120,7 @@ namespace BUS
         [WebMethod]
         public int KTThongTinSuaKH(DateTime ngayMoTK, string hoTenKH, DateTime ngaySinh, string ngheNghiep, string soCMND, string diaChi, string email, string sdt)
         {
+            DateTime ngayDu18Tuoi = ngaySinh.AddYears(18);
             Helper helper = new Helper();
             if(hoTenKH == "")
             {
@@ -140,7 +146,7 @@ namespace BUS
             {
                 return 7;
             }
-            if(ngayMoTK.Year - ngaySinh.Year < 18)
+            if(ngayMoTK < ngayDu18Tuoi)
             {
                 return 8;
             }
@@ -155,6 +161,14 @@ namespace BUS
             if (!helper.ChiChuaChuSo(sdt))
             {
                 return 11;
+            }
+            if (!helper.ChiChuaChuSo(soCMND))
+            {
+                return 12;
+            }
+            if(hoTenKH.Length > 50 || ngheNghiep.Length > 50 || soCMND.Length > 12 || diaChi.Length > 50 || sdt.Length > 11)
+            {
+                return 13;
             }
 
             return 0;

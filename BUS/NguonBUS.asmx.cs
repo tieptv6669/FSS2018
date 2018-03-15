@@ -121,6 +121,10 @@ namespace BUS
             {
                 return 3;
             }
+            if(hanMuc.Length > 14 || tenNguon.Length > 50)
+            {
+                return 6;
+            }
             if (!helper.LaMotSoNguyenDuong(hanMuc))
             {
                 return 4;
@@ -159,6 +163,10 @@ namespace BUS
             if(hanMuc == "")
             {
                 return 1;
+            }
+            if(hanMuc.Length > 14)
+            {
+                return 4;
             }
             if (!helper.LaMotSoNguyenDuong(hanMuc))
             {

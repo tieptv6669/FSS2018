@@ -77,6 +77,11 @@ namespace FormDesignFSS2.GUI
                                 lblError.Text = "Hạn mức phải lớn hơn số tiền đã cho vay";
                                 break;
                             }
+                        case 4:
+                            {
+                                lblError.Text = "Độ dài vượt quá trường thông tin";
+                                break;
+                            }
                         case 0:
                             {
                                 lblError.Text = "";

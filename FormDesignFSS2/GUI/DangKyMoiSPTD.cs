@@ -85,6 +85,7 @@ namespace FormDesignFSS2.GUI
                             }
                         case 0:
                             {
+                                lblError.Text = "";
                                 txtSoTKLK.Enabled = false;
                                 txtTenKH.Enabled = false;
                                 txtDiaChi.Enabled = false;

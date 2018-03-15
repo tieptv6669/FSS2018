@@ -53,7 +53,7 @@ namespace FormDesignFSS2.GUI
                 if (btnXacNhan.Text == "Xác nhận")
                 {
                     KhachHangBUS khachHangBUS = new KhachHangBUS();
-                    switch (khachHangBUS.KTThongTinThemKH(txtSoTKLK.Text + txtSoTKLK2.Text, DateTime.Now, txtHoTen.Text, dateTimePickerNgaySinh.Value, txtNgheNghiep.Text, txtSoCMND.Text, txtDiaChi.Text, txtEmail.Text, txtSDT.Text))
+                    switch (khachHangBUS.KTThongTinThemKH(txtSoTKLK.Text + txtSoTKLK2.Text, DateTime.Now, txtHoTen.Text, dateTimePickerNgaySinh.Value, txtNgheNghiep.Text, txtSoCMND.Text, txtDiaChi.Text, txtEmail.Text, txtSDT.Text, txtGhiChu.Text))
                     {
                         case 1:
                             {
@@ -92,7 +92,7 @@ namespace FormDesignFSS2.GUI
                             }
                         case 8:
                             {
-                                lblError.Text = "Bạn chưa đủ 18 tuổi";
+                                lblError.Text = "Khách hàng chưa đủ 18 tuổi";
                                 break;
                             }
                         case 9:
@@ -128,6 +128,11 @@ namespace FormDesignFSS2.GUI
                         case 15:
                             {
                                 lblError.Text = "Số CMND đã tồn tại";
+                                break;
+                            }
+                        case 16:
+                            {
+                                lblError.Text = "Vượt quá độ dài trường thông tin";
                                 break;
                             }
                         case 0:
@@ -201,9 +206,6 @@ namespace FormDesignFSS2.GUI
                         lichSuBUS.ThemLichSu(JsonConvert.SerializeObject(lichSu));
 
                         MessageBox.Show("Thêm khách hàng mới thành công", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        Hide();
-                        ThemKH themKH = new ThemKH();
-                        themKH.ShowDialog();
                         Close();
                     }
                     else

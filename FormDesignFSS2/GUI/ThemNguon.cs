@@ -77,6 +77,11 @@ namespace FormDesignFSS2.GUI
                                 lblError.Text = "Tên nguồn đã tồn tại";
                                 break;
                             }
+                        case 6:
+                            {
+                                lblError.Text = "Độ dài vượt quá trường thông tin";
+                                break;
+                            }
                         case 0:
                             {
                                 lblError.Text = "";
@@ -117,9 +122,6 @@ namespace FormDesignFSS2.GUI
                         lichSuBUS.ThemLichSu(JsonConvert.SerializeObject(lichSu));
 
                         MessageBox.Show("Thêm nguồn mới thành công", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        Hide();
-                        ThemNguon themNguon = new ThemNguon();
-                        themNguon.ShowDialog();
                         Close();
                     }
                     else

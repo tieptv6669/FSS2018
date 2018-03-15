@@ -125,6 +125,7 @@ namespace FormDesignFSS2.GUI
                             }
                         case 0:
                             {
+                                lblError.Text = "";
                                 txtMaSPTD.Enabled = false;
                                 txtTenSPTD.Enabled = false;
                                 txtThoiHanVay.Enabled = false;

@@ -904,6 +904,7 @@ namespace FormDesignFSS2.GUI
                 if(gridDSMonNo.Rows.Count > 0 && gridDSMonNo.SelectedRows.Count > 0)
                 {
                     LichSuTraNo lichSuTraNo = new LichSuTraNo();
+                    //lichSuTraNo.giaiNgan = 
                     lichSuTraNo.ShowDialog();
                 }
                 else
