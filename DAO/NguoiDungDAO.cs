@@ -49,7 +49,6 @@ namespace DAO
                     nguoiDung.trangthaiND = oracleDataReader.GetInt32(7);
 
                     oracleCommand.Connection.Dispose();
-
                     return nguoiDung;
                 }
                 else
@@ -129,8 +128,11 @@ namespace DAO
                 oracleCommand.Parameters.Add(new OracleParameter("quyen", nguoiDung.quyenND));
                 oracleCommand.Parameters.Add(new OracleParameter("trangThai", nguoiDung.trangthaiND));
 
-                return DataProvider.ExcuteNonQuery(oracleCommand);
-            }catch(Exception e)
+                bool kt = DataProvider.ExcuteNonQuery(oracleCommand);
+                oracleCommand.Connection.Dispose();
+                return kt;
+            }
+            catch(Exception e)
             {
                 MessageBox.Show("Lỗi: " + e.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
@@ -208,8 +210,11 @@ namespace DAO
                 oracleCommand.Parameters.Add(new OracleParameter("quyen", quyen));
                 oracleCommand.Parameters.Add(new OracleParameter("tenDN", tenDN));
 
-                return DataProvider.ExcuteNonQuery(oracleCommand);
-            }catch(Exception e)
+                bool kt = DataProvider.ExcuteNonQuery(oracleCommand);
+                oracleCommand.Connection.Dispose();
+                return kt;
+            }
+            catch(Exception e)
             {
                 MessageBox.Show("Lỗi: " + e.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
@@ -229,8 +234,11 @@ namespace DAO
                 oracleCommand.CommandText = "UPDATE NGUOIDUNG SET TRANGTHAI = '0' WHERE TENDANGNHAP = :tenDN";
                 oracleCommand.Parameters.Add(new OracleParameter("tenDN", tenDN));
 
-                return DataProvider.ExcuteNonQuery(oracleCommand);
-            }catch(Exception e)
+                bool kt = DataProvider.ExcuteNonQuery(oracleCommand);
+                oracleCommand.Connection.Dispose();
+                return kt;
+            }
+            catch(Exception e)
             {
                 MessageBox.Show("Lỗi: " + e.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
@@ -252,8 +260,11 @@ namespace DAO
                 oracleCommand.Parameters.Add(new OracleParameter("matKhau", MatKhauMoi));
                 oracleCommand.Parameters.Add(new OracleParameter("tenDN", tenDN));
 
-                return DataProvider.ExcuteNonQuery(oracleCommand);
-            }catch(Exception e)
+                bool kt = DataProvider.ExcuteNonQuery(oracleCommand);
+                oracleCommand.Connection.Dispose();
+                return kt;
+            }
+            catch(Exception e)
             {
                 MessageBox.Show("Lỗi: " + e.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
@@ -275,8 +286,11 @@ namespace DAO
                 oracleCommand.Parameters.Add(new OracleParameter("matKhau", tenDN));
                 oracleCommand.Parameters.Add(new OracleParameter("tenDN", tenDN));
 
-                return DataProvider.ExcuteNonQuery(oracleCommand);
-            }catch(Exception e)
+                bool kt = DataProvider.ExcuteNonQuery(oracleCommand);
+                oracleCommand.Connection.Dispose();
+                return kt;
+            }
+            catch(Exception e)
             {
                 MessageBox.Show("Lỗi: " + e.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;

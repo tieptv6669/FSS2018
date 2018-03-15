@@ -188,7 +188,9 @@ namespace DAO
                 oracleCommand.Parameters.Add(new OracleParameter("trangThai", giaiNgan.TrangThai));
                 oracleCommand.Parameters.Add(new OracleParameter("ghiChu", giaiNgan.GhiChu));
 
-                return DataProvider.ExcuteNonQuery(oracleCommand);
+                bool kt = DataProvider.ExcuteNonQuery(oracleCommand);
+                oracleCommand.Connection.Dispose();
+                return kt;
             }
             catch (Exception e)
             {
@@ -262,7 +264,10 @@ namespace DAO
                 oracleCommand.Parameters.Add(new OracleParameter("idSPTD", idSPTD));
                 oracleCommand.Parameters.Add(new OracleParameter("ghiChu", ghiChu));
                 oracleCommand.Parameters.Add(new OracleParameter("maGN", maGN));
-                return DataProvider.ExcuteNonQuery(oracleCommand);
+
+                bool kt = DataProvider.ExcuteNonQuery(oracleCommand);
+                oracleCommand.Connection.Dispose();
+                return kt;
             }
             catch (Exception e)
             {

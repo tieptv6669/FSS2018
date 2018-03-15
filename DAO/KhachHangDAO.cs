@@ -262,7 +262,9 @@ namespace DAO
                 oracleCommand.Parameters.Add(new OracleParameter("ghiChuKH", ghiChuKH));
                 oracleCommand.Parameters.Add(new OracleParameter("soTKLK", soTKLK));
 
-                return DataProvider.ExcuteNonQuery(oracleCommand);
+                bool kt = DataProvider.ExcuteNonQuery(oracleCommand);
+                oracleCommand.Connection.Dispose();
+                return kt;
             }
             catch(Exception e)
             {
@@ -296,8 +298,11 @@ namespace DAO
                 oracleCommand.Parameters.Add("sdt", khachHang.SDTKH);
                 oracleCommand.Parameters.Add("ghiChu", khachHang.ghiChuKH);
 
-                return DataProvider.ExcuteNonQuery(oracleCommand);
-            }catch(Exception e)
+                bool kt = DataProvider.ExcuteNonQuery(oracleCommand);
+                oracleCommand.Connection.Dispose();
+                return kt;
+            }
+            catch(Exception e)
             {
                 MessageBox.Show("Lỗi: " + e.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;

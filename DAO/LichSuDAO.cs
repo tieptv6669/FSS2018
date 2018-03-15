@@ -37,6 +37,7 @@ namespace DAO
                 oracleCommand.Parameters.Add("sOTKLK", lichSu.SoTKLK);
 
                 DataProvider.ExcuteNonQuery(oracleCommand);
+                oracleCommand.Connection.Dispose();
             }
             catch (Exception e)
             {

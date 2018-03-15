@@ -250,7 +250,9 @@ namespace DAO
                 oracleCommand.Parameters.Add("ngayTra", traNo.NgayTraNo);
                 oracleCommand.Parameters.Add("idGN", traNo.IdGN);
 
-                return DataProvider.ExcuteNonQuery(oracleCommand);
+                bool kt = DataProvider.ExcuteNonQuery(oracleCommand);
+                oracleCommand.Connection.Dispose();
+                return kt;
             }
             catch (Exception e)
             {
@@ -289,7 +291,9 @@ namespace DAO
                 oracleCommand.Parameters.Add("trangThai", trangThai);
                 oracleCommand.Parameters.Add("maGN", maGN);
 
-                return DataProvider.ExcuteNonQuery(oracleCommand);
+                bool kt = DataProvider.ExcuteNonQuery(oracleCommand);
+                oracleCommand.Connection.Dispose();
+                return kt;
             }
             catch (Exception e)
             {
@@ -317,7 +321,9 @@ namespace DAO
                 oracleCommand.Parameters.Add("sOTIENCOTHECHOVAY", tienCoTheChoVay);
                 oracleCommand.Parameters.Add("iDNGUON", idNg);
 
-                return DataProvider.ExcuteNonQuery(oracleCommand);
+                bool kt = DataProvider.ExcuteNonQuery(oracleCommand);
+                oracleCommand.Connection.Dispose();
+                return kt;
             }
             catch (Exception e)
             {

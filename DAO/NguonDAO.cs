@@ -115,7 +115,9 @@ namespace DAO
                 oracleCommand.Parameters.Add(new OracleParameter("soTienDaChoVay", nguon.tienDaChoVay));
                 oracleCommand.Parameters.Add(new OracleParameter("soTienCoTheChoVay", nguon.tienCoTheChoVay));
 
-                return DataProvider.ExcuteNonQuery(oracleCommand);
+                bool kt = DataProvider.ExcuteNonQuery(oracleCommand);
+                oracleCommand.Connection.Dispose();
+                return kt;
             }
             catch (Exception e)
             {
@@ -144,8 +146,11 @@ namespace DAO
                 oracleCommand.Parameters.Add(new OracleParameter("tienCoTheChoVay", soTienCoTheChoVay));
                 oracleCommand.Parameters.Add(new OracleParameter("maNguon", maNguon));
 
-                return DataProvider.ExcuteNonQuery(oracleCommand);
-            }catch(Exception e)
+                bool kt = DataProvider.ExcuteNonQuery(oracleCommand);
+                oracleCommand.Connection.Dispose();
+                return kt;
+            }
+            catch(Exception e)
             {
                 MessageBox.Show("Lỗi: " + e.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
@@ -165,7 +170,9 @@ namespace DAO
                 oracleCommand.CommandText = "DELETE FROM NGUON WHERE MANGUON = :maNguon";
                 oracleCommand.Parameters.Add("maNguon", maNguon);
 
-                return DataProvider.ExcuteNonQuery(oracleCommand);
+                bool kt = DataProvider.ExcuteNonQuery(oracleCommand);
+                oracleCommand.Connection.Dispose();
+                return kt;
             }
             catch (Exception e)
             {
@@ -235,7 +242,9 @@ namespace DAO
                 oracleCommand.Parameters.Add("stdachovay", stdachovay);
                 oracleCommand.Parameters.Add("idNguon", idNguon);
 
-                return DataProvider.ExcuteNonQuery(oracleCommand);
+                bool kt = DataProvider.ExcuteNonQuery(oracleCommand);
+                oracleCommand.Connection.Dispose();
+                return kt;
             }
             catch (Exception e)
             {
@@ -265,7 +274,9 @@ namespace DAO
                 oracleCommand.Parameters.Add("stdachovay", stdachovay);
                 oracleCommand.Parameters.Add("idNguon", idNguon);
 
-                return DataProvider.ExcuteNonQuery(oracleCommand);
+                bool kt = DataProvider.ExcuteNonQuery(oracleCommand);
+                oracleCommand.Connection.Dispose();
+                return kt;
             }
             catch (Exception e)
             {

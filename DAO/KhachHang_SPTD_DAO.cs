@@ -121,8 +121,11 @@ namespace DAO
                 oracleCommand.Parameters.Add("idKH", idKH);
                 oracleCommand.Parameters.Add("idSPTD", idSPTD);
 
-                return DataProvider.ExcuteNonQuery(oracleCommand);
-            }catch(Exception e)
+                bool kt = DataProvider.ExcuteNonQuery(oracleCommand);
+                oracleCommand.Connection.Dispose();
+                return kt;
+            }
+            catch(Exception e)
             {
                 MessageBox.Show("Lỗi: " + e.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
@@ -144,7 +147,9 @@ namespace DAO
                 oracleCommand.Parameters.Add("idKH", idKH);
                 oracleCommand.Parameters.Add("idSPTD", idSPTD);
 
-                return DataProvider.ExcuteNonQuery(oracleCommand);
+                bool kt = DataProvider.ExcuteNonQuery(oracleCommand);
+                oracleCommand.Connection.Dispose();
+                return kt;
             }
             catch (Exception e)
             {
@@ -169,9 +174,11 @@ namespace DAO
                 oracleCommand.Parameters.Add("idKH", idKH);
                 oracleCommand.Parameters.Add("idSPTD", idSPTD);
 
-                return DataProvider.ExcuteNonQuery(oracleCommand);
-
-            }catch(Exception e)
+                bool kt = DataProvider.ExcuteNonQuery(oracleCommand);
+                oracleCommand.Connection.Dispose();
+                return kt;
+            }
+            catch (Exception e)
             {
                 MessageBox.Show("Lỗi: " + e.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
