@@ -268,7 +268,7 @@
             // 
             // txtDuTinhLaiTrongHan
             // 
-            this.txtDuTinhLaiTrongHan.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.txtDuTinhLaiTrongHan.BackColor = System.Drawing.SystemColors.HighlightText;
             this.txtDuTinhLaiTrongHan.Location = new System.Drawing.Point(132, 334);
             this.txtDuTinhLaiTrongHan.Name = "txtDuTinhLaiTrongHan";
             this.txtDuTinhLaiTrongHan.ReadOnly = true;
@@ -302,6 +302,7 @@
             this.btnDuTinh.Text = "Dự tính";
             this.btnDuTinh.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnDuTinh.UseVisualStyleBackColor = false;
+            this.btnDuTinh.Click += new System.EventHandler(this.btnDuTinh_Click);
             // 
             // lblDuTinhLaiQuaHan
             // 
@@ -315,7 +316,7 @@
             // 
             // txtDuTinhLaiQuaHan
             // 
-            this.txtDuTinhLaiQuaHan.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.txtDuTinhLaiQuaHan.BackColor = System.Drawing.SystemColors.HighlightText;
             this.txtDuTinhLaiQuaHan.Location = new System.Drawing.Point(132, 366);
             this.txtDuTinhLaiQuaHan.Name = "txtDuTinhLaiQuaHan";
             this.txtDuTinhLaiQuaHan.ReadOnly = true;

@@ -145,7 +145,7 @@ namespace FormDesignFSS2.GUI
                         }
                     case 4:
                         {
-                            lblError.Text = "Số tiền trả quá lớn";
+                            lblError.Text = "Số tiền trả lớn hơn tổng nợ";
                             break;
                         }
                     case 0:
