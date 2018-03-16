@@ -329,6 +329,8 @@
             this.Controls.Add(this.lblTenSPTD);
             this.Controls.Add(this.lblSoTienGN);
             this.Controls.Add(this.lblSoTKLK);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "ThemGN";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Thêm giải ngân";

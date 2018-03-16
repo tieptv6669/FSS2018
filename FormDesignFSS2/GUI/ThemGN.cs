@@ -28,6 +28,11 @@ namespace FormDesignFSS2.GUI
             InitializeComponent();
         }
         
+        /// <summary>
+        /// Xử lý sự kiện chọn SPTD khác
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cmbSPTD_SelectedIndexChanged(object sender, EventArgs e)
         {
             //Lấy ds sptd của KH
@@ -56,6 +61,11 @@ namespace FormDesignFSS2.GUI
             }
         }
 
+        /// <summary>
+        /// Xử lý sự kiện click button xác nhận
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btbXacNhan_Click(object sender, EventArgs e)
         {
             try
@@ -114,6 +124,7 @@ namespace FormDesignFSS2.GUI
                                 lblError.Text = "";
                                 txtSoTKLK.Enabled = false;
                                 txtSoTienGN.Enabled = false;
+                                txtSoTienGN.Text = Int64.Parse(txtSoTienGN.Text).ToString("#,##0");
                                 cmbSPTD.Enabled = false;
                                 txtGhiChu.Enabled = false;
                                 btbXacNhan.Text = "Lưu";
@@ -139,8 +150,8 @@ namespace FormDesignFSS2.GUI
                     
                     GiaiNgan giaiNgan = new GiaiNgan();
                     giaiNgan.MaGN = txtMaGN.Text;
-                    giaiNgan.SoTienGN = int.Parse(txtSoTienGN.Text);
-                    giaiNgan.DuNoGoc = int.Parse(txtSoTienGN.Text);
+                    giaiNgan.SoTienGN = Int64.Parse(txtSoTienGN.Text.Replace(",", ""));
+                    giaiNgan.DuNoGoc = Int64.Parse(txtSoTienGN.Text.Replace(",", ""));
                     giaiNgan.NgayGN = DateTime.Now;
                     giaiNgan.NgayDaoHan = dateNgayDH.Value;
                     giaiNgan.IDSPTD = idSPTD;
@@ -167,7 +178,7 @@ namespace FormDesignFSS2.GUI
                         long coTheVay = list.tienCoTheChoVay;
                         long daChoVay = list.tienDaChoVay;
                         int idNguon = list.idNg;
-                        nguonBUS.updateSoTien(long.Parse(txtSoTienGN.Text),idNguon,coTheVay,daChoVay);
+                        nguonBUS.updateSoTien(long.Parse(txtSoTienGN.Text.Replace(",", "")), idNguon, coTheVay, daChoVay);
                         MessageBox.Show("Thêm giải ngân mới thành công", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         Close();
                     }
@@ -182,6 +193,11 @@ namespace FormDesignFSS2.GUI
             }
         }
 
+        /// <summary>
+        /// Xử lý sự kiện click button hủy
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnHuy_Click(object sender, EventArgs e)
         {
             if (btnHuy.Text == "Hủy")
@@ -201,6 +217,11 @@ namespace FormDesignFSS2.GUI
             }
         }
 
+        /// <summary>
+        /// Xử lý sự kiện nhấn tab
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtSoTKLK_Leave(object sender, EventArgs e)
         {
             try

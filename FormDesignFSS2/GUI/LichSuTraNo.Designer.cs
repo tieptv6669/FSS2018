@@ -30,7 +30,7 @@
         {
             this.lblMaGN = new System.Windows.Forms.Label();
             this.txtMaGN = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.gridLSTN = new System.Windows.Forms.DataGridView();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -39,7 +39,7 @@
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnDong = new System.Windows.Forms.Button();
             this.lblLichSu = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridLSTN)).BeginInit();
             this.SuspendLayout();
             // 
             // lblMaGN
@@ -62,25 +62,26 @@
             this.txtMaGN.TabIndex = 1;
             this.txtMaGN.TabStop = false;
             // 
-            // dataGridView1
+            // gridLSTN
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.gridLSTN.AllowUserToAddRows = false;
+            this.gridLSTN.AllowUserToDeleteRows = false;
+            this.gridLSTN.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridLSTN.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column2,
             this.Column3,
             this.Column4,
             this.Column5,
             this.Column6,
             this.Column7});
-            this.dataGridView1.Location = new System.Drawing.Point(7, 58);
-            this.dataGridView1.MultiSelect = false;
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(645, 188);
-            this.dataGridView1.TabIndex = 3;
-            this.dataGridView1.TabStop = false;
+            this.gridLSTN.Location = new System.Drawing.Point(7, 58);
+            this.gridLSTN.MultiSelect = false;
+            this.gridLSTN.Name = "gridLSTN";
+            this.gridLSTN.ReadOnly = true;
+            this.gridLSTN.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.gridLSTN.Size = new System.Drawing.Size(645, 188);
+            this.gridLSTN.TabIndex = 3;
+            this.gridLSTN.TabStop = false;
             // 
             // Column2
             // 
@@ -150,7 +151,7 @@
             this.ClientSize = new System.Drawing.Size(657, 302);
             this.Controls.Add(this.lblLichSu);
             this.Controls.Add(this.btnDong);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.gridLSTN);
             this.Controls.Add(this.txtMaGN);
             this.Controls.Add(this.lblMaGN);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -160,7 +161,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Lịch sử trả nợ";
             this.Load += new System.EventHandler(this.LichSuTraNo_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridLSTN)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -170,7 +171,7 @@
 
         private System.Windows.Forms.Label lblMaGN;
         private System.Windows.Forms.TextBox txtMaGN;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView gridLSTN;
         private System.Windows.Forms.Button btnDong;
         private System.Windows.Forms.Label lblLichSu;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;

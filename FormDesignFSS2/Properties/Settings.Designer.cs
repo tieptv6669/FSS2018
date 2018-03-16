@@ -96,6 +96,16 @@ namespace FormDesignFSS2.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:49220/XuLyCuoiNgayBUS.asmx")]
+        public string FormDesignFSS2_XuLyCuoiNgayWS_XuLyCuoiNgayBUS1 {
+            get {
+                return ((string)(this["FormDesignFSS2_XuLyCuoiNgayWS_XuLyCuoiNgayBUS1"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
         [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:49220/LichSuBUS.asmx")]
         public string FormDesignFSS2_LichSuWS_LichSuBUS {
             get {

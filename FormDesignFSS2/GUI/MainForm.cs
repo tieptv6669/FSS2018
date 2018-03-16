@@ -817,9 +817,15 @@ namespace FormDesignFSS2.GUI
             try
             {
                 GiaiNganBUS giaiNganBUS = new GiaiNganBUS();
-                //lấy GN có số TKLK 
+                //lấy DS GN của số TKLK 
                 string jsonData = giaiNganBUS.TimKiemGN(txtSoTKLKTabGN.Text);
                 List<GN_KH> list = JsonConvert.DeserializeObject<List<GN_KH>>(jsonData);
+                // Lấy danh sách số TKLK
+                List<string> listSTKLK = new List<string>();
+                foreach(GN_KH temp in list)
+                {
+                    listSTKLK.Add(temp.SoTKLK);
+                }
                 //lấy tất cả các GN
                 string json = giaiNganBUS.layDSGN();
                 List<GN_KH> listAll = JsonConvert.DeserializeObject<List<GN_KH>>(json);
@@ -830,18 +836,18 @@ namespace FormDesignFSS2.GUI
                 {
                     foreach (GN_KH temp in listAll)
                     {
-                        gridDSMonGN.Rows.Add(temp.SoTKLK, temp.MaGN, temp.SoTienGN, temp.TrangThai, temp.DuNoGoc, temp.DuNoLaiTrongHan, temp.DuNoLaiQuaHan);
+                        gridDSMonGN.Rows.Add(temp.SoTKLK, temp.MaGN, temp.SoTienGN.ToString("#,##0"), temp.TrangThai, temp.DuNoGoc.ToString("#,##0"), temp.DuNoLaiTrongHan.ToString("#,##0"), temp.DuNoLaiQuaHan.ToString("#,##0"));
                     }
                     txtTenKHTabGN.Text = "";
                 }
-                else if(txtSoTKLKTabGN.Text.Length == 10)
+                else if(txtSoTKLKTabGN.Text.Length == 10 && listSTKLK.Contains(txtSoTKLKTabGN.Text))
                 {
                     foreach (GN_KH temp in list)
                     {
                         if (txtSoTKLKTabGN.Text == temp.SoTKLK)
                         {
                             txtTenKHTabGN.Text = temp.TenKH;
-                            gridDSMonGN.Rows.Add(temp.SoTKLK, temp.MaGN, temp.SoTienGN, temp.TrangThai, temp.DuNoGoc, temp.DuNoLaiTrongHan, temp.DuNoLaiQuaHan);
+                            gridDSMonGN.Rows.Add(temp.SoTKLK, temp.MaGN, temp.SoTienGN.ToString("#,##0"), temp.TrangThai, temp.DuNoGoc.ToString("#,##0"), temp.DuNoLaiTrongHan.ToString("#,##0"), temp.DuNoLaiQuaHan.ToString("#,##0"));
                         }
                         else
                         {
@@ -852,7 +858,7 @@ namespace FormDesignFSS2.GUI
                 else
                 {
                     txtTenKHTabGN.Text = "";
-                    MessageBox.Show("Số TKLK không tồn tại");
+                    MessageBox.Show("Số TKLK không tồn tại", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             catch (Exception ex)
@@ -904,7 +910,15 @@ namespace FormDesignFSS2.GUI
                 if(gridDSMonNo.Rows.Count > 0 && gridDSMonNo.SelectedRows.Count > 0)
                 {
                     LichSuTraNo lichSuTraNo = new LichSuTraNo();
-                    //lichSuTraNo.giaiNgan = 
+                    // Lấy mã giải ngân của món giải ngân được chọn
+                    string maGN = gridDSMonNo.SelectedRows[0].Cells[0].Value.ToString();
+                    // Lấy id giải ngân khi biết mã giải ngân
+                    TraNoBUS traNoBUS = new TraNoBUS();
+                    int idGN = traNoBUS.GetIDGN(maGN);
+
+                    lichSuTraNo.maGN = maGN;
+                    lichSuTraNo.idGN = idGN;
+
                     lichSuTraNo.ShowDialog();
                 }
                 else
@@ -1093,6 +1107,39 @@ namespace FormDesignFSS2.GUI
                 {
                     MessageBox.Show("Số TKLK không tồn tại", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+            }
+        }
+
+        /// <summary>
+        /// Xử lý sự kiện click button dự tính lãi
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnDuTinhLai_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if(gridDSMonNo.Rows.Count > 0 && gridDSMonNo.SelectedRows.Count > 0)
+                {
+                    if(Int64.Parse(gridDSMonNo.SelectedRows[0].Cells[1].Value.ToString().Replace(",","")) > 0)
+                    {
+                        DuTinhLai duTinhLai = new DuTinhLai();
+                        duTinhLai.maGN = gridDSMonNo.SelectedRows[0].Cells[0].Value.ToString();
+                        duTinhLai.ShowDialog();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Món giải ngân đã trả hết nợ, không thể dự tính lãi", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Thao tác lỗi. Bạn chưa chọn món giải ngân nào", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

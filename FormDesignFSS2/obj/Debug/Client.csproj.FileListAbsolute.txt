@@ -4,9 +4,6 @@ G:\FSS2018\FormDesignFSS2\bin\Debug\Report\DanhSachTraNo.rdlc
 G:\FSS2018\FormDesignFSS2\bin\Debug\Report\DanhSachMonGiaiNgan.rdlc
 G:\FSS2018\FormDesignFSS2\bin\Debug\Report\DanhSachSPTD.rdlc
 G:\FSS2018\FormDesignFSS2\bin\Debug\Report\DanhSachKH.rdlc
-G:\FSS2018\FormDesignFSS2\bin\Debug\FormDesignFSS2.exe.config
-G:\FSS2018\FormDesignFSS2\bin\Debug\FormDesignFSS2.exe
-G:\FSS2018\FormDesignFSS2\bin\Debug\FormDesignFSS2.pdb
 G:\FSS2018\FormDesignFSS2\bin\Debug\DTO.exe
 G:\FSS2018\FormDesignFSS2\bin\Debug\Microsoft.ReportViewer.Common.dll
 G:\FSS2018\FormDesignFSS2\bin\Debug\Microsoft.ReportViewer.DataVisualization.dll
@@ -100,5 +97,8 @@ G:\FSS2018\FormDesignFSS2\obj\Debug\FormDesignFSS2.GUI.XemChiTietGN.resources
 G:\FSS2018\FormDesignFSS2\obj\Debug\FormDesignFSS2.GUI.XemChiTietKH.resources
 G:\FSS2018\FormDesignFSS2\obj\Debug\Client.csproj.GenerateResource.Cache
 G:\FSS2018\FormDesignFSS2\obj\Debug\Client.csproj.CoreCompileInputs.cache
-G:\FSS2018\FormDesignFSS2\obj\Debug\FormDesignFSS2.exe
-G:\FSS2018\FormDesignFSS2\obj\Debug\FormDesignFSS2.pdb
+G:\FSS2018\FormDesignFSS2\bin\Debug\QLTD.exe.config
+G:\FSS2018\FormDesignFSS2\bin\Debug\QLTD.exe
+G:\FSS2018\FormDesignFSS2\bin\Debug\QLTD.pdb
+G:\FSS2018\FormDesignFSS2\obj\Debug\QLTD.exe
+G:\FSS2018\FormDesignFSS2\obj\Debug\QLTD.pdb

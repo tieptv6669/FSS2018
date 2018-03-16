@@ -28,11 +28,16 @@ namespace FormDesignFSS2.GUI
             giaiNgan = new GN_SPTD_NGUON();
         }
 
+        /// <summary>
+        /// Tải form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SuaGN_Load(object sender, EventArgs e)
         {
             lblError.ForeColor = Color.Red;
             txtSoTKLK.Text = giaiNgan.SoTKLK;
-            txtSoTienGN.Text = giaiNgan.SoTienGN.ToString();
+            txtSoTienGN.Text = giaiNgan.SoTienGN.ToString("#,##0");
             txtNguon.Text = giaiNgan.TenNguon;
             txtKyHan.Text = giaiNgan.KyHan.ToString();
             txtLaiSuat.Text = giaiNgan.LaiSuat.ToString();
@@ -64,6 +69,11 @@ namespace FormDesignFSS2.GUI
             }
         }
 
+        /// <summary>
+        /// Xử lý dự kiện chọn SPTD khác
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cmbSPTD_SelectedIndexChanged(object sender, EventArgs e)
         {
             KhachHang_SPTD sptd = (KhachHang_SPTD)cmbSPTD.SelectedItem;
@@ -90,6 +100,11 @@ namespace FormDesignFSS2.GUI
             }
         }
 
+        /// <summary>
+        /// Xử lý sự kiện click button xác nhận
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnXacNhan_Click(object sender, EventArgs e)
         {
             try
@@ -136,6 +151,7 @@ namespace FormDesignFSS2.GUI
                             }
                         case 0:
                             {
+                                lblError.Text = "";
                                 btnXacNhan.Text = "Lưu";
                                 btnHuy.Text = "Quay lại";
                                 btnHuy.Image = Properties.Resources._101;
@@ -145,6 +161,7 @@ namespace FormDesignFSS2.GUI
                                 }
                                 txtSoTKLK.Enabled = false;
                                 txtSoTienGN.Enabled = false;
+                                txtSoTienGN.Text = Int64.Parse(txtSoTienGN.Text).ToString("#,##0");
                                 cmbSPTD.Enabled = false;
                                 txtGhiChu.Enabled = false;
                                 break;
@@ -153,52 +170,46 @@ namespace FormDesignFSS2.GUI
                 }
                 else
                 {
-                    if (giaiNgan.SoTienGN == long.Parse(txtSoTienGN.Text) && giaiNgan.TenSPTD == cmbSPTD.SelectedItem.ToString() &&
+                    KhachHang_SPTD khachHang_SPTD = (KhachHang_SPTD)cmbSPTD.SelectedItem;
+                    if (giaiNgan.SoTienGN == long.Parse(txtSoTienGN.Text.Replace(",","")) && giaiNgan.TenSPTD == khachHang_SPTD.TenSPTD &&
                           giaiNgan.GhiChu == txtGhiChu.Text)
                     {
                         MessageBox.Show("Thao tác lỗi. Bạn chưa thay đổi thông tin nào của giải ngân", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     else
                     {
-                        if (btnXacNhan.Text == "Lưu")
+                        GiaiNganBUS giaiNganBUS = new GiaiNganBUS();
+                        KhachHang_SPTD sptd = (KhachHang_SPTD)cmbSPTD.SelectedItem;
+                        SanPhamTinDungBUS sanPhamTinDungBUS = new SanPhamTinDungBUS();
+                        string jsonData = sanPhamTinDungBUS.TimKiemSPTD(sptd.TenSPTD, sptd.MaSPTD, sptd.TenNguon);
+                        List<SanPhamTinDung> list = JsonConvert.DeserializeObject<List<SanPhamTinDung>>(jsonData);
+                        int idSPTD = 0;
+                        foreach (var temp in list)
                         {
-                            GiaiNganBUS giaiNganBUS = new GiaiNganBUS();
-                            KhachHang_SPTD sptd = (KhachHang_SPTD)cmbSPTD.SelectedItem;
-                            SanPhamTinDungBUS sanPhamTinDungBUS = new SanPhamTinDungBUS();
-                            string jsonData = sanPhamTinDungBUS.TimKiemSPTD(sptd.TenSPTD, sptd.MaSPTD, sptd.TenNguon);
-                            List<SanPhamTinDung> list = JsonConvert.DeserializeObject<List<SanPhamTinDung>>(jsonData);
-                            int idSPTD = 0;
-                            foreach(var temp in list)
-                            {
-                                idSPTD = temp.IdSPTD;
-                            }
-                            string nguonCu = giaiNgan.TenNguon;
-                            long stgn = giaiNgan.SoTienGN;
-                            if (giaiNganBUS.SuaGN(giaiNgan.MaGN, long.Parse(txtSoTienGN.Text), idSPTD, txtGhiChu.Text))
-                            {
-                                //Trả lại tiền cho nguồn cũ
-                                NguonBUS nguonBUS = new NguonBUS();
-                                string json = nguonBUS.GetNguon(nguonCu);
-                                Nguon listt = JsonConvert.DeserializeObject<Nguon>(json);
-                                long coTheVay = listt.tienCoTheChoVay;
-                                long daChoVay = listt.tienDaChoVay;
-                                int idNguon = listt.idNg;
-                                nguonBUS.updateSoTienSua(stgn, idNguon, coTheVay, daChoVay);
-
-                                //Trừ tiền cho nguồn mới
-                                string jsons = nguonBUS.GetNguon(txtNguon.Text);
-                                Nguon lists = JsonConvert.DeserializeObject<Nguon>(jsons);
-                                long coTheVayms = lists.tienCoTheChoVay;
-                                long daChoVayms = lists.tienDaChoVay;
-                                int idNguonms = lists.idNg;
-                                nguonBUS.updateSoTien(long.Parse(txtSoTienGN.Text), idNguonms, coTheVayms, daChoVayms);
-                                MessageBox.Show("Sửa thông tin giải ngân thành công", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                Close();
-                            }
+                            idSPTD = temp.IdSPTD;
                         }
-                        else
+                        string nguonCu = giaiNgan.TenNguon;
+                        long stgn = giaiNgan.SoTienGN;
+                        if (giaiNganBUS.SuaGN(giaiNgan.MaGN, long.Parse(txtSoTienGN.Text.Replace(",", "")), idSPTD, txtGhiChu.Text))
                         {
-                            MessageBox.Show("Đã có lỗi sảy ra, sửa thông tin giải ngân thất bại", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            //Trả lại tiền cho nguồn cũ
+                            NguonBUS nguonBUS = new NguonBUS();
+                            string json = nguonBUS.GetNguon(nguonCu);
+                            Nguon listt = JsonConvert.DeserializeObject<Nguon>(json);
+                            long coTheVay = listt.tienCoTheChoVay;
+                            long daChoVay = listt.tienDaChoVay;
+                            int idNguon = listt.idNg;
+                            nguonBUS.updateSoTienSua(stgn, idNguon, coTheVay, daChoVay);
+
+                            //Trừ tiền cho nguồn mới
+                            string jsons = nguonBUS.GetNguon(txtNguon.Text);
+                            Nguon lists = JsonConvert.DeserializeObject<Nguon>(jsons);
+                            long coTheVayms = lists.tienCoTheChoVay;
+                            long daChoVayms = lists.tienDaChoVay;
+                            int idNguonms = lists.idNg;
+                            nguonBUS.updateSoTien(long.Parse(txtSoTienGN.Text.Replace(",", "")), idNguonms, coTheVayms, daChoVayms);
+                            MessageBox.Show("Sửa thông tin giải ngân thành công", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            Close();
                         }
                     }
                 }
@@ -209,6 +220,11 @@ namespace FormDesignFSS2.GUI
             }
         }
 
+        /// <summary>
+        /// Xử lý sự kiện click button hủy
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnHuy_Click(object sender, EventArgs e)
         {
             if (btnHuy.Text == "Hủy")

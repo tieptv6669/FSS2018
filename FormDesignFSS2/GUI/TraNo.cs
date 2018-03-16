@@ -91,7 +91,11 @@ namespace FormDesignFSS2.GUI
         {
             if(btnHuy.Text == "Hủy")
             {
-                Close();
+                DialogResult dialogResult = MessageBox.Show("Bạn chắc chắn muốn hủy giao dịch trả nợ?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if(dialogResult == DialogResult.Yes)
+                {
+                    Close();
+                }
             }
             else
             {

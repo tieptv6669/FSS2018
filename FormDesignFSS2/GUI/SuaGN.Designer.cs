@@ -78,7 +78,7 @@
             this.btnHuy.BackColor = System.Drawing.SystemColors.HighlightText;
             this.btnHuy.Image = global::FormDesignFSS2.Properties.Resources._168;
             this.btnHuy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHuy.Location = new System.Drawing.Point(312, 369);
+            this.btnHuy.Location = new System.Drawing.Point(243, 365);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(86, 39);
             this.btnHuy.TabIndex = 44;
@@ -92,7 +92,7 @@
             this.btnXacNhan.BackColor = System.Drawing.SystemColors.HighlightText;
             this.btnXacNhan.Image = global::FormDesignFSS2.Properties.Resources._155;
             this.btnXacNhan.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnXacNhan.Location = new System.Drawing.Point(220, 369);
+            this.btnXacNhan.Location = new System.Drawing.Point(151, 365);
             this.btnXacNhan.Name = "btnXacNhan";
             this.btnXacNhan.Size = new System.Drawing.Size(86, 39);
             this.btnXacNhan.TabIndex = 43;
@@ -110,7 +110,7 @@
             "Cho vay mua nhà"});
             this.cmbSPTD.Location = new System.Drawing.Point(95, 61);
             this.cmbSPTD.Name = "cmbSPTD";
-            this.cmbSPTD.Size = new System.Drawing.Size(302, 21);
+            this.cmbSPTD.Size = new System.Drawing.Size(234, 21);
             this.cmbSPTD.TabIndex = 64;
             this.cmbSPTD.SelectedIndexChanged += new System.EventHandler(this.cmbSPTD_SelectedIndexChanged);
             // 
@@ -120,7 +120,7 @@
             this.txtGhiChu.Location = new System.Drawing.Point(96, 254);
             this.txtGhiChu.Multiline = true;
             this.txtGhiChu.Name = "txtGhiChu";
-            this.txtGhiChu.Size = new System.Drawing.Size(302, 81);
+            this.txtGhiChu.Size = new System.Drawing.Size(233, 81);
             this.txtGhiChu.TabIndex = 63;
             this.txtGhiChu.TabStop = false;
             // 
@@ -131,7 +131,7 @@
             this.txtKyHan.Location = new System.Drawing.Point(94, 172);
             this.txtKyHan.Name = "txtKyHan";
             this.txtKyHan.ReadOnly = true;
-            this.txtKyHan.Size = new System.Drawing.Size(303, 20);
+            this.txtKyHan.Size = new System.Drawing.Size(235, 20);
             this.txtKyHan.TabIndex = 60;
             this.txtKyHan.TabStop = false;
             // 
@@ -142,7 +142,7 @@
             this.txtLaiSuat.Location = new System.Drawing.Point(94, 114);
             this.txtLaiSuat.Name = "txtLaiSuat";
             this.txtLaiSuat.ReadOnly = true;
-            this.txtLaiSuat.Size = new System.Drawing.Size(303, 20);
+            this.txtLaiSuat.Size = new System.Drawing.Size(235, 20);
             this.txtLaiSuat.TabIndex = 59;
             this.txtLaiSuat.TabStop = false;
             // 
@@ -153,7 +153,7 @@
             this.txtNguon.Location = new System.Drawing.Point(94, 88);
             this.txtNguon.Name = "txtNguon";
             this.txtNguon.ReadOnly = true;
-            this.txtNguon.Size = new System.Drawing.Size(303, 20);
+            this.txtNguon.Size = new System.Drawing.Size(235, 20);
             this.txtNguon.TabIndex = 58;
             this.txtNguon.TabStop = false;
             // 
@@ -162,7 +162,7 @@
             this.txtSoTienGN.BackColor = System.Drawing.SystemColors.Window;
             this.txtSoTienGN.Location = new System.Drawing.Point(94, 35);
             this.txtSoTienGN.Name = "txtSoTienGN";
-            this.txtSoTienGN.Size = new System.Drawing.Size(303, 20);
+            this.txtSoTienGN.Size = new System.Drawing.Size(235, 20);
             this.txtSoTienGN.TabIndex = 57;
             // 
             // txtSoTKLK
@@ -172,7 +172,7 @@
             this.txtSoTKLK.Location = new System.Drawing.Point(94, 8);
             this.txtSoTKLK.Name = "txtSoTKLK";
             this.txtSoTKLK.ReadOnly = true;
-            this.txtSoTKLK.Size = new System.Drawing.Size(303, 20);
+            this.txtSoTKLK.Size = new System.Drawing.Size(235, 20);
             this.txtSoTKLK.TabIndex = 55;
             this.txtSoTKLK.TabStop = false;
             // 
@@ -283,7 +283,7 @@
             this.txtLaiSuatQH.Location = new System.Drawing.Point(94, 142);
             this.txtLaiSuatQH.Name = "txtLaiSuatQH";
             this.txtLaiSuatQH.ReadOnly = true;
-            this.txtLaiSuatQH.Size = new System.Drawing.Size(303, 20);
+            this.txtLaiSuatQH.Size = new System.Drawing.Size(235, 20);
             this.txtLaiSuatQH.TabIndex = 66;
             this.txtLaiSuatQH.TabStop = false;
             // 
@@ -292,7 +292,7 @@
             this.dateNgayGN.Enabled = false;
             this.dateNgayGN.Location = new System.Drawing.Point(94, 199);
             this.dateNgayGN.Name = "dateNgayGN";
-            this.dateNgayGN.Size = new System.Drawing.Size(303, 20);
+            this.dateNgayGN.Size = new System.Drawing.Size(235, 20);
             this.dateNgayGN.TabIndex = 67;
             // 
             // dateNgayDH
@@ -300,13 +300,13 @@
             this.dateNgayDH.Enabled = false;
             this.dateNgayDH.Location = new System.Drawing.Point(95, 225);
             this.dateNgayDH.Name = "dateNgayDH";
-            this.dateNgayDH.Size = new System.Drawing.Size(303, 20);
+            this.dateNgayDH.Size = new System.Drawing.Size(234, 20);
             this.dateNgayDH.TabIndex = 68;
             // 
             // lblError
             // 
             this.lblError.AutoSize = true;
-            this.lblError.Location = new System.Drawing.Point(93, 348);
+            this.lblError.Location = new System.Drawing.Point(151, 345);
             this.lblError.Name = "lblError";
             this.lblError.Size = new System.Drawing.Size(0, 13);
             this.lblError.TabIndex = 69;
@@ -315,7 +315,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(403, 413);
+            this.ClientSize = new System.Drawing.Size(335, 407);
             this.Controls.Add(this.lblError);
             this.Controls.Add(this.dateNgayDH);
             this.Controls.Add(this.dateNgayGN);

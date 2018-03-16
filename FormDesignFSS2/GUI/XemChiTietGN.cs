@@ -31,11 +31,11 @@ namespace FormDesignFSS2.GUI
             txtLaiSuat.Text = GN_SPTD_.LaiSuat.ToString();
             txtLaiQuaHan.Text = GN_SPTD_.LaiSuatQuaHan.ToString();
             txtKyHan.Text = GN_SPTD_.KyHan.ToString();
-            txtDuNoGoc.Text = GN_SPTD_.DuNoGoc.ToString();
-            txtDuNoLaiTrongHan.Text = GN_SPTD_.DuNoLaiTH.ToString();
-            txtDuNoLaiNgoaiHan.Text = GN_SPTD_.DuNoLaiNH.ToString();
+            txtDuNoGoc.Text = GN_SPTD_.DuNoGoc.ToString("#,##0");
+            txtDuNoLaiTrongHan.Text = GN_SPTD_.DuNoLaiTH.ToString("#,##0");
+            txtDuNoLaiNgoaiHan.Text = GN_SPTD_.DuNoLaiNH.ToString("#,##0");
             txtTenKH.Text = GN_SPTD_.TenKH;
-            txtSoTienGN.Text = GN_SPTD_.SoTienGN.ToString();
+            txtSoTienGN.Text = GN_SPTD_.SoTienGN.ToString("#,##0");
             txtTrangThai.Text = GN_SPTD_.TrangThai;
             txtNguon.Text = GN_SPTD_.TenNguon;
             txtNgayGN.Text = GN_SPTD_.NgayGN.ToString();

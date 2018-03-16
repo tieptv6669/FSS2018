@@ -625,7 +625,7 @@
             this.btnTimKiemTabSPTD.Location = new System.Drawing.Point(422, 5);
             this.btnTimKiemTabSPTD.Name = "btnTimKiemTabSPTD";
             this.btnTimKiemTabSPTD.Size = new System.Drawing.Size(87, 38);
-            this.btnTimKiemTabSPTD.TabIndex = 14;
+            this.btnTimKiemTabSPTD.TabIndex = 4;
             this.btnTimKiemTabSPTD.Text = "Tìm kiếm";
             this.btnTimKiemTabSPTD.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnTimKiemTabSPTD.UseVisualStyleBackColor = false;
@@ -636,14 +636,14 @@
             this.txtNguonTabSPTD.Location = new System.Drawing.Point(82, 66);
             this.txtNguonTabSPTD.Name = "txtNguonTabSPTD";
             this.txtNguonTabSPTD.Size = new System.Drawing.Size(334, 21);
-            this.txtNguonTabSPTD.TabIndex = 13;
+            this.txtNguonTabSPTD.TabIndex = 3;
             // 
             // txtMaSPTDTabSPTD
             // 
             this.txtMaSPTDTabSPTD.Location = new System.Drawing.Point(82, 37);
             this.txtMaSPTDTabSPTD.Name = "txtMaSPTDTabSPTD";
             this.txtMaSPTDTabSPTD.Size = new System.Drawing.Size(334, 21);
-            this.txtMaSPTDTabSPTD.TabIndex = 12;
+            this.txtMaSPTDTabSPTD.TabIndex = 2;
             // 
             // lblNguonTabSPTD
             // 
@@ -668,7 +668,7 @@
             this.txtTenSPTDTabSPTD.Location = new System.Drawing.Point(82, 6);
             this.txtTenSPTDTabSPTD.Name = "txtTenSPTDTabSPTD";
             this.txtTenSPTDTabSPTD.Size = new System.Drawing.Size(334, 21);
-            this.txtTenSPTDTabSPTD.TabIndex = 9;
+            this.txtTenSPTDTabSPTD.TabIndex = 1;
             // 
             // lblTenSPTDTabSPTD
             // 
@@ -809,7 +809,7 @@
             this.txtMaSPTD.Location = new System.Drawing.Point(79, 72);
             this.txtMaSPTD.Name = "txtMaSPTD";
             this.txtMaSPTD.Size = new System.Drawing.Size(296, 21);
-            this.txtMaSPTD.TabIndex = 11;
+            this.txtMaSPTD.TabIndex = 3;
             // 
             // lblMaSPTD
             // 
@@ -826,7 +826,7 @@
             this.txtTenKH.Location = new System.Drawing.Point(79, 41);
             this.txtTenKH.Name = "txtTenKH";
             this.txtTenKH.Size = new System.Drawing.Size(296, 21);
-            this.txtTenKH.TabIndex = 8;
+            this.txtTenKH.TabIndex = 2;
             // 
             // lblTenKH
             // 
@@ -926,7 +926,7 @@
             this.btnTimKiem.Location = new System.Drawing.Point(381, 14);
             this.btnTimKiem.Name = "btnTimKiem";
             this.btnTimKiem.Size = new System.Drawing.Size(87, 38);
-            this.btnTimKiem.TabIndex = 9;
+            this.btnTimKiem.TabIndex = 4;
             this.btnTimKiem.Text = "Tìm kiếm";
             this.btnTimKiem.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnTimKiem.UseVisualStyleBackColor = false;
@@ -985,7 +985,7 @@
             this.txtMaNguon.Location = new System.Drawing.Point(83, 36);
             this.txtMaNguon.Name = "txtMaNguon";
             this.txtMaNguon.Size = new System.Drawing.Size(330, 21);
-            this.txtMaNguon.TabIndex = 7;
+            this.txtMaNguon.TabIndex = 2;
             // 
             // lblMaNguon
             // 
@@ -1004,7 +1004,7 @@
             this.btnTimKiemTabNguon.Location = new System.Drawing.Point(419, 6);
             this.btnTimKiemTabNguon.Name = "btnTimKiemTabNguon";
             this.btnTimKiemTabNguon.Size = new System.Drawing.Size(87, 38);
-            this.btnTimKiemTabNguon.TabIndex = 2;
+            this.btnTimKiemTabNguon.TabIndex = 3;
             this.btnTimKiemTabNguon.Text = "Tìm kiếm";
             this.btnTimKiemTabNguon.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnTimKiemTabNguon.UseVisualStyleBackColor = false;
@@ -1034,7 +1034,7 @@
             this.btnXoaTabNguon.Location = new System.Drawing.Point(379, 314);
             this.btnXoaTabNguon.Name = "btnXoaTabNguon";
             this.btnXoaTabNguon.Size = new System.Drawing.Size(75, 38);
-            this.btnXoaTabNguon.TabIndex = 5;
+            this.btnXoaTabNguon.TabIndex = 6;
             this.btnXoaTabNguon.Text = "Xóa";
             this.btnXoaTabNguon.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnXoaTabNguon.UseVisualStyleBackColor = false;
@@ -1048,7 +1048,7 @@
             this.btnSuaTabNguon.Location = new System.Drawing.Point(261, 314);
             this.btnSuaTabNguon.Name = "btnSuaTabNguon";
             this.btnSuaTabNguon.Size = new System.Drawing.Size(75, 38);
-            this.btnSuaTabNguon.TabIndex = 4;
+            this.btnSuaTabNguon.TabIndex = 5;
             this.btnSuaTabNguon.Text = "Sửa";
             this.btnSuaTabNguon.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSuaTabNguon.UseVisualStyleBackColor = false;
@@ -1062,7 +1062,7 @@
             this.btnThemTabNguon.Location = new System.Drawing.Point(146, 314);
             this.btnThemTabNguon.Name = "btnThemTabNguon";
             this.btnThemTabNguon.Size = new System.Drawing.Size(75, 38);
-            this.btnThemTabNguon.TabIndex = 3;
+            this.btnThemTabNguon.TabIndex = 4;
             this.btnThemTabNguon.Text = "Thêm";
             this.btnThemTabNguon.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnThemTabNguon.UseVisualStyleBackColor = false;
@@ -1228,7 +1228,7 @@
             this.btnTimKiemTabGN.Location = new System.Drawing.Point(380, 11);
             this.btnTimKiemTabGN.Name = "btnTimKiemTabGN";
             this.btnTimKiemTabGN.Size = new System.Drawing.Size(87, 38);
-            this.btnTimKiemTabGN.TabIndex = 16;
+            this.btnTimKiemTabGN.TabIndex = 2;
             this.btnTimKiemTabGN.Text = "Tìm kiếm";
             this.btnTimKiemTabGN.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnTimKiemTabGN.UseVisualStyleBackColor = false;
@@ -1242,7 +1242,7 @@
             this.btnXemChiTietTabGN.Location = new System.Drawing.Point(379, 314);
             this.btnXemChiTietTabGN.Name = "btnXemChiTietTabGN";
             this.btnXemChiTietTabGN.Size = new System.Drawing.Size(108, 38);
-            this.btnXemChiTietTabGN.TabIndex = 15;
+            this.btnXemChiTietTabGN.TabIndex = 5;
             this.btnXemChiTietTabGN.Text = "Xem chi tiết";
             this.btnXemChiTietTabGN.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnXemChiTietTabGN.UseVisualStyleBackColor = false;
@@ -1256,7 +1256,7 @@
             this.btnSuaTabGN.Location = new System.Drawing.Point(261, 314);
             this.btnSuaTabGN.Name = "btnSuaTabGN";
             this.btnSuaTabGN.Size = new System.Drawing.Size(75, 38);
-            this.btnSuaTabGN.TabIndex = 14;
+            this.btnSuaTabGN.TabIndex = 4;
             this.btnSuaTabGN.Text = "Sửa";
             this.btnSuaTabGN.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSuaTabGN.UseVisualStyleBackColor = false;
@@ -1270,7 +1270,7 @@
             this.btnThemTabGN.Location = new System.Drawing.Point(146, 314);
             this.btnThemTabGN.Name = "btnThemTabGN";
             this.btnThemTabGN.Size = new System.Drawing.Size(75, 38);
-            this.btnThemTabGN.TabIndex = 13;
+            this.btnThemTabGN.TabIndex = 3;
             this.btnThemTabGN.Text = "Thêm";
             this.btnThemTabGN.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnThemTabGN.UseVisualStyleBackColor = false;
@@ -1307,7 +1307,7 @@
             this.txtSoTKLKTabGN.Location = new System.Drawing.Point(72, 12);
             this.txtSoTKLKTabGN.Name = "txtSoTKLKTabGN";
             this.txtSoTKLKTabGN.Size = new System.Drawing.Size(302, 21);
-            this.txtSoTKLKTabGN.TabIndex = 6;
+            this.txtSoTKLKTabGN.TabIndex = 1;
             // 
             // lblSoTKLKTabGN
             // 
@@ -1346,7 +1346,7 @@
             this.btnLichSuTN.Location = new System.Drawing.Point(398, 315);
             this.btnLichSuTN.Name = "btnLichSuTN";
             this.btnLichSuTN.Size = new System.Drawing.Size(97, 38);
-            this.btnLichSuTN.TabIndex = 17;
+            this.btnLichSuTN.TabIndex = 5;
             this.btnLichSuTN.Text = "Lịch sử TN";
             this.btnLichSuTN.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnLichSuTN.UseVisualStyleBackColor = false;
@@ -1360,10 +1360,11 @@
             this.btnDuTinhLai.Location = new System.Drawing.Point(261, 314);
             this.btnDuTinhLai.Name = "btnDuTinhLai";
             this.btnDuTinhLai.Size = new System.Drawing.Size(97, 38);
-            this.btnDuTinhLai.TabIndex = 16;
+            this.btnDuTinhLai.TabIndex = 4;
             this.btnDuTinhLai.Text = "Dự tính lãi";
             this.btnDuTinhLai.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnDuTinhLai.UseVisualStyleBackColor = false;
+            this.btnDuTinhLai.Click += new System.EventHandler(this.btnDuTinhLai_Click);
             // 
             // btnTraNo
             // 
@@ -1373,7 +1374,7 @@
             this.btnTraNo.Location = new System.Drawing.Point(146, 314);
             this.btnTraNo.Name = "btnTraNo";
             this.btnTraNo.Size = new System.Drawing.Size(75, 38);
-            this.btnTraNo.TabIndex = 14;
+            this.btnTraNo.TabIndex = 3;
             this.btnTraNo.Text = "Trả nợ";
             this.btnTraNo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnTraNo.UseVisualStyleBackColor = false;
@@ -1484,7 +1485,7 @@
             this.btnTimKiemTabTN.Location = new System.Drawing.Point(378, 8);
             this.btnTimKiemTabTN.Name = "btnTimKiemTabTN";
             this.btnTimKiemTabTN.Size = new System.Drawing.Size(87, 38);
-            this.btnTimKiemTabTN.TabIndex = 9;
+            this.btnTimKiemTabTN.TabIndex = 2;
             this.btnTimKiemTabTN.Text = "Tìm kiếm";
             this.btnTimKiemTabTN.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnTimKiemTabTN.UseVisualStyleBackColor = false;
@@ -1520,7 +1521,7 @@
             this.btnTimKiemTabLS.Location = new System.Drawing.Point(633, 8);
             this.btnTimKiemTabLS.Name = "btnTimKiemTabLS";
             this.btnTimKiemTabLS.Size = new System.Drawing.Size(87, 38);
-            this.btnTimKiemTabLS.TabIndex = 15;
+            this.btnTimKiemTabLS.TabIndex = 6;
             this.btnTimKiemTabLS.Text = "Tìm kiếm";
             this.btnTimKiemTabLS.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnTimKiemTabLS.UseVisualStyleBackColor = false;
@@ -1599,7 +1600,7 @@
             this.dateTimePickerFT.Location = new System.Drawing.Point(473, 45);
             this.dateTimePickerFT.Name = "dateTimePickerFT";
             this.dateTimePickerFT.Size = new System.Drawing.Size(151, 21);
-            this.dateTimePickerFT.TabIndex = 13;
+            this.dateTimePickerFT.TabIndex = 5;
             // 
             // lblFinishTime
             // 
@@ -1615,7 +1616,7 @@
             this.dateTimePickerST.Location = new System.Drawing.Point(285, 45);
             this.dateTimePickerST.Name = "dateTimePickerST";
             this.dateTimePickerST.Size = new System.Drawing.Size(151, 21);
-            this.dateTimePickerST.TabIndex = 11;
+            this.dateTimePickerST.TabIndex = 4;
             // 
             // lblStartTime
             // 
@@ -1631,7 +1632,7 @@
             this.txtMaDTTabLS.Location = new System.Drawing.Point(102, 45);
             this.txtMaDTTabLS.Name = "txtMaDTTabLS";
             this.txtMaDTTabLS.Size = new System.Drawing.Size(131, 21);
-            this.txtMaDTTabLS.TabIndex = 9;
+            this.txtMaDTTabLS.TabIndex = 2;
             // 
             // lblMaDTTabLS
             // 
@@ -1647,7 +1648,7 @@
             this.txtSoTKLKTabLS.Location = new System.Drawing.Point(437, 9);
             this.txtSoTKLKTabLS.Name = "txtSoTKLKTabLS";
             this.txtSoTKLKTabLS.Size = new System.Drawing.Size(187, 21);
-            this.txtSoTKLKTabLS.TabIndex = 7;
+            this.txtSoTKLKTabLS.TabIndex = 3;
             // 
             // lblSoTKLKTabLS
             // 
@@ -1715,14 +1716,14 @@
             this.dateTimePickerFTTabBC.Location = new System.Drawing.Point(424, 48);
             this.dateTimePickerFTTabBC.Name = "dateTimePickerFTTabBC";
             this.dateTimePickerFTTabBC.Size = new System.Drawing.Size(200, 21);
-            this.dateTimePickerFTTabBC.TabIndex = 5;
+            this.dateTimePickerFTTabBC.TabIndex = 4;
             // 
             // dateTimePickerSTTabBC
             // 
             this.dateTimePickerSTTabBC.Location = new System.Drawing.Point(123, 48);
             this.dateTimePickerSTTabBC.Name = "dateTimePickerSTTabBC";
             this.dateTimePickerSTTabBC.Size = new System.Drawing.Size(200, 21);
-            this.dateTimePickerSTTabBC.TabIndex = 4;
+            this.dateTimePickerSTTabBC.TabIndex = 3;
             // 
             // reportViewerBC
             // 
@@ -1780,7 +1781,7 @@
             this.btnChayQuaNgay.Location = new System.Drawing.Point(236, 389);
             this.btnChayQuaNgay.Name = "btnChayQuaNgay";
             this.btnChayQuaNgay.Size = new System.Drawing.Size(119, 50);
-            this.btnChayQuaNgay.TabIndex = 6;
+            this.btnChayQuaNgay.TabIndex = 8;
             this.btnChayQuaNgay.Text = "Chạy qua ngày";
             this.btnChayQuaNgay.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnChayQuaNgay.UseVisualStyleBackColor = false;
@@ -1795,7 +1796,7 @@
             this.btnThoat.Location = new System.Drawing.Point(653, 389);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(114, 50);
-            this.btnThoat.TabIndex = 5;
+            this.btnThoat.TabIndex = 11;
             this.btnThoat.Text = "Thoát";
             this.btnThoat.UseVisualStyleBackColor = false;
             this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
@@ -1809,7 +1810,7 @@
             this.btnDoiMatKhau.Location = new System.Drawing.Point(377, 389);
             this.btnDoiMatKhau.Name = "btnDoiMatKhau";
             this.btnDoiMatKhau.Size = new System.Drawing.Size(115, 50);
-            this.btnDoiMatKhau.TabIndex = 4;
+            this.btnDoiMatKhau.TabIndex = 9;
             this.btnDoiMatKhau.Text = "Đổi mật khẩu";
             this.btnDoiMatKhau.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnDoiMatKhau.UseVisualStyleBackColor = false;
@@ -1824,7 +1825,7 @@
             this.btnDangXuat.Location = new System.Drawing.Point(516, 389);
             this.btnDangXuat.Name = "btnDangXuat";
             this.btnDangXuat.Size = new System.Drawing.Size(114, 50);
-            this.btnDangXuat.TabIndex = 2;
+            this.btnDangXuat.TabIndex = 10;
             this.btnDangXuat.Text = "Đăng xuất";
             this.btnDangXuat.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnDangXuat.UseVisualStyleBackColor = false;
