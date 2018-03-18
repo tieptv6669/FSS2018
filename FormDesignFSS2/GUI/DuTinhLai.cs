@@ -68,6 +68,7 @@ namespace FormDesignFSS2.GUI
             txtDuNoLaiTrongHan.Text = giaiNgan.DuNoLaiTrongHan.ToString("#,##0");
             txtDuNoLaiQuaHan.Text = giaiNgan.DuNoLaiNgoaiHan.ToString("#,##0");
             txtNgayHienTai.Text = gioHT;
+            dateTimePickerNgayTN.Value = DateTime.Parse(gioHT);
         }
 
         /// <summary>

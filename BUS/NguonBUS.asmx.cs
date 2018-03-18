@@ -172,7 +172,7 @@ namespace BUS
             {
                 return 2;
             }
-            if(Int64.Parse(hanMuc) <= Int64.Parse(soTienDaChoVay))
+            if(Int64.Parse(hanMuc) < Int64.Parse(soTienDaChoVay))
             {
                 return 3;
             }

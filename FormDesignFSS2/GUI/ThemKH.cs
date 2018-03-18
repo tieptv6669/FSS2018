@@ -39,6 +39,7 @@ namespace FormDesignFSS2.GUI
         private void ThemKH_Load(object sender, EventArgs e)
         {
             txtNgayMoTK.Text = gioHT;
+            dateTimePickerNgaySinh.Value = DateTime.Parse(gioHT);
             lblError.ForeColor = Color.Red;
             cboLoaiKH.SelectedIndex = 0;
         }
@@ -55,7 +56,7 @@ namespace FormDesignFSS2.GUI
                 if (btnXacNhan.Text == "Xác nhận")
                 {
                     KhachHangBUS khachHangBUS = new KhachHangBUS();
-                    switch (khachHangBUS.KTThongTinThemKH(txtSoTKLK.Text + txtSoTKLK2.Text, DateTime.Now, txtHoTen.Text, dateTimePickerNgaySinh.Value, txtNgheNghiep.Text, txtSoCMND.Text, txtDiaChi.Text, txtEmail.Text, txtSDT.Text, txtGhiChu.Text))
+                    switch (khachHangBUS.KTThongTinThemKH(txtSoTKLK.Text + txtSoTKLK2.Text, DateTime.Parse(gioHT), txtHoTen.Text, dateTimePickerNgaySinh.Value, txtNgheNghiep.Text, txtSoCMND.Text, txtDiaChi.Text, txtEmail.Text, txtSDT.Text, txtGhiChu.Text))
                     {
                         case 1:
                             {

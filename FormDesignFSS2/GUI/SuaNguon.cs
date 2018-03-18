@@ -75,7 +75,7 @@ namespace FormDesignFSS2.GUI
                             }
                         case 3:
                             {
-                                lblError.Text = "Hạn mức phải lớn hơn số tiền đã cho vay";
+                                lblError.Text = "Hạn mức phải lớn hơn hoặc bằng số tiền đã cho vay";
                                 break;
                             }
                         case 4:

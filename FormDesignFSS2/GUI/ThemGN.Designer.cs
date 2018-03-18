@@ -164,30 +164,33 @@
             // 
             // txtTenNguon
             // 
-            this.txtTenNguon.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.txtTenNguon.Enabled = false;
+            this.txtTenNguon.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.txtTenNguon.Location = new System.Drawing.Point(140, 119);
             this.txtTenNguon.Name = "txtTenNguon";
+            this.txtTenNguon.ReadOnly = true;
             this.txtTenNguon.Size = new System.Drawing.Size(196, 20);
             this.txtTenNguon.TabIndex = 14;
+            this.txtTenNguon.TabStop = false;
             // 
             // txtLaiSuat
             // 
-            this.txtLaiSuat.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.txtLaiSuat.Enabled = false;
+            this.txtLaiSuat.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.txtLaiSuat.Location = new System.Drawing.Point(140, 145);
             this.txtLaiSuat.Name = "txtLaiSuat";
+            this.txtLaiSuat.ReadOnly = true;
             this.txtLaiSuat.Size = new System.Drawing.Size(196, 20);
             this.txtLaiSuat.TabIndex = 15;
+            this.txtLaiSuat.TabStop = false;
             // 
             // txtKyHan
             // 
-            this.txtKyHan.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.txtKyHan.Enabled = false;
+            this.txtKyHan.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.txtKyHan.Location = new System.Drawing.Point(140, 199);
             this.txtKyHan.Name = "txtKyHan";
+            this.txtKyHan.ReadOnly = true;
             this.txtKyHan.Size = new System.Drawing.Size(196, 20);
             this.txtKyHan.TabIndex = 16;
+            this.txtKyHan.TabStop = false;
             // 
             // txtGhiChu
             // 
@@ -249,12 +252,13 @@
             // 
             // txtMaGN
             // 
-            this.txtMaGN.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.txtMaGN.Enabled = false;
+            this.txtMaGN.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.txtMaGN.Location = new System.Drawing.Point(141, 35);
             this.txtMaGN.Name = "txtMaGN";
+            this.txtMaGN.ReadOnly = true;
             this.txtMaGN.Size = new System.Drawing.Size(195, 20);
             this.txtMaGN.TabIndex = 24;
+            this.txtMaGN.TabStop = false;
             // 
             // lblLaiSuatQH
             // 
@@ -268,15 +272,17 @@
             // 
             // txtLaiSuatQH
             // 
-            this.txtLaiSuatQH.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.txtLaiSuatQH.Enabled = false;
+            this.txtLaiSuatQH.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.txtLaiSuatQH.Location = new System.Drawing.Point(140, 173);
             this.txtLaiSuatQH.Name = "txtLaiSuatQH";
+            this.txtLaiSuatQH.ReadOnly = true;
             this.txtLaiSuatQH.Size = new System.Drawing.Size(196, 20);
             this.txtLaiSuatQH.TabIndex = 26;
+            this.txtLaiSuatQH.TabStop = false;
             // 
             // dateNgayGN
             // 
+            this.dateNgayGN.CalendarMonthBackground = System.Drawing.SystemColors.ScrollBar;
             this.dateNgayGN.Enabled = false;
             this.dateNgayGN.Location = new System.Drawing.Point(140, 227);
             this.dateNgayGN.Name = "dateNgayGN";
@@ -285,6 +291,7 @@
             // 
             // dateNgayDH
             // 
+            this.dateNgayDH.CalendarMonthBackground = System.Drawing.SystemColors.ScrollBar;
             this.dateNgayDH.Enabled = false;
             this.dateNgayDH.Location = new System.Drawing.Point(140, 255);
             this.dateNgayDH.Name = "dateNgayDH";

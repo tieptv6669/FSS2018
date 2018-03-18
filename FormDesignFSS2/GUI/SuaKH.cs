@@ -93,7 +93,7 @@ namespace FormDesignFSS2.GUI
                 if (btnXacNhan.Text == "Xác nhận")
                 {
                     KhachHangBUS khachHangBUS = new KhachHangBUS();
-                    switch (khachHangBUS.KTThongTinSuaKH(Convert.ToDateTime(txtNgayMoTK.Text), txtHoTenKH.Text, dateNgaySinh.Value, txtNgheNghiep.Text, txtSoCMND.Text, txtDiaChi.Text, txtEmail.Text, txtSDT.Text))
+                    switch (khachHangBUS.KTThongTinSuaKH(Convert.ToDateTime(txtNgayMoTK.Text), txtHoTenKH.Text, dateNgaySinh.Value, txtNgheNghiep.Text, txtSoCMND.Text, khachHang.soCMNNKH, txtDiaChi.Text, txtEmail.Text, txtSDT.Text))
                     {
                         case 2:
                             {
@@ -153,6 +153,11 @@ namespace FormDesignFSS2.GUI
                         case 13:
                             {
                                 lblError.Text = "Vượt quá độ dài trường thông tin";
+                                break;
+                            }
+                        case 14:
+                            {
+                                lblError.Text = "Số CMND đã tồn tại";
                                 break;
                             }
                         case 0:

@@ -166,6 +166,7 @@ namespace FormDesignFSS2.GUI
             // Lấy ngày làm việc hiện tại
             XuLyCuoiNgayBUS xuLyCuoiNgayBUS = new XuLyCuoiNgayBUS();
             txtNgayLVHienTai.Text = xuLyCuoiNgayBUS.LayNgayLamViecHienTai();
+            dateTPNgayLamViecTiepTheo.Value = DateTime.Parse(txtNgayLVHienTai.Text);
         }
     }
 }

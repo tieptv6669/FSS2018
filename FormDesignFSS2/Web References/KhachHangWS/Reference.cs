@@ -166,13 +166,14 @@ namespace FormDesignFSS2.KhachHangWS {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/KTThongTinSuaKH", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public int KTThongTinSuaKH(System.DateTime ngayMoTK, string hoTenKH, System.DateTime ngaySinh, string ngheNghiep, string soCMND, string diaChi, string email, string sdt) {
+        public int KTThongTinSuaKH(System.DateTime ngayMoTK, string hoTenKH, System.DateTime ngaySinh, string ngheNghiep, string soCMND, string soCMNDCu, string diaChi, string email, string sdt) {
             object[] results = this.Invoke("KTThongTinSuaKH", new object[] {
                         ngayMoTK,
                         hoTenKH,
                         ngaySinh,
                         ngheNghiep,
                         soCMND,
+                        soCMNDCu,
                         diaChi,
                         email,
                         sdt});
@@ -180,12 +181,12 @@ namespace FormDesignFSS2.KhachHangWS {
         }
         
         /// <remarks/>
-        public void KTThongTinSuaKHAsync(System.DateTime ngayMoTK, string hoTenKH, System.DateTime ngaySinh, string ngheNghiep, string soCMND, string diaChi, string email, string sdt) {
-            this.KTThongTinSuaKHAsync(ngayMoTK, hoTenKH, ngaySinh, ngheNghiep, soCMND, diaChi, email, sdt, null);
+        public void KTThongTinSuaKHAsync(System.DateTime ngayMoTK, string hoTenKH, System.DateTime ngaySinh, string ngheNghiep, string soCMND, string soCMNDCu, string diaChi, string email, string sdt) {
+            this.KTThongTinSuaKHAsync(ngayMoTK, hoTenKH, ngaySinh, ngheNghiep, soCMND, soCMNDCu, diaChi, email, sdt, null);
         }
         
         /// <remarks/>
-        public void KTThongTinSuaKHAsync(System.DateTime ngayMoTK, string hoTenKH, System.DateTime ngaySinh, string ngheNghiep, string soCMND, string diaChi, string email, string sdt, object userState) {
+        public void KTThongTinSuaKHAsync(System.DateTime ngayMoTK, string hoTenKH, System.DateTime ngaySinh, string ngheNghiep, string soCMND, string soCMNDCu, string diaChi, string email, string sdt, object userState) {
             if ((this.KTThongTinSuaKHOperationCompleted == null)) {
                 this.KTThongTinSuaKHOperationCompleted = new System.Threading.SendOrPostCallback(this.OnKTThongTinSuaKHOperationCompleted);
             }
@@ -195,6 +196,7 @@ namespace FormDesignFSS2.KhachHangWS {
                         ngaySinh,
                         ngheNghiep,
                         soCMND,
+                        soCMNDCu,
                         diaChi,
                         email,
                         sdt}, this.KTThongTinSuaKHOperationCompleted, userState);

@@ -82,6 +82,9 @@ namespace FormDesignFSS2.GUI
             reportViewerBC.RefreshReport();
             reportViewerBC.RefreshReport();
             cboLoaiBC.SelectedIndex = 0;
+
+            dateTimePickerST.Value = DateTime.Parse(lblTime.Text);
+            dateTimePickerFT.Value = DateTime.Parse(lblTime.Text);
         }
 
         /// <summary>

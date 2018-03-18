@@ -171,7 +171,7 @@
             // lblError
             // 
             this.lblError.AutoSize = true;
-            this.lblError.Location = new System.Drawing.Point(175, 185);
+            this.lblError.Location = new System.Drawing.Point(115, 185);
             this.lblError.Name = "lblError";
             this.lblError.Size = new System.Drawing.Size(0, 13);
             this.lblError.TabIndex = 22;
