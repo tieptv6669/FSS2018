@@ -23,6 +23,7 @@ namespace FormDesignFSS2.GUI
     {
         public string maGN;
         public SanPhamTinDung sanPhamTinDung;
+        public string gioHT;
 
         public DuTinhLai()
         {
@@ -66,7 +67,7 @@ namespace FormDesignFSS2.GUI
             txtDuNoGoc.Text = giaiNgan.DuNoGoc.ToString("#,##0");
             txtDuNoLaiTrongHan.Text = giaiNgan.DuNoLaiTrongHan.ToString("#,##0");
             txtDuNoLaiQuaHan.Text = giaiNgan.DuNoLaiNgoaiHan.ToString("#,##0");
-            txtNgayHienTai.Text = DateTime.Now.ToShortDateString();
+            txtNgayHienTai.Text = gioHT;
         }
 
         /// <summary>

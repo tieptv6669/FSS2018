@@ -1154,6 +1154,7 @@ namespace FormDesignFSS2.GUI
                     {
                         DuTinhLai duTinhLai = new DuTinhLai();
                         duTinhLai.maGN = gridDSMonNo.SelectedRows[0].Cells[0].Value.ToString();
+                        duTinhLai.gioHT = lblTime.Text;
                         duTinhLai.ShowDialog();
                     }
                     else
