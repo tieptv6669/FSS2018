@@ -58,21 +58,31 @@ namespace DAO
         {
             try
             {
-                finishDate = finishDate.AddDays(1);
-
                 List<LichSu> list = new List<LichSu>();
 
                 OracleCommand oracleCommand = new OracleCommand();
                 
-                oracleCommand.CommandText = "SELECT * FROM LICHSU WHERE TENDANGNHAP LIKE '%' || :tenDANGNHAP || '%' " +
+                if(startDate == finishDate)
+                {
+                    oracleCommand.CommandText = "SELECT * FROM LICHSU WHERE TENDANGNHAP LIKE '%' || :tenDANGNHAP || '%' " +
+                    "AND SOTKLK LIKE '%' || :sOTKLK || '%' AND MADOITUONG LIKE '%' || :mADOITUONG || '%' " +
+                    "AND THOIGIAN = :fromDate";
+                    oracleCommand.Parameters.Add("tenDANGNHAP", tenDangNhap);
+                    oracleCommand.Parameters.Add("sOTKLK", soTKLK);
+                    oracleCommand.Parameters.Add("mADOITUONG", maDT);
+                    oracleCommand.Parameters.Add("fromDate", startDate);
+                }
+                else
+                {
+                    oracleCommand.CommandText = "SELECT * FROM LICHSU WHERE TENDANGNHAP LIKE '%' || :tenDANGNHAP || '%' " +
                     "AND SOTKLK LIKE '%' || :sOTKLK || '%' AND MADOITUONG LIKE '%' || :mADOITUONG || '%' " +
                     "AND THOIGIAN BETWEEN :fromDate AND :toDate";
-
-                oracleCommand.Parameters.Add("tenDANGNHAP", tenDangNhap);
-                oracleCommand.Parameters.Add("sOTKLK", soTKLK);
-                oracleCommand.Parameters.Add("mADOITUONG", maDT);
-                oracleCommand.Parameters.Add("fromDate", startDate);
-                oracleCommand.Parameters.Add("toDate", finishDate);
+                    oracleCommand.Parameters.Add("tenDANGNHAP", tenDangNhap);
+                    oracleCommand.Parameters.Add("sOTKLK", soTKLK);
+                    oracleCommand.Parameters.Add("mADOITUONG", maDT);
+                    oracleCommand.Parameters.Add("fromDate", startDate);
+                    oracleCommand.Parameters.Add("toDate", finishDate);
+                }
 
                 OracleDataReader oracleDataReader = DataProvider.GetOracleDataReader(oracleCommand);
                 if(oracleDataReader != null && oracleDataReader.HasRows)

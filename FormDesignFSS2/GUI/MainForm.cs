@@ -143,6 +143,7 @@ namespace FormDesignFSS2.GUI
         {
             ThemUser themUser = new ThemUser();
             themUser.nguoiDung = nguoiDungHienTai;
+            themUser.gioHT = lblTime.Text;
             themUser.ShowDialog();
         }
 
@@ -196,6 +197,7 @@ namespace FormDesignFSS2.GUI
                     suaUser.nguoiDung.quyenND = gridTabUser.SelectedRows[0].Cells[4].Value.ToString();
                     suaUser.dataGridView = gridTabUser;
                     suaUser.nguoiDungHeThong = nguoiDungHienTai;
+                    suaUser.gioHT = lblTime.Text;
 
                     suaUser.ShowDialog();
                 }
@@ -232,7 +234,7 @@ namespace FormDesignFSS2.GUI
                             LichSu lichSu = new LichSu();
                             lichSu.MaDT = gridTabUser.SelectedRows[0].Cells[0].Value.ToString();
                             lichSu.NoiDung = "Xóa người dùng";
-                            lichSu.ThoiGian = DateTime.Now;
+                            lichSu.ThoiGian = DateTime.Parse(lblTime.Text);
                             lichSu.GiaTriTruoc = "null";
                             lichSu.GiaTriSau = "null";
                             lichSu.TenDN = nguoiDungHienTai.tenDangNhapND;
@@ -269,6 +271,7 @@ namespace FormDesignFSS2.GUI
         private void btnDoiMatKhau_Click(object sender, EventArgs e)
         {
             DoiMK doiMK = new DoiMK();
+            doiMK.gioHT = lblTime.Text;
             doiMK.ShowDialog();
         }
 
@@ -327,7 +330,7 @@ namespace FormDesignFSS2.GUI
                             LichSu lichSu = new LichSu();
                             lichSu.MaDT = tenDN;
                             lichSu.NoiDung = "Reset mật khẩu";
-                            lichSu.ThoiGian = DateTime.Now;
+                            lichSu.ThoiGian = DateTime.Parse(lblTime.Text);
                             lichSu.GiaTriTruoc = nguoiDung.matKhauND;
                             lichSu.GiaTriSau = tenDN;
                             lichSu.TenDN = nguoiDungHienTai.tenDangNhapND;
@@ -406,6 +409,7 @@ namespace FormDesignFSS2.GUI
 
                     suaKH.khachHang = khachHang;
                     suaKH.nguoiDungHeThong = nguoiDungHienTai;
+                    suaKH.gioHT = lblTime.Text;
 
                     suaKH.ShowDialog();
                 }
@@ -463,6 +467,8 @@ namespace FormDesignFSS2.GUI
         {
             ThemNguon themNguon = new ThemNguon();
             themNguon.nguoiDungHeThong = nguoiDungHienTai;
+            themNguon.gioHT = lblTime.Text;
+
             themNguon.ShowDialog();
         }
 
@@ -485,6 +491,7 @@ namespace FormDesignFSS2.GUI
                     suaNguon.nguon.tienDaChoVay = Int64.Parse(gridDSNguon.SelectedRows[0].Cells[3].Value.ToString().Replace(",", ""));
                     suaNguon.nguon.tienCoTheChoVay = Int64.Parse(gridDSNguon.SelectedRows[0].Cells[4].Value.ToString().Replace(",", ""));
                     suaNguon.nguoiDungHeThong = nguoiDungHienTai;
+                    suaNguon.gioHT = lblTime.Text;
 
                     suaNguon.ShowDialog();
                 }
@@ -523,7 +530,7 @@ namespace FormDesignFSS2.GUI
                             LichSu lichSu = new LichSu();
                             lichSu.MaDT = gridDSNguon.SelectedRows[0].Cells[0].Value.ToString();
                             lichSu.NoiDung = "Xóa nguồn";
-                            lichSu.ThoiGian = DateTime.Now;
+                            lichSu.ThoiGian = DateTime.Parse(lblTime.Text);
                             lichSu.GiaTriTruoc = "null";
                             lichSu.GiaTriSau = "null";
                             lichSu.TenDN = nguoiDungHienTai.tenDangNhapND;
@@ -588,6 +595,8 @@ namespace FormDesignFSS2.GUI
         private void btnThemTabGN_Click(object sender, EventArgs e)
         {
             ThemGN themGN = new ThemGN();
+            themGN.gioHT = lblTime.Text;
+            themGN.nguoiDungHeThong = nguoiDungHienTai;
             themGN.ShowDialog();
         }
 
@@ -600,6 +609,7 @@ namespace FormDesignFSS2.GUI
         {
             ThemKH themKH = new ThemKH();
             themKH.nguoiDungHeThong = nguoiDungHienTai;
+            themKH.gioHT = lblTime.Text;
             themKH.ShowDialog();
         }
 
@@ -672,6 +682,7 @@ namespace FormDesignFSS2.GUI
         {
             ThemMoiSPTD themMoiSPTD = new ThemMoiSPTD();
             themMoiSPTD.nguoiDungHeThong = nguoiDungHienTai;
+            themMoiSPTD.gioHT = lblTime.Text;
             themMoiSPTD.ShowDialog();
         }
 
@@ -700,6 +711,7 @@ namespace FormDesignFSS2.GUI
                     suaSPTD.sanPhamTinDung = sanPhamTinDung;
                     suaSPTD.dataGridView = gridDSSPTD;
                     suaSPTD.nguoiDungHeThong = nguoiDungHienTai;
+                    suaSPTD.gioHT = lblTime.Text;
 
                     suaSPTD.ShowDialog();
                 }
@@ -749,6 +761,8 @@ namespace FormDesignFSS2.GUI
         {
             DangKyMoiSPTD dangKyMoiSPTD = new DangKyMoiSPTD();
             dangKyMoiSPTD.dataGridView = gridDSKHSPTD;
+            dangKyMoiSPTD.gioHT = lblTime.Text;
+            dangKyMoiSPTD.nguoiDungHeThong = nguoiDungHienTai;
             dangKyMoiSPTD.ShowDialog();
         }
 
@@ -783,6 +797,18 @@ namespace FormDesignFSS2.GUI
                             KhachHang_SPTD_BUS khachHang_SPTD_BUS = new KhachHang_SPTD_BUS();
                             if (khachHang_SPTD_BUS.HuyDangKy(khachHang.idKH, sanPhamTinDung.IdSPTD))
                             {
+                                // Ghi log
+                                LichSu lichSu = new LichSu();
+                                lichSu.MaDT = sanPhamTinDung.MaSPTD;
+                                lichSu.NoiDung = "Hủy đăng ký sử dụng SPTD";
+                                lichSu.ThoiGian = DateTime.Parse(lblTime.Text);
+                                lichSu.GiaTriTruoc = "null";
+                                lichSu.GiaTriSau = "null";
+                                lichSu.TenDN = nguoiDungHienTai.tenDangNhapND;
+                                lichSu.SoTKLK = khachHang.STKLK;
+                                LichSuBUS lichSuBUS = new LichSuBUS();
+                                lichSuBUS.ThemLichSu(JsonConvert.SerializeObject(lichSu));
+
                                 MessageBox.Show("Hủy đăng ký sử dụng SPTD thành công", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 // Cập nhật grid view
                                 foreach (DataGridViewRow temp in gridDSKHSPTD.Rows)
@@ -957,6 +983,8 @@ namespace FormDesignFSS2.GUI
                     }
                     else
                     {
+                        suaGN.nguoiDungHeThong = nguoiDungHienTai;
+                        suaGN.gioHT = lblTime.Text;
                         suaGN.ShowDialog();
                     }
                 }
@@ -1027,6 +1055,7 @@ namespace FormDesignFSS2.GUI
                     traNo.maGNTN = gridDSMonNo.SelectedRows[0].Cells[0].Value.ToString();
                     traNo.nguoiDungHeThong = nguoiDungHienTai;
                     traNo.dataGridView = gridDSMonNo;
+                    traNo.gioHT = lblTime.Text;
                     traNo.ShowDialog();
                 }
                 else

@@ -21,6 +21,8 @@ namespace FormDesignFSS2.GUI
     public partial class ThemUser : Form
     {
         public NguoiDung nguoiDung;
+        public string gioHT;
+
         public ThemUser()
         {
             InitializeComponent();
@@ -132,7 +134,7 @@ namespace FormDesignFSS2.GUI
                             }
                         case 8:
                             {
-                                lblError.Text = "Độ dài vượt quá trường thông tin";
+                                lblError.Text = "Vượt quá độ dài trường thông tin";
                                 break;
                             }
                         case 0:
@@ -171,16 +173,13 @@ namespace FormDesignFSS2.GUI
                             LichSu lichSu = new LichSu();
                             lichSu.MaDT = nguoiDung.tenDangNhapND;
                             lichSu.NoiDung = "Thêm người dùng mới";
-                            lichSu.ThoiGian = DateTime.Now;
+                            lichSu.ThoiGian = DateTime.Parse(gioHT);
                             lichSu.GiaTriTruoc = "null";
                             lichSu.GiaTriSau = "null";
                             lichSu.TenDN = this.nguoiDung.tenDangNhapND;
                             lichSu.SoTKLK = "null";
                             LichSuBUS lichSuBUS = new LichSuBUS();
                             lichSuBUS.ThemLichSu(JsonConvert.SerializeObject(lichSu));
-                            Hide();
-                            ThemUser themUser = new ThemUser();
-                            themUser.ShowDialog();
                             Close();
                         }
                         else

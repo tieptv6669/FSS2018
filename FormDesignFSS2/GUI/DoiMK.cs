@@ -20,6 +20,8 @@ namespace FormDesignFSS2.GUI
     /// </summary>
     public partial class DoiMK : Form
     {
+        public string gioHT;
+
         public DoiMK()
         {
             InitializeComponent();
@@ -127,7 +129,7 @@ namespace FormDesignFSS2.GUI
                         LichSu lichSu = new LichSu();
                         lichSu.MaDT = txtTenDangNhap.Text;
                         lichSu.NoiDung = "Đổi mật khẩu";
-                        lichSu.ThoiGian = DateTime.Now;
+                        lichSu.ThoiGian = DateTime.Parse(gioHT);
                         lichSu.GiaTriTruoc = nguoiDung.matKhauND;
                         lichSu.GiaTriSau = txtMatKhauMoi.Text;
                         lichSu.TenDN = txtTenDangNhap.Text;

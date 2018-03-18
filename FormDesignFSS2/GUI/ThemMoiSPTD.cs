@@ -22,6 +22,7 @@ namespace FormDesignFSS2.GUI
     public partial class ThemMoiSPTD : Form
     {
         public NguoiDung nguoiDungHeThong;
+        public string gioHT;
 
         public ThemMoiSPTD()
         {
@@ -205,7 +206,7 @@ namespace FormDesignFSS2.GUI
                         LichSu lichSu = new LichSu();
                         lichSu.MaDT = sanPhamTinDung.MaSPTD;
                         lichSu.NoiDung = "Thêm sản phẩm tín dụng mới";
-                        lichSu.ThoiGian = DateTime.Now;
+                        lichSu.ThoiGian = DateTime.Parse(gioHT);
                         lichSu.GiaTriTruoc = "null";
                         lichSu.GiaTriSau = "null";
                         lichSu.TenDN = nguoiDungHeThong.tenDangNhapND;
@@ -214,9 +215,6 @@ namespace FormDesignFSS2.GUI
                         lichSuBUS.ThemLichSu(JsonConvert.SerializeObject(lichSu));
 
                         MessageBox.Show("Thêm mới SPTD thành công", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        Hide();
-                        ThemMoiSPTD themMoiSPTD = new ThemMoiSPTD();
-                        themMoiSPTD.ShowDialog();
                         Close();
                     }
                     else

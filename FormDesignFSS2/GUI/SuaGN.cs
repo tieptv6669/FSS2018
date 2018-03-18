@@ -15,6 +15,7 @@ using Newtonsoft.Json;
 using FormDesignFSS2.SanPhamTinDungWS;
 using FormDesignFSS2.NguonWS;
 using FormDesignFSS2.KhachHangWS;
+using FormDesignFSS2.LichSuWS;
 
 namespace FormDesignFSS2.GUI
 {
@@ -22,6 +23,9 @@ namespace FormDesignFSS2.GUI
     {
         public GN_SPTD_NGUON giaiNgan;
         public DataGridView dataGridView;
+        public NguoiDung nguoiDungHeThong;
+        public string gioHT;
+
         public SuaGN()
         {
             InitializeComponent();
@@ -146,7 +150,7 @@ namespace FormDesignFSS2.GUI
                             }
                         case 5:
                             {
-                                lblError.Text = "Số tiền quá lớn";
+                                lblError.Text = "Vượt quá độ dài trường thông tin";
                                 break;
                             }
                         case 0:
@@ -208,6 +212,27 @@ namespace FormDesignFSS2.GUI
                             long daChoVayms = lists.tienDaChoVay;
                             int idNguonms = lists.idNg;
                             nguonBUS.updateSoTien(long.Parse(txtSoTienGN.Text.Replace(",", "")), idNguonms, coTheVayms, daChoVayms);
+
+                            // Ghi log
+                            LichSu lichSu = new LichSu();
+                            lichSu.MaDT = giaiNgan.MaGN;
+                            lichSu.NoiDung = "Sửa thông tin giải ngân";
+                            lichSu.ThoiGian = DateTime.Parse(gioHT);
+                            lichSu.GiaTriTruoc = JsonConvert.SerializeObject(giaiNgan);
+                            giaiNgan.SoTienGN = long.Parse(txtSoTienGN.Text.Replace(",", ""));
+                            giaiNgan.DuNoGoc = long.Parse(txtSoTienGN.Text.Replace(",", ""));
+                            giaiNgan.TenSPTD = khachHang_SPTD.TenSPTD;
+                            giaiNgan.LaiSuat = Int32.Parse(txtLaiSuat.Text);
+                            giaiNgan.LaiSuatQuaHan = Int32.Parse(txtLaiSuatQH.Text);
+                            giaiNgan.KyHan = Int32.Parse(txtKyHan.Text);
+                            giaiNgan.TenNguon = txtNguon.Text;
+                            giaiNgan.GhiChu = txtGhiChu.Text;
+                            lichSu.GiaTriSau = JsonConvert.SerializeObject(giaiNgan);
+                            lichSu.TenDN = nguoiDungHeThong.tenDangNhapND;
+                            lichSu.SoTKLK = txtSoTKLK.Text;
+                            LichSuBUS lichSuBUS = new LichSuBUS();
+                            lichSuBUS.ThemLichSu(JsonConvert.SerializeObject(lichSu));
+
                             MessageBox.Show("Sửa thông tin giải ngân thành công", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             Close();
                         }

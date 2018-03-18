@@ -31,6 +31,8 @@ namespace FormDesignFSS2.GUI
         public NguoiDung nguoiDungHeThong;
         // Gridview
         public DataGridView dataGridView;
+        // Thời gian hệ thống
+        public string gioHT;
 
         public TraNo()
         {
@@ -70,7 +72,7 @@ namespace FormDesignFSS2.GUI
                 txtDuNoLaiTrongHan.Text = giaiNgan.DuNoLaiTrongHan.ToString("#,##0");
                 txtDuNoLaiQuaHan.Text = giaiNgan.DuNoLaiNgoaiHan.ToString("#,##0");
                 txtNgayDaoHan.Text = giaiNgan.NgayDaoHan.ToShortDateString();
-                txtNgayTraNo.Text = DateTime.Now.ToShortDateString();
+                txtNgayTraNo.Text = gioHT;
                 if (DateTime.Parse(txtNgayTraNo.Text) <= DateTime.Parse(txtNgayDaoHan.Text))
                 {
                     txtSoNgayQuaHan.Text = "0";
@@ -258,7 +260,7 @@ namespace FormDesignFSS2.GUI
             LichSu lichSu = new LichSu();
             lichSu.MaDT = txtMaTN.Text;
             lichSu.NoiDung = "Trả nợ";
-            lichSu.ThoiGian = DateTime.Now;
+            lichSu.ThoiGian = DateTime.Parse(gioHT);
             lichSu.GiaTriTruoc = "null";
             lichSu.GiaTriSau = "null";
             lichSu.TenDN = nguoiDungHeThong.tenDangNhapND;

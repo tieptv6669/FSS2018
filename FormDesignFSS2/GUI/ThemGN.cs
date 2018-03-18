@@ -12,6 +12,7 @@ using FormDesignFSS2.GiaiNganWS;
 using FormDesignFSS2.KhachHang_SPTD_WS;
 using DTO;
 using FormDesignFSS2.SanPhamTinDungWS;
+using FormDesignFSS2.LichSuWS;
 using FormDesignFSS2.KhachHangWS;
 using FormDesignFSS2.NguonWS;
 
@@ -23,6 +24,9 @@ namespace FormDesignFSS2.GUI
     /// </summary>
     public partial class ThemGN : Form
     {
+        public string gioHT;
+        public NguoiDung nguoiDungHeThong;
+
         public ThemGN()
         {
             InitializeComponent();
@@ -101,7 +105,7 @@ namespace FormDesignFSS2.GUI
                             }
                         case 7:
                             {
-                                lblError.Text = "Số tiền quá lớn";
+                                lblError.Text = "Vượt quá độ dài trường thông tin";
                                 break;
                             }
                         case 4:
@@ -152,7 +156,7 @@ namespace FormDesignFSS2.GUI
                     giaiNgan.MaGN = txtMaGN.Text;
                     giaiNgan.SoTienGN = Int64.Parse(txtSoTienGN.Text.Replace(",", ""));
                     giaiNgan.DuNoGoc = Int64.Parse(txtSoTienGN.Text.Replace(",", ""));
-                    giaiNgan.NgayGN = DateTime.Now;
+                    giaiNgan.NgayGN = dateNgayGN.Value;
                     giaiNgan.NgayDaoHan = dateNgayDH.Value;
                     giaiNgan.IDSPTD = idSPTD;
                     giaiNgan.IDKH = idKH;
@@ -179,6 +183,18 @@ namespace FormDesignFSS2.GUI
                         long daChoVay = list.tienDaChoVay;
                         int idNguon = list.idNg;
                         nguonBUS.updateSoTien(long.Parse(txtSoTienGN.Text.Replace(",", "")), idNguon, coTheVay, daChoVay);
+                        // Ghi log
+                        LichSu lichSu = new LichSu();
+                        lichSu.MaDT = giaiNgan.MaGN;
+                        lichSu.NoiDung = "Thêm giải ngân mới";
+                        lichSu.ThoiGian = DateTime.Parse(gioHT);
+                        lichSu.GiaTriTruoc = "null";
+                        lichSu.GiaTriSau = "null";
+                        lichSu.TenDN = nguoiDungHeThong.tenDangNhapND;
+                        lichSu.SoTKLK = txtSoTKLK.Text;
+                        LichSuBUS lichSuBUS = new LichSuBUS();
+                        lichSuBUS.ThemLichSu(JsonConvert.SerializeObject(lichSu));
+
                         MessageBox.Show("Thêm giải ngân mới thành công", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         Close();
                     }
@@ -257,13 +273,11 @@ namespace FormDesignFSS2.GUI
                         {
                             lblError.Text = "Không có SPTD nào để chọn";
                         }
-
                     }
                     else
                     {
                         lblError.Text = "Số TKLK sai";
                     }
-
                 }
                 else
                 {
@@ -274,6 +288,17 @@ namespace FormDesignFSS2.GUI
             {
                 MessageBox.Show("Lỗi: " + ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        /// <summary>
+        /// Tải form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ThemGN_Load(object sender, EventArgs e)
+        {
+            dateNgayGN.Value = DateTime.Parse(gioHT);
+            dateNgayDH.Value = DateTime.Parse(gioHT);
         }
     }
 }

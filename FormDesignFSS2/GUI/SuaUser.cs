@@ -23,6 +23,7 @@ namespace FormDesignFSS2.GUI
         public NguoiDung nguoiDungHeThong;
         public NguoiDung nguoiDung;
         public DataGridView dataGridView;
+        public string gioHT;
 
         /// <summary>
         /// Khởi tạo form
@@ -110,7 +111,7 @@ namespace FormDesignFSS2.GUI
                             }
                         case 8:
                             {
-                                lblError.Text = "Độ dài vượt quá trường thông tin";
+                                lblError.Text = "Vượt quá độ dài trường thông tin";
                                 break;
                             }
                         case 0:
@@ -155,7 +156,7 @@ namespace FormDesignFSS2.GUI
                             LichSu lichSu = new LichSu();
                             lichSu.MaDT = nguoiDung.tenDangNhapND;
                             lichSu.NoiDung = "Sửa thông tin người dùng";
-                            lichSu.ThoiGian = DateTime.Now;
+                            lichSu.ThoiGian = DateTime.Parse(gioHT);
                             // Lấy giá trị cũ
                             NguoiDung tempND = new NguoiDung();
                             tempND.hoTenND = nguoiDung.hoTenND;

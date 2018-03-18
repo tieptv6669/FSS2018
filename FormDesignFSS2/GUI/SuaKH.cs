@@ -24,6 +24,7 @@ namespace FormDesignFSS2.GUI
         public KhachHang khachHang;
         public NguoiDung nguoiDungHeThong;
         public DataGridView dataGridView;
+        public string gioHT;
 
         /// <summary>
         /// Khởi tạo form
@@ -151,7 +152,7 @@ namespace FormDesignFSS2.GUI
                             }
                         case 13:
                             {
-                                lblError.Text = "Độ dài vượt quá trường thông tin";
+                                lblError.Text = "Vượt quá độ dài trường thông tin";
                                 break;
                             }
                         case 0:
@@ -219,7 +220,7 @@ namespace FormDesignFSS2.GUI
                             LichSu lichSu = new LichSu();
                             lichSu.MaDT = khachHang.STKLK;
                             lichSu.NoiDung = "Sửa thông tin khách hàng";
-                            lichSu.ThoiGian = DateTime.Now;
+                            lichSu.ThoiGian = DateTime.Parse(gioHT);
                             lichSu.GiaTriTruoc = JsonConvert.SerializeObject(khachHang);
                             KhachHang khachHangSau = new KhachHang();
                             khachHangSau.idKH = khachHang.idKH;

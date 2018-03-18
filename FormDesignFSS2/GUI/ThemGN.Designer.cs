@@ -334,6 +334,7 @@
             this.Name = "ThemGN";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Thêm giải ngân";
+            this.Load += new System.EventHandler(this.ThemGN_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

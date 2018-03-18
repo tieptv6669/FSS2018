@@ -41,7 +41,7 @@
             // 
             this.lblTenDangNhap.AutoSize = true;
             this.lblTenDangNhap.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTenDangNhap.Location = new System.Drawing.Point(12, 31);
+            this.lblTenDangNhap.Location = new System.Drawing.Point(12, 15);
             this.lblTenDangNhap.Name = "lblTenDangNhap";
             this.lblTenDangNhap.Size = new System.Drawing.Size(93, 15);
             this.lblTenDangNhap.TabIndex = 0;
@@ -49,7 +49,7 @@
             // 
             // txtTenDangNhap
             // 
-            this.txtTenDangNhap.Location = new System.Drawing.Point(111, 31);
+            this.txtTenDangNhap.Location = new System.Drawing.Point(111, 15);
             this.txtTenDangNhap.Name = "txtTenDangNhap";
             this.txtTenDangNhap.Size = new System.Drawing.Size(161, 20);
             this.txtTenDangNhap.TabIndex = 1;
@@ -59,7 +59,7 @@
             // 
             this.lblMatKhau.AutoSize = true;
             this.lblMatKhau.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMatKhau.Location = new System.Drawing.Point(44, 67);
+            this.lblMatKhau.Location = new System.Drawing.Point(44, 51);
             this.lblMatKhau.Name = "lblMatKhau";
             this.lblMatKhau.Size = new System.Drawing.Size(61, 15);
             this.lblMatKhau.TabIndex = 2;
@@ -67,7 +67,7 @@
             // 
             // txtMatKhau
             // 
-            this.txtMatKhau.Location = new System.Drawing.Point(111, 67);
+            this.txtMatKhau.Location = new System.Drawing.Point(111, 51);
             this.txtMatKhau.Name = "txtMatKhau";
             this.txtMatKhau.PasswordChar = '*';
             this.txtMatKhau.Size = new System.Drawing.Size(161, 20);
@@ -105,7 +105,7 @@
             // lblError
             // 
             this.lblError.AutoSize = true;
-            this.lblError.Location = new System.Drawing.Point(27, 9);
+            this.lblError.Location = new System.Drawing.Point(32, 84);
             this.lblError.Name = "lblError";
             this.lblError.Size = new System.Drawing.Size(0, 13);
             this.lblError.TabIndex = 6;

@@ -23,6 +23,7 @@ namespace FormDesignFSS2.GUI
         public Nguon nguon;
         public DataGridView dataGridView;
         public NguoiDung nguoiDungHeThong;
+        public string gioHT;
 
         /// <summary>
         /// Khởi tạo form
@@ -79,7 +80,7 @@ namespace FormDesignFSS2.GUI
                             }
                         case 4:
                             {
-                                lblError.Text = "Độ dài vượt quá trường thông tin";
+                                lblError.Text = "Vượt quá độ dài trường thông tin";
                                 break;
                             }
                         case 0:
@@ -120,7 +121,7 @@ namespace FormDesignFSS2.GUI
                         LichSu lichSu = new LichSu();
                         lichSu.MaDT = txtMaNguon.Text;
                         lichSu.NoiDung = "Sửa thông tin nguồn";
-                        lichSu.ThoiGian = DateTime.Now;
+                        lichSu.ThoiGian = DateTime.Parse(gioHT);
                         lichSu.GiaTriTruoc = JsonConvert.SerializeObject(nguon);
                         Nguon nguonSau = new Nguon();
                         nguonSau.idNg = nguon.idNg;

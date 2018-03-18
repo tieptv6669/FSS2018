@@ -21,6 +21,8 @@ namespace FormDesignFSS2.GUI
     public partial class ThemKH : Form
     {
         public NguoiDung nguoiDungHeThong;
+        public string gioHT;
+
         /// <summary>
         /// Khởi tạo form
         /// </summary>
@@ -36,7 +38,7 @@ namespace FormDesignFSS2.GUI
         /// <param name="e"></param>
         private void ThemKH_Load(object sender, EventArgs e)
         {
-            txtNgayMoTK.Text = DateTime.Now.Date.ToShortDateString();
+            txtNgayMoTK.Text = gioHT;
             lblError.ForeColor = Color.Red;
             cboLoaiKH.SelectedIndex = 0;
         }
@@ -197,7 +199,7 @@ namespace FormDesignFSS2.GUI
                         LichSu lichSu = new LichSu();
                         lichSu.MaDT = khachHang.STKLK;
                         lichSu.NoiDung = "Thêm khách hàng mới";
-                        lichSu.ThoiGian = DateTime.Now;
+                        lichSu.ThoiGian = DateTime.Parse(gioHT);
                         lichSu.GiaTriTruoc = "null";
                         lichSu.GiaTriSau = "null";
                         lichSu.TenDN = nguoiDungHeThong.tenDangNhapND;

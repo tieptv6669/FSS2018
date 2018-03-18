@@ -24,6 +24,7 @@ namespace FormDesignFSS2.GUI
         public SanPhamTinDung sanPhamTinDung;
         public DataGridView dataGridView;
         public NguoiDung nguoiDungHeThong;
+        public string gioHT;
 
         /// <summary>
         /// Khởi tạo form
@@ -163,7 +164,7 @@ namespace FormDesignFSS2.GUI
                             LichSu lichSu = new LichSu();
                             lichSu.MaDT = sanPhamTinDung.MaSPTD;
                             lichSu.NoiDung = "Sửa thông tin sản phẩm tín dụng";
-                            lichSu.ThoiGian = DateTime.Now;
+                            lichSu.ThoiGian = DateTime.Parse(gioHT);
                             lichSu.GiaTriTruoc = JsonConvert.SerializeObject(sanPhamTinDung);
                             SanPhamTinDung sanPhamTinDungSau = new SanPhamTinDung();
                             sanPhamTinDungSau.IdSPTD = sanPhamTinDung.IdSPTD;

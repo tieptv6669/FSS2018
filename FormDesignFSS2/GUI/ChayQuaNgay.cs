@@ -127,19 +127,20 @@ namespace FormDesignFSS2.GUI
                                 string ngayTiepTheo = dateTPNgayLamViecTiepTheo.Value.ToShortDateString();
 
                                 xuLyCuoiNgayBUS.XuLyCuoiNgay(ngayHienTai, ngayTiepTheo);
-                                // Hiển thị lại ngày hệ thống
-                                labelNgayHeThong.Text = ngayTiepTheo;
                                 // Ghi log
                                 LichSu lichSu = new LichSu();
                                 lichSu.MaDT = "null";
                                 lichSu.NoiDung = "Xử lý cuối ngày";
-                                lichSu.ThoiGian = DateTime.Now;
+                                lichSu.ThoiGian = DateTime.Parse(labelNgayHeThong.Text);
                                 lichSu.GiaTriTruoc = "null";
                                 lichSu.GiaTriSau = "null";
                                 lichSu.TenDN = nguoiDungHeThong.tenDangNhapND;
                                 lichSu.SoTKLK = "null";
                                 LichSuBUS lichSuBUS = new LichSuBUS();
                                 lichSuBUS.ThemLichSu(JsonConvert.SerializeObject(lichSu));
+                                // Hiển thị lại ngày hệ thống
+                                labelNgayHeThong.Text = ngayTiepTheo;
+                                
 
                                 timerXuLyCuoiNgay.Start();
                             }

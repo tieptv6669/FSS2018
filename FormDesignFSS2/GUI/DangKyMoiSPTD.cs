@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using FormDesignFSS2.SanPhamTinDungWS;
 using FormDesignFSS2.KhachHangWS;
 using FormDesignFSS2.KhachHang_SPTD_WS;
+using FormDesignFSS2.LichSuWS;
 using DTO;
 using Newtonsoft.Json;
 
@@ -23,6 +24,9 @@ namespace FormDesignFSS2.GUI
     {
         public KhachHang khachHang;
         public DataGridView dataGridView;
+        public string gioHT;
+        public NguoiDung nguoiDungHeThong;
+
         public DangKyMoiSPTD()
         {
             InitializeComponent();
@@ -123,9 +127,6 @@ namespace FormDesignFSS2.GUI
                                     }
                                 }
                                 MessageBox.Show("Đăng ký sử dụng lại SPTD thành công", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                Hide();
-                                DangKyMoiSPTD dangKyMoiSPTD = new DangKyMoiSPTD();
-                                dangKyMoiSPTD.ShowDialog();
                                 Close();
                             }
                             else
@@ -139,10 +140,19 @@ namespace FormDesignFSS2.GUI
                         // Đăng ký mới
                         if(khachHang_SPTD_BUS.DangKyMoi(khachHang.idKH, sanPhamTinDung.IdSPTD))
                         {
+                            // Ghi log
+                            LichSu lichSu = new LichSu();
+                            lichSu.MaDT = sanPhamTinDung.MaSPTD;
+                            lichSu.NoiDung = "Đăng ký mới sản phẩm tín dụng";
+                            lichSu.ThoiGian = DateTime.Parse(gioHT);
+                            lichSu.GiaTriTruoc = "null";
+                            lichSu.GiaTriSau = "null";
+                            lichSu.TenDN = nguoiDungHeThong.tenDangNhapND;
+                            lichSu.SoTKLK = txtSoTKLK.Text;
+                            LichSuBUS lichSuBUS = new LichSuBUS();
+                            lichSuBUS.ThemLichSu(JsonConvert.SerializeObject(lichSu));
+
                             MessageBox.Show("Đăng ký sử dụng SPTD thành công", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            Hide();
-                            DangKyMoiSPTD dangKyMoiSPTD = new DangKyMoiSPTD();
-                            dangKyMoiSPTD.ShowDialog();
                             Close();
                         }
                         else
