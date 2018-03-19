@@ -97,7 +97,7 @@ namespace FormDesignFSS2.GUI
                         {
                             case 1:
                                 {
-                                    lblError.Text = "Số TKLK sai";
+                                    lblError.Text = "Số TKLK không tồn tại";
                                     break;
                                 }
                             case 2:
@@ -284,12 +284,12 @@ namespace FormDesignFSS2.GUI
                     }
                     else
                     {
-                        lblError.Text = "Số TKLK sai";
+                        lblError.Text = "Số TKLK không tồn tại";
                     }
                 }
                 else
                 {
-                    lblError.Text = "Số TKLK sai";
+                    lblError.Text = "Số TKLK không tồn tại";
                 }
             }
             catch (Exception ex)

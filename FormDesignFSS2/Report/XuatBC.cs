@@ -20,6 +20,9 @@ namespace FormDesignFSS2.Report
     {
         public ReportViewer reportViewerBC;
 
+        /// <summary>
+        /// Báo cáo DS KH
+        /// </summary>
         public void BCKH()
         {
             // Lấy danh sách khách hàng
@@ -47,6 +50,14 @@ namespace FormDesignFSS2.Report
             reportViewerBC.LocalReport.DataSources.Add(reportDataSource);
             // Hiển thị báo cáo
             reportViewerBC.RefreshReport();
+        }
+
+        /// <summary>
+        /// Báo cáo danh sách dư nợ 01
+        /// </summary>
+        public void BCDuNoA()
+        {
+
         }
     }
 }

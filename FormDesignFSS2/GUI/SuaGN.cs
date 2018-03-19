@@ -246,6 +246,10 @@ namespace FormDesignFSS2.GUI
                             MessageBox.Show("Sửa thông tin giải ngân thành công", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             Close();
                         }
+                        else
+                        {
+                            MessageBox.Show("Đã có lỗi sảy ra, sửa thông tin giải ngân thất bại", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
                 }
             }

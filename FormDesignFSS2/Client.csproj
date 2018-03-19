@@ -319,10 +319,8 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <None Include="packages.config" />
-    <None Include="Properties\DataSources\DTO.KhachHang.datasource" />
+    <None Include="Properties\DataSources\DTO.DSDuNoA.datasource" />
     <None Include="Properties\DataSources\DTO.KhachHangReport.datasource" />
-    <None Include="Properties\DataSources\DTO.NguoiDung.datasource" />
-    <None Include="Properties\DataSources\DTO.Nguon.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

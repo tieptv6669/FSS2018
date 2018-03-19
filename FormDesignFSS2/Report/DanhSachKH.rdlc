@@ -60,8 +60,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>demoParameter</rd:DefaultName>
-            <Top>0.17639cm</Top>
-            <Left>17.23792cm</Left>
+            <Top>1.84326cm</Top>
+            <Left>4.06167cm</Left>
             <Height>0.6cm</Height>
             <Width>2.5cm</Width>
             <Style>
@@ -89,8 +89,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>demoParameter2</rd:DefaultName>
-            <Top>0.17639cm</Top>
-            <Left>13.46412cm</Left>
+            <Top>1.84326cm</Top>
+            <Left>0.28787cm</Left>
             <Height>0.6cm</Height>
             <Width>2.5cm</Width>
             <ZIndex>1</ZIndex>

@@ -629,7 +629,7 @@ namespace FormDesignFSS2.GUI
             {
                 case 0:
                     {
-                        xuatBC.BCKH();
+                        
                         break;
                     }
             }
