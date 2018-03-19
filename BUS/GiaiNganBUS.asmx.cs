@@ -184,6 +184,10 @@ namespace BUS
             {
                 return 1;
             }
+            if(soTienGN == "")
+            {
+                return 6;
+            }
             if (helper.LaMotSoNguyenDuong(soTienGN.ToString()) == false)
             {
                 return 2;

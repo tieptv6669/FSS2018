@@ -35,6 +35,10 @@ namespace FormDesignFSS2.XuLyCuoiNgayWS {
         
         private System.Threading.SendOrPostCallback XuLyCuoiNgayOperationCompleted;
         
+        private System.Threading.SendOrPostCallback LaNgayNghiOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GetListNgayNghiOperationCompleted;
+        
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
@@ -81,6 +85,12 @@ namespace FormDesignFSS2.XuLyCuoiNgayWS {
         
         /// <remarks/>
         public event XuLyCuoiNgayCompletedEventHandler XuLyCuoiNgayCompleted;
+        
+        /// <remarks/>
+        public event LaNgayNghiCompletedEventHandler LaNgayNghiCompleted;
+        
+        /// <remarks/>
+        public event GetListNgayNghiCompletedEventHandler GetListNgayNghiCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/LayNgayLamViecHienTai", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -168,6 +178,62 @@ namespace FormDesignFSS2.XuLyCuoiNgayWS {
             if ((this.XuLyCuoiNgayCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.XuLyCuoiNgayCompleted(this, new XuLyCuoiNgayCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/LaNgayNghi", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public bool LaNgayNghi(string dateTime) {
+            object[] results = this.Invoke("LaNgayNghi", new object[] {
+                        dateTime});
+            return ((bool)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void LaNgayNghiAsync(string dateTime) {
+            this.LaNgayNghiAsync(dateTime, null);
+        }
+        
+        /// <remarks/>
+        public void LaNgayNghiAsync(string dateTime, object userState) {
+            if ((this.LaNgayNghiOperationCompleted == null)) {
+                this.LaNgayNghiOperationCompleted = new System.Threading.SendOrPostCallback(this.OnLaNgayNghiOperationCompleted);
+            }
+            this.InvokeAsync("LaNgayNghi", new object[] {
+                        dateTime}, this.LaNgayNghiOperationCompleted, userState);
+        }
+        
+        private void OnLaNgayNghiOperationCompleted(object arg) {
+            if ((this.LaNgayNghiCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.LaNgayNghiCompleted(this, new LaNgayNghiCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetListNgayNghi", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string GetListNgayNghi() {
+            object[] results = this.Invoke("GetListNgayNghi", new object[0]);
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetListNgayNghiAsync() {
+            this.GetListNgayNghiAsync(null);
+        }
+        
+        /// <remarks/>
+        public void GetListNgayNghiAsync(object userState) {
+            if ((this.GetListNgayNghiOperationCompleted == null)) {
+                this.GetListNgayNghiOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetListNgayNghiOperationCompleted);
+            }
+            this.InvokeAsync("GetListNgayNghi", new object[0], this.GetListNgayNghiOperationCompleted, userState);
+        }
+        
+        private void OnGetListNgayNghiOperationCompleted(object arg) {
+            if ((this.GetListNgayNghiCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetListNgayNghiCompleted(this, new GetListNgayNghiCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -264,6 +330,58 @@ namespace FormDesignFSS2.XuLyCuoiNgayWS {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((bool)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
+    public delegate void LaNgayNghiCompletedEventHandler(object sender, LaNgayNghiCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class LaNgayNghiCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal LaNgayNghiCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public bool Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
+    public delegate void GetListNgayNghiCompletedEventHandler(object sender, GetListNgayNghiCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetListNgayNghiCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetListNgayNghiCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
             }
         }
     }

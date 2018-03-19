@@ -623,31 +623,16 @@ namespace FormDesignFSS2.GUI
         /// <param name="e"></param>
         private void btnXuatBC_Click(object sender, EventArgs e)
         {
-            // Lấy danh sách khách hàng
-            KhachHangBUS khachHangBUS = new KhachHangBUS();
-            string jsonData = khachHangBUS.KhachHangReport();
-            List<KhachHangReport> list = JsonConvert.DeserializeObject<List<KhachHangReport>>(jsonData);
-            // Chuyển danh sách khách hàng sang data table
-            DataTable dataTable = DataTableConvert.ConvertToDataTable(list);
-            // Add data table vào dataset
-            DataSet dataSet = new DataSet("DSKH");
-            dataSet.Tables.Add(dataTable);
-            // Parameter
-            string name = "Trần Viết Tiệp";
-            string name2 = "Trần Viết Nhật";
-            // Thiết lập báo cáo
-            reportViewerBC.LocalReport.ReportPath = "Report/DanhSachKH.rdlc";
-            ReportDataSource reportDataSource = new ReportDataSource();
-            ReportParameter[] reportParameter = new ReportParameter[2];
-            reportParameter[0] = new ReportParameter("demoParameter", name, true);
-            reportParameter[1] = new ReportParameter("demoParameter2", name2, true);
-            reportViewerBC.LocalReport.SetParameters(reportParameter);
-
-            reportDataSource.Name = "DSKH";
-            reportDataSource.Value = dataSet.Tables[0];
-            reportViewerBC.LocalReport.DataSources.Add(reportDataSource);
-            // Hiển thị báo cáo
-            reportViewerBC.RefreshReport();
+            XuatBC xuatBC = new XuatBC();
+            xuatBC.reportViewerBC = reportViewerBC;
+            switch (cboLoaiBC.SelectedIndex)
+            {
+                case 0:
+                    {
+                        xuatBC.BCKH();
+                        break;
+                    }
+            }
         }
 
         /// <summary>

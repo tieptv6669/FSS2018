@@ -42,6 +42,30 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="LaNgayNghi">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dateTime" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LaNgayNghiResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="LaNgayNghiResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetListNgayNghi">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetListNgayNghiResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetListNgayNghiResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="LayNgayLamViecHienTaiSoapIn">
@@ -62,6 +86,18 @@
   <wsdl:message name="XuLyCuoiNgaySoapOut">
     <wsdl:part name="parameters" element="tns:XuLyCuoiNgayResponse" />
   </wsdl:message>
+  <wsdl:message name="LaNgayNghiSoapIn">
+    <wsdl:part name="parameters" element="tns:LaNgayNghi" />
+  </wsdl:message>
+  <wsdl:message name="LaNgayNghiSoapOut">
+    <wsdl:part name="parameters" element="tns:LaNgayNghiResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetListNgayNghiSoapIn">
+    <wsdl:part name="parameters" element="tns:GetListNgayNghi" />
+  </wsdl:message>
+  <wsdl:message name="GetListNgayNghiSoapOut">
+    <wsdl:part name="parameters" element="tns:GetListNgayNghiResponse" />
+  </wsdl:message>
   <wsdl:portType name="XuLyCuoiNgayBUSSoap">
     <wsdl:operation name="LayNgayLamViecHienTai">
       <wsdl:input message="tns:LayNgayLamViecHienTaiSoapIn" />
@@ -74,6 +110,14 @@
     <wsdl:operation name="XuLyCuoiNgay">
       <wsdl:input message="tns:XuLyCuoiNgaySoapIn" />
       <wsdl:output message="tns:XuLyCuoiNgaySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LaNgayNghi">
+      <wsdl:input message="tns:LaNgayNghiSoapIn" />
+      <wsdl:output message="tns:LaNgayNghiSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListNgayNghi">
+      <wsdl:input message="tns:GetListNgayNghiSoapIn" />
+      <wsdl:output message="tns:GetListNgayNghiSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="XuLyCuoiNgayBUSSoap" type="tns:XuLyCuoiNgayBUSSoap">
@@ -105,6 +149,24 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="LaNgayNghi">
+      <soap:operation soapAction="http://tempuri.org/LaNgayNghi" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListNgayNghi">
+      <soap:operation soapAction="http://tempuri.org/GetListNgayNghi" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="XuLyCuoiNgayBUSSoap12" type="tns:XuLyCuoiNgayBUSSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -128,6 +190,24 @@
     </wsdl:operation>
     <wsdl:operation name="XuLyCuoiNgay">
       <soap12:operation soapAction="http://tempuri.org/XuLyCuoiNgay" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LaNgayNghi">
+      <soap12:operation soapAction="http://tempuri.org/LaNgayNghi" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListNgayNghi">
+      <soap12:operation soapAction="http://tempuri.org/GetListNgayNghi" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

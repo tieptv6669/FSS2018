@@ -108,10 +108,10 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>2.5cm</Width>
+                  <Width>5.26025cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.5cm</Width>
+                  <Width>4.51083cm</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>2.5cm</Width>
@@ -130,8 +130,10 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>so TKLKKH</Value>
-                                  <Style />
+                                  <Value>Số TKLK</Value>
+                                  <Style>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style />
@@ -140,7 +142,6 @@
                           <rd:DefaultName>Textbox8</rd:DefaultName>
                           <Style>
                             <Border>
-                              <Color>LightGrey</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -160,8 +161,10 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>ho Ten KH</Value>
-                                  <Style />
+                                  <Value>Họ tên KH</Value>
+                                  <Style>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style />
@@ -190,8 +193,10 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>ngay Sinh KH</Value>
-                                  <Style />
+                                  <Value>Ngày sinh</Value>
+                                  <Style>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style />
@@ -331,7 +336,7 @@
             <Top>0.03528cm</Top>
             <Left>0.28787cm</Left>
             <Height>1.2cm</Height>
-            <Width>7.5cm</Width>
+            <Width>12.27108cm</Width>
             <ZIndex>2</ZIndex>
             <Style>
               <Border>
@@ -341,7 +346,11 @@
           </Tablix>
         </ReportItems>
         <Height>24.25917cm</Height>
-        <Style />
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
       </Body>
       <Width>19.73792cm</Width>
       <Page>

@@ -105,6 +105,11 @@ namespace FormDesignFSS2.GUI
                                 lblError.Text = "Mật khẩu nhập lại không khớp";
                                 break;
                             }
+                        case 7:
+                            {
+                                lblError.Text = "Vượt quá độ dài trường thông tin";
+                                break;
+                            }
                         case 0:
                             {
                                 lblError.Text = "";

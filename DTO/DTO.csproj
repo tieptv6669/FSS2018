@@ -37,6 +37,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DSDuNo01.cs" />
     <Compile Include="GiaiNgan.cs" />
     <Compile Include="GN_KH.cs" />
     <Compile Include="GN_SPTD_NGUON.cs" />

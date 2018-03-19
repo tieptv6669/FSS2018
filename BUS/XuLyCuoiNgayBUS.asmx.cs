@@ -41,8 +41,12 @@ namespace BUS
         {
             DateTime ngayHienTai = DateTime.Parse(ngayLVHienTai);
             DateTime ngayTiepTheo = DateTime.Parse(ngayLVTiepTheo);
-            
-            if(ngayTiepTheo.DayOfWeek == DayOfWeek.Sunday || ngayTiepTheo.DayOfWeek == DayOfWeek.Saturday)
+
+            if (LaNgayNghi(ngayLVTiepTheo))
+            {
+                return 4;
+            }
+            if (ngayTiepTheo.DayOfWeek == DayOfWeek.Sunday || ngayTiepTheo.DayOfWeek == DayOfWeek.Saturday)
             {
                 return 1;
             }
@@ -137,6 +141,41 @@ namespace BUS
             }
 
             return true;
+        }
+
+        /// <summary>
+        /// Kiểm tra một ngày có phải ngày nghỉ hay không
+        /// </summary>
+        /// <param name="dateTime"></param>
+        /// <returns></returns>
+        [WebMethod]
+        public bool LaNgayNghi(string dateTime)
+        {
+            List<DateTime> listNN = XuLyCuoiNgayDAO.GetListNgayNghi();
+            List<string> listNNStr = new List<string>();
+            foreach(DateTime temp in listNN)
+            {
+                listNNStr.Add(temp.ToShortDateString());
+            }
+
+            if (listNNStr.Contains(dateTime))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Lấy danh sách các ngày nghỉ lễ trong năm
+        /// </summary>
+        /// <returns></returns>
+        [WebMethod]
+        public string GetListNgayNghi()
+        {
+            return JsonConvert.SerializeObject(XuLyCuoiNgayDAO.GetListNgayNghi());
         }
     }
 }

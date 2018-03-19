@@ -149,5 +149,38 @@ namespace DAO
                 MessageBox.Show("Lỗi: " + e.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        /// <summary>
+        /// Lấy danh sách tất cả các ngày nghỉ
+        /// </summary>
+        /// <param name="dateTime"></param>
+        /// <returns></returns>
+        public static List<DateTime> GetListNgayNghi()
+        {
+            try
+            {
+                List<DateTime> list = new List<DateTime>();
+
+                OracleCommand oracleCommand = new OracleCommand();
+                oracleCommand.CommandText = "SELECT * FROM NGAYNGHI";
+
+                OracleDataReader oracleDataReader = DataProvider.GetOracleDataReader(oracleCommand);
+
+                if(oracleDataReader != null && oracleDataReader.HasRows)
+                {
+                    while (oracleDataReader.Read())
+                    {
+                        DateTime dateTime = oracleDataReader.GetDateTime(0);
+                        list.Add(dateTime);
+                    }
+                }
+
+                return list;
+            }catch(Exception e)
+            {
+                MessageBox.Show("Lỗi: " + e.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+        }
     }
 }

@@ -191,6 +191,7 @@
       <DependentUpon>XemChiTietKH.cs</DependentUpon>
     </Compile>
     <Compile Include="Report\DataTableConvert.cs" />
+    <Compile Include="Report\XuatBC.cs" />
     <Compile Include="Settings.cs" />
     <Compile Include="Web References\GiaiNganWS\Reference.cs">
       <AutoGen>True</AutoGen>
@@ -308,19 +309,10 @@
     <EmbeddedResource Include="GUI\XemChiTietKH.resx">
       <DependentUpon>XemChiTietKH.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Report\DanhSachDuNo.rdlc">
+    <EmbeddedResource Include="Report\DanhSachDuNo02.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Report\DanhSachNoQuaKyHan.rdlc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Report\DanhSachTraNo.rdlc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Report\DanhSachMonGiaiNgan.rdlc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Report\DanhSachSPTD.rdlc">
+    <EmbeddedResource Include="Report\DanhSachDuNo01.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Report\DanhSachKH.rdlc">

@@ -15,6 +15,7 @@ using Newtonsoft.Json;
 using FormDesignFSS2.SanPhamTinDungWS;
 using FormDesignFSS2.NguonWS;
 using FormDesignFSS2.KhachHangWS;
+using FormDesignFSS2.XuLyCuoiNgayWS;
 using FormDesignFSS2.LichSuWS;
 
 namespace FormDesignFSS2.GUI
@@ -49,7 +50,6 @@ namespace FormDesignFSS2.GUI
             dateNgayGN.Value = giaiNgan.NgayGN;
             dateNgayDH.Value = giaiNgan.NgayDH;
             txtGhiChu.Text = giaiNgan.GhiChu;
-
             // Lấy danh sách sptd
             KhachHang_SPTD_BUS hang_SPTD_BUS = new KhachHang_SPTD_BUS();
             KhachHang kh = new KhachHang();
@@ -84,7 +84,6 @@ namespace FormDesignFSS2.GUI
             SanPhamTinDungBUS sanPhamTinDungBUS = new SanPhamTinDungBUS();
             string jsonData = sanPhamTinDungBUS.TimKiemSPTD(sptd.TenSPTD, sptd.MaSPTD, sptd.TenNguon);
             List<SanPhamTinDung> list = JsonConvert.DeserializeObject<List<SanPhamTinDung>>(jsonData);
-            //DateTime date = DateTime.Now;
 
             foreach (var temp in list)
             {
@@ -92,14 +91,20 @@ namespace FormDesignFSS2.GUI
                 txtLaiSuat.Text = temp.LaiSuat.ToString();
                 txtLaiSuatQH.Text = temp.LaiSuatQuaHan.ToString();
                 txtNguon.Text = temp.TenNguon.ToString();
+
                 dateNgayDH.Value = dateNgayGN.Value.AddMonths(int.Parse(txtKyHan.Text));
-                if (dateNgayDH.Value.DayOfWeek.ToString() == "Saturday")
+                // Lấy danh sách ngày lễ
+                XuLyCuoiNgayBUS xuLyCuoiNgayBUS = new XuLyCuoiNgayBUS();
+                List<DateTime> listNgayLe = JsonConvert.DeserializeObject<List<DateTime>>(xuLyCuoiNgayBUS.GetListNgayNghi());
+                List<string> listNgayLeStr = new List<string>();
+                foreach (DateTime dateTime in listNgayLe)
+                {
+                    listNgayLeStr.Add(dateTime.ToShortDateString());
+                }
+                // Lùi ngày đáo hạn về trước nếu là ngày lễ hoặc thứ 7 chủ nhật
+                while (listNgayLeStr.Contains(dateNgayDH.Value.ToShortDateString()) || dateNgayDH.Value.DayOfWeek.ToString() == "Saturday" || dateNgayDH.Value.DayOfWeek.ToString() == "Sunday")
                 {
                     dateNgayDH.Value = dateNgayDH.Value.AddDays(-1);
-                }
-                if (dateNgayDH.Value.DayOfWeek.ToString() == "Sunday")
-                {
-                    dateNgayDH.Value = dateNgayDH.Value.AddDays(-2);
                 }
             }
         }
@@ -135,7 +140,7 @@ namespace FormDesignFSS2.GUI
                             }
                         case 2:
                             {
-                                lblError.Text = "Bạn nhập số tiền sai";
+                                lblError.Text = "Số tiền không hợp lệ";
                                 break;
                             }
                         case 3:
@@ -151,6 +156,11 @@ namespace FormDesignFSS2.GUI
                         case 5:
                             {
                                 lblError.Text = "Vượt quá độ dài trường thông tin";
+                                break;
+                            }
+                        case 6:
+                            {
+                                lblError.Text = "Bạn chưa nhập số tiền";
                                 break;
                             }
                         case 0:

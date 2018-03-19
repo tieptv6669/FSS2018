@@ -97,7 +97,7 @@ namespace FormDesignFSS2.GUI
             try
             {
                 XuLyCuoiNgayBUS xuLyCuoiNgayBUS = new XuLyCuoiNgayBUS();
-                switch (xuLyCuoiNgayBUS.KTThongTinChayQuaNgay(txtNgayLVHienTai.Text, dateTPNgayLamViecTiepTheo.Text)){
+                switch (xuLyCuoiNgayBUS.KTThongTinChayQuaNgay(txtNgayLVHienTai.Text, dateTPNgayLamViecTiepTheo.Value.ToShortDateString())){
                     case 1:
                         {
                             lblError.Text = "Ngày làm việc tiếp theo không phải thứ 7 hoặc chủ nhật";
@@ -111,6 +111,11 @@ namespace FormDesignFSS2.GUI
                     case 3:
                         {
                             lblError.Text = "Ngày làm việc tiếp theo không hợp lệ";
+                            break;
+                        }
+                    case 4:
+                        {
+                            lblError.Text = "Ngày làm việc tiếp theo không phải là ngày nghỉ lễ";
                             break;
                         }
                     case 0:

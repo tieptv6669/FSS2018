@@ -172,10 +172,6 @@
             this.txtTDNTabLS = new System.Windows.Forms.TextBox();
             this.lblTDNTabLS = new System.Windows.Forms.Label();
             this.tabBaoCao = new System.Windows.Forms.TabPage();
-            this.lblSTTabBC = new System.Windows.Forms.Label();
-            this.lblFTTabBC = new System.Windows.Forms.Label();
-            this.dateTimePickerFTTabBC = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePickerSTTabBC = new System.Windows.Forms.DateTimePicker();
             this.reportViewerBC = new Microsoft.Reporting.WinForms.ReportViewer();
             this.cboLoaiBC = new System.Windows.Forms.ComboBox();
             this.lblChonBaoCao = new System.Windows.Forms.Label();
@@ -1677,10 +1673,6 @@
             // 
             // tabBaoCao
             // 
-            this.tabBaoCao.Controls.Add(this.lblSTTabBC);
-            this.tabBaoCao.Controls.Add(this.lblFTTabBC);
-            this.tabBaoCao.Controls.Add(this.dateTimePickerFTTabBC);
-            this.tabBaoCao.Controls.Add(this.dateTimePickerSTTabBC);
             this.tabBaoCao.Controls.Add(this.reportViewerBC);
             this.tabBaoCao.Controls.Add(this.cboLoaiBC);
             this.tabBaoCao.Controls.Add(this.lblChonBaoCao);
@@ -1693,44 +1685,14 @@
             this.tabBaoCao.Text = "Báo cáo";
             this.tabBaoCao.UseVisualStyleBackColor = true;
             // 
-            // lblSTTabBC
-            // 
-            this.lblSTTabBC.AutoSize = true;
-            this.lblSTTabBC.Location = new System.Drawing.Point(93, 51);
-            this.lblSTTabBC.Name = "lblSTTabBC";
-            this.lblSTTabBC.Size = new System.Drawing.Size(24, 15);
-            this.lblSTTabBC.TabIndex = 7;
-            this.lblSTTabBC.Text = "Từ:";
-            // 
-            // lblFTTabBC
-            // 
-            this.lblFTTabBC.AutoSize = true;
-            this.lblFTTabBC.Location = new System.Drawing.Point(385, 50);
-            this.lblFTTabBC.Name = "lblFTTabBC";
-            this.lblFTTabBC.Size = new System.Drawing.Size(33, 15);
-            this.lblFTTabBC.TabIndex = 6;
-            this.lblFTTabBC.Text = "Đến:";
-            // 
-            // dateTimePickerFTTabBC
-            // 
-            this.dateTimePickerFTTabBC.Location = new System.Drawing.Point(424, 48);
-            this.dateTimePickerFTTabBC.Name = "dateTimePickerFTTabBC";
-            this.dateTimePickerFTTabBC.Size = new System.Drawing.Size(200, 21);
-            this.dateTimePickerFTTabBC.TabIndex = 4;
-            // 
-            // dateTimePickerSTTabBC
-            // 
-            this.dateTimePickerSTTabBC.Location = new System.Drawing.Point(123, 48);
-            this.dateTimePickerSTTabBC.Name = "dateTimePickerSTTabBC";
-            this.dateTimePickerSTTabBC.Size = new System.Drawing.Size(200, 21);
-            this.dateTimePickerSTTabBC.TabIndex = 3;
-            // 
             // reportViewerBC
             // 
-            this.reportViewerBC.Location = new System.Drawing.Point(0, 75);
+            this.reportViewerBC.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.reportViewerBC.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.reportViewerBC.Location = new System.Drawing.Point(0, 58);
             this.reportViewerBC.Name = "reportViewerBC";
             this.reportViewerBC.ServerReport.BearerToken = null;
-            this.reportViewerBC.Size = new System.Drawing.Size(760, 283);
+            this.reportViewerBC.Size = new System.Drawing.Size(760, 300);
             this.reportViewerBC.TabIndex = 3;
             // 
             // cboLoaiBC
@@ -1738,12 +1700,16 @@
             this.cboLoaiBC.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboLoaiBC.FormattingEnabled = true;
             this.cboLoaiBC.Items.AddRange(new object[] {
-            "Danh sách khách hàng",
-            "Danh sách sản phẩm tín dụng",
-            "Danh sách các món giải ngân",
-            "Danh sách các giao dịch trả nợ",
-            "Danh sách dư nợ",
-            "Danh sách các món nợ quá kỳ hạn"});
+            "DS KH có nhiều hơn 3 món GN đang nợ quá hạn",
+            "DS KH có nhiều hơn 5 món GN đang nợ (trong và quá hạn)",
+            "DS KH không có món GN nợ quá hạn",
+            "DS KH đã trả hết nợ tất cả các món GN hiện có",
+            "DS KH có dư nợ lớn hơn 1 tỷ",
+            "DS SPTD có ít hơn 20 KH sử dụng",
+            "DS SPTD có nhiều hơn 50 KH sử dụng",
+            "DS các món GN có số tiền giải ngân lớn hơn 500 triệu",
+            "DS các món GN nợ quá hạn từ 3 tháng trở lên",
+            "DS các món GN có dư nợ lãi lớn hơn 50 triệu"});
             this.cboLoaiBC.Location = new System.Drawing.Point(123, 19);
             this.cboLoaiBC.Name = "cboLoaiBC";
             this.cboLoaiBC.Size = new System.Drawing.Size(501, 23);
@@ -2015,10 +1981,6 @@
         private System.Windows.Forms.Button btnTimKiemTabGN;
         private System.Windows.Forms.DataGridView gridDSMonNo;
         private System.Windows.Forms.Button btnTimKiemTabLS;
-        private System.Windows.Forms.Label lblSTTabBC;
-        private System.Windows.Forms.Label lblFTTabBC;
-        private System.Windows.Forms.DateTimePicker dateTimePickerFTTabBC;
-        private System.Windows.Forms.DateTimePicker dateTimePickerSTTabBC;
         private System.Windows.Forms.Button btnTraNo;
         private System.Windows.Forms.Button btnChayQuaNgay;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column12;

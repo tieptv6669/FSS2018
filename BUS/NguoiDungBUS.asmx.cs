@@ -255,7 +255,11 @@ namespace BUS
         {
             NguoiDungDAO nguoiDungDAO = new NguoiDungDAO();
 
-            if(MKCu == "")
+            if (MKCu.Length > 50 || MKMoi.Length > 50 || nhapLaiMK.Length > 50)
+            {
+                return 7;
+            }
+            if (MKCu == "")
             {
                 return 1;
             }
