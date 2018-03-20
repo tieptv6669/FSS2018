@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Services;
+using Newtonsoft.Json;
+using DAO;
 
 namespace BUS
 {
@@ -17,10 +19,25 @@ namespace BUS
     public class ReportBUS : System.Web.Services.WebService
     {
 
+        /// <summary>
+        /// Lấy danh sách các KH có nhiều hơn 3 món GN nợ quá hạn 
+        /// </summary>
+        /// <param name="ngayHT"></param>
+        /// <returns></returns>
         [WebMethod]
-        public string HelloWorld()
+        public string GetListDSDuNoA(string ngayHT)
         {
-            return "Hello World";
+            return JsonConvert.SerializeObject(ReportDAO.GetListDSDuNoA(DateTime.Parse(ngayHT)));
+        }
+
+        /// <summary>
+        /// Lấy danh sách các KH có nhiều hơn 5 món giải ngân đang nợ
+        /// </summary>
+        /// <returns></returns>
+        [WebMethod]
+        public string GetListDSDuNoB()
+        {
+            return JsonConvert.SerializeObject(ReportDAO.GetListDSDuNoB());
         }
     }
 }

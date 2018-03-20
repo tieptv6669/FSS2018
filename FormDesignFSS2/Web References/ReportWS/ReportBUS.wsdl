@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetListDSDuNoA">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ngayHT" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetListDSDuNoAResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetListDSDuNoAResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetListDSDuNoB">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetListDSDuNoBResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetListDSDuNoBResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetListDSDuNoASoapIn">
+    <wsdl:part name="parameters" element="tns:GetListDSDuNoA" />
+  </wsdl:message>
+  <wsdl:message name="GetListDSDuNoASoapOut">
+    <wsdl:part name="parameters" element="tns:GetListDSDuNoAResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetListDSDuNoBSoapIn">
+    <wsdl:part name="parameters" element="tns:GetListDSDuNoB" />
+  </wsdl:message>
+  <wsdl:message name="GetListDSDuNoBSoapOut">
+    <wsdl:part name="parameters" element="tns:GetListDSDuNoBResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ReportBUSSoap">
+    <wsdl:operation name="GetListDSDuNoA">
+      <wsdl:input message="tns:GetListDSDuNoASoapIn" />
+      <wsdl:output message="tns:GetListDSDuNoASoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListDSDuNoB">
+      <wsdl:input message="tns:GetListDSDuNoBSoapIn" />
+      <wsdl:output message="tns:GetListDSDuNoBSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ReportBUSSoap" type="tns:ReportBUSSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetListDSDuNoA">
+      <soap:operation soapAction="http://tempuri.org/GetListDSDuNoA" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListDSDuNoB">
+      <soap:operation soapAction="http://tempuri.org/GetListDSDuNoB" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ReportBUSSoap12" type="tns:ReportBUSSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetListDSDuNoA">
+      <soap12:operation soapAction="http://tempuri.org/GetListDSDuNoA" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListDSDuNoB">
+      <soap12:operation soapAction="http://tempuri.org/GetListDSDuNoB" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ReportBUS">
+    <wsdl:port name="ReportBUSSoap" binding="tns:ReportBUSSoap">
+      <soap:address location="http://localhost:49220/ReportBUS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ReportBUSSoap12" binding="tns:ReportBUSSoap12">
+      <soap12:address location="http://localhost:49220/ReportBUS.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

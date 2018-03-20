@@ -1,0 +1,11 @@
+G:\FSS2018\DAO\bin\Release\DAO.exe.config
+G:\FSS2018\DAO\bin\Release\DAO.exe
+G:\FSS2018\DAO\bin\Release\DAO.pdb
+G:\FSS2018\DAO\bin\Release\DTO.exe
+G:\FSS2018\DAO\bin\Release\Oracle.ManagedDataAccess.dll
+G:\FSS2018\DAO\bin\Release\DTO.pdb
+G:\FSS2018\DAO\bin\Release\DTO.exe.config
+G:\FSS2018\DAO\obj\Release\DAO.csprojResolveAssemblyReference.cache
+G:\FSS2018\DAO\obj\Release\DAO.csproj.CoreCompileInputs.cache
+G:\FSS2018\DAO\obj\Release\DAO.exe
+G:\FSS2018\DAO\obj\Release\DAO.pdb

@@ -19,11 +19,11 @@
     </Setting>
     <Setting Name="FormDesignFSS2_GiaiNganWS_GiaiNganBUS" Type="(Web Service URL)" Scope="Application">
       <Value Profile="(Default)">http://localhost:49220/GiaiNganBUS.asmx</Value>
-</Setting>
+    </Setting>
     <Setting Name="FormDesignFSS2_XuLyCuoiNgayWS_XuLyCuoiNgayBUS" Type="(Web Service URL)" Scope="Application">
       <Value Profile="(Default)">http://localhost:49220/XuLyCuoiNgayBUS.asmx</Value>
     </Setting>
-    <Setting Name="FormDesignFSS2_XuLyCuoiNgayWS_XuLyCuoiNgayBUS" Type="(Web Service URL)" Scope="Application">
+    <Setting Name="FormDesignFSS2_XuLyCuoiNgayWS_XuLyCuoiNgayBUS1" Type="(Web Service URL)" Scope="Application">
       <Value Profile="(Default)">http://localhost:49220/XuLyCuoiNgayBUS.asmx</Value>
     </Setting>
     <Setting Name="FormDesignFSS2_LichSuWS_LichSuBUS" Type="(Web Service URL)" Scope="Application">
@@ -31,6 +31,9 @@
     </Setting>
     <Setting Name="FormDesignFSS2_TraNoWS_TraNoBUS" Type="(Web Service URL)" Scope="Application">
       <Value Profile="(Default)">http://localhost:49220/TraNoBUS.asmx</Value>
+    </Setting>
+    <Setting Name="QLTD_ReportWS_ReportBUS" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:49220/ReportBUS.asmx</Value>
     </Setting>
   </Settings>
 </SettingsFile>

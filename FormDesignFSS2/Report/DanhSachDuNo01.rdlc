@@ -96,8 +96,8 @@
                 <Style />
               </Paragraph>
             </Paragraphs>
-            <Top>2.75194cm</Top>
-            <Left>11.1125cm</Left>
+            <Top>3.06944cm</Top>
+            <Left>9.2075cm</Left>
             <Height>0.6cm</Height>
             <Width>2.5cm</Width>
             <ZIndex>1</ZIndex>
@@ -126,10 +126,10 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>SLBanGhi</rd:DefaultName>
-            <Top>2.75194cm</Top>
-            <Left>13.84312cm</Left>
+            <Top>3.06944cm</Top>
+            <Left>12.25562cm</Left>
             <Height>0.6cm</Height>
-            <Width>2.5cm</Width>
+            <Width>1.12417cm</Width>
             <ZIndex>2</ZIndex>
             <Style>
               <Border>
@@ -158,8 +158,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox5</rd:DefaultName>
-            <Top>2.75194cm</Top>
-            <Left>16.66558cm</Left>
+            <Top>3.06944cm</Top>
+            <Left>13.49058cm</Left>
             <Height>0.6cm</Height>
             <Width>2.5cm</Width>
             <ZIndex>3</ZIndex>
@@ -189,12 +189,12 @@
                   <Width>2.75421cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>5.80792cm</Width>
+                  <Width>3.37375cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
                 <TablixRow>
-                  <Height>0.6cm</Height>
+                  <Height>1.04979cm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -537,8 +537,8 @@
             <DataSetName>DuNoA</DataSetName>
             <Top>0.85479cm</Top>
             <Left>0.3175cm</Left>
-            <Height>1.2cm</Height>
-            <Width>19.10292cm</Width>
+            <Height>1.64979cm</Height>
+            <Width>16.66875cm</Width>
             <ZIndex>4</ZIndex>
             <Style>
               <Border>
@@ -547,10 +547,10 @@
             </Style>
           </Tablix>
         </ReportItems>
-        <Height>24.25917cm</Height>
+        <Height>29.7cm</Height>
         <Style />
       </Body>
-      <Width>19.73792cm</Width>
+      <Width>21cm</Width>
       <Page>
         <PageHeader>
           <Height>2.89912cm</Height>
@@ -564,7 +564,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>DANH SÁCH DƯ NỢ 01</Value>
+                      <Value>BÁO CÁO DƯ NỢ 01</Value>
                       <Style>
                         <FontSize>18pt</FontSize>
                         <FontWeight>Bold</FontWeight>
@@ -601,22 +601,23 @@
                 </Border>
               </Style>
             </Image>
-            <Textbox Name="ExecutionTime">
+            <Textbox Name="GioHT">
               <CanGrow>true</CanGrow>
               <KeepTogether>true</KeepTogether>
               <Paragraphs>
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=Globals!ExecutionTime</Value>
+                      <Value>=Parameters!GioHT.Value</Value>
                       <Style />
                     </TextRun>
                   </TextRuns>
                   <Style />
                 </Paragraph>
               </Paragraphs>
-              <rd:DefaultName>ExecutionTime</rd:DefaultName>
-              <Left>16.60292cm</Left>
+              <rd:DefaultName>GioHT</rd:DefaultName>
+              <Top>0.12912cm</Top>
+              <Left>16.9037cm</Left>
               <Height>0.6cm</Height>
               <Width>2.5cm</Width>
               <ZIndex>2</ZIndex>
@@ -782,6 +783,12 @@
       <AllowBlank>true</AllowBlank>
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>
+    <ReportParameter Name="GioHT">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
   </ReportParameters>
   <ReportParametersLayout>
     <GridLayoutDefinition>
@@ -792,6 +799,11 @@
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>0</RowIndex>
           <ParameterName>SLBanGhi</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>1</ColumnIndex>
+          <RowIndex>0</RowIndex>
+          <ParameterName>GioHT</ParameterName>
         </CellDefinition>
       </CellDefinitions>
     </GridLayoutDefinition>

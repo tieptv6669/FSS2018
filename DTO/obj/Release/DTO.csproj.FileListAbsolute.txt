@@ -1,0 +1,6 @@
+G:\FSS2018\DTO\bin\Release\DTO.exe.config
+G:\FSS2018\DTO\bin\Release\DTO.exe
+G:\FSS2018\DTO\bin\Release\DTO.pdb
+G:\FSS2018\DTO\obj\Release\DTO.csproj.CoreCompileInputs.cache
+G:\FSS2018\DTO\obj\Release\DTO.exe
+G:\FSS2018\DTO\obj\Release\DTO.pdb

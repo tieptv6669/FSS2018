@@ -14,7 +14,14 @@ namespace DAO
     {
         static void Main()
         {
-            
+            //DateTime dateTime = new DateTime(2020, 2, 2);
+
+            //List<DSDuNoB> list = ReportDAO.GetListDSDuNoB();
+
+            //foreach (DSDuNoB temp in list)
+            //{
+            //    MessageBox.Show(temp.SLGN.ToString());
+            //}
         }
     }
 }

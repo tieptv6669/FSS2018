@@ -38,6 +38,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DSDuNoA.cs" />
+    <Compile Include="DSDuNoB.cs" />
     <Compile Include="GiaiNgan.cs" />
     <Compile Include="GN_KH.cs" />
     <Compile Include="GN_SPTD_NGUON.cs" />

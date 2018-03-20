@@ -625,11 +625,18 @@ namespace FormDesignFSS2.GUI
         {
             XuatBC xuatBC = new XuatBC();
             xuatBC.reportViewerBC = reportViewerBC;
+            xuatBC.gioHT = lblTime.Text;
+
             switch (cboLoaiBC.SelectedIndex)
             {
                 case 0:
                     {
-                        
+                        xuatBC.BCDuNoA();
+                        break;
+                    }
+                case 1:
+                    {
+                        xuatBC.BCDuNoB();
                         break;
                     }
             }

@@ -122,5 +122,15 @@ namespace FormDesignFSS2.Properties {
                 return ((string)(this["FormDesignFSS2_TraNoWS_TraNoBUS"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:49220/ReportBUS.asmx")]
+        public string QLTD_ReportWS_ReportBUS {
+            get {
+                return ((string)(this["QLTD_ReportWS_ReportBUS"]));
+            }
+        }
     }
 }
