@@ -69,7 +69,7 @@
             </Paragraphs>
             <Top>0.07055cm</Top>
             <Height>0.6cm</Height>
-            <Width>19.73792cm</Width>
+            <Width>14.97542cm</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -97,9 +97,9 @@
               </Paragraph>
             </Paragraphs>
             <Top>3.06944cm</Top>
-            <Left>9.2075cm</Left>
+            <Left>10.31875cm</Left>
             <Height>0.6cm</Height>
-            <Width>2.5cm</Width>
+            <Width>3.29375cm</Width>
             <ZIndex>1</ZIndex>
             <Style>
               <Border>
@@ -127,7 +127,7 @@
             </Paragraphs>
             <rd:DefaultName>SLBanGhi</rd:DefaultName>
             <Top>3.06944cm</Top>
-            <Left>12.25562cm</Left>
+            <Left>14.16062cm</Left>
             <Height>0.6cm</Height>
             <Width>1.12417cm</Width>
             <ZIndex>2</ZIndex>
@@ -159,7 +159,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox5</rd:DefaultName>
             <Top>3.06944cm</Top>
-            <Left>13.49058cm</Left>
+            <Left>15.39558cm</Left>
             <Height>0.6cm</Height>
             <Width>2.5cm</Width>
             <ZIndex>3</ZIndex>
@@ -189,7 +189,7 @@
                   <Width>2.75421cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>3.37375cm</Width>
+                  <Width>4.35271cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -538,7 +538,7 @@
             <Top>0.85479cm</Top>
             <Left>0.3175cm</Left>
             <Height>1.64979cm</Height>
-            <Width>16.66875cm</Width>
+            <Width>17.64771cm</Width>
             <ZIndex>4</ZIndex>
             <Style>
               <Border>
@@ -547,10 +547,10 @@
             </Style>
           </Tablix>
         </ReportItems>
-        <Height>29.7cm</Height>
+        <Height>11.23208cm</Height>
         <Style />
       </Body>
-      <Width>21cm</Width>
+      <Width>18.36208cm</Width>
       <Page>
         <PageHeader>
           <Height>2.89912cm</Height>
@@ -575,9 +575,9 @@
                 </Paragraph>
               </Paragraphs>
               <Top>0.92646cm</Top>
-              <Left>6.90245cm</Left>
+              <Left>5.94995cm</Left>
               <Height>0.97042cm</Height>
-              <Width>8.63834cm</Width>
+              <Width>6.62751cm</Width>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -616,8 +616,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>GioHT</rd:DefaultName>
-              <Top>0.12912cm</Top>
-              <Left>16.9037cm</Left>
+              <Top>0.44662cm</Top>
+              <Left>14.9987cm</Left>
               <Height>0.6cm</Height>
               <Width>2.5cm</Width>
               <ZIndex>2</ZIndex>
@@ -659,8 +659,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>PageNumber</rd:DefaultName>
-              <Top>2.78667cm</Top>
-              <Left>17.23792cm</Left>
+              <Top>2.46917cm</Top>
+              <Left>15.33292cm</Left>
               <Height>0.6cm</Height>
               <Width>2.5cm</Width>
               <Style>
@@ -745,7 +745,7 @@
               </Paragraphs>
               <rd:DefaultName>Textbox2</rd:DefaultName>
               <Height>3.06917cm</Height>
-              <Width>13.295cm</Width>
+              <Width>9.1675cm</Width>
               <ZIndex>1</ZIndex>
               <Style>
                 <Border>
@@ -767,10 +767,10 @@
         </PageFooter>
         <PageHeight>29.7cm</PageHeight>
         <PageWidth>21cm</PageWidth>
-        <LeftMargin>2cm</LeftMargin>
-        <RightMargin>2cm</RightMargin>
-        <TopMargin>2cm</TopMargin>
-        <BottomMargin>2cm</BottomMargin>
+        <LeftMargin>1cm</LeftMargin>
+        <RightMargin>1cm</RightMargin>
+        <TopMargin>1cm</TopMargin>
+        <BottomMargin>1cm</BottomMargin>
         <ColumnSpacing>0.13cm</ColumnSpacing>
         <Style />
       </Page>

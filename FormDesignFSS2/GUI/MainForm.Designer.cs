@@ -1704,12 +1704,12 @@
             "DS KH có nhiều hơn 5 món GN đang nợ (trong và quá hạn)",
             "DS KH không có món GN nợ quá hạn",
             "DS KH đã trả hết nợ tất cả các món GN hiện có",
-            "DS KH có dư nợ lớn hơn 1 tỷ",
-            "DS SPTD có ít hơn 20 KH sử dụng",
-            "DS SPTD có nhiều hơn 50 KH sử dụng",
-            "DS các món GN có số tiền giải ngân lớn hơn 500 triệu",
-            "DS các món GN nợ quá hạn từ 3 tháng trở lên",
-            "DS các món GN có dư nợ lãi lớn hơn 50 triệu"});
+            "DS KH có tổng dư nợ lớn hơn 500 triệu",
+            "DS SPTD có ít hơn 5 KH sử dụng",
+            "DS SPTD có nhiều hơn 10 KH sử dụng",
+            "DS các món GN nợ quá hạn từ 2 tháng trở lên",
+            "DS các món GN có dư nợ lãi lớn hơn 10 triệu",
+            "DS các nguồn có số tiền còn có thể cho vay nhỏ hơn 100 triệu"});
             this.cboLoaiBC.Location = new System.Drawing.Point(123, 19);
             this.cboLoaiBC.Name = "cboLoaiBC";
             this.cboLoaiBC.Size = new System.Drawing.Size(501, 23);

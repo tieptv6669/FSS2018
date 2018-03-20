@@ -7,11 +7,11 @@
         <DataProvider>System.Data.DataSet</DataProvider>
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
-      <rd:DataSourceID>9b83998f-2c23-4816-a310-1d3fa1c21969</rd:DataSourceID>
+      <rd:DataSourceID>4af9a1a9-b442-4207-81a1-d73db3a6c2b2</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
-    <DataSet Name="DuNoB">
+    <DataSet Name="DuNoE">
       <Query>
         <DataSourceName>DTO</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
@@ -21,27 +21,27 @@
           <DataField>SDT</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="SLGN">
-          <DataField>SLGN</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
         <Field Name="SoCMND">
           <DataField>SoCMND</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="STKLK">
-          <DataField>STKLK</DataField>
+        <Field Name="SoTKLK">
+          <DataField>SoTKLK</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="TenKH">
           <DataField>TenKH</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="TongDuNo">
+          <DataField>TongDuNo</DataField>
+          <rd:TypeName>System.Int64</rd:TypeName>
+        </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>DTO</rd:DataSetName>
-        <rd:TableName>DSDuNoB</rd:TableName>
-        <rd:ObjectDataSourceType>DTO.DSDuNoB, DTO, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
+        <rd:TableName>DSDuNoE</rd:TableName>
+        <rd:ObjectDataSourceType>DTO.DSDuNoE, DTO, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>
@@ -56,7 +56,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>Danh sách bao gồm các khách hàng có nhiều hơn 5 món giải ngân đang nợ (cả trong hạn và quá hạn)</Value>
+                    <Value>Danh sách bao gồm các khách hàng có tổng số dư nợ lớn hơn 500 triệu</Value>
                     <Style>
                       <FontWeight>Bold</FontWeight>
                       <Format>E2</Format>
@@ -69,7 +69,7 @@
             </Paragraphs>
             <Top>0.07055cm</Top>
             <Height>0.6cm</Height>
-            <Width>17.51542cm</Width>
+            <Width>14.97542cm</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -96,10 +96,10 @@
                 <Style />
               </Paragraph>
             </Paragraphs>
-            <Top>3.06944cm</Top>
-            <Left>10.39812cm</Left>
+            <Top>2.43444cm</Top>
+            <Left>10.26583cm</Left>
             <Height>0.6cm</Height>
-            <Width>3.21438cm</Width>
+            <Width>3.02917cm</Width>
             <ZIndex>1</ZIndex>
             <Style>
               <Border>
@@ -126,8 +126,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>SLBanGhi</rd:DefaultName>
-            <Top>3.06944cm</Top>
-            <Left>14.16062cm</Left>
+            <Top>2.43444cm</Top>
+            <Left>13.84312cm</Left>
             <Height>0.6cm</Height>
             <Width>1.12417cm</Width>
             <ZIndex>2</ZIndex>
@@ -158,8 +158,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox5</rd:DefaultName>
-            <Top>3.06944cm</Top>
-            <Left>15.39558cm</Left>
+            <Top>2.43444cm</Top>
+            <Left>15.07808cm</Left>
             <Height>0.6cm</Height>
             <Width>2.5cm</Width>
             <ZIndex>3</ZIndex>
@@ -177,24 +177,24 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>2.92333cm</Width>
+                  <Width>2.5cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>3.57568cm</Width>
+                  <Width>3.76567cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.89687cm</Width>
+                  <Width>2.74688cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>4.19334cm</Width>
+                  <Width>2.79104cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>4.36245cm</Width>
+                  <Width>5.53954cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
                 <TablixRow>
-                  <Height>1.12917cm</Height>
+                  <Height>0.6cm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -301,7 +301,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Số điện thoại </Value>
+                                  <Value>Số điện thoại</Value>
                                   <Style>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
@@ -333,7 +333,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Số lượng giải ngân còn nợ</Value>
+                                  <Value>Tổng dư nợ</Value>
                                   <Style>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
@@ -363,21 +363,21 @@
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="STKLK">
+                        <Textbox Name="SoTKLK">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!STKLK.Value</Value>
+                                  <Value>=Fields!SoTKLK.Value</Value>
                                   <Style />
                                 </TextRun>
                               </TextRuns>
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>STKLK</rd:DefaultName>
+                          <rd:DefaultName>SoTKLK</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -483,21 +483,21 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="SLGN">
+                        <Textbox Name="TongDuNo">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!SLGN.Value</Value>
+                                  <Value>=Fields!TongDuNo.Value</Value>
                                   <Style />
                                 </TextRun>
                               </TextRuns>
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>SLGN</rd:DefaultName>
+                          <rd:DefaultName>TongDuNo</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -534,11 +534,11 @@
                 </TablixMember>
               </TablixMembers>
             </TablixRowHierarchy>
-            <DataSetName>DuNoB</DataSetName>
-            <Top>0.80187cm</Top>
-            <Left>0.20849cm</Left>
-            <Height>1.72917cm</Height>
-            <Width>17.95167cm</Width>
+            <DataSetName>DuNoE</DataSetName>
+            <Top>0.85479cm</Top>
+            <Left>0.55245cm</Left>
+            <Height>1.2cm</Height>
+            <Width>17.34313cm</Width>
             <ZIndex>4</ZIndex>
             <Style>
               <Border>
@@ -550,7 +550,7 @@
         <Height>11.23208cm</Height>
         <Style />
       </Body>
-      <Width>18.34537cm</Width>
+      <Width>18.335cm</Width>
       <Page>
         <PageHeader>
           <Height>2.89912cm</Height>
@@ -564,7 +564,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>BÁO CÁO DƯ NỢ 02</Value>
+                      <Value>BÁO CÁO DƯ NỢ 05</Value>
                       <Style>
                         <FontSize>18pt</FontSize>
                         <FontWeight>Bold</FontWeight>
@@ -574,10 +574,10 @@
                   <Style />
                 </Paragraph>
               </Paragraphs>
-              <Top>0.92646cm</Top>
+              <Top>1.08162cm</Top>
               <Left>5.94995cm</Left>
               <Height>0.97042cm</Height>
-              <Width>6.57459cm</Width>
+              <Width>6.41584cm</Width>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -617,7 +617,7 @@
               </Paragraphs>
               <rd:DefaultName>GioHT</rd:DefaultName>
               <Top>0.44662cm</Top>
-              <Left>14.9987cm</Left>
+              <Left>15.3162cm</Left>
               <Height>0.6cm</Height>
               <Width>2.5cm</Width>
               <ZIndex>2</ZIndex>
@@ -660,7 +660,7 @@
               </Paragraphs>
               <rd:DefaultName>PageNumber</rd:DefaultName>
               <Top>2.46917cm</Top>
-              <Left>15.65042cm</Left>
+              <Left>15.33292cm</Left>
               <Height>0.6cm</Height>
               <Width>2.5cm</Width>
               <Style>
@@ -744,8 +744,9 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox2</rd:DefaultName>
+              <Top>0cm</Top>
               <Height>3.06917cm</Height>
-              <Width>9.60437cm</Width>
+              <Width>9.08813cm</Width>
               <ZIndex>1</ZIndex>
               <Style>
                 <Border>

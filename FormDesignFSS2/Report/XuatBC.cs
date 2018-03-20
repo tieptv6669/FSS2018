@@ -23,38 +23,6 @@ namespace FormDesignFSS2.Report
         public string gioHT;
 
         /// <summary>
-        /// Báo cáo DS KH
-        /// </summary>
-        public void BCKH()
-        {
-            // Lấy danh sách khách hàng
-            KhachHangBUS khachHangBUS = new KhachHangBUS();
-            string jsonData = khachHangBUS.KhachHangReport();
-            List<KhachHangReport> list = JsonConvert.DeserializeObject<List<KhachHangReport>>(jsonData);
-            // Chuyển danh sách khách hàng sang data table
-            DataTable dataTable = DataTableConvert.ConvertToDataTable(list);
-            // Add data table vào dataset
-            DataSet dataSet = new DataSet("DSKH");
-            dataSet.Tables.Add(dataTable);
-            // Parameter
-            string name = "Trần Viết Tiệp";
-            string name2 = "Trần Viết Nhật";
-            // Thiết lập báo cáo
-            reportViewerBC.LocalReport.ReportPath = "Report/DanhSachKH.rdlc";
-            ReportDataSource reportDataSource = new ReportDataSource();
-            ReportParameter[] reportParameter = new ReportParameter[2];
-            reportParameter[0] = new ReportParameter("demoParameter", name, true);
-            reportParameter[1] = new ReportParameter("demoParameter2", name2, true);
-            reportViewerBC.LocalReport.SetParameters(reportParameter);
-
-            reportDataSource.Name = "DSKH";
-            reportDataSource.Value = dataSet.Tables[0];
-            reportViewerBC.LocalReport.DataSources.Add(reportDataSource);
-            // Hiển thị báo cáo
-            reportViewerBC.RefreshReport();
-        }
-
-        /// <summary>
         /// Báo cáo danh sách dư nợ 01
         /// </summary>
         public void BCDuNoA()
@@ -112,6 +80,97 @@ namespace FormDesignFSS2.Report
             reportViewerBC.LocalReport.DataSources.Add(reportDataSource);
             // Hiển thị báo cáo
             reportViewerBC.RefreshReport();
+        }
+
+        /// <summary>
+        /// Báo cáo danh sách dư nợ 03
+        /// </summary>
+        public void BCDuNoC()
+        {
+            // Lấy DS bản ghi
+            ReportBUS reportBUS = new ReportBUS();
+            List<DSDuNoC> list = JsonConvert.DeserializeObject<List<DSDuNoC>>(reportBUS.GetListDSDuNoC(gioHT));
+            // Chuyển dữ liệu sang DataTable
+            DataTable dataTable = DataTableConvert.ConvertToDataTable(list);
+            // Add datatable vào dataset
+            DataSet dataSet = new DataSet("DuNoC");
+            dataSet.Tables.Add(dataTable);
+
+            string slBG = list.Count.ToString();
+            reportViewerBC.LocalReport.ReportPath = "Report/DanhSachDuNo03.rdlc";
+            ReportDataSource reportDataSource = new ReportDataSource();
+            ReportParameter[] reportParameter = new ReportParameter[2];
+            reportParameter[0] = new ReportParameter("SLBanGhi", slBG, true);
+            reportParameter[1] = new ReportParameter("GioHT", gioHT, true);
+
+            reportViewerBC.LocalReport.SetParameters(reportParameter);
+
+            reportDataSource.Name = "DuNoC";
+            reportDataSource.Value = dataSet.Tables[0];
+            reportViewerBC.LocalReport.DataSources.Add(reportDataSource);
+            // Hiển thị báo cáo
+            reportViewerBC.RefreshReport();
+        }
+
+        /// <summary>
+        /// Báo cáo danh sách dư nợ 04
+        /// </summary>
+        public void BCDuNoD()
+        {
+            // Lấy DS bản ghi
+            ReportBUS reportBUS = new ReportBUS();
+            List<DSDuNoD> list = JsonConvert.DeserializeObject<List<DSDuNoD>>(reportBUS.GetListDSKHHetNo());
+            // Chuyển dữ liệu sang DataTable
+            DataTable dataTable = DataTableConvert.ConvertToDataTable(list);
+            // Add datatable vào dataset
+            DataSet dataSet = new DataSet("DuNoD");
+            dataSet.Tables.Add(dataTable);
+
+            string slBG = list.Count.ToString();
+            reportViewerBC.LocalReport.ReportPath = "Report/DanhSachDuNo04.rdlc";
+            ReportDataSource reportDataSource = new ReportDataSource();
+            ReportParameter[] reportParameter = new ReportParameter[2];
+            reportParameter[0] = new ReportParameter("SLBanGhi", slBG, true);
+            reportParameter[1] = new ReportParameter("GioHT", gioHT, true);
+
+            reportViewerBC.LocalReport.SetParameters(reportParameter);
+
+            reportDataSource.Name = "DuNoD";
+            reportDataSource.Value = dataSet.Tables[0];
+            reportViewerBC.LocalReport.DataSources.Add(reportDataSource);
+            // Hiển thị báo cáo
+            reportViewerBC.RefreshReport();
+        }
+
+        /// <summary>
+        /// Báo cáo DS dư nợ 05
+        /// </summary>
+        public void BCDuNoE()
+        {
+            // Lấy DS bản ghi
+            ReportBUS reportBUS = new ReportBUS();
+            List<DSDuNoE> list = JsonConvert.DeserializeObject<List<DSDuNoE>>(reportBUS.GetListDSDuNoE());
+            // Chuyển dữ liệu sang DataTable
+            DataTable dataTable = DataTableConvert.ConvertToDataTable(list);
+            // Add datatable vào dataset
+            DataSet dataSet = new DataSet("DuNoE");
+            dataSet.Tables.Add(dataTable);
+
+            string slBG = list.Count.ToString();
+            reportViewerBC.LocalReport.ReportPath = "Report/DanhSachDuNo05.rdlc";
+            ReportDataSource reportDataSource = new ReportDataSource();
+            ReportParameter[] reportParameter = new ReportParameter[2];
+            reportParameter[0] = new ReportParameter("SLBanGhi", slBG, true);
+            reportParameter[1] = new ReportParameter("GioHT", gioHT, true);
+
+            reportViewerBC.LocalReport.SetParameters(reportParameter);
+
+            reportDataSource.Name = "DuNoE";
+            reportDataSource.Value = dataSet.Tables[0];
+            reportViewerBC.LocalReport.DataSources.Add(reportDataSource);
+            // Hiển thị báo cáo
+            reportViewerBC.RefreshReport();
+
         }
     }
 }

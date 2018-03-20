@@ -96,5 +96,134 @@ namespace DAO
                 return null;
             }
         }
+
+        /// <summary>
+        /// Lấy danh sách các khách hàng không có món giải ngân nào quá hạn
+        /// </summary>
+        /// <param name="ngayHT"></param>
+        /// <returns></returns>
+        public static List<DSDuNoC> GetListDSDuNoC(DateTime ngayHT)
+        {
+            try
+            {
+                List<DSDuNoC> list = new List<DSDuNoC>();
+
+                OracleCommand oracleCommand = new OracleCommand();
+                oracleCommand.CommandText = "SELECT KHACHHANG.SOTKLK, KHACHHANG.HOTENKH, KHACHHANG.SOCMND, KHACHHANG.SDT, KHACHHANG.LOAIKH " +
+                    "FROM KHACHHANG,GIAINGAN WHERE GIAINGAN.IDKH NOT IN " +
+                    "(SELECT GIAINGAN.IDKH FROM GIAINGAN WHERE GIAINGAN.NGAYDAOHAN < :ngayHT AND GIAINGAN.TRANGTHAI = 'Còn nợ') " +
+                    "AND KHACHHANG.IDKHACHHANG = GIAINGAN.IDKH GROUP BY KHACHHANG.SOTKLK, KHACHHANG.HOTENKH, KHACHHANG.SOCMND, KHACHHANG.SDT, KHACHHANG.LOAIKH";
+                oracleCommand.Parameters.Add("ngayHT", ngayHT);
+
+                OracleDataReader oracleDataReader = DataProvider.GetOracleDataReader(oracleCommand);
+
+                if (oracleDataReader != null && oracleDataReader.HasRows)
+                {
+                    while (oracleDataReader.Read())
+                    {
+                        DSDuNoC dSDuNoC = new DSDuNoC();
+                        dSDuNoC.SoTKLK = oracleDataReader.GetString(0);
+                        dSDuNoC.TenKH = oracleDataReader.GetString(1);
+                        dSDuNoC.SoCMND = oracleDataReader.GetString(2);
+                        dSDuNoC.SDT = oracleDataReader.GetString(3);
+                        dSDuNoC.LoaiKH = oracleDataReader.GetString(4);
+
+                        list.Add(dSDuNoC);
+                    }
+                }
+
+                return list;
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show("Lỗi: " + e.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// Lấy danh sách các khách hàng đã hoàn thành tất cả các món giải ngân hiện có
+        /// </summary>
+        /// <returns></returns>
+        public static List<DSDuNoC> GetListDSHetNo()
+        {
+            try
+            {
+                List<DSDuNoC> list = new List<DSDuNoC>();
+
+                OracleCommand oracleCommand = new OracleCommand();
+                oracleCommand.CommandText = "SELECT KHACHHANG.SOTKLK, KHACHHANG.HOTENKH, KHACHHANG.SOCMND, KHACHHANG.SDT, KHACHHANG.LOAIKH " +
+                    "FROM KHACHHANG,GIAINGAN WHERE GIAINGAN.IDKH NOT IN (SELECT GIAINGAN.IDKH FROM GIAINGAN " +
+                    "WHERE GIAINGAN.TRANGTHAI = 'Còn nợ') AND KHACHHANG.IDKHACHHANG = GIAINGAN.IDKH " +
+                    "GROUP BY KHACHHANG.SOTKLK, KHACHHANG.HOTENKH, KHACHHANG.SOCMND, KHACHHANG.SDT, KHACHHANG.LOAIKH";
+
+                OracleDataReader oracleDataReader = DataProvider.GetOracleDataReader(oracleCommand);
+
+                if (oracleDataReader != null && oracleDataReader.HasRows)
+                {
+                    while (oracleDataReader.Read())
+                    {
+                        DSDuNoC dSDuNoC = new DSDuNoC();
+                        dSDuNoC.SoTKLK = oracleDataReader.GetString(0);
+                        dSDuNoC.TenKH = oracleDataReader.GetString(1);
+                        dSDuNoC.SoCMND = oracleDataReader.GetString(2);
+                        dSDuNoC.SDT = oracleDataReader.GetString(3);
+                        dSDuNoC.LoaiKH = oracleDataReader.GetString(4);
+
+                        list.Add(dSDuNoC);
+                    }
+                }
+
+                return list;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Lỗi: " + e.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// Lấy danh sách KH có tổng dư nợ > 500 triệu
+        /// </summary>
+        /// <returns></returns>
+        public static List<DSDuNoE> GetListDSDuNoE()
+        {
+            try
+            {
+                List<DSDuNoE> list = new List<DSDuNoE>();
+
+                OracleCommand oracleCommand = new OracleCommand();
+                oracleCommand.CommandText = "SELECT KHACHHANG.SOTKLK, KHACHHANG.HOTENKH, KHACHHANG.SOCMND, " +
+                    "KHACHHANG.SDT, SUM(DUNOGOC + DUNOLAINGOAIHAN + DUNOLAITRONGHAN) " +
+                    "FROM KHACHHANG,GIAINGAN WHERE KHACHHANG.IDKHACHHANG = GIAINGAN.IDKH AND GIAINGAN.TRANGTHAI = 'Còn nợ' " +
+                    "GROUP BY KHACHHANG.SOTKLK, KHACHHANG.HOTENKH, KHACHHANG.SOCMND, KHACHHANG.SDT " +
+                    "HAVING SUM(DUNOGOC + DUNOLAINGOAIHAN + DUNOLAITRONGHAN) > 500000000";
+
+                OracleDataReader oracleDataReader = DataProvider.GetOracleDataReader(oracleCommand);
+
+                if (oracleDataReader != null && oracleDataReader.HasRows)
+                {
+                    while (oracleDataReader.Read())
+                    {
+                        DSDuNoE dSDuNoE = new DSDuNoE();
+                        dSDuNoE.SoTKLK = oracleDataReader.GetString(0);
+                        dSDuNoE.TenKH = oracleDataReader.GetString(1);
+                        dSDuNoE.SoCMND = oracleDataReader.GetString(2);
+                        dSDuNoE.SDT = oracleDataReader.GetString(3);
+                        dSDuNoE.TongDuNo = oracleDataReader.GetInt64(4).ToString("#,##0");
+
+                        list.Add(dSDuNoE);
+                    }
+                }
+
+                return list;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Lỗi: " + e.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+        }
     }
 }

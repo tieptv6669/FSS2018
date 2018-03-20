@@ -274,18 +274,6 @@ namespace BUS
         }
 
         /// <summary>
-        /// Lấy danh sách khách hàng để tạo báo cáo
-        /// </summary>
-        /// <returns></returns>
-        [WebMethod]
-        public string KhachHangReport()
-        {
-            List<KhachHangReport> list = KhachHangDAO.GetListKhachHangReport();
-            string jsonData = JsonConvert.SerializeObject(list);
-            return jsonData;
-        }
-
-        /// <summary>
         /// Lấy KH khi biết ID khách hàng
         /// </summary>
         /// <param name="idKH"></param>

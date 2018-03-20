@@ -37,13 +37,15 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DSDuNoD.cs" />
     <Compile Include="DSDuNoA.cs" />
     <Compile Include="DSDuNoB.cs" />
+    <Compile Include="DSDuNoC.cs" />
+    <Compile Include="DSDuNoE.cs" />
     <Compile Include="GiaiNgan.cs" />
     <Compile Include="GN_KH.cs" />
     <Compile Include="GN_SPTD_NGUON.cs" />
     <Compile Include="KhachHang.cs" />
-    <Compile Include="KhachHangReport.cs" />
     <Compile Include="KhachHang_SPTD.cs" />
     <Compile Include="LichSu.cs" />
     <Compile Include="NguoiDung.cs" />
@@ -52,6 +54,9 @@
     <Compile Include="SanPhamTinDung.cs" />
     <Compile Include="TraNo.cs" />
     <Compile Include="XuLyCuoiNgay.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

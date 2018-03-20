@@ -1,4 +1,3 @@
-G:\FSS2018\FormDesignFSS2\bin\Debug\Report\DanhSachKH.rdlc
 G:\FSS2018\FormDesignFSS2\bin\Debug\QLTD.exe.config
 G:\FSS2018\FormDesignFSS2\bin\Debug\QLTD.exe
 G:\FSS2018\FormDesignFSS2\bin\Debug\QLTD.pdb
@@ -99,3 +98,6 @@ G:\FSS2018\FormDesignFSS2\obj\Debug\QLTD.exe
 G:\FSS2018\FormDesignFSS2\obj\Debug\QLTD.pdb
 G:\FSS2018\FormDesignFSS2\bin\Debug\Report\DanhSachDuNo02.rdlc
 G:\FSS2018\FormDesignFSS2\bin\Debug\Report\DanhSachDuNo01.rdlc
+G:\FSS2018\FormDesignFSS2\bin\Debug\Report\DanhSachDuNo03.rdlc
+G:\FSS2018\FormDesignFSS2\bin\Debug\Report\DanhSachDuNo04.rdlc
+G:\FSS2018\FormDesignFSS2\bin\Debug\Report\DanhSachDuNo05.rdlc

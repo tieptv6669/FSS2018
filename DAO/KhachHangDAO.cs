@@ -358,40 +358,5 @@ namespace DAO
                 return null;
             }
         }
-
-        /// <summary>
-        /// Lấy danh sách khách hàng để tạo báo cáo
-        /// </summary>
-        /// <returns></returns>
-        public static List<KhachHangReport> GetListKhachHangReport()
-        {
-            try
-            {
-                List<KhachHangReport> list = new List<KhachHangReport>();
-                OracleCommand oracleCommand = new OracleCommand();
-                oracleCommand.CommandText = "SELECT SOTKLK, HOTENKH, NGAYSINH FROM KHACHHANG";
-                OracleDataReader oracleDataReader = DataProvider.GetOracleDataReader(oracleCommand);
-                if(oracleDataReader != null && oracleDataReader.HasRows)
-                {
-                    while (oracleDataReader.Read())
-                    {
-                        KhachHangReport khachHangReport = new KhachHangReport();
-                        khachHangReport.soTKLKKH = oracleDataReader.GetString(0);
-                        khachHangReport.hoTenKH = oracleDataReader.GetString(1);
-                        khachHangReport.ngaySinhKH = oracleDataReader.GetDateTime(2);
-
-                        list.Add(khachHangReport);
-                    }
-                }
-
-                oracleCommand.Connection.Dispose();
-                return list;
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show("Lỗi: " + e.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return null;
-            }
-        }
     }
 }

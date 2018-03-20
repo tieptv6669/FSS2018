@@ -39,5 +39,36 @@ namespace BUS
         {
             return JsonConvert.SerializeObject(ReportDAO.GetListDSDuNoB());
         }
+
+        /// <summary>
+        /// Lấy danh sách các KH không có món GN nào quá hạn
+        /// </summary>
+        /// <param name="ngayHT"></param>
+        /// <returns></returns>
+        [WebMethod]
+        public string GetListDSDuNoC(string ngayHT)
+        {
+            return JsonConvert.SerializeObject(ReportDAO.GetListDSDuNoC(DateTime.Parse(ngayHT)));
+        }
+
+        /// <summary>
+        /// Lấy danh sách các KH đã hoàn thành tất cả các món GN 
+        /// </summary>
+        /// <returns></returns>
+        [WebMethod]
+        public string GetListDSKHHetNo()
+        {
+            return JsonConvert.SerializeObject(ReportDAO.GetListDSHetNo());
+        }
+
+        /// <summary>
+        /// Lấy danh sách KH có tổng dư nợ > 500 triệu
+        /// </summary>
+        /// <returns></returns>
+        [WebMethod]
+        public string GetListDSDuNoE()
+        {
+            return JsonConvert.SerializeObject(ReportDAO.GetListDSDuNoE());
+        }
     }
 }

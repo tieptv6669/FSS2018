@@ -314,19 +314,22 @@
     <EmbeddedResource Include="GUI\XemChiTietKH.resx">
       <DependentUpon>XemChiTietKH.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Report\DanhSachDuNo05.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\DanhSachDuNo04.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\DanhSachDuNo03.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="Report\DanhSachDuNo02.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Report\DanhSachDuNo01.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Report\DanhSachKH.rdlc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
     <None Include="packages.config" />
-    <None Include="Properties\DataSources\DTO.DSDuNoA.datasource" />
-    <None Include="Properties\DataSources\DTO.DSDuNoB.datasource" />
-    <None Include="Properties\DataSources\DTO.KhachHangReport.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

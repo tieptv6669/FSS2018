@@ -33,6 +33,12 @@ namespace FormDesignFSS2.ReportWS {
         
         private System.Threading.SendOrPostCallback GetListDSDuNoBOperationCompleted;
         
+        private System.Threading.SendOrPostCallback GetListDSDuNoCOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GetListDSKHHetNoOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GetListDSDuNoEOperationCompleted;
+        
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
@@ -76,6 +82,15 @@ namespace FormDesignFSS2.ReportWS {
         
         /// <remarks/>
         public event GetListDSDuNoBCompletedEventHandler GetListDSDuNoBCompleted;
+        
+        /// <remarks/>
+        public event GetListDSDuNoCCompletedEventHandler GetListDSDuNoCCompleted;
+        
+        /// <remarks/>
+        public event GetListDSKHHetNoCompletedEventHandler GetListDSKHHetNoCompleted;
+        
+        /// <remarks/>
+        public event GetListDSDuNoECompletedEventHandler GetListDSDuNoECompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetListDSDuNoA", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -130,6 +145,89 @@ namespace FormDesignFSS2.ReportWS {
             if ((this.GetListDSDuNoBCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.GetListDSDuNoBCompleted(this, new GetListDSDuNoBCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetListDSDuNoC", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string GetListDSDuNoC(string ngayHT) {
+            object[] results = this.Invoke("GetListDSDuNoC", new object[] {
+                        ngayHT});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetListDSDuNoCAsync(string ngayHT) {
+            this.GetListDSDuNoCAsync(ngayHT, null);
+        }
+        
+        /// <remarks/>
+        public void GetListDSDuNoCAsync(string ngayHT, object userState) {
+            if ((this.GetListDSDuNoCOperationCompleted == null)) {
+                this.GetListDSDuNoCOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetListDSDuNoCOperationCompleted);
+            }
+            this.InvokeAsync("GetListDSDuNoC", new object[] {
+                        ngayHT}, this.GetListDSDuNoCOperationCompleted, userState);
+        }
+        
+        private void OnGetListDSDuNoCOperationCompleted(object arg) {
+            if ((this.GetListDSDuNoCCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetListDSDuNoCCompleted(this, new GetListDSDuNoCCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetListDSKHHetNo", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string GetListDSKHHetNo() {
+            object[] results = this.Invoke("GetListDSKHHetNo", new object[0]);
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetListDSKHHetNoAsync() {
+            this.GetListDSKHHetNoAsync(null);
+        }
+        
+        /// <remarks/>
+        public void GetListDSKHHetNoAsync(object userState) {
+            if ((this.GetListDSKHHetNoOperationCompleted == null)) {
+                this.GetListDSKHHetNoOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetListDSKHHetNoOperationCompleted);
+            }
+            this.InvokeAsync("GetListDSKHHetNo", new object[0], this.GetListDSKHHetNoOperationCompleted, userState);
+        }
+        
+        private void OnGetListDSKHHetNoOperationCompleted(object arg) {
+            if ((this.GetListDSKHHetNoCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetListDSKHHetNoCompleted(this, new GetListDSKHHetNoCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetListDSDuNoE", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string GetListDSDuNoE() {
+            object[] results = this.Invoke("GetListDSDuNoE", new object[0]);
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetListDSDuNoEAsync() {
+            this.GetListDSDuNoEAsync(null);
+        }
+        
+        /// <remarks/>
+        public void GetListDSDuNoEAsync(object userState) {
+            if ((this.GetListDSDuNoEOperationCompleted == null)) {
+                this.GetListDSDuNoEOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetListDSDuNoEOperationCompleted);
+            }
+            this.InvokeAsync("GetListDSDuNoE", new object[0], this.GetListDSDuNoEOperationCompleted, userState);
+        }
+        
+        private void OnGetListDSDuNoEOperationCompleted(object arg) {
+            if ((this.GetListDSDuNoECompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetListDSDuNoECompleted(this, new GetListDSDuNoECompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -191,6 +289,84 @@ namespace FormDesignFSS2.ReportWS {
         private object[] results;
         
         internal GetListDSDuNoBCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
+    public delegate void GetListDSDuNoCCompletedEventHandler(object sender, GetListDSDuNoCCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetListDSDuNoCCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetListDSDuNoCCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
+    public delegate void GetListDSKHHetNoCompletedEventHandler(object sender, GetListDSKHHetNoCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetListDSKHHetNoCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetListDSKHHetNoCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
+    public delegate void GetListDSDuNoECompletedEventHandler(object sender, GetListDSDuNoECompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetListDSDuNoECompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetListDSDuNoECompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
