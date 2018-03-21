@@ -227,31 +227,38 @@ namespace FormDesignFSS2.GUI
             {
                 if (gridTabUser.RowCount > 0 && gridTabUser.SelectedRows.Count > 0)
                 {
-                    DialogResult dialogResult = MessageBox.Show("Bạn chắc chắn muốn xóa " + gridTabUser.SelectedRows[0].Cells[1].Value.ToString() + "?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                    if (dialogResult == DialogResult.Yes)
+                    if(gridTabUser.SelectedRows[0].Cells[4].Value.ToString() == "Admin")
                     {
-                        NguoiDungBUS nguoiDungBUS = new NguoiDungBUS();
-                        if (nguoiDungBUS.XoaNguoiDung(gridTabUser.SelectedRows[0].Cells[0].Value.ToString()))
+                        MessageBox.Show("Bạn không thể xóa người dùng có quyền Admin", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    else
+                    {
+                        DialogResult dialogResult = MessageBox.Show("Bạn chắc chắn muốn xóa " + gridTabUser.SelectedRows[0].Cells[1].Value.ToString() + "?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                        if (dialogResult == DialogResult.Yes)
                         {
-                            // Ghi log
-                            LichSu lichSu = new LichSu();
-                            lichSu.MaDT = gridTabUser.SelectedRows[0].Cells[0].Value.ToString();
-                            lichSu.NoiDung = "Xóa người dùng";
-                            lichSu.ThoiGian = DateTime.Parse(lblTime.Text);
-                            lichSu.GiaTriTruoc = "null";
-                            lichSu.GiaTriSau = "null";
-                            lichSu.TenDN = nguoiDungHienTai.tenDangNhapND;
-                            lichSu.SoTKLK = "null";
-                            LichSuBUS lichSuBUS = new LichSuBUS();
-                            lichSuBUS.ThemLichSu(JsonConvert.SerializeObject(lichSu));
-                            // Cập nhật grid view
-                            gridTabUser.Rows.Remove(gridTabUser.SelectedRows[0]);
-                            MessageBox.Show("Xóa người dùng thành công", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            
-                        }
-                        else
-                        {
-                            MessageBox.Show("Đã có lỗi sảy ra, xóa người dùng thất bại", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            NguoiDungBUS nguoiDungBUS = new NguoiDungBUS();
+                            if (nguoiDungBUS.XoaNguoiDung(gridTabUser.SelectedRows[0].Cells[0].Value.ToString()))
+                            {
+                                // Ghi log
+                                LichSu lichSu = new LichSu();
+                                lichSu.MaDT = gridTabUser.SelectedRows[0].Cells[0].Value.ToString();
+                                lichSu.NoiDung = "Xóa người dùng";
+                                lichSu.ThoiGian = DateTime.Parse(lblTime.Text);
+                                lichSu.GiaTriTruoc = "null";
+                                lichSu.GiaTriSau = "null";
+                                lichSu.TenDN = nguoiDungHienTai.tenDangNhapND;
+                                lichSu.SoTKLK = "null";
+                                LichSuBUS lichSuBUS = new LichSuBUS();
+                                lichSuBUS.ThemLichSu(JsonConvert.SerializeObject(lichSu));
+                                // Cập nhật grid view
+                                gridTabUser.Rows.Remove(gridTabUser.SelectedRows[0]);
+                                MessageBox.Show("Xóa người dùng thành công", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                            }
+                            else
+                            {
+                                MessageBox.Show("Đã có lỗi sảy ra, xóa người dùng thất bại", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
                         }
                     }
                 }
@@ -657,6 +664,26 @@ namespace FormDesignFSS2.GUI
                 case 5:
                     {
                         xuatBC.BCDSSPTDA();
+                        break;
+                    }
+                case 6:
+                    {
+                        xuatBC.BCDSSPTDB();
+                        break;
+                    }
+                case 7:
+                    {
+                        xuatBC.BCDSGNA();
+                        break;
+                    }
+                case 8:
+                    {
+                        xuatBC.BCDSGNB();
+                        break;
+                    }
+                case 9:
+                    {
+                        xuatBC.BCDSNguonA();
                         break;
                     }
             }

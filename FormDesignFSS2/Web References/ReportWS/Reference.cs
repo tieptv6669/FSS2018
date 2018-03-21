@@ -41,6 +41,14 @@ namespace FormDesignFSS2.ReportWS {
         
         private System.Threading.SendOrPostCallback GetListDSSPTDAOperationCompleted;
         
+        private System.Threading.SendOrPostCallback GetListDSSPTDBOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GetListDSGNAOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GetListDSGNBOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GetListDSNguonAOperationCompleted;
+        
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
@@ -96,6 +104,18 @@ namespace FormDesignFSS2.ReportWS {
         
         /// <remarks/>
         public event GetListDSSPTDACompletedEventHandler GetListDSSPTDACompleted;
+        
+        /// <remarks/>
+        public event GetListDSSPTDBCompletedEventHandler GetListDSSPTDBCompleted;
+        
+        /// <remarks/>
+        public event GetListDSGNACompletedEventHandler GetListDSGNACompleted;
+        
+        /// <remarks/>
+        public event GetListDSGNBCompletedEventHandler GetListDSGNBCompleted;
+        
+        /// <remarks/>
+        public event GetListDSNguonACompletedEventHandler GetListDSNguonACompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetListDSDuNoA", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -264,6 +284,116 @@ namespace FormDesignFSS2.ReportWS {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetListDSSPTDB", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string GetListDSSPTDB() {
+            object[] results = this.Invoke("GetListDSSPTDB", new object[0]);
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetListDSSPTDBAsync() {
+            this.GetListDSSPTDBAsync(null);
+        }
+        
+        /// <remarks/>
+        public void GetListDSSPTDBAsync(object userState) {
+            if ((this.GetListDSSPTDBOperationCompleted == null)) {
+                this.GetListDSSPTDBOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetListDSSPTDBOperationCompleted);
+            }
+            this.InvokeAsync("GetListDSSPTDB", new object[0], this.GetListDSSPTDBOperationCompleted, userState);
+        }
+        
+        private void OnGetListDSSPTDBOperationCompleted(object arg) {
+            if ((this.GetListDSSPTDBCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetListDSSPTDBCompleted(this, new GetListDSSPTDBCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetListDSGNA", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string GetListDSGNA(string gioHT) {
+            object[] results = this.Invoke("GetListDSGNA", new object[] {
+                        gioHT});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetListDSGNAAsync(string gioHT) {
+            this.GetListDSGNAAsync(gioHT, null);
+        }
+        
+        /// <remarks/>
+        public void GetListDSGNAAsync(string gioHT, object userState) {
+            if ((this.GetListDSGNAOperationCompleted == null)) {
+                this.GetListDSGNAOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetListDSGNAOperationCompleted);
+            }
+            this.InvokeAsync("GetListDSGNA", new object[] {
+                        gioHT}, this.GetListDSGNAOperationCompleted, userState);
+        }
+        
+        private void OnGetListDSGNAOperationCompleted(object arg) {
+            if ((this.GetListDSGNACompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetListDSGNACompleted(this, new GetListDSGNACompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetListDSGNB", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string GetListDSGNB() {
+            object[] results = this.Invoke("GetListDSGNB", new object[0]);
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetListDSGNBAsync() {
+            this.GetListDSGNBAsync(null);
+        }
+        
+        /// <remarks/>
+        public void GetListDSGNBAsync(object userState) {
+            if ((this.GetListDSGNBOperationCompleted == null)) {
+                this.GetListDSGNBOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetListDSGNBOperationCompleted);
+            }
+            this.InvokeAsync("GetListDSGNB", new object[0], this.GetListDSGNBOperationCompleted, userState);
+        }
+        
+        private void OnGetListDSGNBOperationCompleted(object arg) {
+            if ((this.GetListDSGNBCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetListDSGNBCompleted(this, new GetListDSGNBCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetListDSNguonA", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string GetListDSNguonA() {
+            object[] results = this.Invoke("GetListDSNguonA", new object[0]);
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetListDSNguonAAsync() {
+            this.GetListDSNguonAAsync(null);
+        }
+        
+        /// <remarks/>
+        public void GetListDSNguonAAsync(object userState) {
+            if ((this.GetListDSNguonAOperationCompleted == null)) {
+                this.GetListDSNguonAOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetListDSNguonAOperationCompleted);
+            }
+            this.InvokeAsync("GetListDSNguonA", new object[0], this.GetListDSNguonAOperationCompleted, userState);
+        }
+        
+        private void OnGetListDSNguonAOperationCompleted(object arg) {
+            if ((this.GetListDSNguonACompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetListDSNguonACompleted(this, new GetListDSNguonACompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         public new void CancelAsync(object userState) {
             base.CancelAsync(userState);
         }
@@ -425,6 +555,110 @@ namespace FormDesignFSS2.ReportWS {
         private object[] results;
         
         internal GetListDSSPTDACompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
+    public delegate void GetListDSSPTDBCompletedEventHandler(object sender, GetListDSSPTDBCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetListDSSPTDBCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetListDSSPTDBCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
+    public delegate void GetListDSGNACompletedEventHandler(object sender, GetListDSGNACompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetListDSGNACompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetListDSGNACompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
+    public delegate void GetListDSGNBCompletedEventHandler(object sender, GetListDSGNBCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetListDSGNBCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetListDSGNBCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
+    public delegate void GetListDSNguonACompletedEventHandler(object sender, GetListDSNguonACompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetListDSNguonACompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetListDSNguonACompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }

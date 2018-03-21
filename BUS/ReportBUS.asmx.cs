@@ -80,5 +80,46 @@ namespace BUS
         {
             return JsonConvert.SerializeObject(ReportDAO.GetListDSSPTDA());
         }
+
+        /// <summary>
+        /// Lấy danh sách SPTD có nhiều hơn 10 KH sử dụng
+        /// </summary>
+        /// <returns></returns>
+        [WebMethod]
+        public string GetListDSSPTDB()
+        {
+            return JsonConvert.SerializeObject(ReportDAO.GetListDSSPTDB());
+        }
+
+        /// <summary>
+        /// Lấy danh sách các món GN nợ quá hạn từ 2 tháng trở lên
+        /// </summary>
+        /// <param name="gioHT"></param>
+        /// <returns></returns>
+        [WebMethod]
+        public string GetListDSGNA(string gioHT)
+        {
+            return JsonConvert.SerializeObject(ReportDAO.GetListDSGNA(DateTime.Parse(gioHT)));
+        }
+
+        /// <summary>
+        /// Lấy danh sách các món GN có dư nợ lãi > 10 triệu
+        /// </summary>
+        /// <returns></returns>
+        [WebMethod]
+        public string GetListDSGNB()
+        {
+            return JsonConvert.SerializeObject(ReportDAO.GetListDSGNB());
+        }
+
+        /// <summary>
+        /// Lấy danh sách các nguồn có số tiền có thể cho vay < 100 triệu
+        /// </summary>
+        /// <returns></returns>
+        [WebMethod]
+        public string GetListDSNguonA()
+        {
+            return JsonConvert.SerializeObject(ReportDAO.GetListDSNGA());
+        }
     }
 }

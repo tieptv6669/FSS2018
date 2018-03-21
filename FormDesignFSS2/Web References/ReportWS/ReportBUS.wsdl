@@ -70,6 +70,50 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="GetListDSSPTDB">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetListDSSPTDBResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetListDSSPTDBResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetListDSGNA">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="gioHT" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetListDSGNAResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetListDSGNAResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetListDSGNB">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetListDSGNBResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetListDSGNBResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetListDSNguonA">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetListDSNguonAResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetListDSNguonAResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="GetListDSDuNoASoapIn">
@@ -108,6 +152,30 @@
   <wsdl:message name="GetListDSSPTDASoapOut">
     <wsdl:part name="parameters" element="tns:GetListDSSPTDAResponse" />
   </wsdl:message>
+  <wsdl:message name="GetListDSSPTDBSoapIn">
+    <wsdl:part name="parameters" element="tns:GetListDSSPTDB" />
+  </wsdl:message>
+  <wsdl:message name="GetListDSSPTDBSoapOut">
+    <wsdl:part name="parameters" element="tns:GetListDSSPTDBResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetListDSGNASoapIn">
+    <wsdl:part name="parameters" element="tns:GetListDSGNA" />
+  </wsdl:message>
+  <wsdl:message name="GetListDSGNASoapOut">
+    <wsdl:part name="parameters" element="tns:GetListDSGNAResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetListDSGNBSoapIn">
+    <wsdl:part name="parameters" element="tns:GetListDSGNB" />
+  </wsdl:message>
+  <wsdl:message name="GetListDSGNBSoapOut">
+    <wsdl:part name="parameters" element="tns:GetListDSGNBResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetListDSNguonASoapIn">
+    <wsdl:part name="parameters" element="tns:GetListDSNguonA" />
+  </wsdl:message>
+  <wsdl:message name="GetListDSNguonASoapOut">
+    <wsdl:part name="parameters" element="tns:GetListDSNguonAResponse" />
+  </wsdl:message>
   <wsdl:portType name="ReportBUSSoap">
     <wsdl:operation name="GetListDSDuNoA">
       <wsdl:input message="tns:GetListDSDuNoASoapIn" />
@@ -132,6 +200,22 @@
     <wsdl:operation name="GetListDSSPTDA">
       <wsdl:input message="tns:GetListDSSPTDASoapIn" />
       <wsdl:output message="tns:GetListDSSPTDASoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListDSSPTDB">
+      <wsdl:input message="tns:GetListDSSPTDBSoapIn" />
+      <wsdl:output message="tns:GetListDSSPTDBSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListDSGNA">
+      <wsdl:input message="tns:GetListDSGNASoapIn" />
+      <wsdl:output message="tns:GetListDSGNASoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListDSGNB">
+      <wsdl:input message="tns:GetListDSGNBSoapIn" />
+      <wsdl:output message="tns:GetListDSGNBSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListDSNguonA">
+      <wsdl:input message="tns:GetListDSNguonASoapIn" />
+      <wsdl:output message="tns:GetListDSNguonASoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="ReportBUSSoap" type="tns:ReportBUSSoap">
@@ -190,6 +274,42 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetListDSSPTDB">
+      <soap:operation soapAction="http://tempuri.org/GetListDSSPTDB" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListDSGNA">
+      <soap:operation soapAction="http://tempuri.org/GetListDSGNA" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListDSGNB">
+      <soap:operation soapAction="http://tempuri.org/GetListDSGNB" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListDSNguonA">
+      <soap:operation soapAction="http://tempuri.org/GetListDSNguonA" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="ReportBUSSoap12" type="tns:ReportBUSSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -240,6 +360,42 @@
     </wsdl:operation>
     <wsdl:operation name="GetListDSSPTDA">
       <soap12:operation soapAction="http://tempuri.org/GetListDSSPTDA" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListDSSPTDB">
+      <soap12:operation soapAction="http://tempuri.org/GetListDSSPTDB" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListDSGNA">
+      <soap12:operation soapAction="http://tempuri.org/GetListDSGNA" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListDSGNB">
+      <soap12:operation soapAction="http://tempuri.org/GetListDSGNB" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListDSNguonA">
+      <soap12:operation soapAction="http://tempuri.org/GetListDSNguonA" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
