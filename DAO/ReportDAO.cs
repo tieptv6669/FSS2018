@@ -33,7 +33,7 @@ namespace DAO
 
                 OracleDataReader oracleDataReader = DataProvider.GetOracleDataReader(oracleCommand);
 
-                if(oracleDataReader != null && oracleDataReader.HasRows)
+                if (oracleDataReader != null && oracleDataReader.HasRows)
                 {
                     while (oracleDataReader.Read())
                     {
@@ -49,7 +49,7 @@ namespace DAO
                 }
 
                 return list;
-            }catch(Exception e)
+            } catch (Exception e)
             {
                 MessageBox.Show("Lỗi: " + e.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return null;
@@ -134,7 +134,7 @@ namespace DAO
 
                 return list;
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 MessageBox.Show("Lỗi: " + e.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return null;
@@ -220,6 +220,45 @@ namespace DAO
                 return list;
             }
             catch (Exception e)
+            {
+                MessageBox.Show("Lỗi: " + e.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// Lấy danh sách sản phẩm tín dụng có ít hơn 5 KH sử dụng 
+        /// </summary>
+        /// <returns></returns>
+        public static List<DSSPTDA> GetListDSSPTDA()
+        {
+            try
+            {
+                List<DSSPTDA> list = new List<DSSPTDA>();
+
+                OracleCommand oracleCommand = new OracleCommand();
+                oracleCommand.CommandText = "SELECT SPTD.MASPTD, SPTD.TENSPTD, SPTD.TENNGUON, COUNT(*) " +
+                    "FROM SPTD,KH_SPTD WHERE KH_SPTD.IDSPTD = SPTD.IDSPTD AND KH_SPTD.TRANGTHAI = 'Sử dụng' " +
+                    "GROUP BY SPTD.MASPTD, SPTD.TENSPTD, SPTD.TENNGUON HAVING COUNT(*) < 5";
+
+                OracleDataReader oracleDataReader = DataProvider.GetOracleDataReader(oracleCommand);
+
+                if(oracleDataReader != null && oracleDataReader.HasRows)
+                {
+                    while (oracleDataReader.Read())
+                    {
+                        DSSPTDA dSSPTDA = new DSSPTDA();
+                        dSSPTDA.MaSPTD = oracleDataReader.GetString(0);
+                        dSSPTDA.TenSPTD = oracleDataReader.GetString(1);
+                        dSSPTDA.TenNguon = oracleDataReader.GetString(2);
+                        dSSPTDA.SlKH = oracleDataReader.GetInt32(3);
+
+                        list.Add(dSSPTDA);
+                    }
+                }
+
+                return list;
+            }catch(Exception e)
             {
                 MessageBox.Show("Lỗi: " + e.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return null;

@@ -39,6 +39,8 @@ namespace FormDesignFSS2.ReportWS {
         
         private System.Threading.SendOrPostCallback GetListDSDuNoEOperationCompleted;
         
+        private System.Threading.SendOrPostCallback GetListDSSPTDAOperationCompleted;
+        
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
@@ -91,6 +93,9 @@ namespace FormDesignFSS2.ReportWS {
         
         /// <remarks/>
         public event GetListDSDuNoECompletedEventHandler GetListDSDuNoECompleted;
+        
+        /// <remarks/>
+        public event GetListDSSPTDACompletedEventHandler GetListDSSPTDACompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetListDSDuNoA", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -232,6 +237,33 @@ namespace FormDesignFSS2.ReportWS {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetListDSSPTDA", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string GetListDSSPTDA() {
+            object[] results = this.Invoke("GetListDSSPTDA", new object[0]);
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetListDSSPTDAAsync() {
+            this.GetListDSSPTDAAsync(null);
+        }
+        
+        /// <remarks/>
+        public void GetListDSSPTDAAsync(object userState) {
+            if ((this.GetListDSSPTDAOperationCompleted == null)) {
+                this.GetListDSSPTDAOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetListDSSPTDAOperationCompleted);
+            }
+            this.InvokeAsync("GetListDSSPTDA", new object[0], this.GetListDSSPTDAOperationCompleted, userState);
+        }
+        
+        private void OnGetListDSSPTDAOperationCompleted(object arg) {
+            if ((this.GetListDSSPTDACompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetListDSSPTDACompleted(this, new GetListDSSPTDACompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         public new void CancelAsync(object userState) {
             base.CancelAsync(userState);
         }
@@ -367,6 +399,32 @@ namespace FormDesignFSS2.ReportWS {
         private object[] results;
         
         internal GetListDSDuNoECompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
+    public delegate void GetListDSSPTDACompletedEventHandler(object sender, GetListDSSPTDACompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetListDSSPTDACompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetListDSSPTDACompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }

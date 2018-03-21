@@ -101,3 +101,4 @@ G:\FSS2018\FormDesignFSS2\bin\Debug\Report\DanhSachDuNo01.rdlc
 G:\FSS2018\FormDesignFSS2\bin\Debug\Report\DanhSachDuNo03.rdlc
 G:\FSS2018\FormDesignFSS2\bin\Debug\Report\DanhSachDuNo04.rdlc
 G:\FSS2018\FormDesignFSS2\bin\Debug\Report\DanhSachDuNo05.rdlc
+G:\FSS2018\FormDesignFSS2\bin\Debug\Report\DanhSachSPTD01.rdlc

@@ -314,6 +314,9 @@
     <EmbeddedResource Include="GUI\XemChiTietKH.resx">
       <DependentUpon>XemChiTietKH.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Report\DanhSachSPTD01.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="Report\DanhSachDuNo05.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
@@ -330,6 +333,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\DTO.DSSPTDA.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

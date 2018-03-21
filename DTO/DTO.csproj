@@ -42,6 +42,7 @@
     <Compile Include="DSDuNoB.cs" />
     <Compile Include="DSDuNoC.cs" />
     <Compile Include="DSDuNoE.cs" />
+    <Compile Include="DSSPTDA.cs" />
     <Compile Include="GiaiNgan.cs" />
     <Compile Include="GN_KH.cs" />
     <Compile Include="GN_SPTD_NGUON.cs" />

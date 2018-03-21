@@ -60,6 +60,16 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="GetListDSSPTDA">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetListDSSPTDAResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetListDSSPTDAResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="GetListDSDuNoASoapIn">
@@ -92,6 +102,12 @@
   <wsdl:message name="GetListDSDuNoESoapOut">
     <wsdl:part name="parameters" element="tns:GetListDSDuNoEResponse" />
   </wsdl:message>
+  <wsdl:message name="GetListDSSPTDASoapIn">
+    <wsdl:part name="parameters" element="tns:GetListDSSPTDA" />
+  </wsdl:message>
+  <wsdl:message name="GetListDSSPTDASoapOut">
+    <wsdl:part name="parameters" element="tns:GetListDSSPTDAResponse" />
+  </wsdl:message>
   <wsdl:portType name="ReportBUSSoap">
     <wsdl:operation name="GetListDSDuNoA">
       <wsdl:input message="tns:GetListDSDuNoASoapIn" />
@@ -112,6 +128,10 @@
     <wsdl:operation name="GetListDSDuNoE">
       <wsdl:input message="tns:GetListDSDuNoESoapIn" />
       <wsdl:output message="tns:GetListDSDuNoESoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListDSSPTDA">
+      <wsdl:input message="tns:GetListDSSPTDASoapIn" />
+      <wsdl:output message="tns:GetListDSSPTDASoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="ReportBUSSoap" type="tns:ReportBUSSoap">
@@ -161,6 +181,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetListDSSPTDA">
+      <soap:operation soapAction="http://tempuri.org/GetListDSSPTDA" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="ReportBUSSoap12" type="tns:ReportBUSSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -202,6 +231,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetListDSDuNoE">
       <soap12:operation soapAction="http://tempuri.org/GetListDSDuNoE" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListDSSPTDA">
+      <soap12:operation soapAction="http://tempuri.org/GetListDSSPTDA" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

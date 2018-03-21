@@ -70,5 +70,15 @@ namespace BUS
         {
             return JsonConvert.SerializeObject(ReportDAO.GetListDSDuNoE());
         }
+
+        /// <summary>
+        /// Lấy danh sách SPTD có ít hơn 5 KH sử dụng
+        /// </summary>
+        /// <returns></returns>
+        [WebMethod]
+        public string GetListDSSPTDA()
+        {
+            return JsonConvert.SerializeObject(ReportDAO.GetListDSSPTDA());
+        }
     }
 }

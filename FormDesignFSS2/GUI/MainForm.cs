@@ -654,6 +654,11 @@ namespace FormDesignFSS2.GUI
                         xuatBC.BCDuNoE();
                         break;
                     }
+                case 5:
+                    {
+                        xuatBC.BCDSSPTDA();
+                        break;
+                    }
             }
         }
 

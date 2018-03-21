@@ -170,7 +170,36 @@ namespace FormDesignFSS2.Report
             reportViewerBC.LocalReport.DataSources.Add(reportDataSource);
             // Hiển thị báo cáo
             reportViewerBC.RefreshReport();
+        }
 
+        /// <summary>
+        /// Báo cáo SPTD 01
+        /// </summary>
+        public void BCDSSPTDA()
+        {
+            // Lấy DS bản ghi
+            ReportBUS reportBUS = new ReportBUS();
+            List<DSSPTDA> list = JsonConvert.DeserializeObject<List<DSSPTDA>>(reportBUS.GetListDSSPTDA());
+            // Chuyển dữ liệu sang DataTable
+            DataTable dataTable = DataTableConvert.ConvertToDataTable(list);
+            // Add datatable vào dataset
+            DataSet dataSet = new DataSet("SPTDA");
+            dataSet.Tables.Add(dataTable);
+
+            string slBG = list.Count.ToString();
+            reportViewerBC.LocalReport.ReportPath = "Report/DanhSachSPTD01.rdlc";
+            ReportDataSource reportDataSource = new ReportDataSource();
+            ReportParameter[] reportParameter = new ReportParameter[2];
+            reportParameter[0] = new ReportParameter("SLBanGhi", slBG, true);
+            reportParameter[1] = new ReportParameter("GioHT", gioHT, true);
+
+            reportViewerBC.LocalReport.SetParameters(reportParameter);
+
+            reportDataSource.Name = "SPTDA";
+            reportDataSource.Value = dataSet.Tables[0];
+            reportViewerBC.LocalReport.DataSources.Add(reportDataSource);
+            // Hiển thị báo cáo
+            reportViewerBC.RefreshReport();
         }
     }
 }
