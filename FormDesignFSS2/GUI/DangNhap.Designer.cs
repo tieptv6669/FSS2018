@@ -123,6 +123,7 @@
             this.Controls.Add(this.lblMatKhau);
             this.Controls.Add(this.txtTenDangNhap);
             this.Controls.Add(this.lblTenDangNhap);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "DangNhap";

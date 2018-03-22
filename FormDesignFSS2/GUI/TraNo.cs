@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using FormDesignFSS2.TraNoWS;
 using FormDesignFSS2.KhachHangWS;
@@ -46,41 +40,48 @@ namespace FormDesignFSS2.GUI
         /// <param name="e"></param>
         private void TraNo_Load(object sender, EventArgs e)
         {
-            lblError.ForeColor = Color.Red;
-            TraNoBUS traNoBUS = new TraNoBUS();
-            txtMaGN.Text = maGNTN;
-            // Lấy thông tin món giải ngân
-            GiaiNgan giaiNgan = JsonConvert.DeserializeObject<GiaiNgan>(traNoBUS.GetGN(txtMaGN.Text));
-            idGNTN = giaiNgan.IDGN;
-            // Lấy id nguồn
-            SanPhamTinDungBUS sanPhamTinDungBUS = new SanPhamTinDungBUS();
-            SanPhamTinDung sanPhamTinDung = JsonConvert.DeserializeObject<SanPhamTinDung>(sanPhamTinDungBUS.GetSPTDWithID(giaiNgan.IDSPTD));
-            idNguonGNTN = sanPhamTinDung.IdNguon;
-            if (giaiNgan != null)
+            try
             {
-                // Lấy thông tin KH
-                KhachHangBUS khachHangBUS = new KhachHangBUS();
-                KhachHang khachHang = JsonConvert.DeserializeObject<KhachHang>(khachHangBUS.GetKHWithID(giaiNgan.IDKH));
-                soTKLK = khachHang.STKLK;
-                // Tạo mã trả nợ
-                string maTN = traNoBUS.TaoMaTraNo(giaiNgan.MaGN);
-                // Hiển thị thông tin
-                txtMaTN.Text = maTN;
-                txtTenKH.Text = khachHang.hoTenKH;
-                txtGocBanDau.Text = giaiNgan.SoTienGN.ToString("#,##0");
-                txtDuNoGoc.Text = giaiNgan.DuNoGoc.ToString("#,##0");
-                txtDuNoLaiTrongHan.Text = giaiNgan.DuNoLaiTrongHan.ToString("#,##0");
-                txtDuNoLaiQuaHan.Text = giaiNgan.DuNoLaiNgoaiHan.ToString("#,##0");
-                txtNgayDaoHan.Text = giaiNgan.NgayDaoHan.ToShortDateString();
-                txtNgayTraNo.Text = gioHT;
-                if (DateTime.Parse(txtNgayTraNo.Text) <= DateTime.Parse(txtNgayDaoHan.Text))
+                lblError.ForeColor = Color.Red;
+                TraNoBUS traNoBUS = new TraNoBUS();
+                txtMaGN.Text = maGNTN;
+                // Lấy thông tin món giải ngân
+                GiaiNgan giaiNgan = JsonConvert.DeserializeObject<GiaiNgan>(traNoBUS.GetGN(txtMaGN.Text));
+                idGNTN = giaiNgan.IDGN;
+                // Lấy id nguồn
+                SanPhamTinDungBUS sanPhamTinDungBUS = new SanPhamTinDungBUS();
+                SanPhamTinDung sanPhamTinDung = JsonConvert.DeserializeObject<SanPhamTinDung>(sanPhamTinDungBUS.GetSPTDWithID(giaiNgan.IDSPTD));
+                idNguonGNTN = sanPhamTinDung.IdNguon;
+                if (giaiNgan != null)
                 {
-                    txtSoNgayQuaHan.Text = "0";
+                    // Lấy thông tin KH
+                    KhachHangBUS khachHangBUS = new KhachHangBUS();
+                    KhachHang khachHang = JsonConvert.DeserializeObject<KhachHang>(khachHangBUS.GetKHWithID(giaiNgan.IDKH));
+                    soTKLK = khachHang.STKLK;
+                    // Tạo mã trả nợ
+                    string maTN = traNoBUS.TaoMaTraNo(giaiNgan.MaGN);
+                    // Hiển thị thông tin
+                    txtMaTN.Text = maTN;
+                    txtTenKH.Text = khachHang.hoTenKH;
+                    txtGocBanDau.Text = giaiNgan.SoTienGN.ToString("#,##0");
+                    txtDuNoGoc.Text = giaiNgan.DuNoGoc.ToString("#,##0");
+                    txtDuNoLaiTrongHan.Text = giaiNgan.DuNoLaiTrongHan.ToString("#,##0");
+                    txtDuNoLaiQuaHan.Text = giaiNgan.DuNoLaiNgoaiHan.ToString("#,##0");
+                    txtNgayDaoHan.Text = giaiNgan.NgayDaoHan.ToShortDateString();
+                    txtNgayTraNo.Text = gioHT;
+                    if (DateTime.Parse(txtNgayTraNo.Text) <= DateTime.Parse(txtNgayDaoHan.Text))
+                    {
+                        txtSoNgayQuaHan.Text = "0";
+                    }
+                    else
+                    {
+                        txtSoNgayQuaHan.Text = (DateTime.Parse(txtNgayTraNo.Text) - DateTime.Parse(txtNgayDaoHan.Text)).Days.ToString();
+                    }
                 }
-                else
-                {
-                    txtSoNgayQuaHan.Text = (DateTime.Parse(txtNgayTraNo.Text) - DateTime.Parse(txtNgayDaoHan.Text)).Days.ToString();
-                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -125,47 +126,54 @@ namespace FormDesignFSS2.GUI
         /// <param name="e"></param>
         private void btnXacNhan_Click(object sender, EventArgs e)
         {
-            if(btnXacNhan.Text == "Xác nhận")
+            try
             {
-                TraNoBUS traNoBUS = new TraNoBUS();
-                switch(traNoBUS.KTThongTinTraNo(txtMaGN.Text, txtSoTienTra.Text, txtDuNoGoc.Text.Replace(",", ""), txtDuNoLaiTrongHan.Text.Replace(",", ""), txtDuNoLaiQuaHan.Text.Replace(",", "")))
+                if (btnXacNhan.Text == "Xác nhận")
                 {
-                    case 1:
-                        {
-                            lblError.Text = "Bạn chưa nhập mã giải ngân";
-                            break;
-                        }
-                    case 2:
-                        {
-                            lblError.Text = "Mã giải ngân không tồn tại hoặc đã trả hết nợ";
-                            break;
-                        }
-                    case 3:
-                        {
-                            lblError.Text = "Số tiền trả không hợp lệ";
-                            break;
-                        }
-                    case 4:
-                        {
-                            lblError.Text = "Số tiền trả lớn hơn tổng nợ";
-                            break;
-                        }
-                    case 0:
-                        {
-                            lblError.Text = "";
-                            txtSoTienTra.Text = Int64.Parse(txtSoTienTra.Text).ToString("#,##0");
-                            btnXacNhan.Text = "Lưu";
-                            btnHuy.Text = "Quay lại";
-                            btnHuy.Image = Properties.Resources._101;
-                            DisableElement();
-                            break;
-                        }
+                    TraNoBUS traNoBUS = new TraNoBUS();
+                    switch (traNoBUS.KTThongTinTraNo(txtMaGN.Text, txtSoTienTra.Text, txtDuNoGoc.Text.Replace(",", ""), txtDuNoLaiTrongHan.Text.Replace(",", ""), txtDuNoLaiQuaHan.Text.Replace(",", "")))
+                    {
+                        case 1:
+                            {
+                                lblError.Text = "Bạn chưa nhập mã giải ngân";
+                                break;
+                            }
+                        case 2:
+                            {
+                                lblError.Text = "Mã giải ngân không tồn tại hoặc đã trả hết nợ";
+                                break;
+                            }
+                        case 3:
+                            {
+                                lblError.Text = "Số tiền trả không hợp lệ";
+                                break;
+                            }
+                        case 4:
+                            {
+                                lblError.Text = "Số tiền trả lớn hơn tổng nợ";
+                                break;
+                            }
+                        case 0:
+                            {
+                                lblError.Text = "";
+                                txtSoTienTra.Text = Int64.Parse(txtSoTienTra.Text).ToString("#,##0");
+                                btnXacNhan.Text = "Lưu";
+                                btnHuy.Text = "Quay lại";
+                                btnHuy.Image = Properties.Resources._101;
+                                DisableElement();
+                                break;
+                            }
+                    }
+                }
+                else
+                {
+                    // Thực hiện trả nợ
+                    ThucHienTraNo();
                 }
             }
-            else
+            catch(Exception ex)
             {
-                // Thực hiện trả nợ
-                ThucHienTraNo();
+                MessageBox.Show("Lỗi: " + ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

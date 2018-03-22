@@ -1,14 +1,7 @@
 ﻿using System;
 using FormDesignFSS2.SanPhamTinDungWS;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using FormDesignFSS2.NguonWS;
 using FormDesignFSS2.LichSuWS;
 using Newtonsoft.Json;
 using DTO;

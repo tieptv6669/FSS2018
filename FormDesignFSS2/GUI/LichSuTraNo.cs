@@ -1,15 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Newtonsoft.Json;
 using System.Windows.Forms;
 using FormDesignFSS2.TraNoWS;
-using DTO;
 
 namespace FormDesignFSS2.GUI
 {
@@ -46,16 +39,22 @@ namespace FormDesignFSS2.GUI
         /// <param name="e"></param>
         private void LichSuTraNo_Load(object sender, EventArgs e)
         {
-            txtMaGN.Text = maGN;
-            // Lấy danh sách các lần trả nợ cho món giải ngân
-            TraNoBUS traNoBUS = new TraNoBUS();
-            List<DTO.TraNo> list = JsonConvert.DeserializeObject<List<DTO.TraNo>>(traNoBUS.GetListTN(idGN));
-            // Hiển thị lên grid view
-            foreach(DTO.TraNo temp in list)
+            try
             {
-                gridLSTN.Rows.Add(temp.MaTN, temp.TenKH, temp.SoTienTra, temp.SoTienTraGoc, temp.SoTienTraLai, temp.NgayTraNo);
+                txtMaGN.Text = maGN;
+                // Lấy danh sách các lần trả nợ cho món giải ngân
+                TraNoBUS traNoBUS = new TraNoBUS();
+                List<DTO.TraNo> list = JsonConvert.DeserializeObject<List<DTO.TraNo>>(traNoBUS.GetListTN(idGN));
+                // Hiển thị lên grid view
+                foreach (DTO.TraNo temp in list)
+                {
+                    gridLSTN.Rows.Add(temp.MaTN, temp.TenKH, temp.SoTienTra, temp.SoTienTraGoc, temp.SoTienTraLai, temp.NgayTraNo);
+                }
+                gridLSTN.Refresh();
+            }catch(Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            gridLSTN.Refresh();
         }
     }
 }

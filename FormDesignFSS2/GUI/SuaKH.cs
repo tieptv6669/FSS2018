@@ -1,17 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Newtonsoft.Json;
 using FormDesignFSS2.LichSuWS;
 using DTO;
 using FormDesignFSS2.KhachHangWS;
-using FormDesignFSS2;
 
 namespace FormDesignFSS2.GUI
 {
@@ -42,42 +35,49 @@ namespace FormDesignFSS2.GUI
         /// <param name="e"></param>
         private void SuaKH_Load(object sender, EventArgs e)
         {
-            txtSoTKLK.Text = khachHang.STKLK;
-            txtHoTenKH.Text = khachHang.hoTenKH;
-            dateNgaySinh.Text = khachHang.ngaySinhKH.ToLongDateString();
-            txtNgayMoTK.Text = khachHang.ngayMoTKKH.ToString();
-            txtNgheNghiep.Text = khachHang.ngheNghiepKH;
-            txtSoCMND.Text = khachHang.soCMNNKH;
-            txtEmail.Text = khachHang.emailKH;
-            txtSDT.Text = khachHang.SDTKH;
-            txtDiaChi.Text = khachHang.diaChiKH;
-            txtGhiChu.Text = khachHang.ghiChuKH;
-            lblError.ForeColor = Color.Red;
-            if (khachHang.loai == "Classic")
+            try
             {
-                cmbLoaiKH.SelectedIndex = 0;
+                txtSoTKLK.Text = khachHang.STKLK;
+                txtHoTenKH.Text = khachHang.hoTenKH;
+                dateNgaySinh.Text = khachHang.ngaySinhKH.ToLongDateString();
+                txtNgayMoTK.Text = khachHang.ngayMoTKKH.ToString();
+                txtNgheNghiep.Text = khachHang.ngheNghiepKH;
+                txtSoCMND.Text = khachHang.soCMNNKH;
+                txtEmail.Text = khachHang.emailKH;
+                txtSDT.Text = khachHang.SDTKH;
+                txtDiaChi.Text = khachHang.diaChiKH;
+                txtGhiChu.Text = khachHang.ghiChuKH;
+                lblError.ForeColor = Color.Red;
+                if (khachHang.loai == "Classic")
+                {
+                    cmbLoaiKH.SelectedIndex = 0;
+                }
+                if (khachHang.loai == "Silver")
+                {
+                    cmbLoaiKH.SelectedIndex = 1;
+                }
+                if (khachHang.loai == "Gold")
+                {
+                    cmbLoaiKH.SelectedIndex = 2;
+                }
+                if (khachHang.loai == "Diamond")
+                {
+                    cmbLoaiKH.SelectedIndex = 3;
+                }
+                if (khachHang.gioiTinhKH == "Nam")
+                {
+                    radioGTNam.Checked = true;
+                    radioGTNu.Checked = false;
+                }
+                else
+                {
+                    radioGTNam.Checked = false;
+                    radioGTNu.Checked = true;
+                }
             }
-            if (khachHang.loai == "Silver")
+            catch(Exception ex)
             {
-                cmbLoaiKH.SelectedIndex = 1;
-            }
-            if (khachHang.loai == "Gold")
-            {
-                cmbLoaiKH.SelectedIndex = 2;
-            }
-            if (khachHang.loai == "Diamond")
-            {
-                cmbLoaiKH.SelectedIndex = 3;
-            }
-            if(khachHang.gioiTinhKH == "Nam")
-            {
-                radioGTNam.Checked = true;
-                radioGTNu.Checked = false;
-            }
-            else
-            {
-                radioGTNam.Checked = false;
-                radioGTNu.Checked = true;
+                MessageBox.Show("Lỗi: " + ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

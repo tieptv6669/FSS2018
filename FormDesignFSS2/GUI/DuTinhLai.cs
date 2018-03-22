@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using FormDesignFSS2.TraNoWS;
 using FormDesignFSS2.KhachHangWS;
@@ -47,28 +41,36 @@ namespace FormDesignFSS2.GUI
         /// <param name="e"></param>
         private void DuTinhLai_Load(object sender, EventArgs e)
         {
-            lblError.ForeColor = Color.Red;
-            txtMaGN.Text = maGN;
-            // Lấy món GN
-            TraNoBUS traNoBUS = new TraNoBUS();
-            GiaiNgan giaiNgan = JsonConvert.DeserializeObject<GiaiNgan>(traNoBUS.GetGN(maGN));
-            // Lấy SPTD
-            SanPhamTinDungBUS sanPhamTinDungBUS = new SanPhamTinDungBUS();
-            sanPhamTinDung = JsonConvert.DeserializeObject<SanPhamTinDung>(sanPhamTinDungBUS.GetSPTDWithID(giaiNgan.IDSPTD));
-            // Lấy khách hàng
-            KhachHangBUS khachHangBUS = new KhachHangBUS();
-            KhachHang khachHang = JsonConvert.DeserializeObject<KhachHang>(khachHangBUS.GetKHWithID(giaiNgan.IDKH));
-            // Hiển thị thông tin
-            txtSoTKLK.Text = khachHang.STKLK;
-            txtTenKH.Text = khachHang.hoTenKH;
-            txtSoTienGN.Text = giaiNgan.SoTienGN.ToString("#,##0");
-            txtNgayGN.Text = giaiNgan.NgayGN.ToShortDateString();
-            txtNgayDH.Text = giaiNgan.NgayDaoHan.ToShortDateString();
-            txtDuNoGoc.Text = giaiNgan.DuNoGoc.ToString("#,##0");
-            txtDuNoLaiTrongHan.Text = giaiNgan.DuNoLaiTrongHan.ToString("#,##0");
-            txtDuNoLaiQuaHan.Text = giaiNgan.DuNoLaiNgoaiHan.ToString("#,##0");
-            txtNgayHienTai.Text = gioHT;
-            dateTimePickerNgayTN.Value = DateTime.Parse(gioHT);
+            try
+            {
+                lblError.ForeColor = Color.Red;
+                txtMaGN.Text = maGN;
+                // Lấy món GN
+                TraNoBUS traNoBUS = new TraNoBUS();
+                GiaiNgan giaiNgan = JsonConvert.DeserializeObject<GiaiNgan>(traNoBUS.GetGN(maGN));
+                // Lấy SPTD
+                SanPhamTinDungBUS sanPhamTinDungBUS = new SanPhamTinDungBUS();
+                sanPhamTinDung = JsonConvert.DeserializeObject<SanPhamTinDung>(sanPhamTinDungBUS.GetSPTDWithID(giaiNgan.IDSPTD));
+                // Lấy khách hàng
+                KhachHangBUS khachHangBUS = new KhachHangBUS();
+                KhachHang khachHang = JsonConvert.DeserializeObject<KhachHang>(khachHangBUS.GetKHWithID(giaiNgan.IDKH));
+                // Hiển thị thông tin
+                txtSoTKLK.Text = khachHang.STKLK;
+                txtTenKH.Text = khachHang.hoTenKH;
+                txtSoTienGN.Text = giaiNgan.SoTienGN.ToString("#,##0");
+                txtNgayGN.Text = giaiNgan.NgayGN.ToShortDateString();
+                txtNgayDH.Text = giaiNgan.NgayDaoHan.ToShortDateString();
+                txtDuNoGoc.Text = giaiNgan.DuNoGoc.ToString("#,##0");
+                txtDuNoLaiTrongHan.Text = giaiNgan.DuNoLaiTrongHan.ToString("#,##0");
+                txtDuNoLaiQuaHan.Text = giaiNgan.DuNoLaiNgoaiHan.ToString("#,##0");
+                txtNgayHienTai.Text = gioHT;
+                dateTimePickerNgayTN.Value = DateTime.Parse(gioHT);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
 
         /// <summary>
@@ -78,22 +80,29 @@ namespace FormDesignFSS2.GUI
         /// <param name="e"></param>
         private void btnDuTinh_Click(object sender, EventArgs e)
         {
-            DateTime ngayTN = DateTime.Parse(dateTimePickerNgayTN.Value.ToShortDateString());
-            DateTime ngayHienTai = DateTime.Parse(txtNgayHienTai.Text);
-            DateTime ngayDH = DateTime.Parse(txtNgayDH.Text);
-            long duNoGoc = Int64.Parse(txtDuNoGoc.Text.Replace(",", ""));
-            long duNoLaiTrongHan = Int64.Parse(txtDuNoLaiTrongHan.Text.Replace(",", ""));
-            long duNoLaiQuaHan = Int64.Parse(txtDuNoLaiQuaHan.Text.Replace(",", ""));
-            txtDuTinhLaiTrongHan.Text = "";
-            txtDuTinhLaiQuaHan.Text = "";
-            if(ngayTN <= ngayHienTai)
+            try
             {
-                lblError.Text = "Ngày trả nợ không hợp lệ";
+                DateTime ngayTN = DateTime.Parse(dateTimePickerNgayTN.Value.ToShortDateString());
+                DateTime ngayHienTai = DateTime.Parse(txtNgayHienTai.Text);
+                DateTime ngayDH = DateTime.Parse(txtNgayDH.Text);
+                long duNoGoc = Int64.Parse(txtDuNoGoc.Text.Replace(",", ""));
+                long duNoLaiTrongHan = Int64.Parse(txtDuNoLaiTrongHan.Text.Replace(",", ""));
+                long duNoLaiQuaHan = Int64.Parse(txtDuNoLaiQuaHan.Text.Replace(",", ""));
+                txtDuTinhLaiTrongHan.Text = "";
+                txtDuTinhLaiQuaHan.Text = "";
+                if (ngayTN <= ngayHienTai)
+                {
+                    lblError.Text = "Ngày trả nợ không hợp lệ";
+                }
+                else
+                {
+                    lblError.Text = "";
+                    DuTinhLaiChoGN(ngayHienTai, ngayDH, ngayTN, duNoGoc, duNoLaiTrongHan, duNoLaiQuaHan, sanPhamTinDung.LaiSuat, sanPhamTinDung.LaiSuatQuaHan);
+                }
             }
-            else
+            catch(Exception ex)
             {
-                lblError.Text = "";
-                DuTinhLaiChoGN(ngayHienTai, ngayDH, ngayTN, duNoGoc, duNoLaiTrongHan, duNoLaiQuaHan, sanPhamTinDung.LaiSuat, sanPhamTinDung.LaiSuatQuaHan);
+                MessageBox.Show("Lỗi: " + ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -108,35 +117,42 @@ namespace FormDesignFSS2.GUI
         /// <param name="duNoLaiQuaHanHT"></param>
         private void DuTinhLaiChoGN(DateTime ngayHT, DateTime ngayDH, DateTime ngayTN, long duNoGoc, long duNoLaiTrongHanHT, long duNoLaiQuaHanHT, int laiSuatTH, int laiSuatQH)
         {
-            long duNoLaiTrongHanTemp = duNoLaiTrongHanHT;
-            long duNoLaiQuaHanTemp = duNoLaiQuaHanHT;
-            if (ngayTN <= ngayDH)
+            try
             {
-                int soNgayTinhLai = (ngayTN - ngayHT).Days;
-                double duNo = (double)(soNgayTinhLai * laiSuatTH * duNoGoc) / 36000;
-                duNoLaiTrongHanTemp += (long)Math.Round(duNo);
-            }
-            else
-            {
-                if(ngayHT <= ngayDH)
+                long duNoLaiTrongHanTemp = duNoLaiTrongHanHT;
+                long duNoLaiQuaHanTemp = duNoLaiQuaHanHT;
+                if (ngayTN <= ngayDH)
                 {
-                    int soNgayTinhLaiTrongHan = (ngayDH - ngayHT).Days;
-                    int soNgayTinhLaiQuaHan = (ngayTN - ngayDH).Days;
-                    double duNoTH = (double)(soNgayTinhLaiTrongHan * laiSuatTH * duNoGoc) / 36000;
-                    double duNoQH = (double)(soNgayTinhLaiQuaHan * laiSuatQH * duNoGoc) / 36000;
-                    duNoLaiTrongHanTemp += (long)Math.Round(duNoTH);
-                    duNoLaiQuaHanTemp += (long)Math.Round(duNoQH);
+                    int soNgayTinhLai = (ngayTN - ngayHT).Days;
+                    double duNo = (double)(soNgayTinhLai * laiSuatTH * duNoGoc) / 36000;
+                    duNoLaiTrongHanTemp += (long)Math.Round(duNo);
                 }
                 else
                 {
-                    int soNgayTinhLaiQuaHan = (ngayTN - ngayHT).Days;
-                    double duNoQH = (double)(soNgayTinhLaiQuaHan * laiSuatQH * duNoGoc) / 36000;
-                    duNoLaiQuaHanTemp += (long)Math.Round(duNoQH);
+                    if (ngayHT <= ngayDH)
+                    {
+                        int soNgayTinhLaiTrongHan = (ngayDH - ngayHT).Days;
+                        int soNgayTinhLaiQuaHan = (ngayTN - ngayDH).Days;
+                        double duNoTH = (double)(soNgayTinhLaiTrongHan * laiSuatTH * duNoGoc) / 36000;
+                        double duNoQH = (double)(soNgayTinhLaiQuaHan * laiSuatQH * duNoGoc) / 36000;
+                        duNoLaiTrongHanTemp += (long)Math.Round(duNoTH);
+                        duNoLaiQuaHanTemp += (long)Math.Round(duNoQH);
+                    }
+                    else
+                    {
+                        int soNgayTinhLaiQuaHan = (ngayTN - ngayHT).Days;
+                        double duNoQH = (double)(soNgayTinhLaiQuaHan * laiSuatQH * duNoGoc) / 36000;
+                        duNoLaiQuaHanTemp += (long)Math.Round(duNoQH);
+                    }
                 }
-            }
 
-            txtDuTinhLaiTrongHan.Text = duNoLaiTrongHanTemp.ToString("#,##0");
-            txtDuTinhLaiQuaHan.Text = duNoLaiQuaHanTemp.ToString("#,##0");
+                txtDuTinhLaiTrongHan.Text = duNoLaiTrongHanTemp.ToString("#,##0");
+                txtDuTinhLaiQuaHan.Text = duNoLaiQuaHanTemp.ToString("#,##0");
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

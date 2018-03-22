@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using FormDesignFSS2.XuLyCuoiNgayWS;
 using FormDesignFSS2.LichSuWS;
@@ -169,9 +163,16 @@ namespace FormDesignFSS2.GUI
         {
             lblError.ForeColor = Color.Red;
             // Lấy ngày làm việc hiện tại
-            XuLyCuoiNgayBUS xuLyCuoiNgayBUS = new XuLyCuoiNgayBUS();
-            txtNgayLVHienTai.Text = xuLyCuoiNgayBUS.LayNgayLamViecHienTai();
-            dateTPNgayLamViecTiepTheo.Value = DateTime.Parse(txtNgayLVHienTai.Text);
+            try
+            {
+                XuLyCuoiNgayBUS xuLyCuoiNgayBUS = new XuLyCuoiNgayBUS();
+                txtNgayLVHienTai.Text = xuLyCuoiNgayBUS.LayNgayLamViecHienTai();
+                dateTPNgayLamViecTiepTheo.Value = DateTime.Parse(txtNgayLVHienTai.Text);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

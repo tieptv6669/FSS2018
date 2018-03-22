@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Newtonsoft.Json;
 using System.Windows.Forms;
 using FormDesignFSS2.LichSuWS;
@@ -41,12 +35,19 @@ namespace FormDesignFSS2.GUI
         /// <param name="e"></param>
         private void SuaNguon_Load(object sender, EventArgs e)
         {
-            lblError.ForeColor = Color.Red;
-            txtMaNguon.Text = nguon.maNg;
-            txtTenNguon.Text = nguon.tenNg;
-            txtHanMuc.Text = nguon.hanMucNg.ToString("#,##0");
-            txtTienDaChoVay.Text = nguon.tienDaChoVay.ToString("#,##0");
-            txtTienCoTheChoVay.Text = nguon.tienCoTheChoVay.ToString("#,##0");
+            try
+            {
+                lblError.ForeColor = Color.Red;
+                txtMaNguon.Text = nguon.maNg;
+                txtTenNguon.Text = nguon.tenNg;
+                txtHanMuc.Text = nguon.hanMucNg.ToString("#,##0");
+                txtTienDaChoVay.Text = nguon.tienDaChoVay.ToString("#,##0");
+                txtTienCoTheChoVay.Text = nguon.tienCoTheChoVay.ToString("#,##0");
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         /// <summary>

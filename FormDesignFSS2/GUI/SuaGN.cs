@@ -1,16 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using DTO;
 using FormDesignFSS2.GiaiNganWS;
 using FormDesignFSS2.KhachHang_SPTD_WS;
-using FormDesignFSS2;
 using Newtonsoft.Json;
 using FormDesignFSS2.SanPhamTinDungWS;
 using FormDesignFSS2.NguonWS;
@@ -40,36 +34,43 @@ namespace FormDesignFSS2.GUI
         /// <param name="e"></param>
         private void SuaGN_Load(object sender, EventArgs e)
         {
-            lblError.ForeColor = Color.Red;
-            txtSoTKLK.Text = giaiNgan.SoTKLK;
-            txtSoTienGN.Text = giaiNgan.SoTienGN.ToString("#,##0");
-            txtNguon.Text = giaiNgan.TenNguon;
-            txtKyHan.Text = giaiNgan.KyHan.ToString();
-            txtLaiSuat.Text = giaiNgan.LaiSuat.ToString();
-            txtLaiSuatQH.Text = giaiNgan.LaiSuatQuaHan.ToString();
-            dateNgayGN.Value = giaiNgan.NgayGN;
-            dateNgayDH.Value = giaiNgan.NgayDH;
-            txtGhiChu.Text = giaiNgan.GhiChu;
-            // Lấy danh sách sptd
-            KhachHang_SPTD_BUS hang_SPTD_BUS = new KhachHang_SPTD_BUS();
-            KhachHang kh = new KhachHang();
-            string jsonData = hang_SPTD_BUS.LayDSKH_SPTD_SD(txtSoTKLK.Text);
-            List<KhachHang_SPTD> list = JsonConvert.DeserializeObject<List<KhachHang_SPTD>>(jsonData);
-            // Hiển thị danh sách SPTD lên combobox
-            cmbSPTD.Refresh();
-            cmbSPTD.DataSource = list;
-            cmbSPTD.DisplayMember = "tenSPTD";
-            int i = 0;
-            foreach (var temp in list)
+            try
             {
-                if (temp.TenSPTD == giaiNgan.TenSPTD)
+                lblError.ForeColor = Color.Red;
+                txtSoTKLK.Text = giaiNgan.SoTKLK;
+                txtSoTienGN.Text = giaiNgan.SoTienGN.ToString("#,##0");
+                txtNguon.Text = giaiNgan.TenNguon;
+                txtKyHan.Text = giaiNgan.KyHan.ToString();
+                txtLaiSuat.Text = giaiNgan.LaiSuat.ToString();
+                txtLaiSuatQH.Text = giaiNgan.LaiSuatQuaHan.ToString();
+                dateNgayGN.Value = giaiNgan.NgayGN;
+                dateNgayDH.Value = giaiNgan.NgayDH;
+                txtGhiChu.Text = giaiNgan.GhiChu;
+                // Lấy danh sách sptd
+                KhachHang_SPTD_BUS hang_SPTD_BUS = new KhachHang_SPTD_BUS();
+                KhachHang kh = new KhachHang();
+                string jsonData = hang_SPTD_BUS.LayDSKH_SPTD_SD(txtSoTKLK.Text);
+                List<KhachHang_SPTD> list = JsonConvert.DeserializeObject<List<KhachHang_SPTD>>(jsonData);
+                // Hiển thị danh sách SPTD lên combobox
+                cmbSPTD.Refresh();
+                cmbSPTD.DataSource = list;
+                cmbSPTD.DisplayMember = "tenSPTD";
+                int i = 0;
+                foreach (var temp in list)
                 {
-                    cmbSPTD.SelectedIndex = i;
+                    if (temp.TenSPTD == giaiNgan.TenSPTD)
+                    {
+                        cmbSPTD.SelectedIndex = i;
+                    }
+                    else
+                    {
+                        i++;
+                    }
                 }
-                else
-                {
-                    i++;
-                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -80,32 +81,39 @@ namespace FormDesignFSS2.GUI
         /// <param name="e"></param>
         private void cmbSPTD_SelectedIndexChanged(object sender, EventArgs e)
         {
-            KhachHang_SPTD sptd = (KhachHang_SPTD)cmbSPTD.SelectedItem;
-            SanPhamTinDungBUS sanPhamTinDungBUS = new SanPhamTinDungBUS();
-            string jsonData = sanPhamTinDungBUS.TimKiemSPTD(sptd.TenSPTD, sptd.MaSPTD, sptd.TenNguon);
-            List<SanPhamTinDung> list = JsonConvert.DeserializeObject<List<SanPhamTinDung>>(jsonData);
-
-            foreach (var temp in list)
+            try
             {
-                txtKyHan.Text = temp.ThoiHanVay.ToString();
-                txtLaiSuat.Text = temp.LaiSuat.ToString();
-                txtLaiSuatQH.Text = temp.LaiSuatQuaHan.ToString();
-                txtNguon.Text = temp.TenNguon.ToString();
+                KhachHang_SPTD sptd = (KhachHang_SPTD)cmbSPTD.SelectedItem;
+                SanPhamTinDungBUS sanPhamTinDungBUS = new SanPhamTinDungBUS();
+                string jsonData = sanPhamTinDungBUS.TimKiemSPTD(sptd.TenSPTD, sptd.MaSPTD, sptd.TenNguon);
+                List<SanPhamTinDung> list = JsonConvert.DeserializeObject<List<SanPhamTinDung>>(jsonData);
 
-                dateNgayDH.Value = dateNgayGN.Value.AddMonths(int.Parse(txtKyHan.Text));
-                // Lấy danh sách ngày lễ
-                XuLyCuoiNgayBUS xuLyCuoiNgayBUS = new XuLyCuoiNgayBUS();
-                List<DateTime> listNgayLe = JsonConvert.DeserializeObject<List<DateTime>>(xuLyCuoiNgayBUS.GetListNgayNghi());
-                List<string> listNgayLeStr = new List<string>();
-                foreach (DateTime dateTime in listNgayLe)
+                foreach (var temp in list)
                 {
-                    listNgayLeStr.Add(dateTime.ToShortDateString());
+                    txtKyHan.Text = temp.ThoiHanVay.ToString();
+                    txtLaiSuat.Text = temp.LaiSuat.ToString();
+                    txtLaiSuatQH.Text = temp.LaiSuatQuaHan.ToString();
+                    txtNguon.Text = temp.TenNguon.ToString();
+
+                    dateNgayDH.Value = dateNgayGN.Value.AddMonths(int.Parse(txtKyHan.Text));
+                    // Lấy danh sách ngày lễ
+                    XuLyCuoiNgayBUS xuLyCuoiNgayBUS = new XuLyCuoiNgayBUS();
+                    List<DateTime> listNgayLe = JsonConvert.DeserializeObject<List<DateTime>>(xuLyCuoiNgayBUS.GetListNgayNghi());
+                    List<string> listNgayLeStr = new List<string>();
+                    foreach (DateTime dateTime in listNgayLe)
+                    {
+                        listNgayLeStr.Add(dateTime.ToShortDateString());
+                    }
+                    // Lùi ngày đáo hạn về trước nếu là ngày lễ hoặc thứ 7 chủ nhật
+                    while (listNgayLeStr.Contains(dateNgayDH.Value.ToShortDateString()) || dateNgayDH.Value.DayOfWeek.ToString() == "Saturday" || dateNgayDH.Value.DayOfWeek.ToString() == "Sunday")
+                    {
+                        dateNgayDH.Value = dateNgayDH.Value.AddDays(-1);
+                    }
                 }
-                // Lùi ngày đáo hạn về trước nếu là ngày lễ hoặc thứ 7 chủ nhật
-                while (listNgayLeStr.Contains(dateNgayDH.Value.ToShortDateString()) || dateNgayDH.Value.DayOfWeek.ToString() == "Saturday" || dateNgayDH.Value.DayOfWeek.ToString() == "Sunday")
-                {
-                    dateNgayDH.Value = dateNgayDH.Value.AddDays(-1);
-                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

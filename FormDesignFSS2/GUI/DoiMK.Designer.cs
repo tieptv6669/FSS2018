@@ -90,7 +90,6 @@
             this.txtTenDangNhap.Size = new System.Drawing.Size(142, 20);
             this.txtTenDangNhap.TabIndex = 7;
             this.txtTenDangNhap.TabStop = false;
-            this.txtTenDangNhap.Text = "NV00001";
             // 
             // txtMatKhauCu
             // 
@@ -171,6 +170,7 @@
             this.Controls.Add(this.lblMatKhauMoi);
             this.Controls.Add(this.lblMatKhauCu);
             this.Controls.Add(this.lblTenDangNhap);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "DoiMK";

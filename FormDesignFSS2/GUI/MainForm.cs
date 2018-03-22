@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using DTO;
 using FormDesignFSS2.LichSuWS;
@@ -19,7 +14,6 @@ using FormDesignFSS2.KhachHang_SPTD_WS;
 using FormDesignFSS2.GiaiNganWS;
 using FormDesignFSS2.XuLyCuoiNgayWS;
 using Newtonsoft.Json;
-using Microsoft.Reporting.WinForms;
 
 namespace FormDesignFSS2.GUI
 {
@@ -43,48 +37,55 @@ namespace FormDesignFSS2.GUI
         /// <param name="e"></param>
         private void MainForm_Load(object sender, EventArgs e)
         {
-            lblTime.ForeColor = Color.Purple;
-            lblTDN.ForeColor = Color.Blue;
-            lblQuyen.ForeColor = Color.Blue;
-
-            lblTDN.Text = nguoiDungHienTai.tenDangNhapND;
-            lblQuyen.Text = nguoiDungHienTai.quyenND;
-
-            AcceptButton = btnTimKiemTabUser;
-
-            // Lấy ngày hệ thống
-            XuLyCuoiNgayBUS xuLyCuoiNgayBUS = new XuLyCuoiNgayBUS();
-            lblTime.Text = xuLyCuoiNgayBUS.LayNgayLamViecHienTai();
-
-            string quyen = nguoiDungHienTai.quyenND;
-            // Phân quyền người dùng
-            if (quyen == "Quản lý")
+            try
             {
-                tabControl.TabPages.RemoveAt(0);
-                btnChayQuaNgay.Enabled = false;
-                AcceptButton = btnTimKiemTabKH;
-            }
-            if (quyen == "Nhân viên")
-            {
-                AcceptButton = btnTimKiemTabKH;
-                tabControl.TabPages.RemoveAt(0);
-                btnChayQuaNgay.Enabled = false;
-                btnSuaTabUser.Enabled = false;
-                btnXoaTabUser.Enabled = false;
-                btnResetTabUser.Enabled = false;
-                btnSuaTabKH.Enabled = false;
-                btnSuaTabSPTD.Enabled = false;
-                btnHuyDangKySPTD.Enabled = false;
-                btnSuaTabNguon.Enabled = false;
-                btnXoaTabNguon.Enabled = false;
-                btnSuaTabGN.Enabled = false;
-            }
-            reportViewerBC.RefreshReport();
-            reportViewerBC.RefreshReport();
-            cboLoaiBC.SelectedIndex = 0;
+                lblTime.ForeColor = Color.Purple;
+                lblTDN.ForeColor = Color.Blue;
+                lblQuyen.ForeColor = Color.Blue;
 
-            dateTimePickerST.Value = DateTime.Parse(lblTime.Text);
-            dateTimePickerFT.Value = DateTime.Parse(lblTime.Text);
+                lblTDN.Text = nguoiDungHienTai.tenDangNhapND;
+                lblQuyen.Text = nguoiDungHienTai.quyenND;
+
+                AcceptButton = btnTimKiemTabUser;
+
+                // Lấy ngày hệ thống
+                XuLyCuoiNgayBUS xuLyCuoiNgayBUS = new XuLyCuoiNgayBUS();
+                lblTime.Text = xuLyCuoiNgayBUS.LayNgayLamViecHienTai();
+
+                string quyen = nguoiDungHienTai.quyenND;
+                // Phân quyền người dùng
+                if (quyen == "Quản lý")
+                {
+                    tabControl.TabPages.RemoveAt(0);
+                    btnChayQuaNgay.Enabled = false;
+                    AcceptButton = btnTimKiemTabKH;
+                }
+                if (quyen == "Nhân viên")
+                {
+                    AcceptButton = btnTimKiemTabKH;
+                    tabControl.TabPages.RemoveAt(0);
+                    btnChayQuaNgay.Enabled = false;
+                    btnSuaTabUser.Enabled = false;
+                    btnXoaTabUser.Enabled = false;
+                    btnResetTabUser.Enabled = false;
+                    btnSuaTabKH.Enabled = false;
+                    btnSuaTabSPTD.Enabled = false;
+                    btnHuyDangKySPTD.Enabled = false;
+                    btnSuaTabNguon.Enabled = false;
+                    btnXoaTabNguon.Enabled = false;
+                    btnSuaTabGN.Enabled = false;
+                }
+                reportViewerBC.RefreshReport();
+                reportViewerBC.RefreshReport();
+                cboLoaiBC.SelectedIndex = 0;
+
+                dateTimePickerST.Value = DateTime.Parse(lblTime.Text);
+                dateTimePickerFT.Value = DateTime.Parse(lblTime.Text);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         /// <summary>
@@ -630,62 +631,69 @@ namespace FormDesignFSS2.GUI
         /// <param name="e"></param>
         private void btnXuatBC_Click(object sender, EventArgs e)
         {
-            XuatBC xuatBC = new XuatBC();
-            xuatBC.reportViewerBC = reportViewerBC;
-            xuatBC.gioHT = lblTime.Text;
-
-            switch (cboLoaiBC.SelectedIndex)
+            try
             {
-                case 0:
-                    {
-                        xuatBC.BCDuNoA();
-                        break;
-                    }
-                case 1:
-                    {
-                        xuatBC.BCDuNoB();
-                        break;
-                    }
-                case 2:
-                    {
-                        xuatBC.BCDuNoC();
-                        break;
-                    }
-                case 3:
-                    {
-                        xuatBC.BCDuNoD();
-                        break;
-                    }
-                case 4:
-                    {
-                        xuatBC.BCDuNoE();
-                        break;
-                    }
-                case 5:
-                    {
-                        xuatBC.BCDSSPTDA();
-                        break;
-                    }
-                case 6:
-                    {
-                        xuatBC.BCDSSPTDB();
-                        break;
-                    }
-                case 7:
-                    {
-                        xuatBC.BCDSGNA();
-                        break;
-                    }
-                case 8:
-                    {
-                        xuatBC.BCDSGNB();
-                        break;
-                    }
-                case 9:
-                    {
-                        xuatBC.BCDSNguonA();
-                        break;
-                    }
+                XuatBC xuatBC = new XuatBC();
+                xuatBC.reportViewerBC = reportViewerBC;
+                xuatBC.gioHT = lblTime.Text;
+
+                switch (cboLoaiBC.SelectedIndex)
+                {
+                    case 0:
+                        {
+                            xuatBC.BCDuNoA();
+                            break;
+                        }
+                    case 1:
+                        {
+                            xuatBC.BCDuNoB();
+                            break;
+                        }
+                    case 2:
+                        {
+                            xuatBC.BCDuNoC();
+                            break;
+                        }
+                    case 3:
+                        {
+                            xuatBC.BCDuNoD();
+                            break;
+                        }
+                    case 4:
+                        {
+                            xuatBC.BCDuNoE();
+                            break;
+                        }
+                    case 5:
+                        {
+                            xuatBC.BCDSSPTDA();
+                            break;
+                        }
+                    case 6:
+                        {
+                            xuatBC.BCDSSPTDB();
+                            break;
+                        }
+                    case 7:
+                        {
+                            xuatBC.BCDSGNA();
+                            break;
+                        }
+                    case 8:
+                        {
+                            xuatBC.BCDSGNB();
+                            break;
+                        }
+                    case 9:
+                        {
+                            xuatBC.BCDSNguonA();
+                            break;
+                        }
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -1119,19 +1127,26 @@ namespace FormDesignFSS2.GUI
         /// <param name="e"></param>
         private void btnTimKiemTabLS_Click(object sender, EventArgs e)
         {
-            // Lấy danh sách kết quả
-            string from = dateTimePickerST.Value.ToShortDateString();
-            string to = dateTimePickerFT.Value.ToShortDateString();
-            LichSuBUS lichSuBUS = new LichSuBUS();
-            List<LichSu> list = new List<LichSu>();
-            list = JsonConvert.DeserializeObject<List<LichSu>>(lichSuBUS.TimKiemLichSu(txtTDNTabLS.Text, txtSoTKLKTabLS.Text, txtMaDTTabLS.Text, from, to));
-            // Hiển thị kết quả
-            gridLog.Rows.Clear();
-            foreach (LichSu temp in list)
+            try
             {
-                gridLog.Rows.Add(temp.TenDN, temp.SoTKLK, temp.MaDT, temp.GiaTriTruoc, temp.GiaTriSau, temp.NoiDung, temp.ThoiGian);
+                // Lấy danh sách kết quả
+                string from = dateTimePickerST.Value.ToShortDateString();
+                string to = dateTimePickerFT.Value.ToShortDateString();
+                LichSuBUS lichSuBUS = new LichSuBUS();
+                List<LichSu> list = new List<LichSu>();
+                list = JsonConvert.DeserializeObject<List<LichSu>>(lichSuBUS.TimKiemLichSu(txtTDNTabLS.Text, txtSoTKLKTabLS.Text, txtMaDTTabLS.Text, from, to));
+                // Hiển thị kết quả
+                gridLog.Rows.Clear();
+                foreach (LichSu temp in list)
+                {
+                    gridLog.Rows.Add(temp.TenDN, temp.SoTKLK, temp.MaDT, temp.GiaTriTruoc, temp.GiaTriSau, temp.NoiDung, temp.ThoiGian);
+                }
+                gridLog.Refresh();
             }
-            gridLog.Refresh();
+            catch(Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         /// <summary>
@@ -1143,31 +1158,14 @@ namespace FormDesignFSS2.GUI
         {
             gridDSMonNo.Rows.Clear();
             txtTenKHTabTN.Text = "";
-            if (txtSoTKLKTabTN.Text == "")
+            try
             {
-                // Lấy danh sách tất cả các món giải ngân còn nợ của tất cả các KH
-                TraNoBUS traNoBUS = new TraNoBUS();
-                List<GiaiNgan> list = JsonConvert.DeserializeObject<List<GiaiNgan>>(traNoBUS.GetListGN());
-                // Hiển thị kết quả
-                foreach (GiaiNgan temp in list)
+                if (txtSoTKLKTabTN.Text == "")
                 {
-                    gridDSMonNo.Rows.Add(temp.MaGN, temp.DuNoGoc.ToString("#,##0"), temp.DuNoLaiTrongHan.ToString("#,##0"), temp.DuNoLaiNgoaiHan.ToString("#,##0"), temp.NgayDaoHan);
-                }
-                gridDSMonNo.Refresh();
-            }
-            else
-            {
-                // Lấy KH theo số TKLK
-                KhachHangBUS khachHangBUS = new KhachHangBUS();
-                string jsonData = khachHangBUS.layMotKhachHang(txtSoTKLKTabTN.Text);
-                if (jsonData != "null")
-                {
-                    KhachHang khachHang = JsonConvert.DeserializeObject<KhachHang>(jsonData);
-                    // Lấy danh sách các món giải ngân còn nợ của KH
+                    // Lấy danh sách tất cả các món giải ngân còn nợ của tất cả các KH
                     TraNoBUS traNoBUS = new TraNoBUS();
-                    List<GiaiNgan> list = JsonConvert.DeserializeObject<List<GiaiNgan>>(traNoBUS.GetListGNWithIdKH(khachHang.idKH));
+                    List<GiaiNgan> list = JsonConvert.DeserializeObject<List<GiaiNgan>>(traNoBUS.GetListGN());
                     // Hiển thị kết quả
-                    txtTenKHTabTN.Text = khachHang.hoTenKH;
                     foreach (GiaiNgan temp in list)
                     {
                         gridDSMonNo.Rows.Add(temp.MaGN, temp.DuNoGoc.ToString("#,##0"), temp.DuNoLaiTrongHan.ToString("#,##0"), temp.DuNoLaiNgoaiHan.ToString("#,##0"), temp.NgayDaoHan);
@@ -1176,8 +1174,32 @@ namespace FormDesignFSS2.GUI
                 }
                 else
                 {
-                    MessageBox.Show("Số TKLK không tồn tại", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    // Lấy KH theo số TKLK
+                    KhachHangBUS khachHangBUS = new KhachHangBUS();
+                    string jsonData = khachHangBUS.layMotKhachHang(txtSoTKLKTabTN.Text);
+                    if (jsonData != "null")
+                    {
+                        KhachHang khachHang = JsonConvert.DeserializeObject<KhachHang>(jsonData);
+                        // Lấy danh sách các món giải ngân còn nợ của KH
+                        TraNoBUS traNoBUS = new TraNoBUS();
+                        List<GiaiNgan> list = JsonConvert.DeserializeObject<List<GiaiNgan>>(traNoBUS.GetListGNWithIdKH(khachHang.idKH));
+                        // Hiển thị kết quả
+                        txtTenKHTabTN.Text = khachHang.hoTenKH;
+                        foreach (GiaiNgan temp in list)
+                        {
+                            gridDSMonNo.Rows.Add(temp.MaGN, temp.DuNoGoc.ToString("#,##0"), temp.DuNoLaiTrongHan.ToString("#,##0"), temp.DuNoLaiNgoaiHan.ToString("#,##0"), temp.NgayDaoHan);
+                        }
+                        gridDSMonNo.Refresh();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Số TKLK không tồn tại", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
