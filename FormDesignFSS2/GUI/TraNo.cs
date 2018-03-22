@@ -258,7 +258,7 @@ namespace FormDesignFSS2.GUI
             traNo.SoTienTra = long.Parse(txtSoTienTra.Text.Replace(",", ""));
             traNo.SoTienTraLai = soTienTraLai;
             traNo.SoTienTraGoc = soTienTraGoc;
-            traNo.NgayTraNo = DateTime.Now;
+            traNo.NgayTraNo = DateTime.Parse(gioHT);
             traNo.IdGN = idGNTN;
             TraNoBUS traNoBUS = new TraNoBUS();
             bool dk1 = traNoBUS.ThemTN(JsonConvert.SerializeObject(traNo));

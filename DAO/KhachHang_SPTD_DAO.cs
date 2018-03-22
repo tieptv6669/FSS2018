@@ -55,6 +55,7 @@ namespace DAO
                     }
                 }
 
+                oracleCommand.Connection.Close();
                 oracleCommand.Connection.Dispose();
                 return list;
             }catch(Exception e)
@@ -122,6 +123,7 @@ namespace DAO
                 oracleCommand.Parameters.Add("idSPTD", idSPTD);
 
                 bool kt = DataProvider.ExcuteNonQuery(oracleCommand);
+                oracleCommand.Connection.Close();
                 oracleCommand.Connection.Dispose();
                 return kt;
             }
@@ -148,6 +150,7 @@ namespace DAO
                 oracleCommand.Parameters.Add("idSPTD", idSPTD);
 
                 bool kt = DataProvider.ExcuteNonQuery(oracleCommand);
+                oracleCommand.Connection.Close();
                 oracleCommand.Connection.Dispose();
                 return kt;
             }
@@ -175,6 +178,7 @@ namespace DAO
                 oracleCommand.Parameters.Add("idSPTD", idSPTD);
 
                 bool kt = DataProvider.ExcuteNonQuery(oracleCommand);
+                oracleCommand.Connection.Close();
                 oracleCommand.Connection.Dispose();
                 return kt;
             }
@@ -215,6 +219,7 @@ namespace DAO
                     }
                 }
 
+                oracleCommand.Connection.Close();
                 oracleCommand.Connection.Dispose();
                 return list;
             }

@@ -28,7 +28,7 @@ namespace DAO
                 OracleCommand oracleCommand = new OracleCommand();
                 oracleCommand.CommandText = "SELECT KHACHHANG.SOTKLK, KHACHHANG.HOTENKH, KHACHHANG.SOCMND, KHACHHANG.SDT, COUNT(*) AS SLGN " +
                     "FROM KHACHHANG,GIAINGAN WHERE KHACHHANG.IDKHACHHANG = GIAINGAN.IDKH AND GIAINGAN.NGAYDAOHAN < :ngayHT AND TRANGTHAI = 'Còn nợ' " +
-                    "GROUP BY KHACHHANG.SOTKLK, KHACHHANG.HOTENKH, KHACHHANG.SOCMND, KHACHHANG.SDT HAVING COUNT(*) > 3";
+                    "GROUP BY KHACHHANG.SOTKLK, KHACHHANG.HOTENKH, KHACHHANG.SOCMND, KHACHHANG.SDT HAVING COUNT(*) >= 3";
                 oracleCommand.Parameters.Add("ngayHT", ngayHT);
 
                 OracleDataReader oracleDataReader = DataProvider.GetOracleDataReader(oracleCommand);
@@ -48,6 +48,7 @@ namespace DAO
                     }
                 }
 
+                oracleCommand.Connection.Close();
                 oracleCommand.Connection.Dispose();
                 return list;
             } catch (Exception e)
@@ -89,6 +90,7 @@ namespace DAO
                     }
                 }
 
+                oracleCommand.Connection.Close();
                 oracleCommand.Connection.Dispose();
                 return list;
             }
@@ -134,6 +136,7 @@ namespace DAO
                     }
                 }
 
+                oracleCommand.Connection.Close();
                 oracleCommand.Connection.Dispose();
                 return list;
             }
@@ -177,6 +180,7 @@ namespace DAO
                     }
                 }
 
+                oracleCommand.Connection.Close();
                 oracleCommand.Connection.Dispose();
                 return list;
             }
@@ -221,6 +225,7 @@ namespace DAO
                     }
                 }
 
+                oracleCommand.Connection.Close();
                 oracleCommand.Connection.Dispose();
                 return list;
             }
@@ -262,6 +267,7 @@ namespace DAO
                     }
                 }
 
+                oracleCommand.Connection.Close();
                 oracleCommand.Connection.Dispose();
                 return list;
             }catch(Exception e)
@@ -302,6 +308,7 @@ namespace DAO
                     }
                 }
 
+                oracleCommand.Connection.Close();
                 oracleCommand.Connection.Dispose();
                 return list;
             }
@@ -348,6 +355,7 @@ namespace DAO
                     }
                 }
 
+                oracleCommand.Connection.Close();
                 oracleCommand.Connection.Dispose();
                 return list;
             }catch(Exception e)
@@ -389,6 +397,7 @@ namespace DAO
                     }
                 }
 
+                oracleCommand.Connection.Close();
                 oracleCommand.Connection.Dispose();
                 return list;
             }catch(Exception e)
@@ -428,6 +437,7 @@ namespace DAO
                     }
                 }
 
+                oracleCommand.Connection.Close();
                 oracleCommand.Connection.Dispose();
                 return list;
             }

@@ -56,7 +56,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>Danh sách bao gồm các khách hàng có nhiều hơn 3 món giải ngân đang nợ quá hạn</Value>
+                    <Value>Danh sách bao gồm các khách hàng có ít nhất 3 món giải ngân đang nợ quá hạn</Value>
                     <Style>
                       <FontWeight>Bold</FontWeight>
                       <Format>E2</Format>

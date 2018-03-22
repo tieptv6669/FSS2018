@@ -71,6 +71,7 @@ namespace DAO
                     }
                 }
 
+                oracleCommand.Connection.Close();
                 oracleCommand.Connection.Dispose();
                 return list;
             }catch(Exception e)
@@ -97,6 +98,7 @@ namespace DAO
                 oracleCommand.Parameters.Add("iDGN", xuLyCuoiNgay.IdGN);
 
                 DataProvider.ExcuteNonQuery(oracleCommand);
+                oracleCommand.Connection.Close();
                 oracleCommand.Connection.Dispose();
             }
             catch (Exception e)
@@ -121,6 +123,7 @@ namespace DAO
                 oracleCommand.Parameters.Add("iDGN", giaiNgan.IDGN);
 
                 DataProvider.ExcuteNonQuery(oracleCommand);
+                oracleCommand.Connection.Close();
                 oracleCommand.Connection.Dispose();
             }
             catch (Exception e)
@@ -142,6 +145,7 @@ namespace DAO
                 oracleCommand.Parameters.Add("TODAY", dateTime);
 
                 DataProvider.ExcuteNonQuery(oracleCommand);
+                oracleCommand.Connection.Close();
                 oracleCommand.Connection.Dispose();
             }
             catch(Exception e)

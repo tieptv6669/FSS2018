@@ -51,6 +51,7 @@ namespace DAO
                     }
                 }
 
+                oracleCommand.Connection.Close();
                 oracleCommand.Connection.Dispose();
                 return list;
             }catch(Exception e)
@@ -98,6 +99,7 @@ namespace DAO
                     }
                 }
 
+                oracleCommand.Connection.Close();
                 oracleCommand.Connection.Dispose();
                 return list;
             }
@@ -140,6 +142,7 @@ namespace DAO
                     giaiNgan.IDSPTD = oracleDataReader.GetInt32(9);
                     giaiNgan.TrangThai = oracleDataReader.GetString(10);
 
+                    oracleCommand.Connection.Close();
                     oracleCommand.Connection.Dispose();
                     return giaiNgan;
                 }
@@ -221,6 +224,7 @@ namespace DAO
                     }
                 }
 
+                oracleCommand.Connection.Close();
                 oracleCommand.Connection.Dispose();
                 return list;
             }catch(Exception e)
@@ -251,6 +255,7 @@ namespace DAO
                 oracleCommand.Parameters.Add("idGN", traNo.IdGN);
 
                 bool kt = DataProvider.ExcuteNonQuery(oracleCommand);
+                oracleCommand.Connection.Close();
                 oracleCommand.Connection.Dispose();
                 return kt;
             }
@@ -292,6 +297,7 @@ namespace DAO
                 oracleCommand.Parameters.Add("maGN", maGN);
 
                 bool kt = DataProvider.ExcuteNonQuery(oracleCommand);
+                oracleCommand.Connection.Close();
                 oracleCommand.Connection.Dispose();
                 return kt;
             }
@@ -322,6 +328,7 @@ namespace DAO
                 oracleCommand.Parameters.Add("iDNGUON", idNg);
 
                 bool kt = DataProvider.ExcuteNonQuery(oracleCommand);
+                oracleCommand.Connection.Close();
                 oracleCommand.Connection.Dispose();
                 return kt;
             }

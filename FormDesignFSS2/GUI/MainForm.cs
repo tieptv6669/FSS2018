@@ -1168,7 +1168,7 @@ namespace FormDesignFSS2.GUI
                     // Hiển thị kết quả
                     foreach (GiaiNgan temp in list)
                     {
-                        gridDSMonNo.Rows.Add(temp.MaGN, temp.DuNoGoc.ToString("#,##0"), temp.DuNoLaiTrongHan.ToString("#,##0"), temp.DuNoLaiNgoaiHan.ToString("#,##0"), temp.NgayDaoHan);
+                        gridDSMonNo.Rows.Add(temp.MaGN, temp.DuNoGoc.ToString("#,##0"), temp.DuNoLaiTrongHan.ToString("#,##0"), temp.DuNoLaiNgoaiHan.ToString("#,##0"), temp.NgayDaoHan.ToShortDateString());
                     }
                     gridDSMonNo.Refresh();
                 }

@@ -46,6 +46,7 @@ namespace DAO
                     }
                 }
 
+                oracleCommand.Connection.Close();
                 oracleCommand.Connection.Dispose();
                 return list;
             }catch(Exception e)
@@ -88,6 +89,7 @@ namespace DAO
                     }
                 }
 
+                oracleCommand.Connection.Close();
                 oracleCommand.Connection.Dispose();
                 return list;
             }catch(Exception e)
@@ -116,6 +118,7 @@ namespace DAO
                 oracleCommand.Parameters.Add(new OracleParameter("soTienCoTheChoVay", nguon.tienCoTheChoVay));
 
                 bool kt = DataProvider.ExcuteNonQuery(oracleCommand);
+                oracleCommand.Connection.Close();
                 oracleCommand.Connection.Dispose();
                 return kt;
             }
@@ -147,6 +150,7 @@ namespace DAO
                 oracleCommand.Parameters.Add(new OracleParameter("maNguon", maNguon));
 
                 bool kt = DataProvider.ExcuteNonQuery(oracleCommand);
+                oracleCommand.Connection.Close();
                 oracleCommand.Connection.Dispose();
                 return kt;
             }
@@ -171,6 +175,7 @@ namespace DAO
                 oracleCommand.Parameters.Add("maNguon", maNguon);
 
                 bool kt = DataProvider.ExcuteNonQuery(oracleCommand);
+                oracleCommand.Connection.Close();
                 oracleCommand.Connection.Dispose();
                 return kt;
             }
@@ -209,6 +214,7 @@ namespace DAO
                     nguon.tienDaChoVay = oracleDataReader.GetInt64(4);
                     nguon.tienCoTheChoVay = oracleDataReader.GetInt64(5);
 
+                    oracleCommand.Connection.Close();
                     oracleCommand.Connection.Dispose();
                     return nguon;
                 }
@@ -243,6 +249,7 @@ namespace DAO
                 oracleCommand.Parameters.Add("idNguon", idNguon);
 
                 bool kt = DataProvider.ExcuteNonQuery(oracleCommand);
+                oracleCommand.Connection.Close();
                 oracleCommand.Connection.Dispose();
                 return kt;
             }
@@ -275,6 +282,7 @@ namespace DAO
                 oracleCommand.Parameters.Add("idNguon", idNguon);
 
                 bool kt = DataProvider.ExcuteNonQuery(oracleCommand);
+                oracleCommand.Connection.Close();
                 oracleCommand.Connection.Dispose();
                 return kt;
             }
@@ -312,6 +320,7 @@ namespace DAO
                     nguon.tienDaChoVay = oracleDataReader.GetInt64(4);
                     nguon.tienCoTheChoVay = oracleDataReader.GetInt64(5);
 
+                    oracleCommand.Connection.Close();
                     oracleCommand.Connection.Dispose();
                     return nguon;
                 }

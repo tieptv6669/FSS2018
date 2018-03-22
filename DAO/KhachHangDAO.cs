@@ -51,6 +51,7 @@ namespace DAO
                     }
                 }
 
+                oracleCommand.Connection.Close();
                 oracleCommand.Connection.Dispose();
                 return list;
             }
@@ -96,6 +97,7 @@ namespace DAO
                     khachHang.SDTKH = oracleDataReader.GetString(11);
                     khachHang.ghiChuKH = oracleDataReader.GetString(12);
 
+                    oracleCommand.Connection.Close();
                     oracleCommand.Connection.Dispose();
                     return khachHang;
                 }
@@ -146,6 +148,7 @@ namespace DAO
                     khachHang.SDTKH = oracleDataReader.GetString(11);
                     khachHang.ghiChuKH = oracleDataReader.GetString(12);
 
+                    oracleCommand.Connection.Close();
                     oracleCommand.Connection.Dispose();
                     return khachHang;
                 }
@@ -214,6 +217,7 @@ namespace DAO
                     }
                 }
 
+                oracleCommand.Connection.Close();
                 oracleCommand.Connection.Dispose();
                 return list;
             }
@@ -263,6 +267,7 @@ namespace DAO
                 oracleCommand.Parameters.Add(new OracleParameter("soTKLK", soTKLK));
 
                 bool kt = DataProvider.ExcuteNonQuery(oracleCommand);
+                oracleCommand.Connection.Close();
                 oracleCommand.Connection.Dispose();
                 return kt;
             }
@@ -299,6 +304,7 @@ namespace DAO
                 oracleCommand.Parameters.Add("ghiChu", khachHang.ghiChuKH);
 
                 bool kt = DataProvider.ExcuteNonQuery(oracleCommand);
+                oracleCommand.Connection.Close();
                 oracleCommand.Connection.Dispose();
                 return kt;
             }
@@ -344,6 +350,7 @@ namespace DAO
                     khachHang.SDTKH = oracleDataReader.GetString(11);
                     khachHang.ghiChuKH = oracleDataReader.GetString(12);
 
+                    oracleCommand.Connection.Close();
                     oracleCommand.Connection.Dispose();
                     return khachHang;
                 }

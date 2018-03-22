@@ -1700,7 +1700,7 @@
             this.cboLoaiBC.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboLoaiBC.FormattingEnabled = true;
             this.cboLoaiBC.Items.AddRange(new object[] {
-            "DS KH có nhiều hơn 3 món GN đang nợ quá hạn",
+            "DS KH có ít nhất 3 món GN đang nợ quá hạn",
             "DS KH có nhiều hơn 5 món GN đang nợ (trong và quá hạn)",
             "DS KH không có món GN nợ quá hạn",
             "DS KH đã trả hết nợ tất cả các món GN hiện có",

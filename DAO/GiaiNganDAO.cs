@@ -49,6 +49,7 @@ namespace DAO
                     }
                 }
 
+                oracleCommand.Connection.Close();
                 oracleCommand.Connection.Dispose();
                 return list;
             }
@@ -95,6 +96,7 @@ namespace DAO
                     }
                 }
 
+                oracleCommand.Connection.Close();
                 oracleCommand.Connection.Dispose();
                 return list;
             }
@@ -130,27 +132,28 @@ namespace DAO
 
                  if (oracleDataReader != null && oracleDataReader.HasRows)
                  {
-                    oracleDataReader.Read();
+                        oracleDataReader.Read();
 
-                    gn_sptd_nguon.SoTKLK = oracleDataReader.GetString(0);
-                    gn_sptd_nguon.MaGN = oracleDataReader.GetString(1);
-                    gn_sptd_nguon.TenSPTD = oracleDataReader.GetString(2);
-                    gn_sptd_nguon.LaiSuat = oracleDataReader.GetInt32(3);
-                    gn_sptd_nguon.LaiSuatQuaHan = oracleDataReader.GetInt32(4);
-                    gn_sptd_nguon.KyHan = oracleDataReader.GetInt32(5);
-                    gn_sptd_nguon.DuNoGoc = oracleDataReader.GetInt64(6);
-                    gn_sptd_nguon.DuNoLaiTH = oracleDataReader.GetInt64(7);
-                    gn_sptd_nguon.DuNoLaiNH = oracleDataReader.GetInt64(8);
-                    gn_sptd_nguon.TenKH = oracleDataReader.GetString(9);
-                    gn_sptd_nguon.SoTienGN = oracleDataReader.GetInt64(10);
-                    gn_sptd_nguon.TrangThai = oracleDataReader.GetString(11);
-                    gn_sptd_nguon.TenNguon = oracleDataReader.GetString(12);
-                    gn_sptd_nguon.NgayGN = oracleDataReader.GetDateTime(13);
-                    gn_sptd_nguon.NgayDH = oracleDataReader.GetDateTime(14);
-                    gn_sptd_nguon.GhiChu = oracleDataReader.GetString(15);
+                        gn_sptd_nguon.SoTKLK = oracleDataReader.GetString(0);
+                        gn_sptd_nguon.MaGN = oracleDataReader.GetString(1);
+                        gn_sptd_nguon.TenSPTD = oracleDataReader.GetString(2);
+                        gn_sptd_nguon.LaiSuat = oracleDataReader.GetInt32(3);
+                        gn_sptd_nguon.LaiSuatQuaHan = oracleDataReader.GetInt32(4);
+                        gn_sptd_nguon.KyHan = oracleDataReader.GetInt32(5);
+                        gn_sptd_nguon.DuNoGoc = oracleDataReader.GetInt64(6);
+                        gn_sptd_nguon.DuNoLaiTH = oracleDataReader.GetInt64(7);
+                        gn_sptd_nguon.DuNoLaiNH = oracleDataReader.GetInt64(8);
+                        gn_sptd_nguon.TenKH = oracleDataReader.GetString(9);
+                        gn_sptd_nguon.SoTienGN = oracleDataReader.GetInt64(10);
+                        gn_sptd_nguon.TrangThai = oracleDataReader.GetString(11);
+                        gn_sptd_nguon.TenNguon = oracleDataReader.GetString(12);
+                        gn_sptd_nguon.NgayGN = oracleDataReader.GetDateTime(13);
+                        gn_sptd_nguon.NgayDH = oracleDataReader.GetDateTime(14);
+                        gn_sptd_nguon.GhiChu = oracleDataReader.GetString(15);
 
-                    oracleCommand.Connection.Dispose();
-                    return gn_sptd_nguon;
+                        oracleCommand.Connection.Close();
+                        oracleCommand.Connection.Dispose();
+                        return gn_sptd_nguon;
                  }
                 else
                 {
@@ -189,6 +192,7 @@ namespace DAO
                 oracleCommand.Parameters.Add(new OracleParameter("ghiChu", giaiNgan.GhiChu));
 
                 bool kt = DataProvider.ExcuteNonQuery(oracleCommand);
+                oracleCommand.Connection.Close();
                 oracleCommand.Connection.Dispose();
                 return kt;
             }
@@ -234,6 +238,7 @@ namespace DAO
                     }
                 }
 
+                oracleCommand.Connection.Close();
                 oracleCommand.Connection.Dispose();
                 return list;
             }
@@ -266,6 +271,7 @@ namespace DAO
                 oracleCommand.Parameters.Add(new OracleParameter("maGN", maGN));
 
                 bool kt = DataProvider.ExcuteNonQuery(oracleCommand);
+                oracleCommand.Connection.Close();
                 oracleCommand.Connection.Dispose();
                 return kt;
             }

@@ -48,6 +48,7 @@ namespace DAO
                     }
                 }
 
+                oracleCommand.Connection.Close();
                 oracleCommand.Connection.Dispose();
                 return list;
             }
@@ -100,6 +101,7 @@ namespace DAO
                     }
                 }
 
+                oracleCommand.Connection.Close();
                 oracleCommand.Connection.Dispose();
                 return list;
             }
@@ -128,6 +130,7 @@ namespace DAO
                 if (oracleDataReader != null && oracleDataReader.HasRows)
                 {
                     SanPhamTinDung sanPhamTinDung = new SanPhamTinDung();
+                    oracleCommand.Connection.Close();
                     oracleCommand.Connection.Dispose();
                     return sanPhamTinDung;
                 }
@@ -165,6 +168,7 @@ namespace DAO
                 oracleCommand.Parameters.Add("tenNguon", sanPhamTinDung.TenNguon);
 
                 bool kt = DataProvider.ExcuteNonQuery(oracleCommand);
+                oracleCommand.Connection.Close();
                 oracleCommand.Connection.Dispose();
                 return kt;
             }
@@ -209,6 +213,7 @@ namespace DAO
                     }
                 }
 
+                oracleCommand.Connection.Close();
                 oracleCommand.Connection.Dispose();
                 return list;
             }
@@ -245,6 +250,7 @@ namespace DAO
                 oracleCommand.Parameters.Add("maSPTD", maSPTD);
 
                 bool kt = DataProvider.ExcuteNonQuery(oracleCommand);
+                oracleCommand.Connection.Close();
                 oracleCommand.Connection.Dispose();
                 return kt;
             }
@@ -288,6 +294,7 @@ namespace DAO
                     }
                 }
 
+                oracleCommand.Connection.Close();
                 oracleCommand.Connection.Dispose();
                 return list;
             }
@@ -327,6 +334,7 @@ namespace DAO
                     sanPhamTinDung.IdNguon = oracleDataReader.GetInt32(7);
                     sanPhamTinDung.TenNguon = oracleDataReader.GetString(8);
 
+                    oracleCommand.Connection.Close();
                     oracleCommand.Connection.Dispose();
                     return sanPhamTinDung;
                 }
@@ -376,6 +384,7 @@ namespace DAO
                     }
                 }
 
+                oracleCommand.Connection.Close();
                 oracleCommand.Connection.Dispose();
                 return list;
             }
@@ -415,6 +424,7 @@ namespace DAO
                     sanPhamTinDung.IdNguon = oracleDataReader.GetInt32(7);
                     sanPhamTinDung.TenNguon = oracleDataReader.GetString(8);
 
+                    oracleCommand.Connection.Close();
                     oracleCommand.Connection.Dispose();
                     return sanPhamTinDung;
                 }

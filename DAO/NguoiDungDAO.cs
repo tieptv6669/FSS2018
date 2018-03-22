@@ -48,11 +48,13 @@ namespace DAO
                     nguoiDung.quyenND = oracleDataReader.GetString(6);
                     nguoiDung.trangthaiND = oracleDataReader.GetInt32(7);
 
+                    oracleCommand.Connection.Close();
                     oracleCommand.Connection.Dispose();
                     return nguoiDung;
                 }
                 else
                 {
+                    oracleCommand.Connection.Close();
                     oracleCommand.Connection.Dispose();
                     return null;
                 }
@@ -98,6 +100,7 @@ namespace DAO
                     }
                 }
 
+                oracleCommand.Connection.Close();
                 oracleCommand.Connection.Dispose();
                 return list;
             }
@@ -129,6 +132,7 @@ namespace DAO
                 oracleCommand.Parameters.Add(new OracleParameter("trangThai", nguoiDung.trangthaiND));
 
                 bool kt = DataProvider.ExcuteNonQuery(oracleCommand);
+                oracleCommand.Connection.Close();
                 oracleCommand.Connection.Dispose();
                 return kt;
             }
@@ -177,6 +181,7 @@ namespace DAO
                     }
                 }
 
+                oracleCommand.Connection.Close();
                 oracleCommand.Connection.Dispose();
                 return list;
             }catch(Exception e)
@@ -211,6 +216,7 @@ namespace DAO
                 oracleCommand.Parameters.Add(new OracleParameter("tenDN", tenDN));
 
                 bool kt = DataProvider.ExcuteNonQuery(oracleCommand);
+                oracleCommand.Connection.Close();
                 oracleCommand.Connection.Dispose();
                 return kt;
             }
@@ -235,6 +241,7 @@ namespace DAO
                 oracleCommand.Parameters.Add(new OracleParameter("tenDN", tenDN));
 
                 bool kt = DataProvider.ExcuteNonQuery(oracleCommand);
+                oracleCommand.Connection.Close();
                 oracleCommand.Connection.Dispose();
                 return kt;
             }
@@ -261,6 +268,7 @@ namespace DAO
                 oracleCommand.Parameters.Add(new OracleParameter("tenDN", tenDN));
 
                 bool kt = DataProvider.ExcuteNonQuery(oracleCommand);
+                oracleCommand.Connection.Close();
                 oracleCommand.Connection.Dispose();
                 return kt;
             }
@@ -287,6 +295,7 @@ namespace DAO
                 oracleCommand.Parameters.Add(new OracleParameter("tenDN", tenDN));
 
                 bool kt = DataProvider.ExcuteNonQuery(oracleCommand);
+                oracleCommand.Connection.Close();
                 oracleCommand.Connection.Dispose();
                 return kt;
             }
@@ -315,6 +324,7 @@ namespace DAO
                 NguoiDung nguoiDung = new NguoiDung();
                 nguoiDung.matKhauND = oracleDataReader.GetString(2);
 
+                oracleCommand.Connection.Close();
                 oracleCommand.Connection.Dispose();
                 return nguoiDung;
             }catch(Exception e)
