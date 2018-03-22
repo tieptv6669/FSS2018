@@ -157,6 +157,8 @@ namespace DAO
                  }
                 else
                 {
+                    oracleCommand.Connection.Close();
+                    oracleCommand.Connection.Dispose();
                     return null;
                 }
             }

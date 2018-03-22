@@ -103,6 +103,8 @@ namespace DAO
                 }
                 else
                 {
+                    oracleCommand.Connection.Close();
+                    oracleCommand.Connection.Dispose();
                     return null;
                 }
             }
@@ -154,6 +156,8 @@ namespace DAO
                 }
                 else
                 {
+                    oracleCommand.Connection.Close();
+                    oracleCommand.Connection.Dispose();
                     return null;
                 }
             }
@@ -205,7 +209,7 @@ namespace DAO
                         khachHang.loai = oracleDataReader.GetString(9);
                         khachHang.diaChiKH = oracleDataReader.GetString(10);
                         khachHang.SDTKH = oracleDataReader.GetString(11);
-                        if(oracleDataReader.GetString(12) != null)
+                        if(!oracleDataReader.IsDBNull(12))
                         {
                             khachHang.ghiChuKH = oracleDataReader.GetString(12);
                         }
@@ -356,6 +360,8 @@ namespace DAO
                 }
                 else
                 {
+                    oracleCommand.Connection.Close();
+                    oracleCommand.Connection.Dispose();
                     return null;
                 }
             }

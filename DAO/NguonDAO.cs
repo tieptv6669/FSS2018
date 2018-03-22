@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using DTO;
 using System.Windows.Forms;
 using Oracle.ManagedDataAccess.Client;
@@ -220,6 +217,8 @@ namespace DAO
                 }
                 else
                 {
+                    oracleCommand.Connection.Close();
+                    oracleCommand.Connection.Dispose();
                     return null;
                 }
             }catch(Exception e)
@@ -326,6 +325,8 @@ namespace DAO
                 }
                 else
                 {
+                    oracleCommand.Connection.Close();
+                    oracleCommand.Connection.Dispose();
                     return null;
                 }
             }

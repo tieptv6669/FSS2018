@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Oracle.ManagedDataAccess.Client;
 using DTO;
@@ -28,8 +25,10 @@ namespace DAO
 
                 OracleDataReader oracleDataReader = DataProvider.GetOracleDataReader(oracleCommand);
                 oracleDataReader.Read();
-
-                return oracleDataReader.GetDateTime(0).Date;
+                DateTime dateTime = oracleDataReader.GetDateTime(0).Date;
+                oracleCommand.Connection.Close();
+                oracleCommand.Connection.Dispose();
+                return dateTime;
             }catch(Exception e)
             {
                 MessageBox.Show("Lỗi: " + e.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -179,6 +178,8 @@ namespace DAO
                     }
                 }
 
+                oracleCommand.Connection.Close();
+                oracleCommand.Connection.Dispose();
                 return list;
             }catch(Exception e)
             {

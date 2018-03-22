@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using DTO;
 using Oracle.ManagedDataAccess.Client;
@@ -88,15 +85,21 @@ namespace DAO
                     oracleDataReader.Read();
                     if(oracleDataReader.GetString(2) == "Sử dụng")
                     {
+                        oracleCommand.Connection.Close();
+                        oracleCommand.Connection.Dispose();
                         return 1;
                     }
                     else
                     {
+                        oracleCommand.Connection.Close();
+                        oracleCommand.Connection.Dispose();
                         return 2;
                     }
                 }
                 else
                 {
+                    oracleCommand.Connection.Close();
+                    oracleCommand.Connection.Dispose();
                     return 3;
                 }
             }
