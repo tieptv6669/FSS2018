@@ -95,7 +95,7 @@ namespace FormDesignFSS2.GUI
                         Nguon list = JsonConvert.DeserializeObject<Nguon>(json);
                         long coTheVay = list.tienCoTheChoVay;
                         GiaiNganBUS giaiNganBUS = new GiaiNganBUS();
-                        switch (giaiNganBUS.KTThongTinNhap(txtSoTKLK.Text, txtSoTienGN.Text, coTheVay, listKH.loai))
+                        switch (giaiNganBUS.KTThongTinNhap(txtSoTKLK.Text, txtSoTienGN.Text, coTheVay, listKH.loai, txtGhiChu.Text))
                         {
                             case 1:
                                 {

@@ -194,22 +194,23 @@ namespace FormDesignFSS2.GiaiNganWS {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/KTThongTinNhap", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public int KTThongTinNhap(string soTKLK, string soTienGN, long soTienCoTheChoVay, string loaiKH) {
+        public int KTThongTinNhap(string soTKLK, string soTienGN, long soTienCoTheChoVay, string loaiKH, string ghiChu) {
             object[] results = this.Invoke("KTThongTinNhap", new object[] {
                         soTKLK,
                         soTienGN,
                         soTienCoTheChoVay,
-                        loaiKH});
+                        loaiKH,
+                        ghiChu});
             return ((int)(results[0]));
         }
         
         /// <remarks/>
-        public void KTThongTinNhapAsync(string soTKLK, string soTienGN, long soTienCoTheChoVay, string loaiKH) {
-            this.KTThongTinNhapAsync(soTKLK, soTienGN, soTienCoTheChoVay, loaiKH, null);
+        public void KTThongTinNhapAsync(string soTKLK, string soTienGN, long soTienCoTheChoVay, string loaiKH, string ghiChu) {
+            this.KTThongTinNhapAsync(soTKLK, soTienGN, soTienCoTheChoVay, loaiKH, ghiChu, null);
         }
         
         /// <remarks/>
-        public void KTThongTinNhapAsync(string soTKLK, string soTienGN, long soTienCoTheChoVay, string loaiKH, object userState) {
+        public void KTThongTinNhapAsync(string soTKLK, string soTienGN, long soTienCoTheChoVay, string loaiKH, string ghiChu, object userState) {
             if ((this.KTThongTinNhapOperationCompleted == null)) {
                 this.KTThongTinNhapOperationCompleted = new System.Threading.SendOrPostCallback(this.OnKTThongTinNhapOperationCompleted);
             }
@@ -217,7 +218,8 @@ namespace FormDesignFSS2.GiaiNganWS {
                         soTKLK,
                         soTienGN,
                         soTienCoTheChoVay,
-                        loaiKH}, this.KTThongTinNhapOperationCompleted, userState);
+                        loaiKH,
+                        ghiChu}, this.KTThongTinNhapOperationCompleted, userState);
         }
         
         private void OnKTThongTinNhapOperationCompleted(object arg) {
@@ -287,23 +289,24 @@ namespace FormDesignFSS2.GiaiNganWS {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/KTTTSuaGN", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public int KTTTSuaGN(string soTKLK, System.DateTime ngayGN, string soTienGN, long soTienCoTheChoVay, string loaiKH) {
+        public int KTTTSuaGN(string soTKLK, System.DateTime ngayGN, string soTienGN, long soTienCoTheChoVay, string loaiKH, string ghiChu) {
             object[] results = this.Invoke("KTTTSuaGN", new object[] {
                         soTKLK,
                         ngayGN,
                         soTienGN,
                         soTienCoTheChoVay,
-                        loaiKH});
+                        loaiKH,
+                        ghiChu});
             return ((int)(results[0]));
         }
         
         /// <remarks/>
-        public void KTTTSuaGNAsync(string soTKLK, System.DateTime ngayGN, string soTienGN, long soTienCoTheChoVay, string loaiKH) {
-            this.KTTTSuaGNAsync(soTKLK, ngayGN, soTienGN, soTienCoTheChoVay, loaiKH, null);
+        public void KTTTSuaGNAsync(string soTKLK, System.DateTime ngayGN, string soTienGN, long soTienCoTheChoVay, string loaiKH, string ghiChu) {
+            this.KTTTSuaGNAsync(soTKLK, ngayGN, soTienGN, soTienCoTheChoVay, loaiKH, ghiChu, null);
         }
         
         /// <remarks/>
-        public void KTTTSuaGNAsync(string soTKLK, System.DateTime ngayGN, string soTienGN, long soTienCoTheChoVay, string loaiKH, object userState) {
+        public void KTTTSuaGNAsync(string soTKLK, System.DateTime ngayGN, string soTienGN, long soTienCoTheChoVay, string loaiKH, string ghiChu, object userState) {
             if ((this.KTTTSuaGNOperationCompleted == null)) {
                 this.KTTTSuaGNOperationCompleted = new System.Threading.SendOrPostCallback(this.OnKTTTSuaGNOperationCompleted);
             }
@@ -312,7 +315,8 @@ namespace FormDesignFSS2.GiaiNganWS {
                         ngayGN,
                         soTienGN,
                         soTienCoTheChoVay,
-                        loaiKH}, this.KTTTSuaGNOperationCompleted, userState);
+                        loaiKH,
+                        ghiChu}, this.KTTTSuaGNOperationCompleted, userState);
         }
         
         private void OnKTTTSuaGNOperationCompleted(object arg) {

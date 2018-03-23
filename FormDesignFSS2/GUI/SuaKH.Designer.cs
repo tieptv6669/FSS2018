@@ -63,7 +63,7 @@
             this.btnHuy.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnHuy.Image = global::FormDesignFSS2.Properties.Resources._168;
             this.btnHuy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHuy.Location = new System.Drawing.Point(310, 389);
+            this.btnHuy.Location = new System.Drawing.Point(310, 394);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(86, 39);
             this.btnHuy.TabIndex = 57;
@@ -77,7 +77,7 @@
             this.btnXacNhan.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnXacNhan.Image = global::FormDesignFSS2.Properties.Resources._155;
             this.btnXacNhan.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnXacNhan.Location = new System.Drawing.Point(218, 389);
+            this.btnXacNhan.Location = new System.Drawing.Point(218, 394);
             this.btnXacNhan.Name = "btnXacNhan";
             this.btnXacNhan.Size = new System.Drawing.Size(86, 39);
             this.btnXacNhan.TabIndex = 56;
@@ -144,7 +144,7 @@
             this.txtGhiChu.Location = new System.Drawing.Point(103, 304);
             this.txtGhiChu.Multiline = true;
             this.txtGhiChu.Name = "txtGhiChu";
-            this.txtGhiChu.Size = new System.Drawing.Size(291, 48);
+            this.txtGhiChu.Size = new System.Drawing.Size(291, 55);
             this.txtGhiChu.TabIndex = 50;
             // 
             // txtEmail
@@ -328,7 +328,7 @@
             // lblError
             // 
             this.lblError.AutoSize = true;
-            this.lblError.Location = new System.Drawing.Point(100, 366);
+            this.lblError.Location = new System.Drawing.Point(113, 372);
             this.lblError.Name = "lblError";
             this.lblError.Size = new System.Drawing.Size(0, 13);
             this.lblError.TabIndex = 58;
@@ -337,7 +337,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(405, 436);
+            this.ClientSize = new System.Drawing.Size(400, 436);
             this.Controls.Add(this.lblError);
             this.Controls.Add(this.btnHuy);
             this.Controls.Add(this.btnXacNhan);

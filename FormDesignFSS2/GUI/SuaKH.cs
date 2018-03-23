@@ -93,7 +93,7 @@ namespace FormDesignFSS2.GUI
                 if (btnXacNhan.Text == "Xác nhận")
                 {
                     KhachHangBUS khachHangBUS = new KhachHangBUS();
-                    switch (khachHangBUS.KTThongTinSuaKH(Convert.ToDateTime(txtNgayMoTK.Text), txtHoTenKH.Text, dateNgaySinh.Value, txtNgheNghiep.Text, txtSoCMND.Text, khachHang.soCMNNKH, txtDiaChi.Text, txtEmail.Text, txtSDT.Text))
+                    switch (khachHangBUS.KTThongTinSuaKH(Convert.ToDateTime(txtNgayMoTK.Text), txtHoTenKH.Text, dateNgaySinh.Value, txtNgheNghiep.Text, txtSoCMND.Text, khachHang.soCMNNKH, txtDiaChi.Text, txtEmail.Text, txtSDT.Text, txtGhiChu.Text))
                     {
                         case 2:
                             {

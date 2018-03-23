@@ -53,6 +53,8 @@
             this.dateNgayGN = new System.Windows.Forms.DateTimePicker();
             this.dateNgayDH = new System.Windows.Forms.DateTimePicker();
             this.lblError = new System.Windows.Forms.Label();
+            this.lblMaGN = new System.Windows.Forms.Label();
+            this.txtMaGN = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // textBox1
@@ -78,7 +80,7 @@
             this.btnHuy.BackColor = System.Drawing.SystemColors.HighlightText;
             this.btnHuy.Image = global::FormDesignFSS2.Properties.Resources._168;
             this.btnHuy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHuy.Location = new System.Drawing.Point(254, 364);
+            this.btnHuy.Location = new System.Drawing.Point(254, 396);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(86, 39);
             this.btnHuy.TabIndex = 44;
@@ -92,7 +94,7 @@
             this.btnXacNhan.BackColor = System.Drawing.SystemColors.HighlightText;
             this.btnXacNhan.Image = global::FormDesignFSS2.Properties.Resources._155;
             this.btnXacNhan.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnXacNhan.Location = new System.Drawing.Point(162, 364);
+            this.btnXacNhan.Location = new System.Drawing.Point(162, 396);
             this.btnXacNhan.Name = "btnXacNhan";
             this.btnXacNhan.Size = new System.Drawing.Size(86, 39);
             this.btnXacNhan.TabIndex = 43;
@@ -108,7 +110,7 @@
             this.cmbSPTD.FormattingEnabled = true;
             this.cmbSPTD.Items.AddRange(new object[] {
             "Cho vay mua nhà"});
-            this.cmbSPTD.Location = new System.Drawing.Point(104, 61);
+            this.cmbSPTD.Location = new System.Drawing.Point(104, 91);
             this.cmbSPTD.Name = "cmbSPTD";
             this.cmbSPTD.Size = new System.Drawing.Size(234, 21);
             this.cmbSPTD.TabIndex = 64;
@@ -117,7 +119,7 @@
             // txtGhiChu
             // 
             this.txtGhiChu.BackColor = System.Drawing.SystemColors.Window;
-            this.txtGhiChu.Location = new System.Drawing.Point(105, 254);
+            this.txtGhiChu.Location = new System.Drawing.Point(105, 284);
             this.txtGhiChu.Multiline = true;
             this.txtGhiChu.Name = "txtGhiChu";
             this.txtGhiChu.Size = new System.Drawing.Size(233, 81);
@@ -127,7 +129,7 @@
             // txtKyHan
             // 
             this.txtKyHan.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.txtKyHan.Location = new System.Drawing.Point(103, 172);
+            this.txtKyHan.Location = new System.Drawing.Point(103, 202);
             this.txtKyHan.Name = "txtKyHan";
             this.txtKyHan.ReadOnly = true;
             this.txtKyHan.Size = new System.Drawing.Size(235, 20);
@@ -137,7 +139,7 @@
             // txtLaiSuat
             // 
             this.txtLaiSuat.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.txtLaiSuat.Location = new System.Drawing.Point(103, 114);
+            this.txtLaiSuat.Location = new System.Drawing.Point(103, 144);
             this.txtLaiSuat.Name = "txtLaiSuat";
             this.txtLaiSuat.ReadOnly = true;
             this.txtLaiSuat.Size = new System.Drawing.Size(235, 20);
@@ -147,7 +149,7 @@
             // txtNguon
             // 
             this.txtNguon.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.txtNguon.Location = new System.Drawing.Point(103, 88);
+            this.txtNguon.Location = new System.Drawing.Point(103, 118);
             this.txtNguon.Name = "txtNguon";
             this.txtNguon.ReadOnly = true;
             this.txtNguon.Size = new System.Drawing.Size(235, 20);
@@ -157,7 +159,7 @@
             // txtSoTienGN
             // 
             this.txtSoTienGN.BackColor = System.Drawing.SystemColors.Window;
-            this.txtSoTienGN.Location = new System.Drawing.Point(103, 35);
+            this.txtSoTienGN.Location = new System.Drawing.Point(103, 63);
             this.txtSoTienGN.Name = "txtSoTienGN";
             this.txtSoTienGN.Size = new System.Drawing.Size(235, 20);
             this.txtSoTienGN.TabIndex = 57;
@@ -176,7 +178,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(45, 254);
+            this.label10.Location = new System.Drawing.Point(45, 284);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(52, 15);
             this.label10.TabIndex = 54;
@@ -186,7 +188,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(38, 226);
+            this.label9.Location = new System.Drawing.Point(38, 256);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(59, 15);
             this.label9.TabIndex = 53;
@@ -196,7 +198,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(39, 199);
+            this.label8.Location = new System.Drawing.Point(39, 229);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(59, 15);
             this.label8.TabIndex = 52;
@@ -206,7 +208,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(8, 172);
+            this.label7.Location = new System.Drawing.Point(8, 202);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(89, 15);
             this.label7.TabIndex = 51;
@@ -216,7 +218,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(22, 114);
+            this.label6.Location = new System.Drawing.Point(22, 144);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(75, 15);
             this.label6.TabIndex = 50;
@@ -226,7 +228,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(50, 88);
+            this.label5.Location = new System.Drawing.Point(50, 118);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(47, 15);
             this.label5.TabIndex = 49;
@@ -236,7 +238,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(18, 61);
+            this.label4.Location = new System.Drawing.Point(18, 91);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(79, 15);
             this.label4.TabIndex = 48;
@@ -246,7 +248,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(28, 35);
+            this.label3.Location = new System.Drawing.Point(28, 63);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(69, 15);
             this.label3.TabIndex = 47;
@@ -266,7 +268,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(2, 142);
+            this.label2.Location = new System.Drawing.Point(2, 172);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(96, 15);
             this.label2.TabIndex = 65;
@@ -275,7 +277,7 @@
             // txtLaiSuatQH
             // 
             this.txtLaiSuatQH.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.txtLaiSuatQH.Location = new System.Drawing.Point(103, 142);
+            this.txtLaiSuatQH.Location = new System.Drawing.Point(103, 172);
             this.txtLaiSuatQH.Name = "txtLaiSuatQH";
             this.txtLaiSuatQH.ReadOnly = true;
             this.txtLaiSuatQH.Size = new System.Drawing.Size(235, 20);
@@ -285,7 +287,7 @@
             // dateNgayGN
             // 
             this.dateNgayGN.Enabled = false;
-            this.dateNgayGN.Location = new System.Drawing.Point(103, 199);
+            this.dateNgayGN.Location = new System.Drawing.Point(103, 229);
             this.dateNgayGN.Name = "dateNgayGN";
             this.dateNgayGN.Size = new System.Drawing.Size(235, 20);
             this.dateNgayGN.TabIndex = 67;
@@ -293,7 +295,7 @@
             // dateNgayDH
             // 
             this.dateNgayDH.Enabled = false;
-            this.dateNgayDH.Location = new System.Drawing.Point(104, 225);
+            this.dateNgayDH.Location = new System.Drawing.Point(104, 255);
             this.dateNgayDH.Name = "dateNgayDH";
             this.dateNgayDH.Size = new System.Drawing.Size(234, 20);
             this.dateNgayDH.TabIndex = 68;
@@ -301,16 +303,37 @@
             // lblError
             // 
             this.lblError.AutoSize = true;
-            this.lblError.Location = new System.Drawing.Point(151, 345);
+            this.lblError.Location = new System.Drawing.Point(151, 373);
             this.lblError.Name = "lblError";
             this.lblError.Size = new System.Drawing.Size(0, 13);
             this.lblError.TabIndex = 69;
+            // 
+            // lblMaGN
+            // 
+            this.lblMaGN.AutoSize = true;
+            this.lblMaGN.Location = new System.Drawing.Point(53, 37);
+            this.lblMaGN.Name = "lblMaGN";
+            this.lblMaGN.Size = new System.Drawing.Size(44, 13);
+            this.lblMaGN.TabIndex = 70;
+            this.lblMaGN.Text = "Mã GN:";
+            // 
+            // txtMaGN
+            // 
+            this.txtMaGN.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.txtMaGN.Location = new System.Drawing.Point(103, 34);
+            this.txtMaGN.Name = "txtMaGN";
+            this.txtMaGN.ReadOnly = true;
+            this.txtMaGN.Size = new System.Drawing.Size(235, 20);
+            this.txtMaGN.TabIndex = 71;
+            this.txtMaGN.TabStop = false;
             // 
             // SuaGN
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(345, 407);
+            this.ClientSize = new System.Drawing.Size(345, 439);
+            this.Controls.Add(this.txtMaGN);
+            this.Controls.Add(this.lblMaGN);
             this.Controls.Add(this.lblError);
             this.Controls.Add(this.dateNgayDH);
             this.Controls.Add(this.dateNgayGN);
@@ -373,5 +396,7 @@
         private System.Windows.Forms.DateTimePicker dateNgayGN;
         private System.Windows.Forms.DateTimePicker dateNgayDH;
         private System.Windows.Forms.Label lblError;
+        private System.Windows.Forms.Label lblMaGN;
+        private System.Windows.Forms.TextBox txtMaGN;
     }
 }

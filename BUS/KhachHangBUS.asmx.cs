@@ -116,7 +116,7 @@ namespace BUS
         /// <param name="sdt"></param>
         /// <returns></returns>
         [WebMethod]
-        public int KTThongTinSuaKH(DateTime ngayMoTK, string hoTenKH, DateTime ngaySinh, string ngheNghiep, string soCMND, string soCMNDCu, string diaChi, string email, string sdt)
+        public int KTThongTinSuaKH(DateTime ngayMoTK, string hoTenKH, DateTime ngaySinh, string ngheNghiep, string soCMND, string soCMNDCu, string diaChi, string email, string sdt, string ghiChu)
         {
             DateTime ngayDu18Tuoi = ngaySinh.AddYears(18);
             Helper helper = new Helper();
@@ -164,7 +164,7 @@ namespace BUS
             {
                 return 12;
             }
-            if(hoTenKH.Length > 50 || ngheNghiep.Length > 50 || soCMND.Length > 12 || diaChi.Length > 50 || sdt.Length > 11 || email.Length > 50)
+            if(hoTenKH.Length > 50 || ngheNghiep.Length > 50 || soCMND.Length > 12 || diaChi.Length > 50 || sdt.Length > 11 || email.Length > 50 || ghiChu.Length > 100)
             {
                 return 13;
             }

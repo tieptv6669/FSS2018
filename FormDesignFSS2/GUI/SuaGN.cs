@@ -38,6 +38,7 @@ namespace FormDesignFSS2.GUI
             {
                 lblError.ForeColor = Color.Red;
                 txtSoTKLK.Text = giaiNgan.SoTKLK;
+                txtMaGN.Text = giaiNgan.MaGN;
                 txtSoTienGN.Text = giaiNgan.SoTienGN.ToString("#,##0");
                 txtNguon.Text = giaiNgan.TenNguon;
                 txtKyHan.Text = giaiNgan.KyHan.ToString();
@@ -139,7 +140,7 @@ namespace FormDesignFSS2.GUI
                     long coTheVay = list.tienCoTheChoVay;
                     //Check lỗi
                     GiaiNganBUS giaiNganBUS = new GiaiNganBUS();
-                    switch (giaiNganBUS.KTTTSuaGN(txtSoTKLK.Text, dateNgayGN.Value,txtSoTienGN.Text,coTheVay, listKH.loai))
+                    switch (giaiNganBUS.KTTTSuaGN(txtSoTKLK.Text, dateNgayGN.Value,txtSoTienGN.Text,coTheVay, listKH.loai, txtGhiChu.Text))
                     {
                         case 1:
                             {

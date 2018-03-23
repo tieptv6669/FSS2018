@@ -45,8 +45,6 @@ namespace FormDesignFSS2.KhachHangWS {
         
         private System.Threading.SendOrPostCallback ThemKHOperationCompleted;
         
-        private System.Threading.SendOrPostCallback KhachHangReportOperationCompleted;
-        
         private System.Threading.SendOrPostCallback GetKHWithIDOperationCompleted;
         
         private bool useDefaultCredentialsSetExplicitly;
@@ -112,9 +110,6 @@ namespace FormDesignFSS2.KhachHangWS {
         public event ThemKHCompletedEventHandler ThemKHCompleted;
         
         /// <remarks/>
-        public event KhachHangReportCompletedEventHandler KhachHangReportCompleted;
-        
-        /// <remarks/>
         public event GetKHWithIDCompletedEventHandler GetKHWithIDCompleted;
         
         /// <remarks/>
@@ -166,7 +161,7 @@ namespace FormDesignFSS2.KhachHangWS {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/KTThongTinSuaKH", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public int KTThongTinSuaKH(System.DateTime ngayMoTK, string hoTenKH, System.DateTime ngaySinh, string ngheNghiep, string soCMND, string soCMNDCu, string diaChi, string email, string sdt) {
+        public int KTThongTinSuaKH(System.DateTime ngayMoTK, string hoTenKH, System.DateTime ngaySinh, string ngheNghiep, string soCMND, string soCMNDCu, string diaChi, string email, string sdt, string ghiChu) {
             object[] results = this.Invoke("KTThongTinSuaKH", new object[] {
                         ngayMoTK,
                         hoTenKH,
@@ -176,17 +171,18 @@ namespace FormDesignFSS2.KhachHangWS {
                         soCMNDCu,
                         diaChi,
                         email,
-                        sdt});
+                        sdt,
+                        ghiChu});
             return ((int)(results[0]));
         }
         
         /// <remarks/>
-        public void KTThongTinSuaKHAsync(System.DateTime ngayMoTK, string hoTenKH, System.DateTime ngaySinh, string ngheNghiep, string soCMND, string soCMNDCu, string diaChi, string email, string sdt) {
-            this.KTThongTinSuaKHAsync(ngayMoTK, hoTenKH, ngaySinh, ngheNghiep, soCMND, soCMNDCu, diaChi, email, sdt, null);
+        public void KTThongTinSuaKHAsync(System.DateTime ngayMoTK, string hoTenKH, System.DateTime ngaySinh, string ngheNghiep, string soCMND, string soCMNDCu, string diaChi, string email, string sdt, string ghiChu) {
+            this.KTThongTinSuaKHAsync(ngayMoTK, hoTenKH, ngaySinh, ngheNghiep, soCMND, soCMNDCu, diaChi, email, sdt, ghiChu, null);
         }
         
         /// <remarks/>
-        public void KTThongTinSuaKHAsync(System.DateTime ngayMoTK, string hoTenKH, System.DateTime ngaySinh, string ngheNghiep, string soCMND, string soCMNDCu, string diaChi, string email, string sdt, object userState) {
+        public void KTThongTinSuaKHAsync(System.DateTime ngayMoTK, string hoTenKH, System.DateTime ngaySinh, string ngheNghiep, string soCMND, string soCMNDCu, string diaChi, string email, string sdt, string ghiChu, object userState) {
             if ((this.KTThongTinSuaKHOperationCompleted == null)) {
                 this.KTThongTinSuaKHOperationCompleted = new System.Threading.SendOrPostCallback(this.OnKTThongTinSuaKHOperationCompleted);
             }
@@ -199,7 +195,8 @@ namespace FormDesignFSS2.KhachHangWS {
                         soCMNDCu,
                         diaChi,
                         email,
-                        sdt}, this.KTThongTinSuaKHOperationCompleted, userState);
+                        sdt,
+                        ghiChu}, this.KTThongTinSuaKHOperationCompleted, userState);
         }
         
         private void OnKTThongTinSuaKHOperationCompleted(object arg) {
@@ -402,33 +399,6 @@ namespace FormDesignFSS2.KhachHangWS {
             if ((this.ThemKHCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.ThemKHCompleted(this, new ThemKHCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/KhachHangReport", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public string KhachHangReport() {
-            object[] results = this.Invoke("KhachHangReport", new object[0]);
-            return ((string)(results[0]));
-        }
-        
-        /// <remarks/>
-        public void KhachHangReportAsync() {
-            this.KhachHangReportAsync(null);
-        }
-        
-        /// <remarks/>
-        public void KhachHangReportAsync(object userState) {
-            if ((this.KhachHangReportOperationCompleted == null)) {
-                this.KhachHangReportOperationCompleted = new System.Threading.SendOrPostCallback(this.OnKhachHangReportOperationCompleted);
-            }
-            this.InvokeAsync("KhachHangReport", new object[0], this.KhachHangReportOperationCompleted, userState);
-        }
-        
-        private void OnKhachHangReportOperationCompleted(object arg) {
-            if ((this.KhachHangReportCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.KhachHangReportCompleted(this, new KhachHangReportCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -684,32 +654,6 @@ namespace FormDesignFSS2.KhachHangWS {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((bool)(this.results[0]));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
-    public delegate void KhachHangReportCompletedEventHandler(object sender, KhachHangReportCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class KhachHangReportCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        internal KhachHangReportCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        /// <remarks/>
-        public string Result {
-            get {
-                this.RaiseExceptionIfNecessary();
-                return ((string)(this.results[0]));
             }
         }
     }

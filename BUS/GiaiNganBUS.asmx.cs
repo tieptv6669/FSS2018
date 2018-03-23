@@ -64,7 +64,7 @@ namespace BUS
         /// <param name="ngayDH"></param>
         /// <returns></returns>
         [WebMethod]
-        public int KTThongTinNhap(string soTKLK,  string soTienGN, long soTienCoTheChoVay, string loaiKH)
+        public int KTThongTinNhap(string soTKLK,  string soTienGN, long soTienCoTheChoVay, string loaiKH, string ghiChu)
         {
             Helper helper = new Helper();
             if(soTKLK == "" || soTKLK.Length != 10)
@@ -103,7 +103,7 @@ namespace BUS
             {
                 return 6;
             }
-            if (soTienGN.Length > 13)
+            if (soTienGN.Length > 13 || ghiChu.Length > 100)
             {
                 return 7;
             }
@@ -174,7 +174,7 @@ namespace BUS
         /// <param name="soTienCoTheChoVay"></param>
         /// <returns></returns>
         [WebMethod]
-        public int KTTTSuaGN(string soTKLK, DateTime ngayGN, string soTienGN, long soTienCoTheChoVay, string loaiKH)
+        public int KTTTSuaGN(string soTKLK, DateTime ngayGN, string soTienGN, long soTienCoTheChoVay, string loaiKH, string ghiChu)
         {
             Helper helper = new Helper();
             DateTime date = DateTime.Now;
@@ -210,7 +210,7 @@ namespace BUS
             {
                 return 4;
             }
-            if (soTienGN.Length > 13)
+            if (soTienGN.Length > 13 || ghiChu.Length > 100) 
             {
                 return 5;
             }
