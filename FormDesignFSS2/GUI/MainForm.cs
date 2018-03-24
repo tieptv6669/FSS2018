@@ -633,6 +633,7 @@ namespace FormDesignFSS2.GUI
         {
             try
             {
+                reportViewerBC.Refresh();
                 XuatBC xuatBC = new XuatBC();
                 xuatBC.reportViewerBC = reportViewerBC;
                 xuatBC.gioHT = lblTime.Text;

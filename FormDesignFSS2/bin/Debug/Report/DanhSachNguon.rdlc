@@ -96,7 +96,7 @@
                 <Style />
               </Paragraph>
             </Paragraphs>
-            <Top>2.43444cm</Top>
+            <Top>2.26784cm</Top>
             <Left>9.63083cm</Left>
             <Height>0.6cm</Height>
             <Width>3.02917cm</Width>
@@ -126,8 +126,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>SLBanGhi</rd:DefaultName>
-            <Top>2.43444cm</Top>
-            <Left>13.20812cm</Left>
+            <Top>2.26784cm</Top>
+            <Left>13.22484cm</Left>
             <Height>0.6cm</Height>
             <Width>1.12417cm</Width>
             <ZIndex>2</ZIndex>
@@ -158,8 +158,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox5</rd:DefaultName>
-            <Top>2.43444cm</Top>
-            <Left>14.44308cm</Left>
+            <Top>2.26784cm</Top>
+            <Left>14.4598cm</Left>
             <Height>0.6cm</Height>
             <Width>3.37312cm</Width>
             <ZIndex>3</ZIndex>
@@ -535,7 +535,7 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>NguonA</DataSetName>
-            <Top>1.01354cm</Top>
+            <Top>0.84694cm</Top>
             <Left>0.34078cm</Left>
             <Height>1.2cm</Height>
             <Width>17.47541cm</Width>
