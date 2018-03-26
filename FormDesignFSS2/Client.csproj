@@ -74,6 +74,12 @@
     <Compile Include="GUI\ChayQuaNgay.Designer.cs">
       <DependentUpon>ChayQuaNgay.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\ChiTietLS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\ChiTietLS.Designer.cs">
+      <DependentUpon>ChiTietLS.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\DangKyMoiSPTD.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -246,6 +252,9 @@
     <EmbeddedResource Include="GUI\ChayQuaNgay.resx">
       <DependentUpon>ChayQuaNgay.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\ChiTietLS.resx">
+      <DependentUpon>ChiTietLS.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\DangKyMoiSPTD.resx">
       <DependentUpon>DangKyMoiSPTD.cs</DependentUpon>
     </EmbeddedResource>
@@ -314,7 +323,7 @@
     <EmbeddedResource Include="GUI\XemChiTietKH.resx">
       <DependentUpon>XemChiTietKH.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Report\DanhSachNguon.rdlc">
+    <EmbeddedResource Include="Report\DanhSachNguon01.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Report\DanhSachGN02.rdlc">

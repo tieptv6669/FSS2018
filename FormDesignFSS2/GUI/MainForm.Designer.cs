@@ -183,6 +183,7 @@
             this.lblTDN = new System.Windows.Forms.Label();
             this.lblQuyen = new System.Windows.Forms.Label();
             this.lblTime = new System.Windows.Forms.Label();
+            this.btnChiTiet = new System.Windows.Forms.Button();
             this.tabControl.SuspendLayout();
             this.tabUser.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridTabUser)).BeginInit();
@@ -1489,6 +1490,7 @@
             // 
             // tabLichSu
             // 
+            this.tabLichSu.Controls.Add(this.btnChiTiet);
             this.tabLichSu.Controls.Add(this.btnTimKiemTabLS);
             this.tabLichSu.Controls.Add(this.gridLog);
             this.tabLichSu.Controls.Add(this.dateTimePickerFT);
@@ -1535,12 +1537,12 @@
             this.Column34,
             this.Column43,
             this.Column23});
-            this.gridLog.Location = new System.Drawing.Point(0, 85);
+            this.gridLog.Location = new System.Drawing.Point(0, 96);
             this.gridLog.MultiSelect = false;
             this.gridLog.Name = "gridLog";
             this.gridLog.ReadOnly = true;
             this.gridLog.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridLog.Size = new System.Drawing.Size(760, 267);
+            this.gridLog.Size = new System.Drawing.Size(760, 256);
             this.gridLog.TabIndex = 14;
             // 
             // Column24
@@ -1824,6 +1826,20 @@
             this.lblTime.Size = new System.Drawing.Size(0, 15);
             this.lblTime.TabIndex = 9;
             // 
+            // btnChiTiet
+            // 
+            this.btnChiTiet.BackColor = System.Drawing.Color.White;
+            this.btnChiTiet.Image = global::FormDesignFSS2.Properties.Resources._70;
+            this.btnChiTiet.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnChiTiet.Location = new System.Drawing.Point(633, 52);
+            this.btnChiTiet.Name = "btnChiTiet";
+            this.btnChiTiet.Size = new System.Drawing.Size(87, 38);
+            this.btnChiTiet.TabIndex = 15;
+            this.btnChiTiet.Text = "Chi tiết";
+            this.btnChiTiet.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnChiTiet.UseVisualStyleBackColor = false;
+            this.btnChiTiet.Click += new System.EventHandler(this.btnChiTiet_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2034,6 +2050,7 @@
         private System.Windows.Forms.Label lblTDN;
         private System.Windows.Forms.Label lblQuyen;
         private System.Windows.Forms.Label lblTime;
+        private System.Windows.Forms.Button btnChiTiet;
     }
 }
 

@@ -105,4 +105,5 @@ G:\FSS2018\FormDesignFSS2\bin\Debug\Report\DanhSachSPTD01.rdlc
 G:\FSS2018\FormDesignFSS2\bin\Debug\Report\DanhSachSPTD02.rdlc
 G:\FSS2018\FormDesignFSS2\bin\Debug\Report\DanhSachGN01.rdlc
 G:\FSS2018\FormDesignFSS2\bin\Debug\Report\DanhSachGN02.rdlc
-G:\FSS2018\FormDesignFSS2\bin\Debug\Report\DanhSachNguon.rdlc
+G:\FSS2018\FormDesignFSS2\obj\Debug\FormDesignFSS2.GUI.ChiTietLS.resources
+G:\FSS2018\FormDesignFSS2\bin\Debug\Report\DanhSachNguon01.rdlc

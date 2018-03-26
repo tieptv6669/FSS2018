@@ -45,6 +45,7 @@ namespace FormDesignFSS2.Report
 
                 reportDataSource.Name = "DuNoA";
                 reportDataSource.Value = dataSet.Tables[0];
+                reportViewerBC.LocalReport.DataSources.Clear();
                 reportViewerBC.LocalReport.DataSources.Add(reportDataSource);
                 // Hiển thị báo cáo
                 reportViewerBC.RefreshReport();
@@ -82,6 +83,7 @@ namespace FormDesignFSS2.Report
 
                 reportDataSource.Name = "DuNoB";
                 reportDataSource.Value = dataSet.Tables[0];
+                reportViewerBC.LocalReport.DataSources.Clear();
                 reportViewerBC.LocalReport.DataSources.Add(reportDataSource);
                 // Hiển thị báo cáo
                 reportViewerBC.RefreshReport();
@@ -119,6 +121,7 @@ namespace FormDesignFSS2.Report
 
                 reportDataSource.Name = "DuNoC";
                 reportDataSource.Value = dataSet.Tables[0];
+                reportViewerBC.LocalReport.DataSources.Clear();
                 reportViewerBC.LocalReport.DataSources.Add(reportDataSource);
                 // Hiển thị báo cáo
                 reportViewerBC.RefreshReport();
@@ -156,6 +159,7 @@ namespace FormDesignFSS2.Report
 
                 reportDataSource.Name = "DuNoD";
                 reportDataSource.Value = dataSet.Tables[0];
+                reportViewerBC.LocalReport.DataSources.Clear();
                 reportViewerBC.LocalReport.DataSources.Add(reportDataSource);
                 // Hiển thị báo cáo
                 reportViewerBC.RefreshReport();
@@ -193,6 +197,7 @@ namespace FormDesignFSS2.Report
 
                 reportDataSource.Name = "DuNoE";
                 reportDataSource.Value = dataSet.Tables[0];
+                reportViewerBC.LocalReport.DataSources.Clear();
                 reportViewerBC.LocalReport.DataSources.Add(reportDataSource);
                 // Hiển thị báo cáo
                 reportViewerBC.RefreshReport();
@@ -230,6 +235,7 @@ namespace FormDesignFSS2.Report
 
                 reportDataSource.Name = "SPTDA";
                 reportDataSource.Value = dataSet.Tables[0];
+                reportViewerBC.LocalReport.DataSources.Clear();
                 reportViewerBC.LocalReport.DataSources.Add(reportDataSource);
                 // Hiển thị báo cáo
                 reportViewerBC.RefreshReport();
@@ -267,6 +273,7 @@ namespace FormDesignFSS2.Report
 
                 reportDataSource.Name = "SPTDB";
                 reportDataSource.Value = dataSet.Tables[0];
+                reportViewerBC.LocalReport.DataSources.Clear();
                 reportViewerBC.LocalReport.DataSources.Add(reportDataSource);
                 // Hiển thị báo cáo
                 reportViewerBC.RefreshReport();
@@ -304,6 +311,7 @@ namespace FormDesignFSS2.Report
 
                 reportDataSource.Name = "GiaiNganA";
                 reportDataSource.Value = dataSet.Tables[0];
+                reportViewerBC.LocalReport.DataSources.Clear();
                 reportViewerBC.LocalReport.DataSources.Add(reportDataSource);
                 // Hiển thị báo cáo
                 reportViewerBC.RefreshReport();
@@ -341,6 +349,7 @@ namespace FormDesignFSS2.Report
 
                 reportDataSource.Name = "GiaiNganB";
                 reportDataSource.Value = dataSet.Tables[0];
+                reportViewerBC.LocalReport.DataSources.Clear();
                 reportViewerBC.LocalReport.DataSources.Add(reportDataSource);
                 // Hiển thị báo cáo
                 reportViewerBC.RefreshReport();
@@ -368,7 +377,7 @@ namespace FormDesignFSS2.Report
                 dataSet.Tables.Add(dataTable);
 
                 string slBG = list.Count.ToString();
-                reportViewerBC.LocalReport.ReportPath = "Report/DanhSachNguon.rdlc";
+                reportViewerBC.LocalReport.ReportPath = "Report/DanhSachNguon01.rdlc";
                 ReportDataSource reportDataSource = new ReportDataSource();
                 ReportParameter[] reportParameter = new ReportParameter[2];
                 reportParameter[0] = new ReportParameter("SLBanGhi", slBG, true);
@@ -378,6 +387,7 @@ namespace FormDesignFSS2.Report
 
                 reportDataSource.Name = "NguonA";
                 reportDataSource.Value = dataSet.Tables[0];
+                reportViewerBC.LocalReport.DataSources.Clear();
                 reportViewerBC.LocalReport.DataSources.Add(reportDataSource);
                 // Hiển thị báo cáo
                 reportViewerBC.RefreshReport();

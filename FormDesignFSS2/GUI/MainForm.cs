@@ -633,7 +633,7 @@ namespace FormDesignFSS2.GUI
         {
             try
             {
-                reportViewerBC.Refresh();
+                reportViewerBC.Clear();
                 XuatBC xuatBC = new XuatBC();
                 xuatBC.reportViewerBC = reportViewerBC;
                 xuatBC.gioHT = lblTime.Text;
@@ -1235,6 +1235,25 @@ namespace FormDesignFSS2.GUI
             catch(Exception ex)
             {
                 MessageBox.Show("Lỗi: " + ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
+        /// Xử lý sự kiện click button xem chi tiết lịch sử
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnChiTiet_Click(object sender, EventArgs e)
+        {
+            if(gridLog.RowCount > 0 && gridLog.SelectedRows.Count > 0)
+            {
+                ChiTietLS chiTietLS = new ChiTietLS();
+                chiTietLS.dataGridViewRow = gridLog.SelectedRows[0];
+                chiTietLS.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Thao tác lỗi, bạn chưa chọn lịch sử nào", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

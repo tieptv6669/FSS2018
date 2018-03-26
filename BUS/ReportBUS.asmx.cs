@@ -110,7 +110,7 @@ namespace BUS
         }
 
         /// <summary>
-        /// Lấy danh sách các nguồn có số tiền có thể cho vay < 100 triệu
+        /// Lấy danh sách các nguồn có số tiền có thể cho vay nhỏ hơn 100 triệu
         /// </summary>
         /// <returns></returns>
         [WebMethod]
