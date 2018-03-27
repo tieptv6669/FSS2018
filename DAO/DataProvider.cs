@@ -24,8 +24,13 @@ namespace DAO
         {
             try
             {
-                OracleConnection oracleConnection = new OracleConnection();
-                oracleConnection.ConnectionString = connectionString;
+                // Xây dựng chuỗi kết nối
+                OracleConnectionStringBuilder oracleConnectionStringBuilder = new OracleConnectionStringBuilder();
+                oracleConnectionStringBuilder.ConnectionString = connectionString;
+                oracleConnectionStringBuilder.UserID = "tieptv6669";
+                oracleConnectionStringBuilder.Password = "123456";
+                // Tạo kết nối
+                OracleConnection oracleConnection = new OracleConnection(oracleConnectionStringBuilder.ConnectionString);
                 oracleConnection.Open();
 
                 return oracleConnection;
@@ -33,7 +38,6 @@ namespace DAO
             catch (Exception e)
             {
                 MessageBox.Show("Lỗi kết nối, vui lòng kiểm tra lại đường truyền \n" + e.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Console.WriteLine(e.StackTrace);
                 return null;
             }
         }
